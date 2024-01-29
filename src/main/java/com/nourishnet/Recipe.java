@@ -1,3 +1,5 @@
+package com.nourishnet;
+
 import java.util.ArrayList;
 
 public class Recipe {
