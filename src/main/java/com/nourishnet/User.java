@@ -1,50 +1,41 @@
 package com.nourishnet;
 
-import javax.crypto.SecretKey;
 import java.util.ArrayList;
 
 
 public class User {
     private int ID;
     private String username;
-    private Boolean hasPassword;
-    private String password;
-    private ArrayList<String> diets;
+    private int age;
+    private float height;
+    private FitnessLevel fitnessLevel;
+    private int weight;
+    private int diet;
     private ArrayList<Integer> savedRecipeIDs;
-
+    private String password;
+    
     
     private static int nextID = 0;
-    private SecretKey secretKey;
     
     // 28/01/23 : TE : This is for when creating a user  
     public User(){
-        this("user", "", Tools .generateSecretKey());
+        this("user", "");
         //password = Tools.encrypt(password, secretKey);
 
         // need to call the createUserJson() in the SerializeUserData to save the new users details
     }
 
     // 28/01/23 : TE : This is for loading existing users 
-    public User(String username, String password, SecretKey secretKey){
+    public User(String username, String password){
         this.username = username;
         this.password = password;
         this.ID = nextID;
-        this.secretKey = secretKey;
 
         nextID++;
     }
-    // testing 
-    public String getPassword3(){
-        return password;
-    }
-
-    public void setPassword(String passowrd){
-        try {
-            this.password = Tools.encrypt(password, secretKey);
-        } catch (Exception e) {
-            e.printStackTrace();
-            // Handle the exception appropriately
-        }
+ 
+    public void setPassword(String password){
+        this.password = password;
     }
 
     public String getUsername(){
@@ -53,7 +44,7 @@ public class User {
 
 
     public Boolean getHasPassword(){
-        return this.hasPassword;
+        return !getPassword().equals("");
     }
 
     private String getPassword(){
@@ -61,15 +52,8 @@ public class User {
     }
 
     public Boolean checkPassword(String enteredPassword){
-        String encryptedEnteredPassword = "";
-        try{
-            encryptedEnteredPassword = Tools.encrypt(enteredPassword, secretKey);
-            System.out.println(encryptedEnteredPassword);
-        } catch(Exception e){
-            e.printStackTrace();
-        }
 
-        return getPassword().equals(encryptedEnteredPassword);
+        return getPassword().equals(enteredPassword);
         
     }
 

@@ -15,7 +15,6 @@ public class Testing extends JFrame {
 
         User user = new User();
         user.setPassword("hello");
-        System.out.println(user.getPassword3());
         System.out.println(user.checkPassword("hello"));
 
         String userDir = System.getProperty("user.dir");
