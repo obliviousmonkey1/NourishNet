@@ -1,3 +1,4 @@
+package com.nourishnet;
 
 public enum FitnessLevel {
 	

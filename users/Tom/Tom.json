@@ -1,4 +1,10 @@
 {
-    "name": "Thomas Elliott",
-    "hasPassword": 0
+    "username": "Thomas",
+    "age": 18,
+    "height": 1.80,
+    "fitnessLevel": "",
+    "weight" : 76,
+    "diet" : 0,
+    "savedRecipeIDs" : [0,1,3],
+    "password" : ""
 }
