@@ -1,4 +1,4 @@
-
+package com.nourishnet;
 public class Food {
 
     private String name;
