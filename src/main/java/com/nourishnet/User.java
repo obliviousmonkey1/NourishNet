@@ -54,6 +54,10 @@ public class User {
         return !getPassword().equals("");
     }
 
+    public float getHeight(){
+        return this.height;
+    }
+
     private String getPassword(){
         return this.password;
     }
