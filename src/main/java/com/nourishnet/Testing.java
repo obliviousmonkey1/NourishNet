@@ -13,9 +13,9 @@ public class Testing extends JFrame {
 
         System.out.println(LogIn.getNumberOfUserProfiles());
 
-        User user = new User();
-        user.setPassword("hello");
-        System.out.println(user.checkPassword("hello"));
+        //User user = new User();
+        //user.setPassword("hello");
+        //System.out.println(user.checkPassword("hello"));
 
         String userDir = System.getProperty("user.dir");
         setLayout(new FlowLayout());
@@ -30,11 +30,24 @@ public class Testing extends JFrame {
             button.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    System.out.println("Button Clicked: " + buttonText);
+
+                    String userJsonPath = LogIn.getUserJsonPath(buttonText);
+                    try {
+                        User user = DeserializeUserData.initaliseUserClass(userJsonPath);
+                        System.out.println(user.getUsername());
+                    } catch (Exception e1) {
+                        e1.printStackTrace();
+                    }
+
                 }
             });
 
-            add(button);
+            // GridBagConstraints gbc = new GridBagConstraints();
+            // gbc.gridx = 0;
+            // gbc.gridy = 0;
+            // gbc.insets = new Insets(10, 10, 10, 10); // Padding
+
+            
 
             int newWidth = 200; 
             int newHeight = 150; 
@@ -46,6 +59,9 @@ public class Testing extends JFrame {
                 imageIcon = new ImageIcon(scaledImage);
                 add(new JLabel(imageIcon));
             }
+
+            // gbc.gridy = -1;
+            add(button);
         }
     }
 

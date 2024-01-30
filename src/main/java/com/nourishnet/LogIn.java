@@ -54,6 +54,10 @@ public class LogIn {
 
     }
 
+    public static String getUserJsonPath(String username){
+        return userDir + "/users/" + username + "/" + username + ".json";
+    }
+
     // 25/01/23 : TE : Checks if file name ends with specified extension
     private static boolean checkFileExtension(String fileName, String extension){
         return fileName.toLowerCase().endsWith("." + extension.toLowerCase()); 
