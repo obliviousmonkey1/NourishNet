@@ -10,6 +10,8 @@ public class Recipe {
     private int id;
     private String name; 
     private ArrayList<Ingredient> ingredients = new ArrayList<Ingredient>();
+    // private Diet diet;
+    // images will be store via name , if not will use the defualt profile image 
 
     @JsonCreator
     public Recipe(@JsonProperty("id") int id, @JsonProperty("name") String name, @JsonProperty("ingredients") ArrayList<Ingredient> ingredients) {
