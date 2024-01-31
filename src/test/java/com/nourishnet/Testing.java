@@ -28,6 +28,9 @@ public class Testing extends JFrame {
             String buttonText = profiles.get(i).getText();
             JButton button = new JButton(buttonText);
 
+            int newWidth = 200; 
+            int newHeight = 150; 
+
             button.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -40,12 +43,7 @@ public class Testing extends JFrame {
                         e1.printStackTrace();
                     }
 
-                    try{
-                        ArrayList<Recipe> recipe = DeserializeUserData.initaliseRecipeClass();
-                        System.out.println(recipe.get(1).calculateRecipeCalories());
-                    } catch (Exception e1) {
-                        e1.printStackTrace();
-                    }
+                    
 
                     
                 }
@@ -56,10 +54,22 @@ public class Testing extends JFrame {
             // gbc.gridy = 0;
             // gbc.insets = new Insets(10, 10, 10, 10); // Padding
 
-            
+            // try{
+            //     ArrayList<Recipe> recipe = DeserializeUserData.initaliseRecipeClass();
+            //     ImageIcon imageIcon = Tools.getRecipeImage(recipe.get(0).getName());
+            //     if(imageIcon!=null){
+            //         Image scaledImage = imageIcon.getImage().getScaledInstance(newWidth, newHeight, Image.SCALE_SMOOTH);
+            //         imageIcon = new ImageIcon(scaledImage);
+            //         add(new JLabel(imageIcon));
+    
+            //     }else{
+            //         System.out.println("No recipe image");
+            //     }
+               
 
-            int newWidth = 200; 
-            int newHeight = 150; 
+            // } catch (Exception e1) {
+            //     e1.printStackTrace();
+            // }
 
             ImageIcon imageIcon = profiles.get(i).getImage();
             if (imageIcon != null) {
