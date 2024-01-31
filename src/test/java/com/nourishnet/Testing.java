@@ -39,6 +39,10 @@ public class Testing extends JFrame {
                     try {
                         User user = DeserializeUserData.initaliseUserClass(userJsonPath);
                         System.out.println(user.getHeight());
+
+                        //user.changeAge(69);
+                        //SerializeUserData.serializeUser(user, userJsonPath);
+
                     } catch (Exception e1) {
                         e1.printStackTrace();
                     }
