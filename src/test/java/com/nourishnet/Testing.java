@@ -4,7 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
-import java.awt.*;
+import java.awt.*; 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -39,6 +40,14 @@ public class Testing extends JFrame {
                         e1.printStackTrace();
                     }
 
+                    try{
+                        ArrayList<Recipe> recipe = DeserializeUserData.initaliseRecipeClass();
+                        System.out.println(recipe.get(1).calculateRecipeCalories());
+                    } catch (Exception e1) {
+                        e1.printStackTrace();
+                    }
+
+                    
                 }
             });
 
