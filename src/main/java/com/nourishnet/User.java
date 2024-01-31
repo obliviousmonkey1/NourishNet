@@ -68,4 +68,8 @@ public class User {
         
     }
 
+    public void changeAge(int age){
+        this.age = age;
+    }
+
 }
