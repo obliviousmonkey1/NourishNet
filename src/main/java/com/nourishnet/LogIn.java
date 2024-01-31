@@ -67,7 +67,7 @@ public class LogIn {
     public static StringBooleanPair hasImage(String imageName, String path) {
         String[] fileExtensions = {".jpg", ".jpeg", ".png", ".gif"};
         for(String extension: fileExtensions){
-            File file = new File(path +"/"+ imageName + extension);
+            File file = new File(path + "/" + imageName + extension);
             if (file.exists()) {
                 return new StringBooleanPair(extension, true);
             } 
