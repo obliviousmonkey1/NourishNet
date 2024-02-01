@@ -182,12 +182,12 @@ public class Testing extends JFrame {
     //01/02/23: JZ: This creates and displays the Main Menu JFrame
     public void createMainMenu()
     {
-        JFrame frame2 = new JFrame("Second JFrame");
-                    frame2.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Dispose on close to close only the second JFrame
-                    frame2.setSize(300, 200);
+        JFrame mainFrame = new JFrame("Second JFrame");
+                    mainFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Dispose on close to close only the second JFrame
+                    mainFrame.setSize(300, 200);
 
                     JLabel label = new JLabel("This is just a test.");
-                    frame2.add(label);
+                    mainFrame.add(label);
 
                     // Create buttons for the second JFrame
                     JButton button1 = new JButton("Button 1");  //creates the first button for the second Jframe
@@ -200,50 +200,50 @@ public class Testing extends JFrame {
                     button1.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                            JOptionPane.showMessageDialog(frame2, "Button 1 clicked!");
+                            JOptionPane.showMessageDialog(mainFrame, "Button 1 clicked!");
                         }
                     });
 
                     button2.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                            JOptionPane.showMessageDialog(frame2, "Button 2 clicked!");
+                            JOptionPane.showMessageDialog(mainFrame, "Button 2 clicked!");
                         }
                     });
 
                     button3.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                            JOptionPane.showMessageDialog(frame2, "Button 3 clicked!");
+                            JOptionPane.showMessageDialog(mainFrame, "Button 3 clicked!");
                         }
                     });
 
                     button4.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                            JOptionPane.showMessageDialog(frame2, "Button 4 clicked!");
+                            JOptionPane.showMessageDialog(mainFrame, "Button 4 clicked!");
                         }
                     });
 
                     button5.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                            JOptionPane.showMessageDialog(frame2, "Button 5 clicked!");
+                            JOptionPane.showMessageDialog(mainFrame, "Button 5 clicked!");
                         }
                     });
 
                     // Set layout for the second JFrame
-                    frame2.setLayout(new FlowLayout());
+                    mainFrame.setLayout(new FlowLayout());
 
                     // Add buttons to the second JFrame
-                    frame2.add(button1);  
-                    frame2.add(button2);
-                    frame2.add(button3);
-                    frame2.add(button4);
-                    frame2.add(button5);
+                    mainFrame.add(button1);  
+                    mainFrame.add(button2);
+                    mainFrame.add(button3);
+                    mainFrame.add(button4);
+                    mainFrame.add(button5);
 
 
-                    frame2.setVisible(true);
+                    mainFrame.setVisible(true);
 
     }
 }
