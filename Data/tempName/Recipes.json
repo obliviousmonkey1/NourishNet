@@ -3,22 +3,18 @@
         "id": "0",
         "name": "Namless",
         "description": "bluh bluh bluh",
-        "ingredients": ["Banna","Butter"
-        ],
-        "quantities": [{"amount":2,"measurement" : ""},{"amount":4, "measurement":"kg"}],
-        "instructions":["roast the Banana", "boil the butter", "put together and server with a splash of salt"],
-        "tags":["lowCalorie", "vegan"]
+        "ingredients": ["Banana", "Butter", "Apple"],
+        "quantities": [{"quantity": 2, "measurement": ""}, {"quantity": 4, "measurement": "kg"},{"quantity": 2, "measurement": ""}],
+        "instructions": ["roast the Banana", "boil the butter", "put together and serve with a splash of salt"],
+        "tags": ["lowCalorie", "vegan"]
     },
     {
         "id": "1",
         "name": "Another Recipe",
         "description": "bluh bluh bluh",
-        "ingredients": [
-            "Tomatoe","Apple","Orange"
-        ],
-        "quantities": [{"amount":2,"measurement" : ""},{"amount":4, "measurement":"kg"},{"amount":4, "measurement":"kg"}],
-        "instructions":["nothing"],
-        "tags":["keto", "vegan", "highCalorie"]
-
+        "ingredients": ["Tomato", "Apple", "Orange"],
+        "quantities": [{"quantity": 2, "measurement": ""}, {"quantity": 4, "measurement": "kg"}, {"quantity": 4, "measurement": "kg"}],
+        "instructions": ["nothing"],
+        "tags": ["keto", "vegan", "highCalorie"]
     }
 ]

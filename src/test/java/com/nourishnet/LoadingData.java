@@ -2,23 +2,30 @@ package com.nourishnet;
 
 import java.util.ArrayList;
 
-import javax.swing.JFrame;
-import javax.swing.SwingUtilities;
-
 public class LoadingData {
-
-   
-  
+    
 
     public static void main(String[] args) {
-        ArrayList<Ingredient> ingredients = new ArrayList<>();
-        try{
-            ingredients = DeserializeJsonData.initaliseIngredientClass();
+        ArrayList<Ingredient> ing = ResourceLoader.loadIngredients();
+        // debug
+        System.out.println(ing.get(0).getName());
+        ArrayList<Recipe> recipes = ResourceLoader.loadRecipes();
     
-        }catch (Exception e1) {
-            e1.printStackTrace();
-        }
+        // debug
+        System.out.println(recipes.get(0).getName());
 
-        System.out.println(ingredients.get(0).getName());
+        // debug
+        System.out.println(recipes.get(0).getTempIngredients());
+
+        recipes.get(0).setIngredients(ResourceLoader.loadIngredientsIntoRecipes(recipes.get(0).getTempIngredients(), ing));
+
+        // debug
+        System.out.println(recipes.get(0).calculateRecipeCalories());
+
     }
+
+
+
 }
+
+
