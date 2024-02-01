@@ -19,8 +19,8 @@ public class Recipe {
     @JsonCreator
     public Recipe(@JsonProperty("id") int id, @JsonProperty("name") String name, @JsonProperty("ingredients") ArrayList<String> ingredients) {
         this.name = name;
-        this.ingredients = ingredients;
-        grabIngredients;  //to be coded
+        //this.ingredients = ingredients;
+        //grabIngredients;  //to be coded
     }
     
     /*public int calculateRecipeCalories()
