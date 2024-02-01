@@ -18,6 +18,7 @@ public class Testing extends JFrame {
         //user.setPassword("hello");
         //System.out.println(user.checkPassword("hello"));
 
+        
         String userDir = System.getProperty("user.dir");
         setLayout(new FlowLayout());
         setSize(500, 500);
