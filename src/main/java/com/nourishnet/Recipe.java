@@ -12,23 +12,42 @@ public class Recipe {
     private int id;
     private String name; 
     private String description;
-    private ArrayList<Ingredient> ingredients = new ArrayList<Ingredient>();
+    private ArrayList<Ingredient> ingredients;
+    private ArrayList<String> tempIngredients = new ArrayList<String>();
     private ArrayList<Quantity> quantities = new ArrayList<Quantity>();
     private ArrayList<String> instructions = new ArrayList<String>();
-    private ArrayList<Tag> tags = new ArrayList<Tag>();
+    private ArrayList<String> tags = new ArrayList<String>();
 
     // images will be store via name , if not will use the defualt profile image 
     
-
+    // Default constructor for Jackson
+    public Recipe() {
+    }
 
     @JsonCreator
-    public Recipe(@JsonProperty("id") int id, @JsonProperty("name") String name, @JsonProperty("ingredients") ArrayList<String> ingredients) {
+    public Recipe(
+            @JsonProperty("id") int id,
+            @JsonProperty("name") String name,
+            @JsonProperty("description") String description,
+            @JsonProperty("ingredients") ArrayList<String> ingredients,
+            @JsonProperty("quantities") ArrayList<Quantity> quantities,
+            @JsonProperty("instructions") ArrayList<String> instructions,
+            @JsonProperty("tags") ArrayList<String> tags
+    ) {
+        this.id = id;
         this.name = name;
-        //this.ingredients = ingredients;
-        //grabIngredients;  //to be coded
+        this.description = description;
+        this.tempIngredients = ingredients;
+        this.quantities = quantities;
+        this.instructions = instructions;
+        this.tags = tags;
+        this.ingredients = new ArrayList<Ingredient>();
     }
+
+
     
-    /*public int calculateRecipeCalories()
+    
+    public int calculateRecipeCalories()
     {
         int sum=0; 
 
@@ -38,13 +57,21 @@ public class Recipe {
         }
 
         return sum;
-    } */
+    } 
 
     //to be fixed when grabIngredients method is made
 
 
     public String getName(){
         return this.name;
+    }
+
+    public void setIngredients(ArrayList<Ingredient> newIngredients){
+        this.ingredients = newIngredients;
+    }
+
+    public ArrayList<String> getTempIngredients(){
+        return this.tempIngredients;
     }
 
     public ArrayList<Ingredient> getIngredients(){
@@ -54,23 +81,26 @@ public class Recipe {
 
     // 01/02/23 : JZ : Love you Tom <3
 
-    class Quantity {
+    public static class Quantity {
+        private int quantity; 
+        private String measurement;
     
-    private int quantity; 
-    private String measurement;
-
-    public Quantity(int quantity, String measurement) {
-        this.quantity = quantity;
-        this.measurement = measurement;
-    }
-
-    public int getQuantity() {
-        return this.quantity;
-    }
-
-    public String getMeasurement() {
-        return this.measurement;
+        public Quantity() {
+            // default constructor
+        }
+    
+        @JsonCreator
+        public Quantity(@JsonProperty("quantity") int quantity, @JsonProperty("measurement") String measurement) {
+            this.quantity = quantity;
+            this.measurement = measurement;
+        }
+    
+        public int getQuantity() {
+            return this.quantity;
+        }
+    
+        public String getMeasurement() {
+            return this.measurement;
+        }
     }
 }
-}
-    
