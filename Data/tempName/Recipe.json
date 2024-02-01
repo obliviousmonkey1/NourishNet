@@ -2,14 +2,23 @@
     {
         "id": "0",
         "name": "Namless",
-        "ingredients": [0,1
-        ]
+        "description": "bluh bluh bluh",
+        "ingredients": ["Banna","Butter"
+        ],
+        "quantities": [{"amount":2,"measurement" : ""},{"amount":4, "measurement":"kg"}],
+        "instructions":["roast the Banana", "boil the butter", "put together and server with a splash of salt"],
+        "tags":["lowCalorie", "vegan"]
     },
     {
         "id": "1",
         "name": "Another Recipe",
+        "description": "bluh bluh bluh",
         "ingredients": [
-            0,2,5
-        ]
+            "Tomatoe","Apple","Orange"
+        ],
+        "quantities": [{"amount":2,"measurement" : ""},{"amount":4, "measurement":"kg"},{"amount":4, "measurement":"kg"}],
+        "instructions":["nothing"],
+        "tags":["keto", "vegan", "highCalorie"]
+
     }
 ]
