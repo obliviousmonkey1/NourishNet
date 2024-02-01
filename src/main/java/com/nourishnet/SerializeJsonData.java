@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 //Java object to JSON
-public class SerializeUserData {
+public class SerializeJsonData {
     
     // pass the details
     public static void serializeUser(User user, String filePath){

@@ -40,3 +40,7 @@ public class Recipe {
     }
 }
     
+class Quantities{
+    private int amount;
+    private String measurement;
+}
