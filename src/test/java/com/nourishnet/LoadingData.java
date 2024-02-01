@@ -8,6 +8,7 @@ public class LoadingData {
     public static void main(String[] args) {
         User user = ResourceLoader.loadUser(LogIn.getUserJsonPath("Tom"));
         System.out.println(user.getHasPassword());
+        
         ArrayList<Ingredient> ing = ResourceLoader.loadIngredients();
         // debug
         System.out.println(ing.get(0).getName());

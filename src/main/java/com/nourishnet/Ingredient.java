@@ -16,7 +16,7 @@ public class Ingredient {
 
     @JsonCreator
     public Ingredient(@JsonProperty("id") int id, @JsonProperty("name") String name, @JsonProperty("caloriesPer100g")int caloriesPer100g, @JsonProperty("proteinPer100g")int proteinPer100g, @JsonProperty("carbsPer100g")int carbsPer100g, @JsonProperty("fatPer100g")int fatPer100g)
-    {
+    { 
         this.id = id;
         this.name = name;
         this.caloriesPer100g = caloriesPer100g;
