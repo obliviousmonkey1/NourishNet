@@ -1,7 +1,7 @@
 {
     "username": "Tom",
     "age": 18,
-    "height": 1.80,
+    "height": 1.78,
     "weight" : 76,
     "diet" : 0,
     "savedRecipeIDs" : [0,1,3],
