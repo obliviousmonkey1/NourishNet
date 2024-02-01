@@ -2,108 +2,14 @@
     {
         "id": "0",
         "name": "Namless",
-        "ingredients": [
-            {
-                "name": "Bean",
-                "caloriesPer100g": 0
-            }
+        "ingredients": [0,1
         ]
     },
     {
         "id": "1",
         "name": "Another Recipe",
         "ingredients": [
-            {
-                "name": "Ingredient1",
-                "caloriesPer100g": 100
-            },
-            {
-                "name": "Ingredient2",
-                "caloriesPer100g": 200
-            }
-        ]
-    },
-    {
-        "id": "2",
-        "name": "Spaghetti Bolognese",
-        "ingredients": [
-            {
-                "name": "Ground Beef",
-                "caloriesPer100g": 250
-            },
-            {
-                "name": "Tomato Sauce",
-                "caloriesPer100g": 80
-            },
-            {
-                "name": "Onion",
-                "caloriesPer100g": 40
-            },
-            {
-                "name": "Garlic",
-                "caloriesPer100g": 5
-            },
-            {
-                "name": "Spaghetti",
-                "caloriesPer100g": 150
-            }
-        ]
-    },
-    {
-        "id": "3",
-        "name": "Chicken Caesar Salad",
-        "ingredients": [
-            {
-                "name": "Chicken Breast",
-                "caloriesPer100g": 165
-            },
-            {
-                "name": "Romaine Lettuce",
-                "caloriesPer100g": 17
-            },
-            {
-                "name": "Parmesan Cheese",
-                "caloriesPer100g": 420
-            },
-            {
-                "name": "Croutons",
-                "caloriesPer100g": 400
-            },
-            {
-                "name": "Caesar Dressing",
-                "caloriesPer100g": 250
-            }
-        ]
-    },
-    {
-        "id": "4",
-        "name": "Vegetarian Pizza",
-        "ingredients": [
-            {
-                "name": "Pizza Dough",
-                "caloriesPer100g": 260
-            },
-            {
-                "name": "Tomato Sauce",
-                "caloriesPer100g": 80
-            },
-            {
-                "name": "Mozzarella Cheese",
-                "caloriesPer100g": 300
-            },
-            {
-                "name": "Bell Peppers",
-                "caloriesPer100g": 31
-            },
-            {
-                "name": "Olives",
-                "caloriesPer100g": 115
-            },
-            {
-                "name": "Mushrooms",
-                "caloriesPer100g": 22
-            }
+            0,2,5
         ]
     }
 ]
-
