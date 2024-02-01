@@ -68,6 +68,10 @@ public class User {
         
     }
 
+    public ArrayList<Integer> getSavedRecipeIDs(){
+        return this.savedRecipeIDs;
+    }
+
     public void changeAge(int age){
         this.age = age;
     }
