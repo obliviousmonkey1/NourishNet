@@ -12,14 +12,18 @@ public class Recipe {
     private ArrayList<Ingredient> ingredients = new ArrayList<Ingredient>();
     // private Diet diet;
     // images will be store via name , if not will use the defualt profile image 
+    
+    //add arraylists for description + quantities + instructions
+
 
     @JsonCreator
-    public Recipe(@JsonProperty("id") int id, @JsonProperty("name") String name, @JsonProperty("ingredients") ArrayList<Ingredient> ingredients) {
+    public Recipe(@JsonProperty("id") int id, @JsonProperty("name") String name, @JsonProperty("ingredients") ArrayList<String> ingredients) {
         this.name = name;
-        this.ingredients = ingredients;
+        //this.ingredients = ingredients;
+        //grabIngredients;  //to be coded
     }
     
-    public int calculateRecipeCalories()
+    /*public int calculateRecipeCalories()
     {
         int sum=0; 
 
@@ -29,7 +33,10 @@ public class Recipe {
         }
 
         return sum;
-    }
+    } */
+
+    //to be fixed when grabIngredients method is made
+
 
     public String getName(){
         return this.name;
@@ -40,7 +47,3 @@ public class Recipe {
     }
 }
     
-class Quantities{
-    private int amount;
-    private String measurement;
-}
