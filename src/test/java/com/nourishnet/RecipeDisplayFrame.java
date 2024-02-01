@@ -77,7 +77,7 @@ public class RecipeDisplayFrame extends JFrame {
 
     private static ArrayList<Recipe> getRecipesFromDataSource() {
         try {
-            return DeserializeUserData.initaliseRecipeClass();
+            return DeserializeJsonData.initaliseRecipeClass();
         } catch (Exception e) {
             e.printStackTrace();
             return new ArrayList<>();

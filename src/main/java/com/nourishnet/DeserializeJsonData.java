@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;
 import java.util.ArrayList;
 
-public class DeserializeUserData {
+public class DeserializeJsonData {
     public static User initaliseUserClass(String userJsonPath)  throws Exception {
         File file = new File(userJsonPath);
 
@@ -15,9 +15,16 @@ public class DeserializeUserData {
     }
 
     public static  ArrayList<Recipe> initaliseRecipeClass()throws Exception {
-        File file = new File(System.getProperty("user.dir") + "/Data/tempName/Recipe.json");
+        File file = new File(System.getProperty("user.dir") + "/Data/tempName/Recipes.json");
 
         ObjectMapper objectMapper = new ObjectMapper();
         return objectMapper.readValue(file, new TypeReference<ArrayList<Recipe>>() {});
+    }
+
+    public static ArrayList<Ingredient> initaliseIngredientClass() throws Exception {
+        File file = new File(System.getProperty("user.dir") + "/Data/tempName/Ingredients.json");
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        return objectMapper.readValue(file, new TypeReference<ArrayList<Ingredient>>() {});
     }
 }

@@ -19,5 +19,14 @@ public class Tools {
         }
         return new ImageIcon(Pointers.userDir + "/" + Pointers.recipeImagePath + "/default.png");
     }
+
+    public static ImageIcon getIngredientImage(String ingredientName){
+        StringBooleanPair hImage = LogIn.hasImage(ingredientName, Pointers.recipeImagePath);
+        System.out.println(hImage.getHasImage());
+        if(hImage.getHasImage()){
+            return new ImageIcon(Pointers.userDir + "/" + Pointers.ingredientImagePath + "/" + ingredientName + hImage.getExtension());
+        }
+        return new ImageIcon(Pointers.userDir + "/" + Pointers.ingredientImagePath + "/default.png");
+    }
 }
 

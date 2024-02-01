@@ -37,7 +37,7 @@ public class Testing extends JFrame {
 
                     String userJsonPath = LogIn.getUserJsonPath(buttonText);
                     try {
-                        User user = DeserializeUserData.initaliseUserClass(userJsonPath);
+                        User user = DeserializeJsonData.initaliseUserClass(userJsonPath);
                         System.out.println(user.getHeight());
 
                         //user.changeAge(69);
