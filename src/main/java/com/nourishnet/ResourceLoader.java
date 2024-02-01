@@ -35,6 +35,20 @@ public class ResourceLoader {
         }
     }
 
+    public static User loadUser(String userPath){
+        try{
+             //Debug
+             System.out.println("Deserialisation success");
+            return DeserializeJsonData.initaliseUserClass(userPath);
+        }catch (Exception e1) {
+            //Debug
+            System.out.println("Deserialisation failed");
+            e1.printStackTrace();
+
+            return null;
+        }
+    }
+
     public static ArrayList<Ingredient> loadIngredientsIntoRecipes(ArrayList<String> ingredientNames, ArrayList<Ingredient> ingredientHolder){
         ArrayList<Ingredient> recipeIngredients = new ArrayList<Ingredient>();
 
