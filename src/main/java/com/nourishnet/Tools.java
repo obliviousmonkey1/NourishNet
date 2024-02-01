@@ -1,33 +1,23 @@
 package com.nourishnet;
 
-import javax.crypto.KeyGenerator;
-import javax.crypto.SecretKey;
-import javax.crypto.Cipher;
-import java.nio.charset.StandardCharsets;
-import java.util.Base64;
-import java.security.NoSuchAlgorithmException;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import java.io.File;
+
+import javax.swing.ImageIcon;
 
 public class Tools {
 
-    public static SecretKey generateSecretKey() {
-        try {
-            KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
-            keyGenerator.init(128);
-            return keyGenerator.generateKey();
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-            return null;
+
+    public static ImageIcon getRecipeImage(String recipeName){
+        StringBooleanPair hImage = LogIn.hasImage(recipeName, Pointers.recipeImagePath);
+        System.out.println(hImage.getHasImage());
+        if(hImage.getHasImage()){
+            return new ImageIcon(Pointers.userDir + "/" + Pointers.recipeImagePath + "/" + recipeName + hImage.getExtension());
         }
-    }
-
-
-    public static String encrypt(String plainText, SecretKey secretKey) throws Exception {
-        Cipher cipher = Cipher.getInstance("AES");
-        cipher.init(Cipher.ENCRYPT_MODE, secretKey);
-
-        byte[] encryptedBytes = cipher.doFinal(plainText.getBytes(StandardCharsets.UTF_8));
-
-        return Base64.getEncoder().encodeToString(encryptedBytes);
+        return new ImageIcon(Pointers.userDir + "/" + Pointers.recipeImagePath + "/default.png");
     }
 }
+
