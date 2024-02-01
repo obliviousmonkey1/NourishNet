@@ -77,7 +77,7 @@ public class LogIn {
 	}
 }
 
-// 25/01/23 : TE : Love you Josh
+// 25/01/23 : TE : Love you Josh <3
 class StringImagePair {
     private String text;
     private ImageIcon image;
