@@ -1,0 +1,10 @@
+[
+    {
+        "id": "0",
+        "name": "Banana",
+        "caloriesPer100g": 100,
+        "protienPer100g":10,
+        "carbsPer100g":20,
+        "fatPer100g":10
+    }
+]
