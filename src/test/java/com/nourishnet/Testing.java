@@ -14,9 +14,9 @@ public class Testing extends JFrame {
 
         System.out.println(LogIn.getNumberOfUserProfiles());
 
-        //User user = new User();
-        //user.setPassword("hello");
-        //System.out.println(user.checkPassword("hello"));
+        // User user = new User();
+        // user.setPassword("hello");
+        // System.out.println(user.checkPassword("hello"));
 
         String userDir = System.getProperty("user.dir");
         setLayout(new FlowLayout());
