@@ -9,12 +9,11 @@ IN PROGRESS
 - Reorganise recipe for Json loading and make it so it reads in as a string
 then during initalisation loops through and grabs ingredient 
 - Take into account number of an ingredient when calculating calores
-
+- Loading recipes instansiating tag class
 - JSON save a load system for all data that is needed in the program 
 - Move Ingredients into a seperate Json file, and have a pointer in recipes to them
 
-
-
-TODO 
+TODO
+- Code clean up targeting pathing changing static paths to use Pointers class 
 
 RESEARCH
