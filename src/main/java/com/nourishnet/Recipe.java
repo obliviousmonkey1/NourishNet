@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Recipe {
@@ -18,8 +19,6 @@ public class Recipe {
     private ArrayList<String> instructions = new ArrayList<String>();
     private ArrayList<String> tags = new ArrayList<String>();
 
-    // images will be store via name , if not will use the defualt profile image 
-    
     // Default constructor for Jackson
     public Recipe() {
     }
@@ -44,63 +43,103 @@ public class Recipe {
         this.ingredients = new ArrayList<Ingredient>();
     }
 
+    @JsonIgnore
+    public int calculateRecipeCalories() {
+        int sum = 0; 
 
-    
-    
-    public int calculateRecipeCalories()
-    {
-        int sum=0; 
-
-        for (int i=0; i<ingredients.size(); i++)
-        {
+        for (int i = 0; i < ingredients.size(); i++) {
             sum += ingredients.get(i).getCaloriesPer100g();
         }
 
         return sum;
     } 
 
-    //to be fixed when grabIngredients method is made
-
-
-    public String getName(){
+    public String getName() {
         return this.name;
     }
 
-    public void setIngredients(ArrayList<Ingredient> newIngredients){
-        this.ingredients = newIngredients;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public ArrayList<String> getTempIngredients(){
+    public String getDescription() {
+        return this.description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public ArrayList<String> getTempIngredients() {
         return this.tempIngredients;
     }
 
-    public ArrayList<Ingredient> getIngredients(){
+    public void setTempIngredients(ArrayList<String> tempIngredients) {
+        this.tempIngredients = tempIngredients;
+    }
+
+    @JsonIgnore
+    public ArrayList<Ingredient> getIngredients() {
         return this.ingredients;
     }
 
+    @JsonIgnore
+    public void setIngredients(ArrayList<Ingredient> newIngredients) {
+        this.ingredients = newIngredients;
+    }
 
-    // 01/02/23 : JZ : Love you Tom <3
+    public ArrayList<Quantity> getQuantities() {
+        return this.quantities;
+    }
+
+    public void setQuantities(ArrayList<Quantity> quantities) {
+        this.quantities = quantities;
+    }
+
+    public ArrayList<String> getInstructions() {
+        return this.instructions;
+    }
+
+    public void setInstructions(ArrayList<String> instructions) {
+        this.instructions = instructions;
+    }
+
+    public ArrayList<String> getTags() {
+        return this.tags;
+    }
+
+    public void setTags(ArrayList<String> tags) {
+        this.tags = tags;
+    }
 
     public static class Quantity {
         private int quantity; 
         private String measurement;
-    
+
         public Quantity() {
             // default constructor
         }
-    
+
         @JsonCreator
         public Quantity(@JsonProperty("quantity") int quantity, @JsonProperty("measurement") String measurement) {
             this.quantity = quantity;
             this.measurement = measurement;
         }
-    
+
         public int getQuantity() {
             return this.quantity;
         }
-    
+
+        public void setQuantity(int quantity) {
+            this.quantity = quantity;
+        }
+
         public String getMeasurement() {
             return this.measurement;
+        }
+
+        public void setMeasurement(String measurement) {
+            this.measurement = measurement;
         }
     }
 }
