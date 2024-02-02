@@ -2,7 +2,7 @@ COMPLETED
 
 
 COMPLETED FIRST PASS
-
+- Saving only works for user data at the moment 
 
 IN PROGRESS
 
@@ -15,5 +15,8 @@ then during initalisation loops through and grabs ingredient
 
 TODO
 - Code clean up targeting pathing changing static paths to use Pointers class 
+- Come up with a better name then tempName 
+- Creation of a user allow them to upload a profile picture and reuse that code for users wanting to change theirs
+- Dynamic pointer in Pointers class for current user so don't have to keep creating path
 
 RESEARCH
