@@ -23,4 +23,17 @@ public class SerializeJsonData {
             System.err.println("Error during user data serialization.");
         }
     }
+
+    public static void serializeRecipes(ArrayList<Recipe> recipes, String filePath){
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
+
+        try {
+            objectMapper.writeValue(new File(filePath), recipes);
+            System.out.println("Recipes data serialized successfully.");
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.err.println("Error during recipes data serialization.");
+        }
+    }
 }
