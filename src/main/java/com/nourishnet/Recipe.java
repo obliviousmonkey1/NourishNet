@@ -10,29 +10,34 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Recipe {
 
-    private int id;
     private String name; 
+    private int prepTime;
+    private int cookTime;
+    private String level;
+    private int serves;
     private String description;
     private ArrayList<Ingredient> ingredients;
     private ArrayList<Quantity> quantities = new ArrayList<Quantity>();
     private ArrayList<String> instructions = new ArrayList<String>();
     private ArrayList<String> tags = new ArrayList<String>();
 
-    // Default constructor for Jackson
-    public Recipe() {
-    }
-
     @JsonCreator
     public Recipe(
-            @JsonProperty("id") int id,
             @JsonProperty("name") String name,
+            @JsonProperty("prepTime") int prepTime,
+            @JsonProperty("cookTime") int cookTime,
+            @JsonProperty("level") String level,
+            @JsonProperty("serves") int serves,
             @JsonProperty("description") String description,
             @JsonProperty("quantities") ArrayList<Quantity> quantities,
             @JsonProperty("instructions") ArrayList<String> instructions,
             @JsonProperty("tags") ArrayList<String> tags
     ) {
-        this.id = id;
         this.name = name;
+        this.prepTime = prepTime;
+        this.cookTime = cookTime;
+        this.level = level;
+        this.serves = serves;
         this.description = description;
         this.quantities = quantities;
         this.instructions = instructions;
@@ -57,6 +62,38 @@ public class Recipe {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getPrepTime() {
+        return this.prepTime;
+    }
+
+    public void setPrepTime(int prepTime) {
+        this.prepTime = prepTime;
+    }
+
+    public int getCookTime() {
+        return this.cookTime;
+    }
+
+    public void setCookTime(int cookTime) {
+        this.cookTime = cookTime;
+    }
+
+    public String getLevel() {
+        return this.level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
+    }
+
+    public int getServes() {
+        return this.serves;
+    }
+
+    public void setServes(int serves) {
+        this.serves = serves;
     }
 
     public String getDescription() {
