@@ -9,7 +9,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class User {
     private String username;
     private int age;
-    private float height;
+    private double height;
     private int weight;
     private int diet;
     private ArrayList<Integer> savedRecipeIDs;
@@ -23,11 +23,11 @@ public class User {
     //     // need to call the createUserJson() in the SerializeUserData to save the new users details
     //}
 
-    // 28/01/23 : TE : This is for loading existing users 
+    // 28/01/23( : TE : This is for loading existing users 
 
     @JsonCreator
     public User(@JsonProperty("username") String username, @JsonProperty("age") int age,
-                @JsonProperty("height") float height, @JsonProperty("weight") int weight,
+                @JsonProperty("height") double height, @JsonProperty("weight") int weight,
                 @JsonProperty("diet") int diet, @JsonProperty("savedRecipeIDs") ArrayList<Integer> savedRecipeIDs,
                 @JsonProperty("password") String password) {
         this.username = username;
@@ -39,6 +39,10 @@ public class User {
         this.password = password;
     }
 
+    @JsonIgnore
+    public User() {
+        this("", -1, 0.0, -1, -1, new ArrayList<>(), "");
+    }
 
     public String getUsername() {
         return this.username;
@@ -56,11 +60,11 @@ public class User {
         this.age = age;
     }
 
-    public float getHeight() {
+    public double getHeight() {
         return this.height;
     }
 
-    public void setHeight(float height) {
+    public void setHeight(double height) {
         this.height = height;
     }
 

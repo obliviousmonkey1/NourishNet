@@ -15,14 +15,14 @@ public class DeserializeJsonData {
     }
 
     public static  ArrayList<Recipe> initaliseRecipeClass()throws Exception {
-        File file = new File(System.getProperty("user.dir") + "/Data/tempName/Recipes.json");
+        File file = new File(System.getProperty("user.dir") + "/" + Pointers.content + "/Recipes.json");
 
         ObjectMapper objectMapper = new ObjectMapper();
         return objectMapper.readValue(file, new TypeReference<ArrayList<Recipe>>() {});
     }
 
     public static ArrayList<Ingredient> initaliseIngredientClass() throws Exception {
-        File file = new File(System.getProperty("user.dir") + "/Data/tempName/Ingredients.json");
+        File file = new File(System.getProperty("user.dir") +  "/" + Pointers.content + "/Ingredients.json");
 
         ObjectMapper objectMapper = new ObjectMapper();
         return objectMapper.readValue(file, new TypeReference<ArrayList<Ingredient>>() {});
