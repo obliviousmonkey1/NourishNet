@@ -1,21 +1,22 @@
 COMPLETED
-
-
-COMPLETED FIRST PASS
-- Saving only works for user data at the moment 
-
-IN PROGRESS
-
-- Reorganise recipe for Json loading and make it so it reads in as a string
-then during initalisation loops through and grabs ingredient 
-- Take into account number of an ingredient when calculating calores
-- Loading recipes instansiating tag class
+- Reorganise recipe for Json loading and make it so it reads in as a string then during initalisation loops through and grabs ingredient 
 - JSON save a load system for all data that is needed in the program 
 - Move Ingredients into a seperate Json file, and have a pointer in recipes to them
+- Come up with a better name then tempName 
+
+COMPLETED FIRST PASS
+- Saving new user : need to make it check if there already a foler with the same name before saving to avoid errors
+
+IN PROGRESS
+- Search system 
+- Continue creation of functions to help speed up the GUI creation 
+- Take into account number of an ingredient when calculating calores
+- Loading recipes instansiating tag class
+- Reorganise recipe Json and class
+- Look into tags (don't think they need to be a class)
 
 TODO
 - Code clean up targeting pathing changing static paths to use Pointers class 
-- Come up with a better name then tempName 
 - Creation of a user allow them to upload a profile picture and reuse that code for users wanting to change theirs
 - Dynamic pointer in Pointers class for current user so don't have to keep creating path
 
