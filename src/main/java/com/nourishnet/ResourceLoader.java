@@ -2,6 +2,8 @@ package com.nourishnet;
 
 import java.util.ArrayList;
 
+import com.nourishnet.Recipe.Quantity;
+
 public class ResourceLoader {
     
     public static ArrayList<Ingredient> loadIngredients(){

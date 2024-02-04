@@ -14,7 +14,6 @@ public class Recipe {
     private String name; 
     private String description;
     private ArrayList<Ingredient> ingredients;
-    private ArrayList<String> tempIngredients = new ArrayList<String>();
     private ArrayList<Quantity> quantities = new ArrayList<Quantity>();
     private ArrayList<String> instructions = new ArrayList<String>();
     private ArrayList<String> tags = new ArrayList<String>();
@@ -28,7 +27,6 @@ public class Recipe {
             @JsonProperty("id") int id,
             @JsonProperty("name") String name,
             @JsonProperty("description") String description,
-            @JsonProperty("ingredients") ArrayList<String> ingredients,
             @JsonProperty("quantities") ArrayList<Quantity> quantities,
             @JsonProperty("instructions") ArrayList<String> instructions,
             @JsonProperty("tags") ArrayList<String> tags
@@ -36,7 +34,6 @@ public class Recipe {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.tempIngredients = ingredients;
         this.quantities = quantities;
         this.instructions = instructions;
         this.tags = tags;
@@ -70,14 +67,6 @@ public class Recipe {
         this.description = description;
     }
 
-    public ArrayList<String> getTempIngredients() {
-        return this.tempIngredients;
-    }
-
-    public void setTempIngredients(ArrayList<String> tempIngredients) {
-        this.tempIngredients = tempIngredients;
-    }
-
     @JsonIgnore
     public ArrayList<Ingredient> getIngredients() {
         return this.ingredients;
@@ -90,6 +79,16 @@ public class Recipe {
 
     public ArrayList<Quantity> getQuantities() {
         return this.quantities;
+    }
+
+
+    @JsonIgnore
+    public ArrayList<String> getQuantitiesNames(){
+        ArrayList<String> ingredientNames = new ArrayList<String>();
+        for (int i =0; i< quantities.size();i++){
+            ingredientNames.add(quantities.get(i).getIngredientName());
+        }
+        return ingredientNames;
     }
 
     public void setQuantities(ArrayList<Quantity> quantities) {
@@ -113,6 +112,7 @@ public class Recipe {
     }
 
     public static class Quantity {
+        private String name;
         private int quantity; 
         private String measurement;
 
@@ -121,25 +121,24 @@ public class Recipe {
         }
 
         @JsonCreator
-        public Quantity(@JsonProperty("quantity") int quantity, @JsonProperty("measurement") String measurement) {
+        public Quantity(@JsonProperty("name") String name, @JsonProperty("quantity") int quantity, @JsonProperty("measurement") String measurement) {
+            this.name = name;
             this.quantity = quantity;
             this.measurement = measurement;
+        }
+
+
+        public String getIngredientName(){
+            return this.name;
         }
 
         public int getQuantity() {
             return this.quantity;
         }
 
-        public void setQuantity(int quantity) {
-            this.quantity = quantity;
-        }
-
         public String getMeasurement() {
             return this.measurement;
         }
 
-        public void setMeasurement(String measurement) {
-            this.measurement = measurement;
-        }
     }
 }

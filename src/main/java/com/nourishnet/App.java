@@ -35,7 +35,7 @@ public class App
         System.out.println(recipeHolder.get(0).getName());        // debug
 
         for (int i = 0; i< recipeHolder.size(); i++){
-            recipeHolder.get(i).setIngredients(ResourceLoader.loadIngredientsIntoRecipes(recipeHolder.get(i).getTempIngredients(), ingredientHolder));
+            recipeHolder.get(i).setIngredients(ResourceLoader.loadIngredientsIntoRecipes(recipeHolder.get(i).getQuantitiesNames(), ingredientHolder));
         }
 
         System.out.println(recipeHolder.get(0).calculateRecipeCalories());   // debug

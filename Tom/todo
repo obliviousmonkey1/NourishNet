@@ -8,11 +8,12 @@ COMPLETED FIRST PASS
 - Saving new user : need to make it check if there already a foler with the same name before saving to avoid errors
 
 IN PROGRESS
+- Reorganise recipe Json and class
+
 - Search system 
 - Continue creation of functions to help speed up the GUI creation 
 - Take into account number of an ingredient when calculating calores
 - Loading recipes instansiating tag class
-- Reorganise recipe Json and class
 - Look into tags (don't think they need to be a class)
 
 TODO

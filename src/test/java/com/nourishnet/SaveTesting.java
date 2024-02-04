@@ -68,7 +68,7 @@ public class SaveTesting {
         
         ArrayList<Recipe> recipes = ResourceLoader.loadRecipes();
     
-        recipes.get(0).setIngredients(ResourceLoader.loadIngredientsIntoRecipes(recipes.get(0).getTempIngredients(), ing));
+        recipes.get(0).setIngredients(ResourceLoader.loadIngredientsIntoRecipes(recipes.get(0).getQuantitiesNames(), ing));
 
         recipes.get(0).setDescription("hello world");
 
