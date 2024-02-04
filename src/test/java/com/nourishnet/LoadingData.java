@@ -17,10 +17,8 @@ public class LoadingData {
         // debug
         System.out.println(recipes.get(0).getName());
 
-        // debug
-        System.out.println(recipes.get(0).getTempIngredients());
 
-        recipes.get(0).setIngredients(ResourceLoader.loadIngredientsIntoRecipes(recipes.get(0).getTempIngredients(), ing));
+        recipes.get(0).setIngredients(ResourceLoader.loadIngredientsIntoRecipes(recipes.get(0).getQuantitiesNames(), ing));
 
         // debug
         System.out.println(recipes.get(0).calculateRecipeCalories());

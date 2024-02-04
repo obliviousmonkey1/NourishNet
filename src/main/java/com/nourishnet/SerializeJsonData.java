@@ -14,6 +14,7 @@ public class SerializeJsonData {
         // need to have it check if another folder with that name already exists 
         // before trying to create a folder. 
         // have it return a boolean if folder already exists with the same name
+        String folderPath = Pointers.userDir + '/' + Pointers.usersPath + '/' + user.getUsername(); 
         File folder = new File(Pointers.userDir + '/' + Pointers.usersPath + '/' + user.getUsername());
 
         boolean folderCreated = folder.mkdirs();
