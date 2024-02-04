@@ -7,14 +7,14 @@ public class RecipeDisplayFrame extends JFrame {
 
     private DefaultListModel<String> recipeListModel;
     private JList<String> recipeList;
-    private JPanel imagePanel; // Create a separate panel for images
+    private ImageDisplayFrame imageDisplayFrame; // Declare a field for ImageDisplayFrame
 
     public RecipeDisplayFrame(ArrayList<Recipe> recipes) {
         super("Recipe Display");
 
         recipeListModel = new DefaultListModel<>();
         recipeList = new JList<>(recipeListModel);
-        imagePanel = new JPanel(new FlowLayout(FlowLayout.CENTER)); // Use a flow layout for imagePanel
+        imageDisplayFrame = new ImageDisplayFrame(); // Initialize ImageDisplayFrame
 
         // Add recipes to the list model
         for (Recipe recipe : recipes) {
@@ -26,7 +26,7 @@ public class RecipeDisplayFrame extends JFrame {
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(400, 300);
-        setLocationRelativeTo(null); // Center the frame on the screen
+        setLocationRelativeTo(null);
         setVisible(true);
     }
 
@@ -36,7 +36,7 @@ public class RecipeDisplayFrame extends JFrame {
         JScrollPane scrollPane = new JScrollPane(recipeList);
         add(scrollPane, BorderLayout.CENTER);
 
-        add(imagePanel, BorderLayout.SOUTH); // Add the imagePanel to the SOUTH
+        add(imageDisplayFrame, BorderLayout.SOUTH); // Add the ImageDisplayFrame to the SOUTH
 
         // Set up the list selection listener
         recipeList.addListSelectionListener(e -> {
@@ -45,7 +45,8 @@ public class RecipeDisplayFrame extends JFrame {
                 Recipe selectedRecipe = recipes.get(selectedIndex);
                 ImageIcon imageIcon = Tools.getRecipeImage(selectedRecipe.getName());
                 if (imageIcon != null) {
-                    SwingUtilities.invokeLater(() -> new ImageDisplayFrame(imageIcon));
+                    // Update the existing ImageDisplayFrame with the new image
+                    imageDisplayFrame.updateImage(imageIcon);
                 } else {
                     System.out.println("Image not loaded for recipe: " + selectedRecipe.getName());
                 }
@@ -62,7 +63,6 @@ public class RecipeDisplayFrame extends JFrame {
             displayText.append("- ").append(ingredient.getName()).append(": ")
                     .append(ingredient.getCaloriesPer100g()).append(" calories per 100g\n");
         }
-
 
         return displayText.toString();
     }
@@ -85,17 +85,22 @@ public class RecipeDisplayFrame extends JFrame {
     }
 }
 
-class ImageDisplayFrame extends JFrame {
+class ImageDisplayFrame extends JPanel { // Extend JPanel instead of JFrame for ImageDisplayFrame
 
-    public ImageDisplayFrame(ImageIcon imageIcon) {
-        super("Image Display");
+    private JLabel imageLabel;
 
-        JLabel imageLabel = new JLabel(imageIcon);
-        add(imageLabel);
+    public ImageDisplayFrame() {
+        setLayout(new BorderLayout()); // Use BorderLayout for the panel
 
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setSize(300, 200);
-        setLocationRelativeTo(null);
-        setVisible(true);
+        imageLabel = new JLabel();
+        add(imageLabel, BorderLayout.CENTER); // Add the imageLabel to the CENTER of the panel
+
+        setPreferredSize(new Dimension(300, 200)); // Set the preferred size of the panel
+    }
+
+    // Method to update the displayed image
+    public void updateImage(ImageIcon imageIcon) {
+        imageLabel.setIcon(imageIcon);
+        repaint(); // Repaint the panel
     }
 }
