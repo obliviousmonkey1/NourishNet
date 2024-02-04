@@ -1,37 +1,45 @@
 [ {
-  "name" : "Namless",
-  "description" : "hello world",
-  "quantities" : [ {
-    "name" : "Banana",
-    "quantity" : 2,
-    "measurement" : ""
-  }, {
-    "name" : "Butter",
-    "quantity" : 4,
-    "measurement" : "kg"
-  }, {
-    "name" : "Apple",
-    "quantity" : 2,
-    "measurement" : ""
-  } ],
-  "instructions" : [ "roast the Banana", "boil the butter", "put together and serve with a splash of salt" ],
-  "tags" : [ "lowCalorie", "vegan" ]
-}, {
-  "name" : "Another Recipe",
-  "description" : "bluh bluh bluh",
-  "quantities" : [ {
-    "name" : "Tomato",
-    "quantity" : 2,
-    "measurement" : ""
-  }, {
-    "name" : "Apple",
-    "quantity" : 4,
-    "measurement" : "kg"
-  }, {
-    "name" : "Orange",
-    "quantity" : 4,
-    "measurement" : "kg"
-  } ],
-  "instructions" : [ "nothing" ],
-  "tags" : [ "keto", "vegan", "highCalorie" ]
-} ]
+  "name": "Spaghetti Bolognese",
+  "prepTime": 15,
+  "cookTime": 45,
+  "level": "Intermediate",
+  "serves": 4,
+  "description": "Classic Italian pasta dish with rich meat sauce.",
+  "quantities": [
+    {"name": "Spaghetti", "quantity": 400, "measurement": "grams"},
+    {"name": "Ground Beef", "quantity": 500, "measurement": "grams"},
+    {"name": "Tomato Sauce", "quantity": 2, "measurement": "cups"},
+    {"name": "Onion", "quantity": 1, "measurement": "large, chopped"},
+    {"name": "Garlic", "quantity": 3, "measurement": "cloves, minced"}
+  ],
+  "instructions": [
+    "Cook the spaghetti according to package instructions.",
+    "In a pan, brown the ground beef with chopped onions and minced garlic.",
+    "Add tomato sauce and simmer for 20 minutes.",
+    "Serve the meat sauce over cooked spaghetti."
+  ],
+  "tags": ["Dinner"]
+},
+ {
+  "name": "Vegetarian Stir-Fry",
+  "prepTime": 20,
+  "cookTime": 15,
+  "level": "Easy",
+  "serves": 2,
+  "description": "Quick and healthy stir-fry with colorful vegetables.",
+  "quantities": [
+    {"name": "Broccoli", "quantity": 2, "measurement": "cups, florets"},
+    {"name": "Carrots", "quantity": 2, "measurement": "medium, sliced"},
+    {"name": "Bell Pepper", "quantity": 1, "measurement": "large, sliced"},
+    {"name": "Tofu", "quantity": 200, "measurement": "grams, cubed"},
+    {"name": "Soy Sauce", "quantity": 3, "measurement": "tablespoons"}
+  ],
+  "instructions": [
+    "Stir-fry broccoli, carrots, and bell pepper in a pan.",
+    "Add cubed tofu and continue cooking until vegetables are tender.",
+    "Drizzle soy sauce over the stir-fry and toss to combine.",
+    "Serve hot over rice or noodles."
+  ],
+  "tags": ["Vegetarian","Healthy"]
+}
+]
