@@ -27,4 +27,11 @@ public class DeserializeJsonData {
         ObjectMapper objectMapper = new ObjectMapper();
         return objectMapper.readValue(file, new TypeReference<ArrayList<Ingredient>>() {});
     }
+
+    public static ArrayList<Diet> initaliseDietClass()throws Exception{
+        File file = new File(System.getProperty("user.dir") +  "/" + Pointers.content + "/Diets.json");
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        return objectMapper.readValue(file, new TypeReference<ArrayList<Diet>>() {});
+    }
 }

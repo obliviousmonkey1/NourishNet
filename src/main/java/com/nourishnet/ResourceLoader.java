@@ -65,4 +65,18 @@ public class ResourceLoader {
         return recipeIngredients;
        
     }
+
+    public static ArrayList<Diet> loadDiets(){
+        try{
+             //Debug
+             System.out.println("Deserialisation success");
+            return DeserializeJsonData.initaliseDietClass();
+        }catch (Exception e1) {
+            //Debug
+            System.out.println("Deserialisation failed");
+            e1.printStackTrace();
+
+            return null;
+        }
+    }
 }

@@ -1,0 +1,10 @@
+[
+    {
+      "name": "Vegan",
+      "description": "Veganism is a lifestyle and dietary choice that abstains from the use of animal products for ethical, environmental, and health reasons. This includes avoiding not only meat but also dairy, eggs, and other animal-derived ingredients. Vegans typically embrace a plant-based diet, relying on fruits, vegetables, grains, legumes, nuts, and seeds. The philosophy behind veganism extends beyond diet, advocating for cruelty-free practices in all aspects of life, such as clothing, cosmetics, and entertainment. Adopting a vegan lifestyle is often motivated by concerns about animal welfare, environmental sustainability, and personal health. Many individuals choose veganism as a way to reduce their ecological footprint, promote animal rights, and contribute to a more compassionate and sustainable world."
+    },
+    {
+      "name": "Keto",
+      "description": "The ketogenic diet, or keto diet, is a low-carbohydrate and high-fat eating plan designed to induce ketosis, a metabolic state where the body primarily burns fat for energy. By drastically reducing carb intake and increasing fat consumption, the keto diet aims to shift the body's fuel source. This diet is popular for weight loss and may have potential benefits for certain medical conditions, including epilepsy and type 2 diabetes. Foods commonly included are meat, fish, eggs, dairy, healthy oils, and low-carb vegetables, while high-carb items and sugars are restricted."
+    }
+]

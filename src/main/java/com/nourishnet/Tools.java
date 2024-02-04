@@ -10,23 +10,22 @@ import javax.swing.ImageIcon;
 
 public class Tools {
 
-
     public static ImageIcon getRecipeImage(String recipeName){
         StringBooleanPair hImage = LogIn.hasImage(recipeName, Pointers.recipeImagePath);
         System.out.println(hImage.getHasImage());
         if(hImage.getHasImage()){
             return new ImageIcon(Pointers.userDir + "/" + Pointers.recipeImagePath + "/" + recipeName + hImage.getExtension());
         }
-        return new ImageIcon(Pointers.userDir + "/" + Pointers.recipeImagePath + "/default.png");
+        return new ImageIcon(Pointers.userDir + "/" + Pointers.recipeImagePath + "/default.jpeg");
     }
 
-    public static ImageIcon getIngredientImage(String ingredientName){
-        StringBooleanPair hImage = LogIn.hasImage(ingredientName, Pointers.recipeImagePath);
+    public static ImageIcon getDietImage(String dietName){
+        StringBooleanPair hImage = LogIn.hasImage(dietName, Pointers.dietImagePath);
         System.out.println(hImage.getHasImage());
         if(hImage.getHasImage()){
-            return new ImageIcon(Pointers.userDir + "/" + Pointers.ingredientImagePath + "/" + ingredientName + hImage.getExtension());
+            return new ImageIcon(Pointers.userDir + "/" + Pointers.dietImagePath + "/" + dietName + hImage.getExtension());
         }
-        return new ImageIcon(Pointers.userDir + "/" + Pointers.ingredientImagePath + "/default.png");
+        return new ImageIcon(Pointers.userDir + "/" + Pointers.dietImagePath + "/default.jpeg");
     }
 }
 

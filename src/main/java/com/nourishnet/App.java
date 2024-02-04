@@ -11,6 +11,7 @@ public class App
     private static User user = new User();
     private static ArrayList<Ingredient> ingredientHolder = new ArrayList<Ingredient>();
     private static ArrayList<Recipe> recipeHolder = new ArrayList<Recipe>();
+    private static ArrayList<Diet> dietHolder = new ArrayList<Diet>();
 
     public static void main( String[] args )
     {
@@ -26,6 +27,10 @@ public class App
 
     // load the data 
     private static void loadData(){
+        dietHolder = ResourceLoader.loadDiets();
+
+        System.out.println(dietHolder.get(0).getName());  // debug
+
         ingredientHolder = ResourceLoader.loadIngredients();
 
         System.out.println(ingredientHolder.get(0).getName());  // debug
