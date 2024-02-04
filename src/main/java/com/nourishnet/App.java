@@ -8,6 +8,7 @@ import java.util.ArrayList;
  */
 public class App 
 {
+    private static User user = new User();
     private static ArrayList<Ingredient> ingredientHolder = new ArrayList<Ingredient>();
     private static ArrayList<Recipe> recipeHolder = new ArrayList<Recipe>();
 
@@ -22,7 +23,6 @@ public class App
             // go to the set up account screen 
         }
     }
-
 
     // load the data 
     private static void loadData(){
