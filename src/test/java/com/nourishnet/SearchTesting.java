@@ -1,74 +1,93 @@
 package com.nourishnet;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import java.awt.event.KeyAdapter;
+import java.util.ArrayList;
 
 public class SearchTesting extends JFrame {
-    private JTextField searchField;
-    private JTextArea resultArea;
+
+    private JTextField textField;
+    private JLabel suggestionLabel;
+    private ArrayList<String> suggestionList;
+    private ArrayList<Recipe> recipes;
+    private ArrayList<Ingredient> ingredients;
+    private User user;
 
     public SearchTesting() {
-        // Set up the JFrame
-        setTitle("Search Application");
+        loadData();
+
+        setTitle("AutoComplete Example");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(400, 300);
+        setSize(400, 150);
 
-        // Create components
-        searchField = new JTextField();
-        resultArea = new JTextArea();
-        resultArea.setEditable(false);
+        initUI();
 
-        // Set layout
-        setLayout(new BorderLayout());
+        setLocationRelativeTo(null);
+        setVisible(true);
+    }
 
-        // Add components to the JFrame
-        add(searchField, BorderLayout.NORTH);
-        add(new JScrollPane(resultArea), BorderLayout.SOUTH);
+    private void initUI() {
+        suggestionList = new ArrayList<>();
+        suggestionList.add("Java");
+        suggestionList.add("JavaScript");
+        suggestionList.add("Python");
+        suggestionList.add("C++");
+        suggestionList.add("C#");
 
+        textField = new JTextField();
+        suggestionLabel = new JLabel("Suggestions: ");
 
-        // Add key listener to the search field to listen for "Enter" key
-        searchField.addKeyListener(new KeyListener() {
+        setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
+
+        add(textField);
+        add(suggestionLabel);
+
+        textField.addKeyListener(new KeyAdapter() {
             @Override
             public void keyTyped(KeyEvent e) {
-                // Not needed for this example
-            }
-
-            @Override
-            public void keyPressed(KeyEvent e) {
-                // Not needed for this example
-            }
-
-            @Override
-            public void keyReleased(KeyEvent e) {
-                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-                    // Perform search action when Enter key is pressed
-                    String query = searchField.getText();
-                    performSearch(query);
-                }
+                performSearch();
             }
         });
     }
 
-    private void performSearch(String query) {
-        // TODO: Implement your search logic here
-        // For simplicity, let's just display the query in the result area
-
-        // call search class which will search for recipes then diets then ingredients and pool the most likely ones together 
-        // unless we decide to have them all seperate in there on jframes then we just search over which frame the
-        // user is in at that moment  
-        resultArea.setText("Search results for: " + query);
+    
+    private void performSearch() {
+        String query = textField.getText().toLowerCase();
+        StringBuilder suggestions = new StringBuilder("Suggestions: ");
+    
+        ArrayList<Recipe> returnedRecipes = Search.getRecipeSearchResults(query, recipes, user.getSavedRecipeIDs(), user.getDiet());
+        
+        System.out.println(returnedRecipes.size());
+        for (Recipe recipe : returnedRecipes) {
+            suggestions.append(recipe.getName()).append(", ");
+        }
+    
+        if (suggestions.length() > 14) {
+            suggestions.setLength(suggestions.length() - 2);
+        }
+    
+        suggestionLabel.setText(suggestions.toString());
     }
+    
+
+    private void loadData(){
+        user = ResourceLoader.loadUser(LogIn.getUserJsonPath("Tom"));
+        ingredients = ResourceLoader.loadIngredients();
+        recipes = ResourceLoader.loadRecipes();
+        
+        for (int i = 0; i< recipes.size(); i++){
+            recipes.get(i).setIngredients(ResourceLoader.loadIngredientsIntoRecipes(recipes.get(i).getQuantitiesNames(), ingredients));
+        }
+        
+    }
+    
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new SearchTesting().setVisible(true);
-            }
+        SwingUtilities.invokeLater(() -> {
+            new SearchTesting();
         });
     }
 }
