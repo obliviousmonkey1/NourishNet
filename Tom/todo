@@ -12,7 +12,7 @@ IN PROGRESS
 - Search system 
 - Continue creation of functions to help speed up the GUI creation 
 - Take into account number of an ingredient when calculating calores
-- Look into tags (don't think they need to be a class
+- Look into tags don't think they need to be a class
 
 TODO
 - Code clean up targeting un-used variables and functions
