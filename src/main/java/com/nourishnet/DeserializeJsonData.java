@@ -15,21 +15,21 @@ public class DeserializeJsonData {
     }
 
     public static  ArrayList<Recipe> initaliseRecipeClass()throws Exception {
-        File file = new File(System.getProperty("user.dir") + "/" + Pointers.content + "/Recipes.json");
+        File file = new File(Pointers.userDir + '/' + Pointers.content + "/Recipes.json");
 
         ObjectMapper objectMapper = new ObjectMapper();
         return objectMapper.readValue(file, new TypeReference<ArrayList<Recipe>>() {});
     }
 
     public static ArrayList<Ingredient> initaliseIngredientClass() throws Exception {
-        File file = new File(System.getProperty("user.dir") +  "/" + Pointers.content + "/Ingredients.json");
+        File file = new File(Pointers.userDir +  '/' + Pointers.content + "/Ingredients.json");
 
         ObjectMapper objectMapper = new ObjectMapper();
         return objectMapper.readValue(file, new TypeReference<ArrayList<Ingredient>>() {});
     }
 
     public static ArrayList<Diet> initaliseDietClass()throws Exception{
-        File file = new File(System.getProperty("user.dir") +  "/" + Pointers.content + "/Diets.json");
+        File file = new File(Pointers.userDir +  '/' + Pointers.content + "/Diets.json");
 
         ObjectMapper objectMapper = new ObjectMapper();
         return objectMapper.readValue(file, new TypeReference<ArrayList<Diet>>() {});

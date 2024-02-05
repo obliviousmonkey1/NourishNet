@@ -27,7 +27,10 @@ public class LoadingData {
 
         ArrayList<Diet> diets = ResourceLoader.loadDiets();
 
-        System.out.println(diets.get(0).getDescription()); // debug
+        System.out.println(diets.get(0).getName()); // debug
+
+        ArrayList<Recipe> recipeExamples = diets.get(0).getExampleRecipes(recipes);
+        System.out.println(recipeExamples.size()); // debug
 
 
     }
