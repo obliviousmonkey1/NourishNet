@@ -32,7 +32,6 @@ public class LoadingData {
         ArrayList<Recipe> recipeExamples = diets.get(0).getExampleRecipes(recipes);
         System.out.println(recipeExamples.size()); // debug
 
-
     }
 
 
