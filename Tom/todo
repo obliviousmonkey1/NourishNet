@@ -6,21 +6,20 @@ COMPLETED
 
 COMPLETED FIRST PASS
 - Saving new user : need to make it check if there already a foler with the same name before saving to avoid errors
-
-IN PROGRESS
 - Reorganise recipe Json and class
 
+IN PROGRESS
 - Search system 
 - Continue creation of functions to help speed up the GUI creation 
 - Take into account number of an ingredient when calculating calores
-- Loading recipes instansiating tag class
-- Look into tags (don't think they need to be a class)
+- Look into tags (don't think they need to be a class
 
 TODO
+- Code clean up targeting un-used variables and functions
 - Code clean up targeting pathing changing static paths to use Pointers class 
 - Creation of a user allow them to upload a profile picture and reuse that code for users wanting to change theirs
 - Dynamic pointer in Pointers class for current user so don't have to keep creating path
-- Comment code 
+- Code clean up targeting commenting and readability  
 - Search via ingredients feature where the user enters the ingredient and quantity and will search for recipes which have those ingredients or most of them 90% is limit, populate the ingredient list while they are typing select an ingredient then add a quantity and when they are done press search 
 
 RESEARCH
