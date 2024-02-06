@@ -1,5 +1,6 @@
 [ {
   "name": "Spaghetti Bolognese",
+  "diet": [""],
   "prepTime": 15,
   "cookTime": 45,
   "level": "Intermediate",
@@ -22,6 +23,7 @@
 },
  {
   "name": "Vegetarian Stir-Fry",
+  "diet": ["Vegetarian"],
   "prepTime": 20,
   "cookTime": 15,
   "level": "Easy",
@@ -40,6 +42,33 @@
     "Drizzle soy sauce over the stir-fry and toss to combine.",
     "Serve hot over rice or noodles."
   ],
-  "tags": ["Vegetarian","Healthy"]
+  "tags": ["Healthy"]
+},
+{
+  "name": "Salt and Pepper Tofu",
+  "diet": ["Vegan", "Vegetarian"],
+  "prepTime": 15,
+  "cookTime": 20,
+  "level": "Easy",
+  "serves": 4,
+  "description": "Crispy and flavorful tofu seasoned with salt and pepper.",
+  "quantities": [
+    { "name": "Tofu", "quantity": 400, "measurement": "grams, drained and pressed" },
+    { "name": "Cornflour", "quantity": 3, "measurement": "tablespoons" },
+    { "name": "Vegetable oil", "quantity": 2, "measurement": "tablespoons" },
+    { "name": "Salt", "quantity": null, "measurement": "to taste" },
+    { "name": "Ground black pepper", "quantity": null, "measurement": "to taste" },
+    { "name": "Spring onions", "quantity": 2, "measurement": "sliced, to garnish" }
+  ],
+  "instructions": [
+    "Cut the tofu into cubes and toss in cornflour until coated.",
+    "Heat the oil in a large non-stick frying pan over medium-high heat.",
+    "Fry the tofu cubes in batches for 8-10 minutes, turning occasionally until golden and crispy.",
+    "Remove tofu from the pan and drain excess oil on paper towels.",
+    "Season with salt and plenty of ground black pepper.",
+    "Garnish with sliced spring onions and serve hot."
+  ],
+  "tags":["Dairy-free", "Egg-free"]
 }
+
 ]

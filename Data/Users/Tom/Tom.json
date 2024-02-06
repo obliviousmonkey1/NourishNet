@@ -3,7 +3,7 @@
     "age": 18,
     "height": 1.78,
     "weight" : 76,
-    "diet" : "Vegan",
+    "diet" : "Vegetarian",
     "savedRecipeIDs" : [0,1,3],
     "password" : ""
 }

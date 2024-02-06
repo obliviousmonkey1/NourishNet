@@ -22,6 +22,7 @@ TODO
 - Dynamic pointer in Pointers class for current user so don't have to keep creating path
 - Code clean up targeting commenting and readability  
 - Search via ingredients feature where the user enters the ingredient and quantity and will search for recipes which have those ingredients or most of them 90% is limit, populate the ingredient list while they are typing select an ingredient then add a quantity and when they are done press search 
+- Remove all setters from recipes 
 
 RESEARCH
 - Dont have a recipe hava a way for the user to paste in the url of the cooking website and run a python program to load it in 

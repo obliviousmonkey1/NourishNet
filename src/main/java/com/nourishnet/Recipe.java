@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Recipe {
 
     private String name; 
+    private ArrayList<String> diet;
     private int prepTime;
     private int cookTime;
     private String level;
@@ -24,6 +25,7 @@ public class Recipe {
     @JsonCreator
     public Recipe(
             @JsonProperty("name") String name,
+            @JsonProperty("diet") ArrayList<String> diet,
             @JsonProperty("prepTime") int prepTime,
             @JsonProperty("cookTime") int cookTime,
             @JsonProperty("level") String level,
@@ -34,6 +36,7 @@ public class Recipe {
             @JsonProperty("tags") ArrayList<String> tags
     ) {
         this.name = name;
+        this.diet = diet;
         this.prepTime = prepTime;
         this.cookTime = cookTime;
         this.level = level;
@@ -62,6 +65,10 @@ public class Recipe {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public ArrayList<String> getDiet() {
+        return this.diet;
     }
 
     public int getPrepTime() {
