@@ -6,36 +6,32 @@ import java.util.Set;
 
 public class Search {
     
-    // make it so they are specific to the diet selected unless selected otherwise
-    public static ArrayList<Recipe> getRecipeSearchResults(String query, ArrayList<Recipe> recipeHolder, ArrayList<Integer> userSavedRecipes, String userSavedDiet) {
+    // show all recipes is a button that allows the user to toggle whether they want to see all recipes or just the ones that correlate to their diet
+    public static ArrayList<Recipe> getRecipeSearchResults(String query, ArrayList<Recipe> recipeHolder, ArrayList<Integer> userSavedRecipes, String userSavedDiet, Boolean showAllRecipes) {
         ArrayList<Recipe> returnedRecipes = new ArrayList<>();
         Set<Recipe> uniqueRecipes = new HashSet<>();
-
-        for (int i = 0; i < recipeHolder.size(); i++) {
-            ArrayList<String> tags = recipeHolder.get(i).getTags();
     
-            for (String tag : tags) {
-                System.out.println(tag); // debug
-                if (tag.toLowerCase().contains(query.toLowerCase())) {
-                    uniqueRecipes.add(recipeHolder.get(i));
-                    break;
-                }
-            }
-
-            if(recipeHolder.get(i).getName().toLowerCase().contains(query.toLowerCase())){
-                uniqueRecipes.add(recipeHolder.get(i));
-            }
-
-            if(recipeHolder.get(i).getLevel().toLowerCase().contains(query.toLowerCase())){
-                uniqueRecipes.add(recipeHolder.get(i));
-
+        for (Recipe recipe : recipeHolder) {
+            // Check if query matches tags, name, level, or diet
+            if (matchesQuery(recipe, query) && (showAllRecipes || sameDiet(userSavedDiet, recipe.getDiet()))) {
+                uniqueRecipes.add(recipe);
             }
         }
-        returnedRecipes.addAll(uniqueRecipes);
     
+        returnedRecipes.addAll(uniqueRecipes);
         return returnedRecipes;
     }
-
     
+    private static boolean matchesQuery(Recipe recipe, String query) {
+        String lowerCaseQuery = query.toLowerCase();
+        return recipe.getTags().stream().anyMatch(tag -> tag.toLowerCase().contains(lowerCaseQuery))
+                || recipe.getName().toLowerCase().contains(lowerCaseQuery)
+                || recipe.getLevel().toLowerCase().contains(lowerCaseQuery)
+                || recipe.getDiet().stream().anyMatch(diet -> diet.toLowerCase().contains(lowerCaseQuery));
+    }
     
-}
+    public static Boolean sameDiet(String userDietPlan, ArrayList<String> recipeDiets) {
+        return recipeDiets.stream().anyMatch(diet -> userDietPlan.equalsIgnoreCase(diet));
+    }
+}    
+    
