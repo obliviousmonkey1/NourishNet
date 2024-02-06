@@ -21,12 +21,6 @@ public class DeserializeJsonData {
         return objectMapper.readValue(file, new TypeReference<ArrayList<Recipe>>() {});
     }
 
-    public static ArrayList<Ingredient> initaliseIngredientClass() throws Exception {
-        File file = new File(Pointers.userDir +  '/' + Pointers.content + "/Ingredients.json");
-
-        ObjectMapper objectMapper = new ObjectMapper();
-        return objectMapper.readValue(file, new TypeReference<ArrayList<Ingredient>>() {});
-    }
 
     public static ArrayList<Diet> initaliseDietClass()throws Exception{
         File file = new File(Pointers.userDir +  '/' + Pointers.content + "/Diets.json");
