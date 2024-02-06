@@ -49,11 +49,10 @@ public class SaveTesting {
         user.setWeight(weight);
 
         System.out.print("Enter diet (0 for none, 1 for vegetarian, 2 for vegan, etc.): ");
-        int diet = input.nextInt();
+        String diet = input.nextLine();
         user.setDiet(diet);
 
         // saved recipes don't need to be made at the start, also password is easy to do but cba
-        input.nextLine(); 
         input.close();
 
         SerializeJsonData.serializeNewUser(user);
