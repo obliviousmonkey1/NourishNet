@@ -12,7 +12,6 @@ public class SearchTesting extends JFrame {
     private JButton showAllRecipesButton; // Added button declaration
     private ArrayList<String> suggestionList;
     private ArrayList<Recipe> recipes;
-    private ArrayList<Ingredient> ingredients;
     private User user;
     private boolean isShowAllRecipes;
 
@@ -80,12 +79,8 @@ public class SearchTesting extends JFrame {
    
     private void loadData(){
         user = ResourceLoader.loadUser(LogIn.getUserJsonPath("Tom"));
-        ingredients = ResourceLoader.loadIngredients();
         recipes = ResourceLoader.loadRecipes();
 
-        for (int i = 0; i< recipes.size(); i++){
-            recipes.get(i).setIngredients(ResourceLoader.loadIngredientsIntoRecipes(recipes.get(i).getQuantitiesNames(), ingredients));
-        }
         System.out.println("Loaded all data");
     }
 

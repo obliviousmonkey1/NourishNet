@@ -31,19 +31,10 @@ public class App
 
         System.out.println(dietHolder.get(0).getName());  // debug
 
-        ingredientHolder = ResourceLoader.loadIngredients();
-
-        System.out.println(ingredientHolder.get(0).getName());  // debug
-
         recipeHolder = ResourceLoader.loadRecipes();
     
         System.out.println(recipeHolder.get(0).getName());        // debug
 
-        for (int i = 0; i< recipeHolder.size(); i++){
-            recipeHolder.get(i).setIngredients(ResourceLoader.loadIngredientsIntoRecipes(recipeHolder.get(i).getQuantitiesNames(), ingredientHolder));
-        }
-
-        System.out.println(recipeHolder.get(0).calculateRecipeCalories());   // debug
-
+       
     }
 }

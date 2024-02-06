@@ -61,14 +61,10 @@ public class SaveTesting {
     }
 
     public static void recipeSaving(){
-
-        ArrayList<Ingredient> ing = ResourceLoader.loadIngredients();
         
         
         ArrayList<Recipe> recipes = ResourceLoader.loadRecipes();
     
-        recipes.get(0).setIngredients(ResourceLoader.loadIngredientsIntoRecipes(recipes.get(0).getQuantitiesNames(), ing));
-
         recipes.get(0).setDescription("hello world");
 
         SerializeJsonData.serializeRecipes(recipes, Pointers.content + "/Recipes.json");

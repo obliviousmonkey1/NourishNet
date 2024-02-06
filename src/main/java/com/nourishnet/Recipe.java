@@ -16,9 +16,9 @@ public class Recipe {
     private int cookTime;
     private String level;
     private int serves;
+    private Nutrition nutrition;
     private String description;
-    private ArrayList<Ingredient> ingredients;
-    private ArrayList<Quantity> quantities = new ArrayList<Quantity>();
+    private ArrayList<Ingredient> ingredients = new ArrayList<Ingredient>();
     private ArrayList<String> instructions = new ArrayList<String>();
     private ArrayList<String> tags = new ArrayList<String>();
 
@@ -30,8 +30,9 @@ public class Recipe {
             @JsonProperty("cookTime") int cookTime,
             @JsonProperty("level") String level,
             @JsonProperty("serves") int serves,
+            @JsonProperty("nutrition") Nutrition nutrition,
             @JsonProperty("description") String description,
-            @JsonProperty("quantities") ArrayList<Quantity> quantities,
+            @JsonProperty("ingredients") ArrayList<Ingredient> ingredients,
             @JsonProperty("instructions") ArrayList<String> instructions,
             @JsonProperty("tags") ArrayList<String> tags
     ) {
@@ -41,23 +42,24 @@ public class Recipe {
         this.cookTime = cookTime;
         this.level = level;
         this.serves = serves;
+        this.nutrition = nutrition;
         this.description = description;
-        this.quantities = quantities;
+        this.ingredients = ingredients;
         this.instructions = instructions;
         this.tags = tags;
         this.ingredients = new ArrayList<Ingredient>();
     }
 
     @JsonIgnore
-    public int calculateRecipeCalories() {
-        int sum = 0; 
+    // public int calculateRecipeCalories() {
+    //     int sum = 0; 
 
-        for (int i = 0; i < ingredients.size(); i++) {
-            sum += ingredients.get(i).getCaloriesPer100g();
-        }
+    //     for (int i = 0; i < ingredients.size(); i++) {
+    //         sum += ingredients.get(i).getCaloriesPer100g();
+    //     }
 
-        return sum;
-    } 
+    //     return sum;
+    // } 
 
     public String getName() {
         return this.name;
@@ -103,6 +105,10 @@ public class Recipe {
         this.serves = serves;
     }
 
+    public Nutrition getNutrition() {
+        return this.nutrition;
+    }
+
     public String getDescription() {
         return this.description;
     }
@@ -112,32 +118,27 @@ public class Recipe {
     }
 
     @JsonIgnore
-    public ArrayList<Ingredient> getIngredients() {
-        return this.ingredients;
-    }
-
-    @JsonIgnore
     public void setIngredients(ArrayList<Ingredient> newIngredients) {
         this.ingredients = newIngredients;
     }
 
-    public ArrayList<Quantity> getQuantities() {
-        return this.quantities;
+    public ArrayList<Ingredient> getIngredients() {
+        return this.ingredients;
     }
 
 
-    @JsonIgnore
-    public ArrayList<String> getQuantitiesNames(){
-        ArrayList<String> ingredientNames = new ArrayList<String>();
-        for (int i =0; i< quantities.size();i++){
-            ingredientNames.add(quantities.get(i).getIngredientName());
-        }
-        return ingredientNames;
-    }
+    // @JsonIgnore
+    // public ArrayList<String> getQuantitiesNames(){
+    //     ArrayList<String> ingredientNames = new ArrayList<String>();
+    //     for (int i =0; i< in.size();i++){
+    //         ingredientNames.add(quantities.get(i).getIngredientName());
+    //     }
+    //     return ingredientNames;
+    // }
 
-    public void setQuantities(ArrayList<Quantity> quantities) {
-        this.quantities = quantities;
-    }
+    // public void setQuantities(ArrayList<Quantity> quantities) {
+    //     this.quantities = quantities;
+    // }
 
     public ArrayList<String> getInstructions() {
         return this.instructions;
@@ -155,17 +156,71 @@ public class Recipe {
         this.tags = tags;
     }
 
-    public static class Quantity {
+    public static class Nutrition {
+        private int calories;
+        private int fat;
+        private int saturates;
+        private int carbs;
+        private int sugars;
+        private int fibre;
+        private int protein;
+        private int salt;
+
+
+        @JsonCreator
+        public Nutrition(
+                @JsonProperty("calories") int calories,
+                @JsonProperty("fat") int fat,
+                @JsonProperty("saturates") int saturates,
+                @JsonProperty("carbs") int carbs,
+                @JsonProperty("sugars") int sugars,
+                @JsonProperty("fibre") int fibre,
+                @JsonProperty("protein") int protein,
+                @JsonProperty("salt") int salt
+        ) {
+            this.calories = calories;
+            this.fat = fat;
+            this.saturates = saturates;
+            this.carbs = carbs;
+            this.sugars = sugars;
+            this.fibre = fibre;
+            this.protein = protein;
+            this.salt = salt;
+        }
+
+        public int getCalories() {
+            return this.calories;
+        }
+
+        public int getFat() {
+            return this.fat;
+        }
+
+        public int getSaturates() {
+            return this.saturates;
+        }
+
+        public int getProtein() {
+            return this.protein;
+        }
+
+        public int getSalt() {
+            return this.salt;
+        }   
+
+        public int getCarbs() {
+            return this.carbs;
+        }
+    }
+
+    public static class Ingredient {
         private String name;
         private int quantity; 
         private String measurement;
 
-        public Quantity() {
-            // default constructor
-        }
-
+     
         @JsonCreator
-        public Quantity(@JsonProperty("name") String name, @JsonProperty("quantity") int quantity, @JsonProperty("measurement") String measurement) {
+        public Ingredient(@JsonProperty("name") String name, @JsonProperty("quantity") int quantity, @JsonProperty("measurement") String measurement) {
             this.name = name;
             this.quantity = quantity;
             this.measurement = measurement;

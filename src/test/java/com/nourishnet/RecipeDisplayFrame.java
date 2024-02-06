@@ -59,10 +59,10 @@ public class RecipeDisplayFrame extends JFrame {
         displayText.append("Recipe Name: ").append(recipe.getName()).append("\n");
         displayText.append("Ingredients:\n");
 
-        for (Ingredient ingredient : recipe.getIngredients()) {
-            displayText.append("- ").append(ingredient.getName()).append(": ")
-                    .append(ingredient.getCaloriesPer100g()).append(" calories per 100g\n");
-        }
+        // for (Ingredient ingredient : recipe.getIngredients()) {
+        //     displayText.append("- ").append(ingredient.getName()).append(": ")
+        //             .append(ingredient.getCaloriesPer100g()).append(" calories per 100g\n");
+        // }
 
         return displayText.toString();
     }
