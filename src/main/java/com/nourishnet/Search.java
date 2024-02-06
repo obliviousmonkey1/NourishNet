@@ -7,7 +7,7 @@ import java.util.Set;
 public class Search {
     
     // make it so they are specific to the diet selected unless selected otherwise
-    public static ArrayList<Recipe> getRecipeSearchResults(String query, ArrayList<Recipe> recipeHolder, ArrayList<Integer> userSavedRecipes, int userSavedDiet) {
+    public static ArrayList<Recipe> getRecipeSearchResults(String query, ArrayList<Recipe> recipeHolder, ArrayList<Integer> userSavedRecipes, String userSavedDiet) {
         ArrayList<Recipe> returnedRecipes = new ArrayList<>();
         Set<Recipe> uniqueRecipes = new HashSet<>();
 
@@ -35,5 +35,7 @@ public class Search {
     
         return returnedRecipes;
     }
+
+    
     
 }

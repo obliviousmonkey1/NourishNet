@@ -9,7 +9,8 @@ COMPLETED FIRST PASS
 - Reorganise recipe Json and class
 
 IN PROGRESS
-- Search system 
+- Look into moving diet out of tags in recipes for easier referencing 
+- Search system : Make it so the only recipes displayed are ones that are on your diet plan , unless selected otherwise
 - Continue creation of functions to help speed up the GUI creation 
 - Take into account number of an ingredient when calculating calores
 - Look into tags don't think they need to be a class

@@ -11,7 +11,7 @@ public class User {
     private int age;
     private double height;
     private int weight;
-    private int diet;
+    private String diet;
     private ArrayList<Integer> savedRecipeIDs;
     private String password;
 
@@ -28,7 +28,7 @@ public class User {
     @JsonCreator
     public User(@JsonProperty("username") String username, @JsonProperty("age") int age,
                 @JsonProperty("height") double height, @JsonProperty("weight") int weight,
-                @JsonProperty("diet") int diet, @JsonProperty("savedRecipeIDs") ArrayList<Integer> savedRecipeIDs,
+                @JsonProperty("diet") String diet, @JsonProperty("savedRecipeIDs") ArrayList<Integer> savedRecipeIDs,
                 @JsonProperty("password") String password) {
         this.username = username;
         this.age = age;
@@ -41,7 +41,7 @@ public class User {
 
     @JsonIgnore
     public User() {
-        this("", -1, 0.0, -1, -1, new ArrayList<>(), "");
+        this("", -1, 0.0, -1, "", new ArrayList<>(), "");
     }
 
     public String getUsername() {
@@ -76,11 +76,11 @@ public class User {
         this.weight = weight;
     }
 
-    public int getDiet() {
+    public String getDiet() {
         return this.diet;
     }
 
-    public void setDiet(int diet) {
+    public void setDiet(String diet) {
         this.diet = diet;
     }
 
