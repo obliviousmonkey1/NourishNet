@@ -1,7 +1,8 @@
 {
-    "username": "Charles",
+    "folderId": "0000",
+    "username": "Declan",
     "age": 18,
-    "height": 1.50,
+    "height": 2.80,
     "weight" : 76,
     "diet" : "Vegan",
     "savedRecipeIDs" : [0,1,3],
