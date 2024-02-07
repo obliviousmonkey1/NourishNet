@@ -2,7 +2,7 @@ package com.nourishnet;
 
 import java.util.ArrayList;
 
-public class LoadingData {
+public class LoadingDataTesting {
     
 
     public static void main(String[] args) {
@@ -27,5 +27,3 @@ public class LoadingData {
 
 
 }
-
-
