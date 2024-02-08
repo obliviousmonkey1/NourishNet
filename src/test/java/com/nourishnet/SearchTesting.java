@@ -1,74 +1,90 @@
 package com.nourishnet;
 
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import java.awt.event.KeyAdapter;
+import java.util.ArrayList;
 
 public class SearchTesting extends JFrame {
-    private JTextField searchField;
-    private JTextArea resultArea;
+
+    private JTextField textField;
+    private JLabel suggestionLabel;
+    private JButton showAllRecipesButton; // Added button declaration
+    private ArrayList<String> suggestionList;
+    private ArrayList<Recipe> recipes;
+    private User user;
+    private boolean isShowAllRecipes;
 
     public SearchTesting() {
-        // Set up the JFrame
-        setTitle("Search Application");
+        loadData();
+
+        setTitle("AutoComplete Example");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(400, 300);
+        setSize(400, 150);
 
-        // Create components
-        searchField = new JTextField();
-        resultArea = new JTextArea();
-        resultArea.setEditable(false);
+        initUI();
 
-        // Set layout
-        setLayout(new BorderLayout());
+        setLocationRelativeTo(null);
+        setVisible(true);
+    }
 
-        // Add components to the JFrame
-        add(searchField, BorderLayout.NORTH);
-        add(new JScrollPane(resultArea), BorderLayout.SOUTH);
+    private void initUI() {
+        textField = new JTextField();
+        suggestionLabel = new JLabel("Suggestions: ");
+        showAllRecipesButton = new JButton("Show All Recipes"); // Initialize button
 
+        setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
 
-        // Add key listener to the search field to listen for "Enter" key
-        searchField.addKeyListener(new KeyListener() {
+        add(textField);
+        add(suggestionLabel);
+        add(showAllRecipesButton); // Add button to the UI
+
+        textField.addKeyListener(new KeyAdapter() {
             @Override
             public void keyTyped(KeyEvent e) {
-                // Not needed for this example
+                performSearch();
             }
+        });
 
-            @Override
-            public void keyPressed(KeyEvent e) {
-                // Not needed for this example
+        showAllRecipesButton.addActionListener(e -> {
+            if(isShowAllRecipes){
+                isShowAllRecipes = false;
+                showAllRecipesButton.setText("Show All Recipes"); // shows all recipes regardless 
+            } else {
+                isShowAllRecipes = true;
+                showAllRecipesButton.setText("Hide All Recipes"); // only shows recipes in users diet 
             }
-
-            @Override
-            public void keyReleased(KeyEvent e) {
-                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-                    // Perform search action when Enter key is pressed
-                    String query = searchField.getText();
-                    performSearch(query);
-                }
-            }
+            performSearch();
         });
     }
 
-    private void performSearch(String query) {
-        // TODO: Implement your search logic here
-        // For simplicity, let's just display the query in the result area
+    private void performSearch() {
+        String query = textField.getText().toLowerCase();
+        StringBuilder suggestions = new StringBuilder("Suggestions: ");
 
-        // call search class which will search for recipes then diets then ingredients and pool the most likely ones together 
-        // unless we decide to have them all seperate in there on jframes then we just search over which frame the
-        // user is in at that moment  
-        resultArea.setText("Search results for: " + query);
+        ArrayList<Recipe> returnedRecipes = Search.getRecipeSearchResults(query, recipes, user.getSavedRecipeIDs(), user.getDiet(), isShowAllRecipes);
+
+        System.out.println(returnedRecipes.size());
+        for (Recipe recipe : returnedRecipes) {
+            suggestions.append(recipe.getName()).append(", ");
+        }
+
+        if (suggestions.length() > 14) {
+            suggestions.setLength(suggestions.length() - 2);
+        }
+
+        suggestionLabel.setText(suggestions.toString());
+    }
+
+   
+    private void loadData(){
+        user = ResourceLoader.loadUser(LogIn.getUserJsonPath("Tom"));
+        recipes = ResourceLoader.loadRecipes();
+
+        System.out.println("Loaded all data");
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new SearchTesting().setVisible(true);
-            }
-        });
+        SwingUtilities.invokeLater(SearchTesting::new);
     }
 }

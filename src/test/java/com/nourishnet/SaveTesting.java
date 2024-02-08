@@ -24,6 +24,7 @@ public class SaveTesting {
 
         System.out.println("Users new age : " + user.getAge());
 
+        // upload a photo CircularImageFrame.saveImage(the uploaded photo, Pointers.userDir + '/' + user.getUsername());
         SerializeJsonData.serializeUser(user, LogIn.getUserJsonPath("TestUser"));
     }
 
@@ -49,11 +50,10 @@ public class SaveTesting {
         user.setWeight(weight);
 
         System.out.print("Enter diet (0 for none, 1 for vegetarian, 2 for vegan, etc.): ");
-        int diet = input.nextInt();
+        String diet = input.nextLine();
         user.setDiet(diet);
 
         // saved recipes don't need to be made at the start, also password is easy to do but cba
-        input.nextLine(); 
         input.close();
 
         SerializeJsonData.serializeNewUser(user);
@@ -62,14 +62,10 @@ public class SaveTesting {
     }
 
     public static void recipeSaving(){
-
-        ArrayList<Ingredient> ing = ResourceLoader.loadIngredients();
         
         
         ArrayList<Recipe> recipes = ResourceLoader.loadRecipes();
     
-        recipes.get(0).setIngredients(ResourceLoader.loadIngredientsIntoRecipes(recipes.get(0).getQuantitiesNames(), ing));
-
         recipes.get(0).setDescription("hello world");
 
         SerializeJsonData.serializeRecipes(recipes, Pointers.content + "/Recipes.json");

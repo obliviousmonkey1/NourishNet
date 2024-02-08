@@ -10,6 +10,10 @@ import javax.swing.ImageIcon;
 
 public class Tools {
 
+    public static int generateNewFamilyId(int min, int max){
+        return (int) (Math.random() * (max - min + 1) + min);
+    }
+
     public static ImageIcon getRecipeImage(String recipeName){
         StringBooleanPair hImage = LogIn.hasImage(recipeName, Pointers.recipeImagePath);
         System.out.println(hImage.getHasImage());
@@ -27,5 +31,11 @@ public class Tools {
         }
         return new ImageIcon(Pointers.userDir + "/" + Pointers.dietImagePath + "/default.jpeg");
     }
+
+    // load all the data so no need for that in the app/ creat a data type for it as well that contains an arry of ingredients
+    // and recipes 
+    // public static void loadData(){
+    //     //
+    // }
 }
 

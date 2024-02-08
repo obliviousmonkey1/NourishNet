@@ -1,9 +1,10 @@
 {
+    "folderId": "0000",
     "username": "Josh",
     "age": 18,
     "height": 1.83,
     "weight" : 76,
-    "diet" : 0,
+    "diet" : "Vegan",
     "savedRecipeIDs" : [0,1,3],
     "password" : "iliketom"
 }

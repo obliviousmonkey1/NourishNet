@@ -19,6 +19,7 @@ public class CircularImageFrame {
         return null;
     }
 
+
     private static void createCircularImage(BufferedImage originalImage, String path) {
         int diameter = Math.min(originalImage.getWidth(), originalImage.getHeight());
 
