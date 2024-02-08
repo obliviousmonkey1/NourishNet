@@ -3,20 +3,20 @@ COMPLETED
 - JSON save a load system for all data that is needed in the program 
 - Move Ingredients into a seperate Json file, and have a pointer in recipes to them
 - Come up with a better name then tempName 
+- Look over bbc good foods and decide all the tags we want 
+- Look into moving diet out of tags in recipes for easier referencing 
+- Search system : Make it so the only recipes displayed are ones that are on your diet plan , unless selected otherwise
+- Look into tags don't think they need to be a class
+
 
 COMPLETED FIRST PASS
 - Saving new user : need to make it check if there already a foler with the same name before saving to avoid errors
 - Reorganise recipe Json and class
 
 IN PROGRESS
+- Add recipes 
 - Move the loading data logic out of app and into a seperate function and create a data structure to house diets and recipes
-- Changing up folder structure for users to fit families
-- Look over bbc good foods and decide all the tags we want 
-- Look into moving diet out of tags in recipes for easier referencing 
-- Search system : Make it so the only recipes displayed are ones that are on your diet plan , unless selected otherwise
 - Continue creation of functions to help speed up the GUI creation 
-- Take into account number of an ingredient when calculating calores
-- Look into tags don't think they need to be a class
 
 TODO
 - Code clean up targeting un-used variables and functions
