@@ -24,6 +24,7 @@ public class SaveTesting {
 
         System.out.println("Users new age : " + user.getAge());
 
+        // upload a photo CircularImageFrame.saveImage(the uploaded photo, Pointers.userDir + '/' + user.getUsername());
         SerializeJsonData.serializeUser(user, LogIn.getUserJsonPath("TestUser"));
     }
 
