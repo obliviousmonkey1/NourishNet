@@ -104,3 +104,4 @@ class ImageDisplayFrame extends JPanel { // Extend JPanel instead of JFrame for 
         repaint(); // Repaint the panel
     }
 }
+
