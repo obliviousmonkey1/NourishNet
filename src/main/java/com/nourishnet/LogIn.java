@@ -10,7 +10,7 @@ import javax.swing.ImageIcon;
 
 public class LogIn {
 	static String extension = "json";
-
+    
     // 25/01/24 : TE : Gets the names and profile photos of users
     public static List<StringImagePair> getUserProfiles(){
         File userProfileDir = new File(Pointers.userDir + Pointers.usersPath);

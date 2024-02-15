@@ -1,6 +1,8 @@
 package com.nourishnet;
 
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
 import java.awt.image.BufferedImage;
@@ -9,6 +11,12 @@ import java.io.IOException;
 
 public class CircularImageFrame {
 
+
+    public static void loadImage(String username, BufferedImage image) {
+        
+        createCircularImage(image, Pointers.userDir +'/' + Pointers.usersPath + '/' + username + '/' + username + ".png");
+
+    }
 
     public static BufferedImage loadImage(String imagePath) {
         try {
