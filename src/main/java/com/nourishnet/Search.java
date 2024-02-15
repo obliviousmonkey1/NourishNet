@@ -21,7 +21,7 @@ public class Search {
         returnedRecipes.addAll(uniqueRecipes);
         return returnedRecipes;
     }
-    
+
     private static boolean matchesQuery(Recipe recipe, String query) {
         String lowerCaseQuery = query.toLowerCase();
         return recipe.getTags().stream().anyMatch(tag -> tag.toLowerCase().contains(lowerCaseQuery))
@@ -33,5 +33,16 @@ public class Search {
     public static Boolean sameDiet(String userDietPlan, ArrayList<String> recipeDiets) {
         return recipeDiets.stream().anyMatch(diet -> userDietPlan.equalsIgnoreCase(diet));
     }
+
+    // search over the recipes and check if any ingredients and amounts in it 90% freshhold 
+    // stored as a tuple with the recipe and the percentage of ingredients that match
+    // public static ArrayList<Recipe> getIngredientsSearch(ArrayList<Recipe> recipeHolder, ArrayList<String> ingredientQuery, ArrayList<Integer> amount, Boolean showAllRecipes) {
+    //     ArrayList<Recipe> returnedRecipes = new ArrayList<>();
+    //     Set<Recipe> uniqueRecipes = new HashSet<>();
+        
+    // }
+
+    
+       
 }    
     

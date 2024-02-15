@@ -10,9 +10,6 @@ import javax.swing.ImageIcon;
 
 public class Tools {
 
-    public static int generateNewFamilyId(int min, int max){
-        return (int) (Math.random() * (max - min + 1) + min);
-    }
 
     public static ImageIcon getRecipeImage(String recipeName){
         StringBooleanPair hImage = LogIn.hasImage(recipeName, Pointers.recipeImagePath);
