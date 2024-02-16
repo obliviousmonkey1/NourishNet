@@ -20,12 +20,16 @@ public class LogIn {
 
         for(int i=0; i < listOfFiles.length; i++){
             if(listOfFiles[i].isDirectory()){
-                String username = listOfFiles[i].getName();
+
+                // create a temp user object to get the user's name
+                User tempUser = ResourceLoader.loadUser(getUserJsonPath(listOfFiles[i].getName()));
+                String userId = listOfFiles[i].getName();
+                String username = tempUser.getUsername();
                 System.out.println(listOfFiles[i].getPath());
 
-                StringBooleanPair imageData =  hasImage(username, listOfFiles[i].getPath());
+                StringBooleanPair imageData =  hasImage(userId, listOfFiles[i].getPath());
                 if(imageData.getHasImage()){
-                    imagePath = listOfFiles[i].getPath() +"/"+ username + imageData.getExtension();
+                    imagePath = listOfFiles[i].getPath() +"/"+ userId + imageData.getExtension();
                 }else{
                     imagePath = Pointers.userDir + Pointers.usersPath + "/default.png";
                 }
@@ -34,6 +38,15 @@ public class LogIn {
             }
         }
         return profileList;
+    }
+
+    // 15/02/24 : TE : Gets the new user id 
+    public static String getNewUserId(){
+        if(getNumberOfUserProfiles() == 0){
+            return "0000";
+        }else{
+            return String.format("%04d", getNumberOfUserProfiles() + 1);
+        }
     }
 
     // 25/01/24 : TE : Gets the number of user profiles if 0 then asks user to create one
