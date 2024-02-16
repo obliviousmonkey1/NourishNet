@@ -6,6 +6,8 @@ public class LoadingDataTesting {
     
 
     public static void main(String[] args) {
+        System.out.println(LogIn.getNewUserId()); // debug
+
         User user = ResourceLoader.loadUser(LogIn.getUserJsonPath("Tom"));
         System.out.println(user.getHasPassword());
         

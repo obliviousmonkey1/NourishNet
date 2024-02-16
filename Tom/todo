@@ -8,12 +8,13 @@ COMPLETED
 - Search system : Make it so the only recipes displayed are ones that are on your diet plan , unless selected otherwise
 - Look into tags don't think they need to be a class
 
-
 COMPLETED FIRST PASS
 - Saving new user : need to make it check if there already a foler with the same name before saving to avoid errors
 - Reorganise recipe Json and class
 
 IN PROGRESS
+- Change the folder structure of users so it includes a folder id instead of using the name so when a user is being created its folder can be created straight away 
+- make the jsons file name also the id 
 - Add recipes 
 - Move the loading data logic out of app and into a seperate function and create a data structure to house diets and recipes
 - Continue creation of functions to help speed up the GUI creation 
