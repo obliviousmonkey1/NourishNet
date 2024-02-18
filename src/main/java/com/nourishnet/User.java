@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class User {
+    private String id;
     private String username;
     private int height;
     private int weight;
@@ -27,10 +28,11 @@ public class User {
     // 28/01/23( : TE : This is for loading existing users 
 
     @JsonCreator
-    public User(@JsonProperty("username") String username, @JsonProperty("DOB") int[] DOB,
+    public User(@JsonProperty("id") String id, @JsonProperty("username") String username, @JsonProperty("DOB") int[] DOB,
                 @JsonProperty("height") int height, @JsonProperty("weight") int weight,
                 @JsonProperty("diet") String diet, @JsonProperty("savedRecipeIDs") ArrayList<Integer> savedRecipeIDs,
                 @JsonProperty("password") String password) {
+        this.id = id;
         this.username = username;
         this.DOB = DOB;
         this.height = height;
@@ -42,7 +44,12 @@ public class User {
 
     @JsonIgnore
     public User() {
-        this("", emptyDOB, 0, -1, "", new ArrayList<>(), "");
+        this("", "", emptyDOB, 0, -1, "", new ArrayList<>(), "");
+        this.id = LogIn.getNewUserId();
+    }
+
+    public String getId() {
+        return this.id;
     }
 
     public String getUsername() {
