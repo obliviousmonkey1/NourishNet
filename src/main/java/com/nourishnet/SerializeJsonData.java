@@ -11,11 +11,9 @@ import java.util.ArrayList;
 public class SerializeJsonData {
     
     public static void serializeNewUser(User user){
-        // need to have it check if another folder with that name already exists 
-        // before trying to create a folder. 
-        // have it return a boolean if folder already exists with the same name
-        String folderPath = Pointers.userDir + '/' + Pointers.usersPath + '/' + user.getUsername(); 
-        File folder = new File(Pointers.userDir + '/' + Pointers.usersPath + '/' + user.getUsername());
+       
+        String folderPath = Pointers.userDir + '/' + Pointers.usersPath + '/' + user.getId(); 
+        File folder = new File(Pointers.userDir + '/' + Pointers.usersPath + '/' + user.getId());
 
         boolean folderCreated = folder.mkdirs();
 
@@ -25,7 +23,7 @@ public class SerializeJsonData {
             System.err.println("Failed to create folder.");
         }
 
-        serializeUser(user, folderPath + '/' + user.getUsername() + ".json");  
+        serializeUser(user, folderPath + '/' + user.getId() + ".json");  
     }
 
     public static void serializeUser(User user, String filePath){
