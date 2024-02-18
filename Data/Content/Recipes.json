@@ -34,5 +34,135 @@
       "Garnish with sliced spring onions and serve hot."
     ],
     "tags": ["Dairy-free", "Egg-free"]
+  },
+
+{
+  "name": "Satay Sweet Potato Curry",
+  "diet": ["Vegetarian", "Vegan"],
+  "prepTime": 15,
+  "cookTime": 30,
+  "level": "Easy",
+  "serves": 4,
+  "nutrition": {
+  "calories": 373,
+  "fat": 18,
+  "saturates": 11,
+  "carbs": 42,
+  "sugars": 19,
+  "fibre": 7,
+  "protein": 7,
+  "salt": 0.4
+  },
+  "description": "A creamy and flavorful sweet potato curry with a hint of satay.",
+  "ingredients": [
+  { "name": "Sweet potatoes", "quantity": 600, "measurement": "grams, peeled and cubed" },
+  { "name": "Vegetable oil", "quantity": 1, "measurement": "tablespoon" },
+  { "name": "Red onion", "quantity": 1, "measurement": "large, finely chopped" },
+  { "name": "Garlic cloves", "quantity": 2, "measurement": "crushed" },
+  { "name": "Curry powder", "quantity": 2, "measurement": "teaspoons" },
+  { "name": "Crunchy peanut butter", "quantity": 2, "measurement": "tablespoons" },
+  { "name": "Coconut milk", "quantity": 400, "measurement": "milliliters" },
+  { "name": "Soy sauce", "quantity": 2, "measurement": "tablespoons" },
+  { "name": "Brown sugar", "quantity": 1, "measurement": "tablespoon" },
+  { "name": "Lime", "quantity": 1, "measurement": "juiced" },
+  { "name": "Salt", "quantity": null, "measurement": "to taste" },
+  { "name": "Fresh coriander", "quantity": null, "measurement": "to garnish" }
+  ],
+  "instructions": [
+  "Heat the vegetable oil in a large pan over medium heat.",
+  "Add the chopped onion and cook until softened, about 5 minutes.",
+  "Stir in the crushed garlic and curry powder, cook for another minute.",
+  "Add the cubed sweet potatoes, peanut butter, coconut milk, soy sauce, and brown sugar. Stir well to combine.",
+  "Bring to a simmer and cook for about 20 minutes or until the sweet potatoes are tender.",
+  "Stir in the lime juice and season with salt to taste.",
+  "Garnish with fresh coriander before serving."
+  ],
+  "tags": ["Dairy-free", "Gluten-free"]
+  },
+  {
+    "name": "Sesame Salmon with Purple Sprouting Broccoli and Sweet Potato Mash",
+    "diet": ["Pescatarian"],
+    "prepTime": 15,
+    "cookTime": 25,
+    "level": "Easy",
+    "serves": 2,
+    "nutrition": {
+      "calories": 562,
+      "fat": 29,
+      "saturates": 8,
+      "carbs": 40,
+      "sugars": 11,
+      "fibre": 8,
+      "protein": 39,
+      "salt": 1.6
+    },
+    "description": "A delicious and nutritious meal featuring sesame-coated salmon, purple sprouting broccoli, and sweet potato mash.",
+    "ingredients": [
+      { "name": "Salmon fillets", "quantity": 2, "measurement": "150g each" },
+      { "name": "Sesame seeds", "quantity": 2, "measurement": "tablespoons" },
+      { "name": "Olive oil", "quantity": 1, "measurement": "tablespoon" },
+      { "name": "Sweet potatoes", "quantity": 400, "measurement": "grams, peeled and chopped" },
+      { "name": "Purple sprouting broccoli", "quantity": 200, "measurement": "grams" },
+      { "name": "Butter", "quantity": 25, "measurement": "grams" },
+      { "name": "Salt", "quantity": null, "measurement": "to taste" },
+      { "name": "Black pepper", "quantity": null, "measurement": "to taste" }
+    ],
+    "instructions": [
+      "Preheat the oven to 200°C/180°C fan/gas 6.",
+      "Place the salmon fillets on a baking tray lined with parchment paper.",
+      "Brush the salmon fillets with olive oil and sprinkle sesame seeds on top, pressing lightly to adhere.",
+      "Bake in the preheated oven for 12-15 minutes, or until the salmon is cooked through and the sesame seeds are golden.",
+      "While the salmon is cooking, place the sweet potatoes in a large pan of boiling water and cook for 10-12 minutes, or until tender.",
+      "In another pan of boiling water, cook the purple sprouting broccoli for 3-4 minutes, or until tender.",
+      "Drain the sweet potatoes and return them to the pan. Mash with butter until smooth and season with salt and black pepper to taste.",
+      "Serve the sesame salmon with the sweet potato mash and purple sprouting broccoli."
+    ],
+    "tags": ["Gluten-free", "Dairy-free", "Healthy", "High-protein"]
+  },
+  {
+    "name": "Rösti Fish Cakes",
+    "diet": ["Pescatarian"],
+    "prepTime": 30,
+    "cookTime": 25,
+    "level": "Intermediate",
+    "serves": 4,
+    "nutrition": {
+      "calories": 368,
+      "fat": 14,
+      "saturates": 4,
+      "carbs": 29,
+      "sugars": 2,
+      "fibre": 3,
+      "protein": 28,
+      "salt": 1.4
+    },
+    "description": "Delicious fish cakes made with tender fish fillets and crispy rösti potatoes.",
+    "ingredients": [
+      { "name": "Potatoes", "quantity": 500, "measurement": "grams, peeled and grated" },
+      { "name": "Butter", "quantity": 2, "measurement": "tablespoons" },
+      { "name": "Olive oil", "quantity": 1, "measurement": "tablespoon" },
+      { "name": "White fish fillets", "quantity": 400, "measurement": "grams, skinned and boned" },
+      { "name": "Spring onions", "quantity": 6, "measurement": "trimmed and finely sliced" },
+      { "name": "Egg", "quantity": 1, "measurement": null },
+      { "name": "Parsley", "quantity": 2, "measurement": "tablespoons, finely chopped" },
+      { "name": "Lemon zest", "quantity": 1, "measurement": "teaspoon" },
+      { "name": "Salt", "quantity": null, "measurement": "to taste" },
+      { "name": "Black pepper", "quantity": null, "measurement": "to taste" }
+    ],
+    "instructions": [
+      "Place the grated potatoes in a clean tea towel and squeeze out excess moisture.",
+      "Heat half the butter and oil in a large frying pan over medium heat.",
+      "Add the grated potatoes to the pan and press down firmly with a spatula to form a large potato cake.",
+      "Cook for 10-12 minutes until golden and crispy on the bottom, then carefully flip and cook for another 8-10 minutes until the other side is golden and crispy.",
+      "Meanwhile, place the fish fillets in a pan of boiling water and simmer for 3-4 minutes until cooked through.",
+      "Drain the fish and flake into a large bowl. Add the spring onions, egg, parsley, lemon zest, salt, and black pepper. Mix well to combine.",
+      "Divide the fish mixture into four equal portions and shape into fish cakes.",
+      "Heat the remaining butter and oil in a clean frying pan over medium heat.",
+      "Add the fish cakes to the pan and cook for 3-4 minutes on each side until golden and cooked through.",
+      "Serve the fish cakes with the crispy rösti potatoes."
+    ],
+    "tags": ["Dairy-free", "Healthy"]
   }
+  
+  
 ]

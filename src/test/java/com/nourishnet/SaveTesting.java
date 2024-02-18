@@ -18,12 +18,6 @@ public class SaveTesting {
         User user = ResourceLoader.loadUser(LogIn.getUserJsonPath("TestUser"));
         System.out.println(user.getUsername());
 
-        System.out.println("Users age : " + user.getAge());
-
-        user.setAge(user.getAge()+2);
-
-        System.out.println("Users new age : " + user.getAge());
-
         // upload a photo CircularImageFrame.saveImage(the uploaded photo, Pointers.userDir + '/' + user.getUsername());
         SerializeJsonData.serializeUser(user, LogIn.getUserJsonPath("TestUser"));
     }
@@ -37,13 +31,6 @@ public class SaveTesting {
         String name = input.nextLine();
         user.setUsername(name);
 
-        System.out.print("Enter age: ");
-        int age = input.nextInt();
-        user.setAge(age);
-
-        System.out.print("Enter height (in meters): ");
-        double height = input.nextDouble();
-        user.setHeight(height);
 
         System.out.print("Enter weight (in kilograms): ");
         int weight = input.nextInt();
