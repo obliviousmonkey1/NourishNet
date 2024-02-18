@@ -10,7 +10,6 @@ public class SearchTesting extends JFrame {
     private JTextField textField;
     private JLabel suggestionLabel;
     private JButton showAllRecipesButton; // Added button declaration
-    private ArrayList<String> suggestionList;
     private ArrayList<Recipe> recipes;
     private User user;
     private boolean isShowAllRecipes;
@@ -78,7 +77,7 @@ public class SearchTesting extends JFrame {
 
    
     private void loadData(){
-        user = ResourceLoader.loadUser(LogIn.getUserJsonPath("Tom"));
+        user = ResourceLoader.loadUser(LogIn.getUserJsonPath("0004"));
         recipes = ResourceLoader.loadRecipes();
 
         System.out.println("Loaded all data");

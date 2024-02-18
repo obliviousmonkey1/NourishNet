@@ -6,8 +6,8 @@ public class Pointers {
     public static String usersPath = "/Data/Users";
     public static String content = "Data/content";
     public static String recipeImagePath = "Data/content/recipeImages";
-    public static String ingredientImagePath = "Data/content/ingredientImages";
     public static String dietImagePath = "Data/content/dietImages";
+    public static String iconsPath = "Data/content/icons";
     public static String userDir = System.getProperty("user.dir");
 
 }

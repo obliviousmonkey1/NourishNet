@@ -13,6 +13,7 @@ COMPLETED FIRST PASS
 - Reorganise recipe Json and class
 
 IN PROGRESS
+- Look into splitting recipes into diet types so we know how many we have for each 
 - users can be deleted and edited 
 - Change the folder structure of users so it includes a folder id instead of using the name so when a user is being created its folder can be created straight away 
 - make the jsons file name also the id 

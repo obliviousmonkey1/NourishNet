@@ -18,5 +18,9 @@
   {
     "name": "Vegetarian",
     "description" : "A vegetarian diet excludes meat, poultry, and seafood but typically includes plant-based foods like fruits, vegetables, grains, legumes, nuts, and seeds. It can be further categorized into types like lacto-ovo vegetarian, lacto-vegetarian, ovo-vegetarian, vegan, and pescatarian, each with varying exclusions and inclusions of animal-derived products."
+  },
+  {
+    "name": "Pescatarian",
+    "description" : "A pescatarian diet involves consuming fish and seafood while avoiding other types of meat. It combines the health benefits associated with plant-based diets with the inclusion of fish as a source of protein and essential nutrients."
   }
 ]
