@@ -9,12 +9,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class User {
     private String folderId;
     private String username;
-    private int age;
-    private double height;
+    private int height;
     private int weight;
     private String diet;
     private ArrayList<Integer> savedRecipeIDs;
     private String password;
+    private int[] DOB = new int[3]; //15/02/24 : JZ : the user will have a DOB stored which makes it easier to calculate age especially when time passes and a birthday comes 
+    private static final int[] emptyDOB = {0,0,0}; //for the empty constructor
 
     // 28/01/23 : TE : This is for when creating a user  
     // public User(){
@@ -27,13 +28,13 @@ public class User {
     // 28/01/23( : TE : This is for loading existing users 
 
     @JsonCreator
-    public User(@JsonProperty("folderId") String folderId, @JsonProperty("username") String username, @JsonProperty("age") int age,
-                @JsonProperty("height") double height, @JsonProperty("weight") int weight,
+    public User(@JsonProperty("folderId") String folderId, @JsonProperty("username") String username, @JsonProperty("DOB") int[] DOB,
+                @JsonProperty("height") int height, @JsonProperty("weight") int weight,
                 @JsonProperty("diet") String diet, @JsonProperty("savedRecipeIDs") ArrayList<Integer> savedRecipeIDs,
                 @JsonProperty("password") String password) {
         this.username = username;
         this.folderId = folderId;
-        this.age = age;
+        this.DOB = DOB;
         this.height = height;
         this.weight = weight;
         this.diet = diet;
@@ -43,7 +44,7 @@ public class User {
 
     @JsonIgnore
     public User() {
-        this("","", -1, 0.0, -1, "", new ArrayList<>(), "");
+        this("","", emptyDOB, 0, -1, "", new ArrayList<>(), "");
     }
     
     public String getFolderId() {
@@ -58,19 +59,19 @@ public class User {
         this.username = username;
     }
 
-    public int getAge() {
-        return this.age;
+    public int[] getDOB() {
+        return this.DOB;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setDOB(int[] DOB) {
+        this.DOB = DOB;
     }
 
     public double getHeight() {
         return this.height;
     }
 
-    public void setHeight(double height) {
+    public void setHeight(int height) {
         this.height = height;
     }
 
