@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 import java.awt.*; 
-import java.util.ArrayList;
 import java.util.List;
 
 import java.awt.event.KeyEvent;
@@ -21,15 +20,17 @@ public class Testing extends JFrame {
         // user.setPassword("hello");
         // System.out.println(user.checkPassword("hello"));
 
-        String userDir = System.getProperty("user.dir");
         setLayout(new FlowLayout());
         setSize(500, 500);
         getContentPane().setBackground(Color.BLACK);
         List<StringImagePair> profiles = LogIn.getUserProfiles();
 
         for (int i = 0; i < profiles.size(); i++) {
-            String buttonText = profiles.get(i).getText();
-            JButton button = new JButton(buttonText);
+
+            // EXPLAIN WHAT THIS IS 
+            JButton button = new JButton(profiles.get(i).getText());
+            button.putClientProperty("id", profiles.get(i).getId());
+            //
 
             int newWidth = 200; 
             int newHeight = 150; 
@@ -38,7 +39,11 @@ public class Testing extends JFrame {
                 @Override
                 public void actionPerformed(ActionEvent e) {
 
-                    String userJsonPath = LogIn.getUserJsonPath(buttonText);
+                    // EXPLAIN WHAT THIS IS
+                    String userJsonPath = LogIn.getUserJsonPath(button.getClientProperty("id").toString());
+                    //
+
+
                     try {
                         User user = DeserializeJsonData.initaliseUserClass(userJsonPath);
                         System.out.println(user.getHeight());
@@ -131,30 +136,6 @@ public class Testing extends JFrame {
                     
                 }
             });
-
-
-
-            // GridBagConstraints gbc = new GridBagConstraints();
-            // gbc.gridx = 0;
-            // gbc.gridy = 0;
-            // gbc.insets = new Insets(10, 10, 10, 10); // Padding
-
-            // try{
-            //     ArrayList<Recipe> recipe = DeserializeUserData.initaliseRecipeClass();
-            //     ImageIcon imageIcon = Tools.getRecipeImage(recipe.get(0).getName());
-            //     if(imageIcon!=null){
-            //         Image scaledImage = imageIcon.getImage().getScaledInstance(newWidth, newHeight, Image.SCALE_SMOOTH);
-            //         imageIcon = new ImageIcon(scaledImage);
-            //         add(new JLabel(imageIcon));
-    
-            //     }else{
-            //         System.out.println("No recipe image");
-            //     }
-               
-
-            // } catch (Exception e1) {
-            //     e1.printStackTrace();
-            // }
 
             ImageIcon imageIcon = profiles.get(i).getImage();
             if (imageIcon != null) {
