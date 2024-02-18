@@ -41,7 +41,7 @@ public class Diet {
                     recipeExamples.add(recipeHolder.get(i));
                     number++;
     
-                    if (number == 4) {
+                    if (number == Config.numberOfRecipesReturned) {
                         return recipeExamples;
                     }
                     break;

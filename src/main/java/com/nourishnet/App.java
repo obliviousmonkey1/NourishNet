@@ -72,8 +72,8 @@ public class App
 
         for (int i = 0; i < profiles.size(); i++) 
         {
-            String buttonText = profiles.get(i).getText();
-            JButton button = new JButton(buttonText);
+            JButton button = new JButton(profiles.get(i).getText());
+            button.putClientProperty("id", profiles.get(i).getId());
 
             int newWidth = 200; 
             int newHeight = 150; 
@@ -87,7 +87,7 @@ public class App
                     try
                     {
 
-                        String userJsonPath = LogIn.getUserJsonPath(buttonText);
+                        String userJsonPath = LogIn.getUserJsonPath(button.getClientProperty("id").toString());
                         User user = DeserializeJsonData.initaliseUserClass(userJsonPath);
 
                         if (user.getHasPassword())  //if the user's profile is password protected

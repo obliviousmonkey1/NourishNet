@@ -9,7 +9,7 @@ import javax.swing.ImageIcon;
 
 
 public class LogIn {
-	static String extension = "json";
+	
     
     // 25/01/24 : TE : Gets the names and profile photos of users
     public static List<StringImagePair> getUserProfiles(){
@@ -22,10 +22,10 @@ public class LogIn {
             if(listOfFiles[i].isDirectory()){
 
                 // create a temp user object to get the user's name
-                User tempUser = ResourceLoader.loadUser(getUserJsonPath(listOfFiles[i].getName()));
                 String userId = listOfFiles[i].getName();
-                String username = tempUser.getUsername();
-                System.out.println(listOfFiles[i].getPath());
+                String username = ResourceLoader.loadUser(getUserJsonPath(listOfFiles[i].getName())).getUsername();
+
+                System.out.println(listOfFiles[i].getPath()); // debug
 
                 StringBooleanPair imageData =  hasImage(userId, listOfFiles[i].getPath());
                 if(imageData.getHasImage()){
@@ -33,7 +33,7 @@ public class LogIn {
                 }else{
                     imagePath = Pointers.userDir + Pointers.usersPath + "/default.png";
                 }
-                profileList.add(new StringImagePair(username, new ImageIcon(imagePath)));
+                profileList.add(new StringImagePair(username, userId, new ImageIcon(imagePath)));
                 
             }
         }
@@ -67,8 +67,8 @@ public class LogIn {
     }
 
     // 02/02/24 : TE : Gets the selectedUsersJsonPath
-    public static String getUserJsonPath(String username){
-        return Pointers.userDir + Pointers.usersPath + "/" + username + "/" + username + ".json";
+    public static String getUserJsonPath(String userId){
+        return Pointers.userDir + Pointers.usersPath + "/" + userId + "/" + userId + ".json";
     }
 
     // 25/01/24 : TE : Checks if file name ends with specified extension
@@ -93,15 +93,21 @@ public class LogIn {
 // 25/01/24 : TE : Love you Josh <3
 class StringImagePair {
     private String text;
+    private String id;
     private ImageIcon image;
 
-    public StringImagePair(String text, ImageIcon image) {
+    public StringImagePair(String text, String id, ImageIcon image) {
         this.text = text;
+        this.id = id;
         this.image = image;
     }
 
     public String getText() {
         return text;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public ImageIcon getImage() {
