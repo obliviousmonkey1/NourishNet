@@ -1,8 +1,8 @@
 {
     "folderId": "0000",
     "username": "Josh",
-    "age": 18,
-    "height": 1.83,
+    "DOB": [3,2,2006],
+    "height": 183,
     "weight" : 76,
     "diet" : "Vegan",
     "savedRecipeIDs" : [0,1,3],
