@@ -80,6 +80,8 @@ public class SearchTesting extends JFrame {
         user = ResourceLoader.loadUser(LogIn.getUserJsonPath("0004"));
         recipes = ResourceLoader.loadRecipes();
 
+        System.out.println(recipes.get(0).generateImagePath());
+
         System.out.println("Loaded all data");
     }
 
