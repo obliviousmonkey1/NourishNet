@@ -156,6 +156,20 @@ public class Recipe {
         this.tags = tags;
     }
 
+    @JsonIgnore
+    public String generateImagePath(){
+        String output = "";
+        for(int i =0 ; i< this.name.length();i++){
+            if (this.name.charAt(i) == ' '){
+                output += '-';
+            } else {
+                output += this.name.charAt(i);
+            }
+        }
+        System.out.println(output);
+        return Pointers.userDir + '/' + Pointers.recipeImagePath + '/' + output + ".png";
+    }
+
     public static class Nutrition {
         private int calories;
         private int fat;
