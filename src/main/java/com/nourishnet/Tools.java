@@ -12,12 +12,13 @@ public class Tools {
 
 
     public static ImageIcon getRecipeImage(String recipeName){
+        System.out.println("Recipe Name: " + recipeName);
         StringBooleanPair hImage = LogIn.hasImage(recipeName, Pointers.recipeImagePath);
         System.out.println(hImage.getHasImage());
         if(hImage.getHasImage()){
-            return new ImageIcon(Pointers.userDir + "/" + Pointers.recipeImagePath + "/" + recipeName + hImage.getExtension());
+            return new ImageIcon(Pointers.userDir + "/" + Pointers.recipeImagePath + "/" + recipeName + ".png");
         }
-        return new ImageIcon(Pointers.userDir + "/" + Pointers.recipeImagePath + "/default.jpeg");
+        return new ImageIcon(Pointers.userDir + "/" + Pointers.recipeImagePath + "/default.png");
     }
 
     public static ImageIcon getDietImage(String dietName){
