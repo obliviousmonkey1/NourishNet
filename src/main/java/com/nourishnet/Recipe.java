@@ -47,19 +47,8 @@ public class Recipe {
         this.ingredients = ingredients;
         this.instructions = instructions;
         this.tags = tags;
-        this.ingredients = new ArrayList<Ingredient>();
     }
 
-    @JsonIgnore
-    // public int calculateRecipeCalories() {
-    //     int sum = 0; 
-
-    //     for (int i = 0; i < ingredients.size(); i++) {
-    //         sum += ingredients.get(i).getCaloriesPer100g();
-    //     }
-
-    //     return sum;
-    // } 
 
     public String getName() {
         return this.name;
@@ -117,28 +106,14 @@ public class Recipe {
         this.description = description;
     }
 
-    @JsonIgnore
-    public void setIngredients(ArrayList<Ingredient> newIngredients) {
-        this.ingredients = newIngredients;
+
+    public void setIngredients(ArrayList<Ingredient> ingredients) {
+        this.ingredients = ingredients;
     }
 
     public ArrayList<Ingredient> getIngredients() {
         return this.ingredients;
     }
-
-
-    // @JsonIgnore
-    // public ArrayList<String> getQuantitiesNames(){
-    //     ArrayList<String> ingredientNames = new ArrayList<String>();
-    //     for (int i =0; i< in.size();i++){
-    //         ingredientNames.add(quantities.get(i).getIngredientName());
-    //     }
-    //     return ingredientNames;
-    // }
-
-    // public void setQuantities(ArrayList<Quantity> quantities) {
-    //     this.quantities = quantities;
-    // }
 
     public ArrayList<String> getInstructions() {
         return this.instructions;
@@ -159,15 +134,17 @@ public class Recipe {
     @JsonIgnore
     public String generateImagePath(){
         String output = "";
-        for(int i =0 ; i< this.name.length();i++){
-            if (this.name.charAt(i) == ' '){
+        String thing = this.name.toLowerCase();
+
+        for(int i =0 ; i< thing.length();i++){
+            if (thing.charAt(i) == ' '){
                 output += '-';
             } else {
-                output += this.name.charAt(i);
+                output += thing.charAt(i);
             }
         }
         System.out.println(output);
-        return Pointers.userDir + '/' + Pointers.recipeImagePath + '/' + output + ".png";
+        return output;
     }
 
     public static class Nutrition {
@@ -225,6 +202,15 @@ public class Recipe {
         public int getCarbs() {
             return this.carbs;
         }
+
+        public int getSugars() {
+            return this.sugars;
+        }
+
+        public int getFibre() {
+            return this.fibre;
+        }
+
     }
 
     public static class Ingredient {
@@ -245,7 +231,7 @@ public class Recipe {
             return this.name;
         }
 
-        public int getQuantity() {
+        public Integer getQuantity() {
             return this.quantity;
         }
 

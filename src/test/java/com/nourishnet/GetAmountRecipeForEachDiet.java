@@ -6,7 +6,8 @@ public class GetAmountRecipeForEachDiet {
 
     public static void main(String[] args) {
 
-        String[] diets = {"Vegan", "Vegetarian", "Pescatarian", "Keto", "Mediterranean", "Paleo"};
+        int totalRecipes = 0;
+        String[] diets = {"Vegan", "Vegetarian", "Pescatarian", "Keto", "Medeterranean", "Paleo"};
 
         ArrayList<DietAmount> dietAmounts = new ArrayList<>();
 
@@ -17,6 +18,7 @@ public class GetAmountRecipeForEachDiet {
         ArrayList<Recipe> recipes = ResourceLoader.loadRecipes();
 
         for (Recipe recipe : recipes) {
+            totalRecipes++;
             for (String recipeDiet : recipe.getDiet()) {
                 for (DietAmount dietAmount : dietAmounts) {
                     if (recipeDiet.equals(dietAmount.getDiet())) {
@@ -26,6 +28,7 @@ public class GetAmountRecipeForEachDiet {
             }
         }
 
+        System.out.println("Total Recipes: " + totalRecipes);
         for (DietAmount dietAmount : dietAmounts) {
             System.out.println("Diet: " + dietAmount.getDiet() + ", Amount: " + dietAmount.getAmount());
         }

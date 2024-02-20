@@ -13,6 +13,7 @@ COMPLETED FIRST PASS
 - Reorganise recipe Json and class
 
 IN PROGRESS
+- Look over running through recipes and checking if they are low in fat or whatever and then add a tag to them and save it 
 - Look into splitting recipes into diet types so we know how many we have for each 
 - users can be deleted and edited 
 - Change the folder structure of users so it includes a folder id instead of using the name so when a user is being created its folder can be created straight away 
@@ -22,6 +23,7 @@ IN PROGRESS
 - Continue creation of functions to help speed up the GUI creation 
 
 TODO
+- Create an icon json which links the tags with which icons they should use 
 - Code clean up targeting un-used variables and functions
 - Code clean up targeting pathing changing static paths to use Pointers class 
 - Creation of a user allow them to upload a profile picture and reuse that code for users wanting to change theirs

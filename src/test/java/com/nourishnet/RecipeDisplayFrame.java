@@ -43,7 +43,7 @@ public class RecipeDisplayFrame extends JFrame {
             int selectedIndex = recipeList.getSelectedIndex();
             if (selectedIndex != -1) {
                 Recipe selectedRecipe = recipes.get(selectedIndex);
-                ImageIcon imageIcon = Tools.getRecipeImage(selectedRecipe.getName());
+                ImageIcon imageIcon = Tools.getRecipeImage(selectedRecipe.generateImagePath());
                 if (imageIcon != null) {
                     // Update the existing ImageDisplayFrame with the new image
                     imageDisplayFrame.updateImage(imageIcon);
@@ -58,14 +58,45 @@ public class RecipeDisplayFrame extends JFrame {
         StringBuilder displayText = new StringBuilder();
         displayText.append("Recipe Name: ").append(recipe.getName()).append("\n");
         displayText.append("Ingredients:\n");
+    
+        // Iterate through ingredients and append them to displayText
 
-        // for (Ingredient ingredient : recipe.getIngredients()) {
-        //     displayText.append("- ").append(ingredient.getName()).append(": ")
-        //             .append(ingredient.getCaloriesPer100g()).append(" calories per 100g\n");
-        // }
-
+        for (Recipe.Ingredient ingredient : recipe.getIngredients()) {
+            StringBuilder ingredientText = new StringBuilder("- ");
+            ingredientText.append(ingredient.getIngredientName()).append(": ");
+            
+            if (ingredient.getQuantity() != null) {
+                ingredientText.append(ingredient.getQuantity()).append(" ")
+                        .append(ingredient.getMeasurement());
+            } else {
+                ingredientText.append("to taste");
+            }
+            
+            ingredientText.append("\n");
+            displayText.append(ingredientText);
+        }
+    
+        // Append nutrition information
+        displayText.append("\nNutrition Information:\n");
+        Recipe.Nutrition nutrition = recipe.getNutrition();
+        if (nutrition != null) {
+            displayText.append("- Calories: ").append(nutrition.getCalories()).append("\n");
+            displayText.append("- Fat: ").append(nutrition.getFat()).append("g\n");
+            displayText.append("- Saturates: ").append(nutrition.getSaturates()).append("g\n");
+            displayText.append("- Carbs: ").append(nutrition.getCarbs()).append("g\n");
+            displayText.append("- Sugars: ").append(nutrition.getSugars()).append("g\n");
+            displayText.append("- Fibre: ").append(nutrition.getFibre()).append("g\n");
+            displayText.append("- Protein: ").append(nutrition.getProtein()).append("g\n");
+            displayText.append("- Salt: ").append(nutrition.getSalt()).append("g\n");
+        } else {
+            displayText.append("No nutrition information available\n");
+        }
+    
         return displayText.toString();
     }
+    
+    
+    
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
