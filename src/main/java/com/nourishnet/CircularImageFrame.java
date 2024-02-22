@@ -12,9 +12,9 @@ import java.io.IOException;
 public class CircularImageFrame {
 
 
-    public static void loadImage(String username, BufferedImage image) {
+    public static void loadImage(String userId, BufferedImage image) {
         
-        createCircularImage(image, Pointers.userDir +'/' + Pointers.usersPath + '/' + username + '/' + username + ".png");
+        createCircularImage(image, Pointers.userDir +'/' + Pointers.usersPath + '/' + userId + '/' + userId + ".png");
 
     }
 
