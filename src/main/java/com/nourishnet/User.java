@@ -41,6 +41,11 @@ public class User {
         return this.id;
     }
 
+    // Only to be used if their is a folder creation error
+    protected void setUserId(String userId){
+        this.id = userId;
+    }
+
     public String getUsername() {
         return this.username;
     }
