@@ -119,6 +119,7 @@ public class MultiContainerFrame extends JFrame {
             
         }
 
+        System.out.println(returnedRecipes.size());
         revalidate(); // Revalidate the container panel to reflect changes
         repaint(); // Repaint the frame
     }

@@ -13,7 +13,7 @@ public class CircularImageFrame {
 
     public static void loadImage(String userId, BufferedImage image) {
         
-        createCircularImage(image,Pointers.usersPath + '/' + userId + '/' + userId + ".png");
+        createCircularImage(image,  Constants.usersPath + '/' + userId + '/' + userId + ".png");
 
     }
 

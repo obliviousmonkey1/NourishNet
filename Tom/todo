@@ -25,7 +25,7 @@ IN PROGRESS
 - Clean up files to put all the data type classes together 
 - Add proper icons for the rest of the diets and add that to the code
 - Re-organise wiki to arrange it for the important classes as well as add a table of contents
-- users can be deleted and edited 
+- Users can be deleted and edited 
 - Add recipes 
 - Continue creation of functions to help speed up the GUI creation 
 - Code clean up targeting un-used variables and functions
@@ -34,6 +34,7 @@ IN PROGRESS
 
 TODO
 - Tech Debt 
+- Look over all the functions in the classes and see if they can be organised and paired together in a better way 
 - Creation of a user allow them to upload a profile picture and reuse that code for users wanting to change theirs
 - Dynamic pointer in Pointers class for current user so don't have to keep creating path
 - Search via ingredients feature where the user enters the ingredient and quantity and will search for recipes which have those ingredients or most of them 90% is limit, populate the ingredient list while they are typing select an ingredient then add a quantity and when they are done press search 

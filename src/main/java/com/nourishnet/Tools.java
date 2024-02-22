@@ -9,21 +9,21 @@ public class Tools {
 
 
     public static ImageIcon getRecipeImage(String imageName){
-        DataStructures.StringBooleanPair hImage = LogIn.hasImage(imageName, Pointers.recipeImagePath);
+        DataStructures.StringBooleanPair hImage = LogIn.hasImage(imageName, Constants.recipeImagePath);
         System.out.println(hImage.getHasImage());
         if(hImage.getHasImage()){
-            return new ImageIcon(Pointers.recipeImagePath + "/" + imageName + ".png");
+            return new ImageIcon(Constants.recipeImagePath + "/" + imageName + ".png");
         }
-        return new ImageIcon(Pointers.recipeImagePath + "/default.png");
+        return new ImageIcon(Constants.recipeImagePath + "/default.png");
     }
 
     public static ImageIcon getDietImage(String dietName){
-        DataStructures.StringBooleanPair hImage = LogIn.hasImage(dietName, Pointers.dietImagePath);
+        DataStructures.StringBooleanPair hImage = LogIn.hasImage(dietName, Constants.dietImagePath);
         System.out.println(hImage.getHasImage());
         if(hImage.getHasImage()){
-            return new ImageIcon(Pointers.dietImagePath + "/" + dietName + hImage.getExtension());
+            return new ImageIcon(Constants.dietImagePath + "/" + dietName + hImage.getExtension());
         }
-        return new ImageIcon(Pointers.dietImagePath + "/default.jpeg");
+        return new ImageIcon(Constants.dietImagePath + "/default.jpeg");
     }
 
 
@@ -33,26 +33,26 @@ public class Tools {
         for(String diet : recipe.getDiet()){
 
             if (diet.equals("Vegetarian")) {
-                icons.add(new DataStructures.StringImagePair(diet, new ImageIcon(Pointers.vegetarianIcon)));
+                icons.add(new DataStructures.StringImagePair(diet, new ImageIcon(Constants.vegetarianIcon)));
             } else if (diet.equals("Vegan")) {
-                icons.add(new DataStructures.StringImagePair(diet, new ImageIcon(Pointers.veganIcon)));
+                icons.add(new DataStructures.StringImagePair(diet, new ImageIcon(Constants.veganIcon)));
             } else if (diet.equals("Keto")){
-                icons.add(new DataStructures.StringImagePair(diet, new ImageIcon(Pointers.freeFromIcon)));
+                icons.add(new DataStructures.StringImagePair(diet, new ImageIcon(Constants.freeFromIcon)));
             } else if (diet.equals("Mediterranean")){
-                icons.add(new DataStructures.StringImagePair(diet, new ImageIcon(Pointers.freeFromIcon)));
+                icons.add(new DataStructures.StringImagePair(diet, new ImageIcon(Constants.freeFromIcon)));
             } else if (diet.equals("Paleo")){
-                icons.add(new DataStructures.StringImagePair(diet, new ImageIcon(Pointers.freeFromIcon)));
+                icons.add(new DataStructures.StringImagePair(diet, new ImageIcon(Constants.freeFromIcon)));
             } else if (diet.equals("Pescatarian")){
-                icons.add(new DataStructures.StringImagePair(diet, new ImageIcon(Pointers.freeFromIcon)));
+                icons.add(new DataStructures.StringImagePair(diet, new ImageIcon(Constants.freeFromIcon)));
             }
         }
         for(String tag : recipe.getTags()){
             if(tag.equals("Healthy")){
-                icons.add(new DataStructures.StringImagePair(tag, new ImageIcon(Pointers.healthyIcon)));
+                icons.add(new DataStructures.StringImagePair(tag, new ImageIcon(Constants.healthyIcon)));
             } else if (tag.equals("Gluten-free")) {
-                icons.add(new DataStructures.StringImagePair(tag, new ImageIcon(Pointers.glutenFreeIcon)));
+                icons.add(new DataStructures.StringImagePair(tag, new ImageIcon(Constants.glutenFreeIcon)));
             }else{
-                icons.add(new DataStructures.StringImagePair(tag, new ImageIcon(Pointers.freeFromIcon)));
+                icons.add(new DataStructures.StringImagePair(tag, new ImageIcon(Constants.freeFromIcon)));
             }
         }
 

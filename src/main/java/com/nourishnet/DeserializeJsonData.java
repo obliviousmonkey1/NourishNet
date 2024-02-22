@@ -15,7 +15,7 @@ public class DeserializeJsonData {
     }
 
     public static  ArrayList<Recipe> initaliseRecipeClass()throws Exception {
-        File file = new File(Pointers.content + "/Recipes.json");
+        File file = new File(Constants.content + "/Recipes.json");
 
         ObjectMapper objectMapper = new ObjectMapper();
         return objectMapper.readValue(file, new TypeReference<ArrayList<Recipe>>() {});
@@ -23,7 +23,7 @@ public class DeserializeJsonData {
 
 
     public static ArrayList<Diet> initaliseDietClass()throws Exception{
-        File file = new File(Pointers.content + "/Diets.json");
+        File file = new File(Constants.content + "/Diets.json");
 
         ObjectMapper objectMapper = new ObjectMapper();
         return objectMapper.readValue(file, new TypeReference<ArrayList<Diet>>() {});
