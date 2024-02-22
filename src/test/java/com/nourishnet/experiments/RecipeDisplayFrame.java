@@ -50,7 +50,7 @@ public class RecipeDisplayFrame extends JFrame {
             int selectedIndex = recipeList.getSelectedIndex();
             if (selectedIndex != -1) {
                 Recipe selectedRecipe = recipes.get(selectedIndex);
-                ImageIcon imageIcon = Tools.getRecipeImage(selectedRecipe.generateImagePath());
+                ImageIcon imageIcon = Tools.getRecipeImage(selectedRecipe.generateImageName());
                 if (imageIcon != null) {
                     // Update the existing ImageDisplayFrame with the new image
                     imageDisplayFrame.updateImage(imageIcon);

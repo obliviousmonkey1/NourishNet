@@ -132,7 +132,7 @@ public class Recipe {
     }
 
     @JsonIgnore
-    public String generateImagePath(){
+    public String generateImageName(){
         String output = "";
         String thing = this.name.toLowerCase();
 
