@@ -15,17 +15,6 @@ public class User {
     private ArrayList<Integer> savedRecipeIDs;
     private String password;
     private int[] DOB = new int[3]; //15/02/24 : JZ : the user will have a DOB stored which makes it easier to calculate age especially when time passes and a birthday comes 
-    private static final int[] emptyDOB = {0,0,0}; //for the empty constructor
-
-    // 28/01/23 : TE : This is for when creating a user  
-    // public User(){
-    //     this("", -1, 0.0, -1, -1, new ArrayList<Integer>(), ""); // Note: Use null for password, and ArrayList<> instead of new ArrayList<Integer>()
-    //     //password = Tools.encrypt(password, secretKey);
-
-    //     // need to call the createUserJson() in the SerializeUserData to save the new users details
-    //}
-
-    // 28/01/23( : TE : This is for loading existing users 
 
     @JsonCreator
     public User(@JsonProperty("id") String id, @JsonProperty("username") String username, @JsonProperty("DOB") int[] DOB,
@@ -44,7 +33,7 @@ public class User {
 
     @JsonIgnore
     public User() {
-        this("", "", emptyDOB, 0, -1, "", new ArrayList<>(), "");
+        this("", "", new int[]{0,0,0}, 0, -1, "", new ArrayList<>(), "");
         this.id = LogIn.getNewUserId();
     }
 
