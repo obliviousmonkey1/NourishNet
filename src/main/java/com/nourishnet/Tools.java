@@ -16,18 +16,18 @@ public class Tools {
         StringBooleanPair hImage = LogIn.hasImage(recipeName, Pointers.recipeImagePath);
         System.out.println(hImage.getHasImage());
         if(hImage.getHasImage()){
-            return new ImageIcon(Pointers.userDir + "/" + Pointers.recipeImagePath + "/" + recipeName + ".png");
+            return new ImageIcon(Pointers.recipeImagePath + "/" + recipeName + ".png");
         }
-        return new ImageIcon(Pointers.userDir + "/" + Pointers.recipeImagePath + "/default.png");
+        return new ImageIcon(Pointers.recipeImagePath + "/default.png");
     }
 
     public static ImageIcon getDietImage(String dietName){
         StringBooleanPair hImage = LogIn.hasImage(dietName, Pointers.dietImagePath);
         System.out.println(hImage.getHasImage());
         if(hImage.getHasImage()){
-            return new ImageIcon(Pointers.userDir + "/" + Pointers.dietImagePath + "/" + dietName + hImage.getExtension());
+            return new ImageIcon(Pointers.dietImagePath + "/" + dietName + hImage.getExtension());
         }
-        return new ImageIcon(Pointers.userDir + "/" + Pointers.dietImagePath + "/default.jpeg");
+        return new ImageIcon(Pointers.dietImagePath + "/default.jpeg");
     }
 
 

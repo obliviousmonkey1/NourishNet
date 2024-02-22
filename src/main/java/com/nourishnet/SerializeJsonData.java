@@ -1,6 +1,5 @@
 package com.nourishnet;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import java.io.File;
@@ -12,8 +11,8 @@ public class SerializeJsonData {
     
     public static void serializeNewUser(User user){
        
-        String folderPath = Pointers.userDir + '/' + Pointers.usersPath + '/' + user.getId(); 
-        File folder = new File(Pointers.userDir + '/' + Pointers.usersPath + '/' + user.getId());
+        String folderPath = Pointers.usersPath + '/' + user.getId(); 
+        File folder = new File(Pointers.usersPath + '/' + user.getId());
 
         boolean folderCreated = folder.mkdirs();
 
