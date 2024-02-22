@@ -13,7 +13,7 @@ public class LogIn {
     
     // 25/01/24 : TE : Gets the names and profile photos of users
     public static List<StringImagePair> getUserProfiles(){
-        File userProfileDir = new File(Pointers.userDir + Pointers.usersPath);
+        File userProfileDir = new File(Pointers.usersPath);
         File[] listOfFiles = userProfileDir.listFiles();
         List<StringImagePair> profileList = new ArrayList<>();
         String imagePath;
@@ -31,7 +31,7 @@ public class LogIn {
                 if(imageData.getHasImage()){
                     imagePath = listOfFiles[i].getPath() +"/"+ userId + imageData.getExtension();
                 }else{
-                    imagePath = Pointers.userDir + Pointers.usersPath + "/default.png";
+                    imagePath = Pointers.usersPath + "/default.png";
                 }
                 profileList.add(new StringImagePair(username, userId, new ImageIcon(imagePath)));
                 
@@ -51,7 +51,7 @@ public class LogIn {
 
     // 25/01/24 : TE : Gets the number of user profiles if 0 then asks user to create one
     public static int getNumberOfUserProfiles(){
-        File userProfileDir = new File(Pointers.userDir + Pointers.usersPath);
+        File userProfileDir = new File(Pointers.usersPath);
         File[] listOfFiles = userProfileDir.listFiles();
         
         int numberOfProfiles = 0;
@@ -68,7 +68,7 @@ public class LogIn {
 
     // 02/02/24 : TE : Gets the selectedUsersJsonPath
     public static String getUserJsonPath(String userId){
-        return Pointers.userDir + Pointers.usersPath + "/" + userId + "/" + userId + ".json";
+        return Pointers.usersPath + "/" + userId + "/" + userId + ".json";
     }
 
     // 25/01/24 : TE : Checks if file name ends with specified extension

@@ -8,7 +8,6 @@ import java.awt.event.ActionListener;
 
 public class Containers {
 
-
     public static JPanel createContainer(Recipe recipe) {
         JPanel container = new JPanel(new BorderLayout());
         container.setBorder(BorderFactory.createLineBorder(Color.BLACK)); // Add a black border to each container
