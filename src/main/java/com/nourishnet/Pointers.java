@@ -12,6 +12,8 @@ public class Pointers {
     public static String dietImagePath = userDir + "/Data/content/dietImages";
     public static String iconsPath = userDir + "/Data/content/icons";
 
+    // Icons for app
+    
 
     // Icons for recipes
     public static String freeFromIcon = userDir + "/Data/content/icons/free.png"; 

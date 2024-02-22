@@ -8,12 +8,11 @@ import java.util.List;
 public class Tools {
 
 
-    public static ImageIcon getRecipeImage(String recipeName){
-        System.out.println("Recipe Name: " + recipeName);
-        DataStructures.StringBooleanPair hImage = LogIn.hasImage(recipeName, Pointers.recipeImagePath);
+    public static ImageIcon getRecipeImage(String imageName){
+        DataStructures.StringBooleanPair hImage = LogIn.hasImage(imageName, Pointers.recipeImagePath);
         System.out.println(hImage.getHasImage());
         if(hImage.getHasImage()){
-            return new ImageIcon(Pointers.recipeImagePath + "/" + recipeName + ".png");
+            return new ImageIcon(Pointers.recipeImagePath + "/" + imageName + ".png");
         }
         return new ImageIcon(Pointers.recipeImagePath + "/default.png");
     }

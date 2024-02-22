@@ -37,8 +37,8 @@ public class Containers {
         container.add(descriptionTagsPanel, BorderLayout.WEST);
 
         // Image label
-        String path = recipe.generateImagePath();
-        ImageIcon imageIcon = Tools.getRecipeImage(path);
+        String imageName = recipe.generateImageName();
+        ImageIcon imageIcon = Tools.getRecipeImage(imageName);
         Image scaledImage = imageIcon.getImage().getScaledInstance(100, -1, Image.SCALE_SMOOTH); // Scale down the image
         ImageIcon scaledImageIcon = new ImageIcon(scaledImage);
         JLabel imageLabel = new JLabel(scaledImageIcon);
