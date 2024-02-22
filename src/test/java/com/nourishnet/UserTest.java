@@ -22,7 +22,8 @@ public class UserTest {
     }
 
     private static void testSaveUser(){
-
+	     System.out.println(user.getId());
+        SerializeJsonData.serializeNewUser(user);
     }
     
 
