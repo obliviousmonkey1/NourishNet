@@ -324,7 +324,7 @@ public class App
         photoPanel.setBackground(Color.decode(backgroundColour)); //sets the colour of the JPanel to be the green
         photoPanel.setMaximumSize(new Dimension(Integer.MAX_VALUE, 200));  //sets the maximise size of the panel
         String imagePath;
-        imagePath = Pointers.userDir + Pointers.usersPath + "/default.png";
+        imagePath = Constants.usersPath + "/default.png";
         
         createUser.add(photoPanel);  //adds the panel to the JFrame
         ImageIcon image = new ImageIcon(imagePath);

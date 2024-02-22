@@ -11,8 +11,8 @@ public class SerializeJsonData {
     
     public static void serializeNewUser(User user){
        
-        String folderPath = Pointers.usersPath + '/' + user.getId(); 
-        File folder = new File(Pointers.usersPath + '/' + user.getId());
+        String folderPath = Constants.usersPath + '/' + user.getId(); 
+        File folder = new File(Constants.usersPath + '/' + user.getId());
 
         boolean folderCreated = folder.mkdirs();
 

@@ -139,11 +139,12 @@ public class Recipe {
         for(int i =0 ; i< thing.length();i++){
             if (thing.charAt(i) == ' '){
                 output += '-';
+            } else if (thing.charAt(i) == ','){
             } else {
                 output += thing.charAt(i);
             }
         }
-        System.out.println(output);
+        
         return output;
     }
 
