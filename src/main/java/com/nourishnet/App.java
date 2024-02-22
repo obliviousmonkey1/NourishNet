@@ -66,9 +66,7 @@ public class App
 
         ArrayList<JButton> buttons = new ArrayList<JButton>();  //creates an ArrayList of all the buttons that will be on the frame to be formatted
 
-        List<StringImagePair> profiles = LogIn.getUserProfiles();
-
-
+        List<DataStructures.StringImageIdPair> profiles = LogIn.getUserProfiles();
 
         for (int i = 0; i < profiles.size(); i++) 
         {
@@ -136,7 +134,7 @@ public class App
    
     }
 
-    private static void formatLoginFrame(JFrame frame, ArrayList<JButton> buttons, List<StringImagePair> profiles) {
+    private static void formatLoginFrame(JFrame frame, ArrayList<JButton> buttons, List<DataStructures.StringImageIdPair> profiles) {
         frame.setLayout(new BorderLayout()); // Set BorderLayout for the frame
         
         // Title at the top centered

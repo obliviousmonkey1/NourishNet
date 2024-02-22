@@ -1,5 +1,8 @@
 COMPLETED
-- Reorganise recipe for Json loading and make it so it reads in as a string then during initalisation loops through and grabs ingredient 
+- Create a class for the user
+- Create a class for the recipe
+- Create a class for the diets
+- Re-organise recipe for Json loading and make it so it reads in as a string then during initalisation loops through and grabs ingredient 
 - JSON save a load system for all data that is needed in the program 
 - Move Ingredients into a seperate Json file, and have a pointer in recipes to them
 - Come up with a better name then tempName 
@@ -7,31 +10,36 @@ COMPLETED
 - Look into moving diet out of tags in recipes for easier referencing 
 - Search system : Make it so the only recipes displayed are ones that are on your diet plan , unless selected otherwise
 - Look into tags don't think they need to be a class
-
-COMPLETED FIRST PASS
+- Look into splitting recipes into diet types so we know how many we have for each 
 - Saving new user : need to make it check if there already a foler with the same name before saving to avoid errors
 - Reorganise recipe Json and class
-
-IN PROGRESS
-- Re-organise wiki to arrange it for the important classes as well as add a table of contents
-- Look over running through recipes and checking if they are low in fat or whatever and then add a tag to them and save it 
-- Look into splitting recipes into diet types so we know how many we have for each 
-- users can be deleted and edited 
 - Change the folder structure of users so it includes a folder id instead of using the name so when a user is being created its folder can be created straight away 
 - make the jsons file name also the id 
-- Add recipes 
-- Move the loading data logic out of app and into a seperate function and create a data structure to house diets and recipes
-- Continue creation of functions to help speed up the GUI creation 
+- Create a way to link tag / diet icons to the tags and diets of recipes : essentially make a data strucutre which holds the name of the diet / tag and the image associated with it this funciton is called before the recipe page and return this data structure  
 
-TODO
-- Create an icon json which links the tags with which icons they should use 
+
+
+COMPLETED FIRST PASS
+
+IN PROGRESS
+- Clean up files to put all the data type classes together 
+- Add proper icons for the rest of the diets and add that to the code
+- Re-organise wiki to arrange it for the important classes as well as add a table of contents
+- users can be deleted and edited 
+- Add recipes 
+- Continue creation of functions to help speed up the GUI creation 
 - Code clean up targeting un-used variables and functions
 - Code clean up targeting pathing changing static paths to use Pointers class 
+- Code clean up targeting commenting and readability  
+
+TODO
+- Tech Debt 
 - Creation of a user allow them to upload a profile picture and reuse that code for users wanting to change theirs
 - Dynamic pointer in Pointers class for current user so don't have to keep creating path
-- Code clean up targeting commenting and readability  
 - Search via ingredients feature where the user enters the ingredient and quantity and will search for recipes which have those ingredients or most of them 90% is limit, populate the ingredient list while they are typing select an ingredient then add a quantity and when they are done press search 
 - Remove all setters from recipes 
+- Look over running through recipes and checking if they are low in fat or whatever and then add a tag to them and save it 
+
 
 RESEARCH
 - Dont have a recipe hava a way for the user to paste in the url of the cooking website and run a python program to load it in 
