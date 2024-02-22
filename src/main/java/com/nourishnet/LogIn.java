@@ -45,7 +45,7 @@ public class LogIn {
         if(getNumberOfUserProfiles() == 0){
             return "0000";
         }else{
-            return String.format("%04d", getNumberOfUserProfiles() + 1);
+            return String.format("%04d", getNumberOfUserProfiles());
         }
     }
 
@@ -88,5 +88,22 @@ public class LogIn {
         return new DataStructures.StringBooleanPair("", false);
 		
 	}
+
+
+    public static void deleteUserFolder(String userId){
+        File userProfileDir = new File(Constants.usersPath);
+        File[] listOfFiles = userProfileDir.listFiles();
+
+        for(int i=0; i < listOfFiles.length; i++){
+            if(listOfFiles[i].isDirectory()){
+                if(listOfFiles[i].getName().equals(userId)){
+                    for(File file: listOfFiles[i].listFiles()){
+                        file.delete();
+                    }
+                    listOfFiles[i].delete();
+                }
+            }
+        }
+    }
 }
 

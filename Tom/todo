@@ -16,7 +16,7 @@ COMPLETED
 - Change the folder structure of users so it includes a folder id instead of using the name so when a user is being created its folder can be created straight away 
 - make the jsons file name also the id 
 - Create a way to link tag / diet icons to the tags and diets of recipes : essentially make a data strucutre which holds the name of the diet / tag and the image associated with it this funciton is called before the recipe page and return this data structure  
-
+- Fix userid and folder creation if a user is deleted that isn't the last one
 
 
 COMPLETED FIRST PASS
