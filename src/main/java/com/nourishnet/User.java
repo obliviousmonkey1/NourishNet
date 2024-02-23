@@ -34,7 +34,7 @@ public class User {
     @JsonIgnore
     public User() {
         this("", "", new int[]{0,0,0}, 0, -1, "", new ArrayList<>(), "");
-        this.id = LogIn.getNewUserId();
+        this.id = UserManager.getNewUserId();
     }
 
     public String getId() {

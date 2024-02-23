@@ -8,7 +8,7 @@ import java.io.File;
 import javax.swing.ImageIcon;
 
 
-public class LogIn {
+public class UserManager {
 	
     
     // 25/01/24 : TE : Gets the names and profile photos of users
@@ -27,7 +27,7 @@ public class LogIn {
 
                 System.out.println(listOfFiles[i].getPath()); // debug
 
-                DataStructures.StringBooleanPair imageData =  hasImage(userId, listOfFiles[i].getPath());
+                DataStructures.StringBooleanPair imageData =  Tools.hasImage(userId, listOfFiles[i].getPath());
                 if(imageData.getHasImage()){
                     imagePath = listOfFiles[i].getPath() +"/"+ userId + imageData.getExtension();
                 }else{
@@ -70,25 +70,6 @@ public class LogIn {
     public static String getUserJsonPath(String userId){
         return Constants.usersPath + "/" + userId + "/" + userId + ".json";
     }
-
-    // 25/01/24 : TE : Checks if file name ends with specified extension
-    private static boolean checkFileExtension(String fileName, String extension){
-        return fileName.toLowerCase().endsWith("." + extension.toLowerCase()); 
-    }
-
-    // 25/01/24 : TE : Checks if an image exists with that name 
-    public static DataStructures.StringBooleanPair hasImage(String imageName, String path) {
-        String[] fileExtensions = {".jpg", ".jpeg", ".png", ".gif"};
-        for(String extension: fileExtensions){
-            File file = new File(path + "/" + imageName + extension);
-            if (file.exists()) {
-                return new DataStructures.StringBooleanPair(extension, true);
-            } 
-        }
-        return new DataStructures.StringBooleanPair("", false);
-		
-	}
-
 
     public static void deleteUserFolder(String userId){
         File userProfileDir = new File(Constants.usersPath);
