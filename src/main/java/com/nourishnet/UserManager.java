@@ -21,7 +21,7 @@ public class UserManager {
         for(int i=0; i < listOfFiles.length; i++){
             if(listOfFiles[i].isDirectory()){
 
-                // create a temp user object to get the user's name
+                // creates a temporary user object to get the user's name
                 String userId = listOfFiles[i].getName();
                 String username = ResourceLoader.loadUser(getUserJsonPath(listOfFiles[i].getName())).getUsername();
 
@@ -47,6 +47,19 @@ public class UserManager {
         }else{
             return String.format("%04d", getNumberOfUserProfiles());
         }
+    }
+
+    // 23/02/24 : TE : Called if the serialistion fails to generate a folder for the user due to duplicate id
+    protected static void generateNewUserId(User user){
+        for(int i = 0; i < UserManager.getNumberOfUserProfiles(); i++){
+            String newId = String.format("%04d", i);
+            if(!new File(Constants.usersPath + '/' + newId).exists()){
+                user.setUserId(newId);
+                SerializeJsonData.serializeNewUser(user);
+                return;
+            }
+        }
+
     }
 
     // 25/01/24 : TE : Gets the number of user profiles if 0 then asks user to create one

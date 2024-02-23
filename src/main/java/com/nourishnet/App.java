@@ -31,7 +31,7 @@ public class App
     public static void main( String[] args )
     {
         loadData();
-        if(LogIn.getNumberOfUserProfiles()!=0){
+        if(UserManager.getNumberOfUserProfiles()!=0){
             System.out.println("Users already in system"); // debug
             // go to the user selection screen
             createLoginMenu();
@@ -66,7 +66,7 @@ public class App
 
         ArrayList<JButton> buttons = new ArrayList<JButton>();  //creates an ArrayList of all the buttons that will be on the frame to be formatted
 
-        List<DataStructures.StringImageIdPair> profiles = LogIn.getUserProfiles();
+        List<DataStructures.StringImageIdPair> profiles = UserManager.getUserProfiles();
 
         for (int i = 0; i < profiles.size(); i++) 
         {
@@ -85,7 +85,7 @@ public class App
                     try
                     {
 
-                        String userJsonPath = LogIn.getUserJsonPath(button.getClientProperty("id").toString());
+                        String userJsonPath = UserManager.getUserJsonPath(button.getClientProperty("id").toString());
                         User user = DeserializeJsonData.initaliseUserClass(userJsonPath);
 
                         if (user.getHasPassword())  //if the user's profile is password protected

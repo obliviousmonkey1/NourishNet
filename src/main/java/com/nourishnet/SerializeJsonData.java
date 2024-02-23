@@ -11,7 +11,7 @@ public class SerializeJsonData {
     
     public static void serializeNewUser(User user){
        
-        System.out.println(user.getId()); // debug
+        System.out.println("First id ; " + user.getId()); // debug
 
         String folderPath = Constants.usersPath + '/' + user.getId(); 
         File folder = new File(Constants.usersPath + '/' + user.getId());
@@ -20,23 +20,16 @@ public class SerializeJsonData {
 
         if (folderCreated) {
             System.out.println("Folder created successfully at: " + folder.getAbsolutePath());
+
         } else {
             System.err.println("Failed to create folder.");
-            generateNewUserId(user);
+            UserManager.generateNewUserId(user);
+            folderPath = Constants.usersPath + '/' + user.getId(); 
+            folder = new File(Constants.usersPath + '/' + user.getId());
         }
 
         serializeUser(user, folderPath + '/' + user.getId() + ".json");  
-    }
 
-    public static void generateNewUserId(User user){
-        for(int i = 0; i < UserManager.getNumberOfUserProfiles(); i++){
-            String newId = String.format("%04d", i);
-            if(!new File(Constants.usersPath + '/' + newId).exists()){
-                user.setUserId(newId);
-                serializeNewUser(user);
-                return;
-            }
-        }
 
     }
 
