@@ -3,13 +3,14 @@ package com.nourishnet;
 import javax.swing.ImageIcon;
 import java.util.ArrayList;
 import java.util.List;
+import java.io.File;
 
 
 public class Tools {
 
 
     public static ImageIcon getRecipeImage(String imageName){
-        DataStructures.StringBooleanPair hImage = LogIn.hasImage(imageName, Constants.recipeImagePath);
+        DataStructures.StringBooleanPair hImage = hasImage(imageName, Constants.recipeImagePath);
         System.out.println(hImage.getHasImage());
         if(hImage.getHasImage()){
             return new ImageIcon(Constants.recipeImagePath + "/" + imageName + ".png");
@@ -18,7 +19,7 @@ public class Tools {
     }
 
     public static ImageIcon getDietImage(String dietName){
-        DataStructures.StringBooleanPair hImage = LogIn.hasImage(dietName, Constants.dietImagePath);
+        DataStructures.StringBooleanPair hImage = hasImage(dietName, Constants.dietImagePath);
         System.out.println(hImage.getHasImage());
         if(hImage.getHasImage()){
             return new ImageIcon(Constants.dietImagePath + "/" + dietName + hImage.getExtension());
@@ -59,5 +60,23 @@ public class Tools {
         return icons;
 
     }
+
+    // 25/01/24 : TE : Checks if file name ends with specified extension
+    private static boolean checkFileExtension(String fileName, String extension){
+        return fileName.toLowerCase().endsWith("." + extension.toLowerCase()); 
+    }
+
+    // 25/01/24 : TE : Checks if an image exists with that name 
+    public static DataStructures.StringBooleanPair hasImage(String imageName, String path) {
+        String[] fileExtensions = {".jpg", ".jpeg", ".png", ".gif"};
+        for(String extension: fileExtensions){
+            File file = new File(path + "/" + imageName + extension);
+            if (file.exists()) {
+                return new DataStructures.StringBooleanPair(extension, true);
+            } 
+        }
+        return new DataStructures.StringBooleanPair("", false);
+		
+	}
 
 }

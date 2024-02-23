@@ -5,7 +5,7 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 import com.nourishnet.Containers;
-import com.nourishnet.LogIn;
+import com.nourishnet.UserManager;
 import com.nourishnet.Recipe;
 import com.nourishnet.ResourceLoader;
 import com.nourishnet.Search;
@@ -22,7 +22,7 @@ public class MultiContainerFrame extends JFrame {
     private ArrayList<Recipe> recipes;
     private JPanel containerPanel;
     private Map<Recipe, JPanel> recipeContainers; // Map to store recipe-container associations
-    private User user = ResourceLoader.loadUser(LogIn.getUserJsonPath("0004"));
+    private User user = ResourceLoader.loadUser(UserManager.getUserJsonPath("0004"));
     private boolean isShowAllRecipes;
 
     public MultiContainerFrame(ArrayList<Recipe> recipes) {

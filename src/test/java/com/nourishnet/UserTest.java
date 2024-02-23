@@ -10,7 +10,7 @@ public class UserTest {
      */
 
     private static void testLoadUser(){
-        User user = ResourceLoader.loadUser(LogIn.getUserJsonPath("0000"));
+        User user = ResourceLoader.loadUser(UserManager.getUserJsonPath("0000"));
         TestingTools.AssertEquals("0000", user.getId());
     }
 

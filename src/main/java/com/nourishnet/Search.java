@@ -36,7 +36,7 @@ public class Search {
 
     // search over the recipes and check if any ingredients and amounts in it 90% freshhold 
     // stored as a tuple with the recipe and the percentage of ingredients that match
-    // public static ArrayList<Recipe> getIngredientsSearch(ArrayList<Recipe> recipeHolder, ArrayList<String> ingredientQuery, ArrayList<Integer> amount, Boolean showAllRecipes) {
+    // public static ArrayList<Recipe> getIngredientsSearch(ArrayList<Recipe> recipeHolder, ArrayList<StringIntPair> ingredientQuery, ArrayList<Integer> amount, Boolean showAllRecipes) {
     //     ArrayList<Recipe> returnedRecipes = new ArrayList<>();
     //     Set<Recipe> uniqueRecipes = new HashSet<>();
         

@@ -28,10 +28,8 @@ public class SerializeJsonData {
         serializeUser(user, folderPath + '/' + user.getId() + ".json");  
     }
 
-    // go through and check if there are any ids avaialble below the current id 
-    // then go above it and call serializeNewUser once done
     public static void generateNewUserId(User user){
-        for(int i = 0; i < LogIn.getNumberOfUserProfiles(); i++){
+        for(int i = 0; i < UserManager.getNumberOfUserProfiles(); i++){
             String newId = String.format("%04d", i);
             if(!new File(Constants.usersPath + '/' + newId).exists()){
                 user.setUserId(newId);
@@ -39,7 +37,7 @@ public class SerializeJsonData {
                 return;
             }
         }
-        
+
     }
 
     public static void serializeUser(User user, String filePath){
