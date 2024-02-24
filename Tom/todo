@@ -30,6 +30,7 @@ IN PROGRESS
 - Code clean up targeting commenting and readability  
 
 TODO
+- Add more user testing especially around deleting 
 - Rename datastructure variables to make them more general 
 - Tech Debt 
 - Talk to Josh about which page the program loads when there are no users in the system
