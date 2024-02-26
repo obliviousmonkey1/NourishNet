@@ -34,6 +34,7 @@ IN PROGRESS
 - Code clean up targeting commenting and readability  
 
 TODO
+- Move circular image frame into tools
 - Add more user testing especially around deleting 
 - Rename datastructure variables to make them more general 
 - Tech Debt 

@@ -1,6 +1,10 @@
-package com.nourishnet;
+package com.nourishnet.experiments;
 
 import javax.swing.*;
+
+import com.nourishnet.Recipe;
+import com.nourishnet.Tools;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

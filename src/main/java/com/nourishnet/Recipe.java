@@ -2,8 +2,6 @@ package com.nourishnet;
 
 import java.util.ArrayList;
 
-import javax.swing.ImageIcon;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
