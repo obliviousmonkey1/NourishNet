@@ -12,23 +12,46 @@ public class UserTest {
      */
 
     private static void testLoadUser(){
+
+        // Test user loaded correctly
         User user = ResourceLoader.loadUser(UserManager.getUserJsonPath("0000"));
         TestingTools.AssertEquals("0000", user.getId());
+
+        // Test getting username loaded correctly
+        TestingTools.AssertEquals("Test", user.getUsername());
+
+        // Test getting height loaded correctly
+        TestingTools.AssertEquals(280.0, user.getHeight());
+
+        // Test getting weight loaded correctly
+        TestingTools.AssertEquals(76, user.getWeight());
+
+        // Test getting diet loaded correctly
+        TestingTools.AssertEquals("Vegan", user.getDiet());
+
+        // Test savedRecipeIDs loaded correctly
+        TestingTools.AssertEquals(0, user.getSavedRecipeIDs().get(0));
+        TestingTools.AssertEquals(1, user.getSavedRecipeIDs().get(1));
+        TestingTools.AssertEquals(3, user.getSavedRecipeIDs().get(2));
+
+        // Test password
+        TestingTools.AssertEquals("", user.getPassword());
+
     }
 
 
-    private static void testCreateAndSaveUser() {
+    private static void testSaveAndDeleteUser() {
         User user = new User();
-        System.out.println(user.getId());
+
+        // Test saving user
         SerializeJsonData.serializeNewUser(user);
+        TestingTools.assertFileExistence(Constants.usersPath + '/' + user.getId(), true);
+
+        // Tesrt deleting user 
+        UserManager.deleteUserFolder(user.getId());
+        TestingTools.assertFileExistence(Constants.usersPath + '/' + user.getId(), false);
     }
 
-
- private static void testSaveUser() {
-        User user = new User();
-        System.out.println("Saving User ID: " + user.getId());
-        SerializeJsonData.serializeNewUser(user);
-    }
     
     private static void testSettingAndGetters() {
         // Create a user
@@ -40,7 +63,7 @@ public class UserTest {
 
         // Test setting and getting height
         user.setHeight(180);
-        TestingTools.AssertEquals(180, user.getHeight());
+        TestingTools.AssertEquals(180.0, user.getHeight());
 
         // Test setting and getting weight
         user.setWeight(75);
@@ -56,22 +79,18 @@ public class UserTest {
         savedRecipeIDs.add(2);
         user.setSavedRecipeIDs(savedRecipeIDs);
         TestingTools.AssertEquals(savedRecipeIDs, user.getSavedRecipeIDs());
-    }
 
-    private static void testPasswordFunctionality() {
-        // Create a user with a password
-        User user = new User();
+        // Test setting and getting password
         user.setPassword("password123");
-
-        // Test checking password
         TestingTools.AssertEquals("password123", user.getPassword());
     }
 
     public static void Entry() {
         testLoadUser();
-        testCreateAndSaveUser();
-        testSaveUser();
+        testSaveAndDeleteUser();
         testSettingAndGetters();
-        testPasswordFunctionality();
+
+        System.out.println("[USER] All tests passed!");
+
     }
 }
