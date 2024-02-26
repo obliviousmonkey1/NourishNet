@@ -41,7 +41,7 @@ public class UserManager {
     }
 
     // 15/02/24 : TE : Gets the new user id 
-    public static String getNewUserId(){
+    protected static String getNewUserId(){
         if(getNumberOfUserProfiles() == 0){
             return "0000";
         }else{

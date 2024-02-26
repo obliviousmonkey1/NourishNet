@@ -4,7 +4,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-import com.nourishnet.CircularImageFrame;
+import com.nourishnet.Tools;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -44,7 +44,7 @@ public class ImageChooserApp extends JFrame {
                 BufferedImage img = ImageIO.read(selectedFile);
                     
                 // Load image into CircularImageFrame
-                CircularImageFrame.loadImage("TestUser", img);
+                Tools.loadImage("TestUser", img);
                     
                 //imageLabel.setIcon(icon);
             } catch (IOException ex) {

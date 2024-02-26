@@ -2,20 +2,14 @@ package com.nourishnet;
 
 import java.util.ArrayList;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import java.awt.*; 
 import java.awt.event.*;
-import java.io.File;
-import java.io.IOException;
 import java.util.List;
 
-/**
- * Hello world!
- *
- */
+
 public class App 
 {
     private static ArrayList<Recipe> recipeHolder = new ArrayList<Recipe>();
