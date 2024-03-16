@@ -41,7 +41,7 @@ public class UserManager {
     }
 
     // 15/02/24 : TE : Gets the new user id 
-    public static String getNewUserId(){
+    protected static String getNewUserId(){
         if(getNumberOfUserProfiles() == 0){
             return "0000";
         }else{
@@ -84,6 +84,7 @@ public class UserManager {
         return Constants.usersPath + "/" + userId + "/" + userId + ".json";
     }
 
+    // TE : Deletes a user 
     public static void deleteUserFolder(String userId){
         File userProfileDir = new File(Constants.usersPath);
         File[] listOfFiles = userProfileDir.listFiles();

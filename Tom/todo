@@ -12,16 +12,20 @@ COMPLETED
 - Look into tags dont think they need to be a class
 - Look into splitting recipes into diet types so we know how many we have for each 
 - Saving new user : need to make it check if there already a foler with the same name before saving to avoid errors
-- Reorganise recipe Json and class
-- Change the folder structure of users so it includes a folder id instead of using the name so when a user is being created its folder can be created straight away 
-- make the jsons file name also the id 
+- ORGANISATION : Reorganise recipe Json and class
+- ORGANISATION/CODE : Change the folder structure of users so it includes a folder id instead of using the name so when a user is being created its folder can be created straight away 
+- ORGANISATION : make the jsons file name also the id 
 - Create a way to link tag / diet icons to the tags and diets of recipes : essentially make a data strucutre which holds the name of the diet / tag and the image associated with it this funciton is called before the recipe page and return this data structure  
 - Fix userid and folder creation if a user is deleted that isnt the last one
 - Users can be deleted 
+- ORGANISATION : Put all the data type functions together 
+- WIKI : Add table of contents 
 
 IN PROGRESS
-- Clean up files to put all the data type classes together 
-- Add proper icons for the rest of the diets and add that to the code
+- TESTING : Look over current testing 
+- TESTING : In the testing tools write some code that can determine whether a file is in a folder or not 
+- Clean up files
+- Add proper icons for the rest of the diets and add the paths to the constants file 
 - Re-organise wiki to arrange it for the important classes as well as add a table of contents
 - Add all the recipes 
 - Continue creation of functions to help speed up the GUI creation 
@@ -30,9 +34,11 @@ IN PROGRESS
 - Code clean up targeting commenting and readability  
 
 TODO
+- Move circular image frame into tools
+- Add more user testing especially around deleting 
 - Rename datastructure variables to make them more general 
 - Tech Debt 
-- Talk to Josh about which page the program loads when there are no users in the system
+- Talk to Josh about which page the program loads when there are no users in the system can either go straight into the user creation screen or to the menu so they click add new user 
 - Look over all the functions in the classes and see if they can be organised and paired together in a better way 
 - Creation of a user allow them to upload a profile picture and reuse that code for users wanting to change theirs
 - Dynamic pointer in Pointers class for current user so dont have to keep creating path

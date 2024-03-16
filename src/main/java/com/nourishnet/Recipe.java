@@ -2,8 +2,6 @@ package com.nourishnet;
 
 import java.util.ArrayList;
 
-import javax.swing.ImageIcon;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -54,10 +52,6 @@ public class Recipe {
         return this.name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public ArrayList<String> getDiet() {
         return this.diet;
     }
@@ -66,32 +60,16 @@ public class Recipe {
         return this.prepTime;
     }
 
-    public void setPrepTime(int prepTime) {
-        this.prepTime = prepTime;
-    }
-
     public int getCookTime() {
         return this.cookTime;
-    }
-
-    public void setCookTime(int cookTime) {
-        this.cookTime = cookTime;
     }
 
     public String getLevel() {
         return this.level;
     }
 
-    public void setLevel(String level) {
-        this.level = level;
-    }
-
     public int getServes() {
         return this.serves;
-    }
-
-    public void setServes(int serves) {
-        this.serves = serves;
     }
 
     public Nutrition getNutrition() {
@@ -102,15 +80,6 @@ public class Recipe {
         return this.description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-
-    public void setIngredients(ArrayList<Ingredient> ingredients) {
-        this.ingredients = ingredients;
-    }
-
     public ArrayList<Ingredient> getIngredients() {
         return this.ingredients;
     }
@@ -119,16 +88,8 @@ public class Recipe {
         return this.instructions;
     }
 
-    public void setInstructions(ArrayList<String> instructions) {
-        this.instructions = instructions;
-    }
-
     public ArrayList<String> getTags() {
         return this.tags;
-    }
-
-    public void setTags(ArrayList<String> tags) {
-        this.tags = tags;
     }
 
     @JsonIgnore
@@ -149,26 +110,26 @@ public class Recipe {
     }
 
     public static class Nutrition {
-        private int calories;
-        private int fat;
-        private int saturates;
-        private int carbs;
-        private int sugars;
-        private int fibre;
-        private int protein;
-        private int salt;
+        private double calories;
+        private double fat;
+        private double saturates;
+        private double carbs;
+        private double sugars;
+        private double fibre;
+        private double protein;
+        private double salt;
 
 
         @JsonCreator
         public Nutrition(
-                @JsonProperty("calories") int calories,
-                @JsonProperty("fat") int fat,
-                @JsonProperty("saturates") int saturates,
-                @JsonProperty("carbs") int carbs,
-                @JsonProperty("sugars") int sugars,
-                @JsonProperty("fibre") int fibre,
-                @JsonProperty("protein") int protein,
-                @JsonProperty("salt") int salt
+                @JsonProperty("calories") double calories,
+                @JsonProperty("fat") double fat,
+                @JsonProperty("saturates") double saturates,
+                @JsonProperty("carbs") double carbs,
+                @JsonProperty("sugars") double sugars,
+                @JsonProperty("fibre") double fibre,
+                @JsonProperty("protein") double protein,
+                @JsonProperty("salt") double salt
         ) {
             this.calories = calories;
             this.fat = fat;
@@ -180,37 +141,38 @@ public class Recipe {
             this.salt = salt;
         }
 
-        public int getCalories() {
+        public double getCalories() {
             return this.calories;
         }
 
-        public int getFat() {
+        public double getFat() {
             return this.fat;
         }
 
-        public int getSaturates() {
+        public double getSaturates() {
             return this.saturates;
         }
 
-        public int getProtein() {
-            return this.protein;
-        }
-
-        public int getSalt() {
-            return this.salt;
-        }   
-
-        public int getCarbs() {
+        public double getCarbs() {
             return this.carbs;
         }
 
-        public int getSugars() {
+        public double getSugars() {
             return this.sugars;
         }
 
-        public int getFibre() {
+        public double getFibre() {
             return this.fibre;
         }
+
+        public double getProtein() {
+            return this.protein;
+        }
+
+        public double getSalt() {
+            return this.salt;
+        }   
+
 
     }
 

@@ -4,7 +4,6 @@ import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
-import com.nourishnet.Containers;
 import com.nourishnet.UserManager;
 import com.nourishnet.Recipe;
 import com.nourishnet.ResourceLoader;
