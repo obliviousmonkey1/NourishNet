@@ -11,7 +11,7 @@ public class Constants {
 
     // FILE PATHS
     public static String userDir = System.getProperty("user.dir");
-    public static String tempImagePath = userDir + "/Data/tempImages";
+    public static String tempImagePath = userDir + "/Data/tempImagesHolder";
     public static String usersPath = userDir + "/Data/Users";
     public static String content = userDir + "/Data/content";
     public static String recipeImagePath = userDir + "/Data/content/recipeImages";

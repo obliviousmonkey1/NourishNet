@@ -26,6 +26,8 @@ public class App
 
     private static boolean allFieldsFilled;  //boolean used in the new user profile frame to check if all the fields have been filled in. DONT TOUCH THIS
 
+    private static User user;
+
     public static void main( String[] args )
     {
         loadData();
@@ -71,9 +73,6 @@ public class App
             JButton button = new JButton(profiles.get(i).getText());
             button.putClientProperty("id", profiles.get(i).getId());
 
-            int newWidth = 200; 
-            int newHeight = 150; 
-
             button.addActionListener(new ActionListener() 
             {
                 @Override
@@ -84,7 +83,7 @@ public class App
                     {
 
                         String userJsonPath = UserManager.getUserJsonPath(button.getClientProperty("id").toString());
-                        User user = DeserializeJsonData.initaliseUserClass(userJsonPath);
+                        user = DeserializeJsonData.initaliseUserClass(userJsonPath);
 
                         if (user.getHasPassword())  //if the user's profile is password protected
                         {
@@ -96,7 +95,7 @@ public class App
                         else                        //if the user's profile is NOT password protected
                         {
                             login.setVisible(false);
-                            createMainMenuFrame(user);  
+                            createMainMenuFrame();  
                         }
                     }
                     catch(Exception e1)
@@ -121,6 +120,7 @@ public class App
             public void actionPerformed(ActionEvent e) 
             {
                 login.setVisible(false);
+                UserManager.clearTemporaryProfileImageHolder();
                 newUserProfileFrame();
             }
         });
@@ -265,7 +265,7 @@ public class App
                 if (user.checkPassword(userInput))
                 {
                     passwordFrame.setVisible(false);
-                    createMainMenuFrame(user);
+                    createMainMenuFrame();
 
                 }
             }
@@ -281,8 +281,6 @@ public class App
 
     private static void newUserProfileFrame()
     {
-        User newUser = new User(); //Initialises a new user with all its attributes empty. Through this method, the user's attributes will be filled in (except for diets and recipes), and then the user will be saved to the system.
-
 
         System.out.println("Create new user profile."); //test
 
@@ -536,7 +534,7 @@ public class App
                     BufferedImage img = ImageIO.read(new File(selectedFilePath[0]));
 
                     // Load image
-                    Tools.loadImage(newUser.getUsername(), img);
+                    Tools.loadImage("", img);
 
                     imageLabel.setIcon(UserManager.scaleProfileImage(new ImageIcon(img)));
 
@@ -566,6 +564,7 @@ public class App
         
 
         submitButton.addActionListener(e -> {
+            user = new User();
             allFieldsFilled = true;
 
             if (nameField.getText().isEmpty()) {
@@ -629,24 +628,28 @@ public class App
                 String month = monthField.getText();
                 String year = yearField.getText();
 
-                newUser.setUsername(name);
+                user.setUsername(name);
 
                 int intWeight = (Integer) weight;  //converts the weight from an object to an integer
                 int intHeight = (Integer) height; //converts the height from an object to an integer
-                newUser.setWeight(intWeight);
-                newUser.setHeight(intHeight);
+                user.setWeight(intWeight);
+                user.setHeight(intHeight);
 
                 int[] DOB = {Integer.parseInt(day), Integer.parseInt(month), Integer.parseInt(year)};
-                newUser.setDOB(DOB);
+                user.setDOB(DOB);
                 
 
-
-
                 // You can use these values as needed
-                System.out.println("Name: " + name);
-                System.out.println("DOB: " + day + "/" + month + "/" + year);
-                System.out.println("Weight: " + weight);
-                System.out.println("Height: " + height);
+                System.out.println("Name: " + name); // debug
+                System.out.println("DOB: " + day + "/" + month + "/" + year); // debug
+                System.out.println("Weight: " + weight); // debug
+                System.out.println("Height: " + height); // debug
+
+                SerializeJsonData.serializeNewUser(user);
+                UserManager.moveNewUserProfileToUserFolder(user.getId());
+
+                createMainMenuFrame();
+
             }
         });
 
@@ -657,7 +660,7 @@ public class App
 
 
     //method for creatine the main menu Jframe
-    private static void createMainMenuFrame(User user)
+    private static void createMainMenuFrame()
     {
         System.out.println("Run the main menu frame"); //test
 

@@ -92,7 +92,7 @@ public class Tools {
 
     public static BufferedImage loadImage(String imagePath) {
         try {
-             createCircularImage(ImageIO.read(new File(imagePath)), imagePath);
+             createCircularImage(ImageIO.read(new File(imagePath)), Constants.tempImagePath+"/output.png");
         } catch (IOException e) {
             e.printStackTrace();
         }

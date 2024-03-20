@@ -12,18 +12,6 @@ import java.awt.Image;
 
 public class UserManager {
 
-    // 20/03/24 : TE : Called at the start of the program to destory all temporary images
-    public static void clearTemporaryProfileImageHolder(){
-        File tempImageDir = new File(Constants.tempImagePath);
-        File[] listOfFiles = tempImageDir.listFiles();
-
-        for(int i=0; i < listOfFiles.length; i++){
-            if(listOfFiles[i].isFile()){
-                listOfFiles[i].delete();
-            }
-        }
-    }
-	
     
     // 25/01/24 : TE : Gets the names and profile photos of users
     public static List<DataStructures.StringImageIdPair> getUserProfiles(){
@@ -102,6 +90,34 @@ public class UserManager {
         }
         return numberOfProfiles;
 
+    }
+
+    public static void moveNewUserProfileToUserFolder(String userid){
+        File userProfileDir = new File(Constants.usersPath);
+        File[] listOfFiles = userProfileDir.listFiles();
+
+        for(int i=0; i < listOfFiles.length; i++){
+            if(listOfFiles[i].isFile()){
+                if(listOfFiles[i].getName().equals(".png")){
+                    File newFile = new File(Constants.usersPath + '/' + userid + '/' + userid + ".png");
+                    listOfFiles[i].renameTo(newFile);
+                }
+            }
+        }
+    }
+
+    // 20/03/24 : TE : Called before new user Jframe is called
+    public static void clearTemporaryProfileImageHolder(){
+        File userProfileDir = new File(Constants.usersPath);
+        File[] listOfFiles = userProfileDir.listFiles();
+
+        for(int i=0; i < listOfFiles.length; i++){
+            if(listOfFiles[i].isFile()){
+                if(listOfFiles[i].getName().equals(".png")){
+                    listOfFiles[i].delete();
+                }
+            }
+        }
     }
 
     // 02/02/24 : TE : Gets the selectedUsersJsonPath
