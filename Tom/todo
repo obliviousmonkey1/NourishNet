@@ -20,6 +20,10 @@ COMPLETED
 - Users can be deleted 
 - ORGANISATION : Put all the data type functions together 
 - WIKI : Add table of contents 
+- Move circular image frame into tools
+- TESTING : Add more user testing especially around deleting 
+- Remove all setters from recipes 
+
 
 IN PROGRESS
 - TESTING : Look over current testing 
@@ -33,19 +37,21 @@ IN PROGRESS
 - Code clean up targeting pathing changing static paths to use Pointers class 
 - Code clean up targeting commenting and readability  
 
+
 TODO
 - Functions for family viewing to grab users data and 4 favourite recipes , make sure to delete user after 
-- Go through app and do if statements for apple computers to keep ui elements within frame // if(System.getProperty("os.name").contains("Mac"))
-- Move circular image frame into tools
-- Add more user testing especially around deleting 
+- APP : Go through app and do if statements for apple computers to keep ui elements within frame // if(System.getProperty("os.name").contains("Mac"))
+- APP : Need back button for create user frame
+- APP :  make it so it loads the cirularised image into the program in new user creation section 
+- TOOLS/USERMANAGER : clean up the way handle temporary profile image 
+- APP : Add password to create new user JFrame
 - Rename datastructure variables to make them more general 
 - Tech Debt 
-- Talk to Josh about which page the program loads when there are no users in the system can either go straight into the user creation screen or to the menu so they click add new user 
+- APP : Talk to Josh about which page the program loads when there are no users in the system can either go straight into the user creation screen or to the menu so they click add new user 
 - Look over all the functions in the classes and see if they can be organised and paired together in a better way 
 - Creation of a user allow them to upload a profile picture and reuse that code for users wanting to change theirs
-- Dynamic pointer in Pointers class for current user so dont have to keep creating path
+- Dynamic pointer in Pointers class for current user so don't have to keep creating path
 - Search via ingredients feature where the user enters the ingredient and quantity and will search for recipes which have those ingredients or most of them 90% is limit, populate the ingredient list while they are typing select an ingredient then add a quantity and when they are done press search 
-- Remove all setters from recipes 
 - Look over running through recipes and checking if they are low in fat or whatever and then add a tag to them and save it 
 
 
