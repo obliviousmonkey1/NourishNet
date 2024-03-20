@@ -1,14 +1,17 @@
 package com.nourishnet;
 
 public class Constants {
+    
 
-    // VARIABLES FOR DIETS CLASS
+    // VARIABLES 
     public static int numberOfRecipesReturnedDiets = 4; 
     public static int numberOfRecipesReturnedUser = 4;
+    public static int scaledImageWidth = 148; //Default 148
+    public static int scaledImageHeight = 148; //Default 148
 
     // FILE PATHS
     public static String userDir = System.getProperty("user.dir");
-
+    public static String tempImagePath = userDir + "/Data/tempImagesHolder";
     public static String usersPath = userDir + "/Data/Users";
     public static String content = userDir + "/Data/content";
     public static String recipeImagePath = userDir + "/Data/content/recipeImages";
