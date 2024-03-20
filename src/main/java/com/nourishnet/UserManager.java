@@ -6,10 +6,12 @@ import java.util.List;
 import java.io.File;
 
 import javax.swing.ImageIcon;
+import java.awt.Image;
+
 
 
 public class UserManager {
-	
+
     
     // 25/01/24 : TE : Gets the names and profile photos of users
     public static List<DataStructures.StringImageIdPair> getUserProfiles(){
@@ -17,27 +19,38 @@ public class UserManager {
         File[] listOfFiles = userProfileDir.listFiles();
         List<DataStructures.StringImageIdPair> profileList = new ArrayList<>();
         String imagePath;
+        ImageIcon scaledImageIcon;
 
         for(int i=0; i < listOfFiles.length; i++){
-            if(listOfFiles[i].isDirectory()){
+            try{
+                if(listOfFiles[i].isDirectory()){
 
-                // creates a temporary user object to get the user's name
-                String userId = listOfFiles[i].getName();
-                String username = ResourceLoader.loadUser(getUserJsonPath(listOfFiles[i].getName())).getUsername();
+                    // creates a temporary user object to get the user's name
+                    String userId = listOfFiles[i].getName();
+                    String username = ResourceLoader.loadUser(getUserJsonPath(listOfFiles[i].getName())).getUsername();
 
-                System.out.println(listOfFiles[i].getPath()); // debug
+                    DataStructures.StringBooleanPair imageData =  Tools.hasImage(userId, listOfFiles[i].getPath());
+                    if(imageData.getHasImage()){
+                        ImageIcon imageIcon = new ImageIcon(listOfFiles[i].getPath() +"/"+ userId + imageData.getExtension());
+                        scaledImageIcon = scaleProfileImage(imageIcon);
 
-                DataStructures.StringBooleanPair imageData =  Tools.hasImage(userId, listOfFiles[i].getPath());
-                if(imageData.getHasImage()){
-                    imagePath = listOfFiles[i].getPath() +"/"+ userId + imageData.getExtension();
-                }else{
-                    imagePath = Constants.usersPath + "/default.png";
+                    }else{
+                        ImageIcon imageIcon = new ImageIcon(Constants.usersPath + "/default.png");
+                        scaledImageIcon = scaleProfileImage(imageIcon);
+                    }
+                    profileList.add(new DataStructures.StringImageIdPair(username, userId, scaledImageIcon));
                 }
-                profileList.add(new DataStructures.StringImageIdPair(username, userId, new ImageIcon(imagePath)));
-                
+            }
+            catch(Exception e){
+                e.printStackTrace();
             }
         }
         return profileList;
+    }
+
+    public static ImageIcon scaleProfileImage(ImageIcon imageIcon){
+        Image scaledImage = imageIcon.getImage().getScaledInstance(Constants.scaledImageWidth, Constants.scaledImageHeight, Image.SCALE_SMOOTH);
+        return new ImageIcon(scaledImage);
     }
 
     // 15/02/24 : TE : Gets the new user id 
@@ -79,10 +92,39 @@ public class UserManager {
 
     }
 
+    public static void moveNewUserProfileToUserFolder(String userid){
+        File userProfileDir = new File(Constants.usersPath);
+        File[] listOfFiles = userProfileDir.listFiles();
+
+        for(int i=0; i < listOfFiles.length; i++){
+            if(listOfFiles[i].isFile()){
+                if(listOfFiles[i].getName().equals(".png")){
+                    File newFile = new File(Constants.usersPath + '/' + userid + '/' + userid + ".png");
+                    listOfFiles[i].renameTo(newFile);
+                }
+            }
+        }
+    }
+
+    // 20/03/24 : TE : Called before new user Jframe is called
+    public static void clearTemporaryProfileImageHolder(){
+        File userProfileDir = new File(Constants.usersPath);
+        File[] listOfFiles = userProfileDir.listFiles();
+
+        for(int i=0; i < listOfFiles.length; i++){
+            if(listOfFiles[i].isFile()){
+                if(listOfFiles[i].getName().equals(".png")){
+                    listOfFiles[i].delete();
+                }
+            }
+        }
+    }
+
     // 02/02/24 : TE : Gets the selectedUsersJsonPath
     public static String getUserJsonPath(String userId){
         return Constants.usersPath + "/" + userId + "/" + userId + ".json";
     }
+
 
     // TE : Deletes a user 
     public static void deleteUserFolder(String userId){
