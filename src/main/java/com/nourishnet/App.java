@@ -7,7 +7,11 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 import java.awt.*; 
 import java.awt.event.*;
+import java.awt.image.BufferedImage;
 import java.util.List;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 
 
 public class App 
@@ -53,7 +57,7 @@ public class App
     //method code for creating the login menu
     private static void createLoginMenu()
     {
-        JFrame login = new JFrame("Login JFrame");  //creates the Jframe that will act as the login page
+        JFrame login = new JFrame("Login");  //creates the Jframe that will act as the login page
         login.setLayout(new FlowLayout());
         login.setSize(750, 750);
         login.getContentPane().setBackground(Color.BLACK);
@@ -282,7 +286,7 @@ public class App
 
         System.out.println("Create new user profile."); //test
 
-        JFrame createUser = new JFrame("Create User Profile Frame");  //creates the Jframe
+        JFrame createUser = new JFrame("Create User Profile");  //creates the Jframe
         createUser.setLayout(new BoxLayout(createUser.getContentPane(), BoxLayout.Y_AXIS));  //sets the layout of the JFrame to be a BoxLayout
         createUser.setSize(750, 750);  //sets the size of the JFrame 
         createUser.getContentPane().setBackground(Color.decode(backgroundColour)); //sets the colour of the Jframe to be the green
@@ -382,14 +386,32 @@ public class App
         agePanel.add(new JLabel(""));
         agePanel.add(new JLabel("yyyy"));
         agePanel.add(new JLabel("Date of Birth:"));
-        JTextField dayField = new JTextField(10);
-        agePanel.add(dayField);
-        agePanel.add(slashPanel);
-        JTextField monthField = new JTextField(10);
-        agePanel.add(monthField);
-        agePanel.add(slashPanel2);
-        JTextField yearField = new JTextField(10);
-        agePanel.add(yearField);
+        
+        JTextField dayField;
+        JTextField monthField;
+        JTextField yearField;
+        if(System.getProperty("os.name").contains("Mac")){
+            
+            dayField = new JTextField(6);
+            agePanel.add(dayField);
+            agePanel.add(slashPanel);
+            monthField = new JTextField(6);
+            agePanel.add(monthField);
+            agePanel.add(slashPanel2);
+            yearField= new JTextField(6);
+            agePanel.add(yearField);
+
+        }else{
+            dayField = new JTextField(10);
+            agePanel.add(dayField);
+            agePanel.add(slashPanel);
+            monthField = new JTextField(10);
+            agePanel.add(monthField);
+            agePanel.add(slashPanel2);
+            yearField= new JTextField(10);
+            agePanel.add(yearField);
+        }
+
         infoPanel.add(agePanel);  //adds to main panel
 
 
@@ -510,6 +532,18 @@ public class App
             if (returnValue == JFileChooser.APPROVE_OPTION) {
                 selectedFilePath[0] = fileChooser.getSelectedFile().getPath();
                 System.out.println("Selected file: " + selectedFilePath[0]);
+                try{
+                    BufferedImage img = ImageIO.read(new File(selectedFilePath[0]));
+
+                    // Load image
+                    Tools.loadImage(newUser.getUsername(), img);
+
+                    imageLabel.setIcon(UserManager.scaleProfileImage(new ImageIcon(img)));
+
+                } catch(IOException ex){
+                    ex.printStackTrace();
+
+                }
             }
         });
 
