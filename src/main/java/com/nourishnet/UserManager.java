@@ -84,6 +84,7 @@ public class UserManager {
         return Constants.usersPath + "/" + userId + "/" + userId + ".json";
     }
 
+
     // TE : Deletes a user 
     public static void deleteUserFolder(String userId){
         File userProfileDir = new File(Constants.usersPath);

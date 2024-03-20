@@ -3,8 +3,8 @@ package com.nourishnet;
 public class Constants {
 
     // VARIABLES FOR DIETS CLASS
-    public static int numberOfRecipesReturned = 4;
-
+    public static int numberOfRecipesReturnedDiets = 4; 
+    public static int numberOfRecipesReturnedUser = 4;
 
     // FILE PATHS
     public static String userDir = System.getProperty("user.dir");
