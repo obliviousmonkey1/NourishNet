@@ -618,7 +618,17 @@ public class App
 
         createUser.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        // Auto scale the frame based on screen resolution
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        int width = (int) (screenSize.getWidth() * 0.8);
+        int height = (int) (screenSize.getHeight() * 0.8);
+        createUser.setSize(width, height);
+        createUser.setLocationRelativeTo(null);
+
         createUser.setVisible(true);
+
+
+
     }
 
 
