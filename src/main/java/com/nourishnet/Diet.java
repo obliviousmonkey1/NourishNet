@@ -41,7 +41,7 @@ public class Diet {
                     recipeExamples.add(recipeHolder.get(i));
                     number++;
     
-                    if (number == Constants.numberOfRecipesReturned) {
+                    if (number == Constants.numberOfRecipesReturnedDiets) {
                         return recipeExamples;
                     }
                     break;

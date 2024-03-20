@@ -7,7 +7,11 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 import java.awt.*; 
 import java.awt.event.*;
+import java.awt.image.BufferedImage;
 import java.util.List;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 
 
 public class App 
@@ -21,6 +25,8 @@ public class App
     private static String panelColour = "#ACB7AB"; //for panels in middle of Jframes that want to be a diff colour
 
     private static boolean allFieldsFilled;  //boolean used in the new user profile frame to check if all the fields have been filled in. DONT TOUCH THIS
+
+    private static User user;
 
     public static void main( String[] args )
     {
@@ -53,7 +59,7 @@ public class App
     //method code for creating the login menu
     private static void createLoginMenu()
     {
-        JFrame login = new JFrame("Login JFrame");  //creates the Jframe that will act as the login page
+        JFrame login = new JFrame("Login");  //creates the Jframe that will act as the login page
         login.setLayout(new FlowLayout());
         login.setSize(750, 750);
         login.getContentPane().setBackground(Color.BLACK);
@@ -67,9 +73,6 @@ public class App
             JButton button = new JButton(profiles.get(i).getText());
             button.putClientProperty("id", profiles.get(i).getId());
 
-            int newWidth = 200; 
-            int newHeight = 150; 
-
             button.addActionListener(new ActionListener() 
             {
                 @Override
@@ -80,7 +83,7 @@ public class App
                     {
 
                         String userJsonPath = UserManager.getUserJsonPath(button.getClientProperty("id").toString());
-                        User user = DeserializeJsonData.initaliseUserClass(userJsonPath);
+                        user = DeserializeJsonData.initaliseUserClass(userJsonPath);
 
                         if (user.getHasPassword())  //if the user's profile is password protected
                         {
@@ -92,7 +95,7 @@ public class App
                         else                        //if the user's profile is NOT password protected
                         {
                             login.setVisible(false);
-                            createMainMenuFrame(user);  
+                            createMainMenuFrame();  
                         }
                     }
                     catch(Exception e1)
@@ -117,6 +120,7 @@ public class App
             public void actionPerformed(ActionEvent e) 
             {
                 login.setVisible(false);
+                UserManager.clearTemporaryProfileImageHolder();
                 newUserProfileFrame();
             }
         });
@@ -261,7 +265,7 @@ public class App
                 if (user.checkPassword(userInput))
                 {
                     passwordFrame.setVisible(false);
-                    createMainMenuFrame(user);
+                    createMainMenuFrame();
 
                 }
             }
@@ -277,12 +281,10 @@ public class App
 
     private static void newUserProfileFrame()
     {
-        User newUser = new User(); //Initialises a new user with all its attributes empty. Through this method, the user's attributes will be filled in (except for diets and recipes), and then the user will be saved to the system.
-
 
         System.out.println("Create new user profile."); //test
 
-        JFrame createUser = new JFrame("Create User Profile Frame");  //creates the Jframe
+        JFrame createUser = new JFrame("Create User Profile");  //creates the Jframe
         createUser.setLayout(new BoxLayout(createUser.getContentPane(), BoxLayout.Y_AXIS));  //sets the layout of the JFrame to be a BoxLayout
         createUser.setSize(750, 750);  //sets the size of the JFrame 
         createUser.getContentPane().setBackground(Color.decode(backgroundColour)); //sets the colour of the Jframe to be the green
@@ -382,14 +384,32 @@ public class App
         agePanel.add(new JLabel(""));
         agePanel.add(new JLabel("yyyy"));
         agePanel.add(new JLabel("Date of Birth:"));
-        JTextField dayField = new JTextField(10);
-        agePanel.add(dayField);
-        agePanel.add(slashPanel);
-        JTextField monthField = new JTextField(10);
-        agePanel.add(monthField);
-        agePanel.add(slashPanel2);
-        JTextField yearField = new JTextField(10);
-        agePanel.add(yearField);
+        
+        JTextField dayField;
+        JTextField monthField;
+        JTextField yearField;
+        if(System.getProperty("os.name").contains("Mac")){
+            
+            dayField = new JTextField(6);
+            agePanel.add(dayField);
+            agePanel.add(slashPanel);
+            monthField = new JTextField(6);
+            agePanel.add(monthField);
+            agePanel.add(slashPanel2);
+            yearField= new JTextField(6);
+            agePanel.add(yearField);
+
+        }else{
+            dayField = new JTextField(10);
+            agePanel.add(dayField);
+            agePanel.add(slashPanel);
+            monthField = new JTextField(10);
+            agePanel.add(monthField);
+            agePanel.add(slashPanel2);
+            yearField= new JTextField(10);
+            agePanel.add(yearField);
+        }
+
         infoPanel.add(agePanel);  //adds to main panel
 
 
@@ -510,6 +530,18 @@ public class App
             if (returnValue == JFileChooser.APPROVE_OPTION) {
                 selectedFilePath[0] = fileChooser.getSelectedFile().getPath();
                 System.out.println("Selected file: " + selectedFilePath[0]);
+                try{
+                    BufferedImage img = ImageIO.read(new File(selectedFilePath[0]));
+
+                    // Load image
+                    Tools.loadImage("", img);
+
+                    imageLabel.setIcon(UserManager.scaleProfileImage(new ImageIcon(img)));
+
+                } catch(IOException ex){
+                    ex.printStackTrace();
+
+                }
             }
         });
 
@@ -532,6 +564,7 @@ public class App
         
 
         submitButton.addActionListener(e -> {
+            user = new User();
             allFieldsFilled = true;
 
             if (nameField.getText().isEmpty()) {
@@ -595,24 +628,28 @@ public class App
                 String month = monthField.getText();
                 String year = yearField.getText();
 
-                newUser.setUsername(name);
+                user.setUsername(name);
 
                 int intWeight = (Integer) weight;  //converts the weight from an object to an integer
                 int intHeight = (Integer) height; //converts the height from an object to an integer
-                newUser.setWeight(intWeight);
-                newUser.setHeight(intHeight);
+                user.setWeight(intWeight);
+                user.setHeight(intHeight);
 
                 int[] DOB = {Integer.parseInt(day), Integer.parseInt(month), Integer.parseInt(year)};
-                newUser.setDOB(DOB);
+                user.setDOB(DOB);
                 
 
-
-
                 // You can use these values as needed
-                System.out.println("Name: " + name);
-                System.out.println("DOB: " + day + "/" + month + "/" + year);
-                System.out.println("Weight: " + weight);
-                System.out.println("Height: " + height);
+                System.out.println("Name: " + name); // debug
+                System.out.println("DOB: " + day + "/" + month + "/" + year); // debug
+                System.out.println("Weight: " + weight); // debug
+                System.out.println("Height: " + height); // debug
+
+                SerializeJsonData.serializeNewUser(user);
+                UserManager.moveNewUserProfileToUserFolder(user.getId());
+
+                createMainMenuFrame();
+
             }
         });
 
@@ -633,7 +670,7 @@ public class App
 
 
     //method for creatine the main menu Jframe
-    private static void createMainMenuFrame(User user)
+    private static void createMainMenuFrame()
     {
         System.out.println("Run the main menu frame"); //test
 
