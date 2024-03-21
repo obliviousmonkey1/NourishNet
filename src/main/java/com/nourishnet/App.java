@@ -669,15 +669,352 @@ public class App
     }
 
 
-    //method for creatine the main menu Jframe
-    private static void createMainMenuFrame()
-    {
-        System.out.println("Run the main menu frame"); //test
+    private static void createMainMenuFrame() {
+        System.out.println("Run the main menu frame"); // test
 
+
+        //Creates the JFrame that will act as the main menu
         JFrame mainMenuFrame = new JFrame("Main Menu Frame");
+        mainMenuFrame.setLayout(new BoxLayout(mainMenuFrame.getContentPane(), BoxLayout.Y_AXIS));  //sets the layout of the JFrame to be a BoxLayout
+        mainMenuFrame.setSize(750, 750);  //sets the size of the JFrame 
+        mainMenuFrame.getContentPane().setBackground(Color.decode(backgroundColour)); //sets the colour of the Jframe to be the green
+
+
+        // Makes the Title Panel
+        JPanel titlePanel = new JPanel(new FlowLayout(FlowLayout.CENTER)); 
+        titlePanel.setBackground(Color.decode(titleColour)); //sets the colour of the JPanel to be the green
+        titlePanel.setMaximumSize(new Dimension(Integer.MAX_VALUE, 100));  //sets the maximise size of the panel 
+
+        //Makes and adds the textfield to the Title Panel
+        JTextField titleField = new JTextField();
+        titleField.setBorder(null);  //removes the borders of the textfield
+        titleField.setText("NourishNet");
+        titleField.setBackground(Color.decode(titleColour));
+        titleField.setFont(titleFont);  //sets the font to the titleFont
+        titleField.setEditable(false);
+        titlePanel.add(titleField);
+
+        mainMenuFrame.add(titlePanel);  //adds the panel to the JFrame
+
+
+        //Makes and adds a panel in between the two panels to create a gap
+        JPanel gapPanel = new JPanel(new FlowLayout(FlowLayout.LEADING));
+        gapPanel.setBackground(Color.decode(backgroundColour));
+        gapPanel.setMaximumSize(new Dimension(Integer.MAX_VALUE, 500));
+        mainMenuFrame.add(gapPanel);
+
+        // Creates the panel for the first two buttons
+        JPanel buttonPanel1 = new JPanel(new GridLayout(1, 3));
+        buttonPanel1.setBackground(Color.decode(panelColour));
+        buttonPanel1.setMaximumSize(new Dimension(1000, 400));
+
+        // Find Recipes button
+        JButton findRecipesButton = new JButton("Find Recipes");
+        findRecipesButton.setBackground(Color.decode(panelColour));
+        findRecipesButton.setPreferredSize(new Dimension(100, 100));
+        findRecipesButton.setBorder(null);  //removes the borders of the textfield
+        buttonPanel1.add(findRecipesButton);
+
+        //Dummy button to add a space between buttons
+        JButton dummyButton = new JButton("");
+        dummyButton.setBackground(Color.decode(backgroundColour));
+        dummyButton.setBorder(null);  //removes the borders of the textfield
+        dummyButton.setPreferredSize(new Dimension(50, 100));
+        buttonPanel1.add(dummyButton);
+
+        // View Diets button
+        JButton viewDietsButton = new JButton("View Diets");
+        viewDietsButton.setBackground(Color.decode(panelColour));
+        viewDietsButton.setPreferredSize(new Dimension(200, 100));
+        viewDietsButton.setBorder(null);  //removes the borders of the textfield
+        buttonPanel1.add(viewDietsButton);
+
+        mainMenuFrame.add(buttonPanel1);
+
+        //Makes and adds a panel in between the two panels to create a gap
+        JPanel gapPanel2 = new JPanel(new FlowLayout(FlowLayout.LEADING));
+        gapPanel2.setBackground(Color.decode(backgroundColour));
+        gapPanel2.setMaximumSize(new Dimension(Integer.MAX_VALUE, 200));
+        mainMenuFrame.add(gapPanel2);
+
+
+        //The panel for the third button
+        JPanel buttonPanel2 = new JPanel(new GridLayout(1, 1));
+        buttonPanel2.setMaximumSize(new Dimension(1000, 400));
+        JButton viewFamilyButton = new JButton("View Family");
+        viewFamilyButton.setBackground(Color.decode(panelColour));
+        viewFamilyButton.setPreferredSize(new Dimension(200, 100));
+        viewFamilyButton.setBorder(null);  //removes the borders of the textfield
+        buttonPanel2.add(viewFamilyButton);
+        mainMenuFrame.add(buttonPanel2);
+
+        //Makes and adds a panel in between the two panels to create a gap
+        JPanel gapPanel3 = new JPanel(new FlowLayout(FlowLayout.LEADING));
+        gapPanel3.setBackground(Color.decode(backgroundColour));
+        gapPanel3.setMaximumSize(new Dimension(Integer.MAX_VALUE, 200));
+        mainMenuFrame.add(gapPanel3);
+ 
+        //The panel for the fourth button
+        JPanel buttonPanel3 = new JPanel(new GridLayout(1, 1));
+        buttonPanel3.setMaximumSize(new Dimension(1000, 400));
+        JButton helpButton = new JButton("How else can I help?");
+        helpButton.setBorder(null);
+        helpButton.setBackground(Color.decode(panelColour));
+        helpButton.setPreferredSize(new Dimension(200, 100));
+        buttonPanel3.add(helpButton);
+        mainMenuFrame.add(buttonPanel3);
+
+        //Makes and adds a panel in between the two panels to create a gap
+        JPanel gapPanel4 = new JPanel(new FlowLayout(FlowLayout.LEADING));
+        gapPanel4.setBackground(Color.decode(backgroundColour));
+        gapPanel4.setMaximumSize(new Dimension(Integer.MAX_VALUE, 200));
+        mainMenuFrame.add(gapPanel4);
+
+        //The panel for the last few buttons
+        JPanel buttonPanel4 = new JPanel(new GridLayout(1, 5));
+        buttonPanel4.setMaximumSize(new Dimension(2000, 400));
+        
+        //Profile button
+        ImageIcon profileIcon = new ImageIcon("Data/Content/mainMenuImages/profile.png");
+        Image profileImage = profileIcon.getImage().getScaledInstance(200, 100, Image.SCALE_SMOOTH);
+        JButton profileButton = new JButton(new ImageIcon(profileImage));
+        profileButton.setBackground(Color.decode(backgroundColour));
+        profileButton.setBorder(null);  //removes the borders of the textfield
+        profileButton.setPreferredSize(new Dimension(200, 100));
+        buttonPanel4.add(profileButton);
+
+        //Dummy button to add a space between buttons
+        JButton dummyButton2 = new JButton("");
+        dummyButton2.setBackground(Color.decode(backgroundColour));
+        dummyButton2.setBorder(null);  //removes the borders of the textfield
+        dummyButton2.setPreferredSize(new Dimension(50, 100));
+        buttonPanel4.add(dummyButton2);
+
+        //Home button
+        ImageIcon homeIcon = new ImageIcon("Data/Content/mainMenuImages/home.png");
+        Image homeImage = homeIcon.getImage().getScaledInstance(200, 100, Image.SCALE_SMOOTH);
+        JButton homeButton = new JButton(new ImageIcon(homeImage));
+        homeButton.setBackground(Color.decode(backgroundColour));
+        homeButton.setBorder(null);  //removes the borders of the textfield
+        homeButton.setPreferredSize(new Dimension(200, 100));
+        buttonPanel4.add(homeButton);
+
+        //Dummy button to add a space between buttons
+        JButton dummyButton3 = new JButton("");
+        dummyButton3.setBackground(Color.decode(backgroundColour));
+        dummyButton3.setBorder(null);  //removes the borders of the textfield
+        dummyButton3.setPreferredSize(new Dimension(50, 100));
+        buttonPanel4.add(dummyButton3);
+
+        //Settings button
+        ImageIcon settingsIcon = new ImageIcon("Data/Content/mainMenuImages/settings.png");
+        Image settingsImage = settingsIcon.getImage().getScaledInstance(200, 100, Image.SCALE_SMOOTH);
+        JButton settingsButton = new JButton(new ImageIcon(settingsImage));
+        settingsButton.setBackground(Color.decode(backgroundColour));
+        settingsButton.setBorder(null);  //removes the borders of the textfield
+        settingsButton.setPreferredSize(new Dimension(200, 100));
+        buttonPanel4.add(settingsButton);
+
+        mainMenuFrame.add(buttonPanel4);
+
+
+        // Auto scale the frame based on screen resolution
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        int width = (int) (screenSize.getWidth() * 0.8);
+        int height = (int) (screenSize.getHeight() * 0.8);
+        mainMenuFrame.setSize(width, height);
+        mainMenuFrame.setLocationRelativeTo(null);
 
 
 
+        //Now here are all the action listeners for the buttons
+
+        //Action listener for the find recipes button
+        findRecipesButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //createFindRecipesFrame();
+                mainMenuFrame.setVisible(false);
+                System.out.println("Open the find recipes page"); // debug
+            }
+        });
+
+        //Action listener for the view diets button
+        viewDietsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //createViewDietsFrame();
+                mainMenuFrame.setVisible(false);
+                System.out.println("Open the view diets page"); // debug
+            }
+        });
+
+        //Action listener for the view family button
+        viewFamilyButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //createViewFamilyFrame();
+                mainMenuFrame.setVisible(false);
+                System.out.println("Open the view family page"); // debug
+            }
+        });
+
+        //Action listener for the help button
+        helpButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //createHelpFrame();
+                mainMenuFrame.setVisible(false);
+                System.out.println("Open the help page"); // debug
+            }
+        });
+
+        //Action listener for the profile button
+        profileButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                createLoginMenu();
+                mainMenuFrame.setVisible(false);
+                System.out.println("Open the profile page"); // debug
+            }
+        });
+
+        //We dont need an action listener for the home button as we are already on the home page
+
+        //Action listener for the settings button
+        settingsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                createSettingsFrame();
+                mainMenuFrame.setVisible(false);
+                System.out.println("Open the settings page"); // debug
+            }
+        });
+
+        mainMenuFrame.pack();
+        mainMenuFrame.setVisible(true);
+    }
+
+
+
+    public static void createSettingsFrame()
+    {
+        JFrame settingsFrame = new JFrame("Settings");
+        settingsFrame.setLayout(new BoxLayout(settingsFrame.getContentPane(), BoxLayout.Y_AXIS));
+        settingsFrame.setSize(750, 750);
+        settingsFrame.getContentPane().setBackground(Color.decode(backgroundColour));
+
+        // Makes the Title Panel
+        JPanel titlePanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        titlePanel.setBackground(Color.decode(titleColour));
+        titlePanel.setMaximumSize(new Dimension(Integer.MAX_VALUE, 100));
+
+        //Makes and adds the textfield to the Title Panel
+        JTextField titleField = new JTextField();
+        titleField.setBorder(null);
+        titleField.setText("Settings");
+        titleField.setBackground(Color.decode(titleColour));
+        titleField.setFont(titleFont);
+        titleField.setEditable(false);
+        titlePanel.add(titleField);
+
+        settingsFrame.add(titlePanel);
+
+        //Makes and adds a panel in between the two panels to create a gap
+        JPanel gapPanel = new JPanel(new FlowLayout(FlowLayout.LEADING));
+        gapPanel.setBackground(Color.decode(backgroundColour));
+        gapPanel.setMaximumSize(new Dimension(Integer.MAX_VALUE, 500));
+        settingsFrame.add(gapPanel);
+
+        // The panel for the first two buttons
+        JPanel buttonPanel1 = new JPanel(new GridLayout(1, 2));
+        buttonPanel1.setBackground(Color.decode(panelColour));
+        buttonPanel1.setMaximumSize(new Dimension(1000, 400));
+
+        //Change Password button
+        JButton changePasswordButton = new JButton("Change Password");
+        changePasswordButton.setBackground(Color.decode(panelColour));
+        changePasswordButton.setPreferredSize(new Dimension(200, 100));
+        changePasswordButton.setBorder(null);
+        buttonPanel1.add(changePasswordButton);
+
+        //Dummy button to add a space between buttons
+        JButton dummyButton = new JButton("");
+        dummyButton.setBackground(Color.decode(backgroundColour));
+        dummyButton.setBorder(null);  //removes the borders of the textfield
+        dummyButton.setPreferredSize(new Dimension(50, 100));
+        buttonPanel1.add(dummyButton);
+
+        //Edit profile button
+        JButton editProfileButton = new JButton("Edit Profile");
+        editProfileButton.setBackground(Color.decode(panelColour));
+        editProfileButton.setPreferredSize(new Dimension(200, 100));
+        editProfileButton.setBorder(null);
+        buttonPanel1.add(editProfileButton);
+
+        settingsFrame.add(buttonPanel1);
+
+        //Makes and adds a panel in between the two panels to create a gap
+        JPanel gapPanel2 = new JPanel(new FlowLayout(FlowLayout.LEADING));
+        gapPanel2.setBackground(Color.decode(backgroundColour));
+        gapPanel2.setMaximumSize(new Dimension(Integer.MAX_VALUE, 200));
+        settingsFrame.add(gapPanel2);
+
+        // The panel for the home button
+        JPanel buttonPanel3 = new JPanel(new GridLayout(1, 1));
+        buttonPanel3.setMaximumSize(new Dimension(1000, 400));
+
+        //Home button
+        ImageIcon homeIcon = new ImageIcon("Data/Content/mainMenuImages/home.png");
+        Image homeImage = homeIcon.getImage().getScaledInstance(200, 100, Image.SCALE_SMOOTH);
+        JButton homeButton = new JButton(new ImageIcon(homeImage));
+        homeButton.setBackground(Color.decode(backgroundColour));
+        homeButton.setBorder(null);  //removes the borders of the textfield
+        homeButton.setPreferredSize(new Dimension(200, 100));
+        buttonPanel3.add(homeButton);
+
+        settingsFrame.add(buttonPanel3);
+
+        // Auto scale the frame based on screen resolution
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        int width = (int) (screenSize.getWidth() * 0.8);
+        int height = (int) (screenSize.getHeight() * 0.8);
+        settingsFrame.setSize(width, height);
+        settingsFrame.setLocationRelativeTo(null);
+
+        // Action listener for the change password button
+        changePasswordButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //createChangePasswordFrame();
+                settingsFrame.setVisible(false);
+                System.out.println("Open the change password page"); // debug
+            }
+        });
+
+        // Action listener for the edit profile button
+        editProfileButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //createEditProfileFrame();
+                settingsFrame.setVisible(false);
+                System.out.println("Open the edit profile page"); // debug
+            }
+        });
+
+        // Action listener for the home button
+        homeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                createMainMenuFrame();
+                settingsFrame.setVisible(false);
+                System.out.println("Open the home page"); // debug
+            }
+        });
+
+
+        settingsFrame.pack();
+        settingsFrame.setVisible(true);
     }
 
 }
