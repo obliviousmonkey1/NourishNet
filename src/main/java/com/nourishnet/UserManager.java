@@ -12,6 +12,23 @@ import java.awt.Image;
 
 public class UserManager {
 
+    // 21/03/24 : TE : Gets the user profile of the user
+    public static DataStructures.StringImagePair getUserProfile(String userId){
+        File userProfileDir = new File(Constants.usersPath + "/" + userId);
+        File[] listOfFiles = userProfileDir.listFiles();
+        ImageIcon scaledImageIcon;
+
+        for(int i=0; i < listOfFiles.length; i++){
+            if(listOfFiles[i].isFile()){
+                if(listOfFiles[i].getName().equals(userId + ".png")){
+                    ImageIcon imageIcon = new ImageIcon(listOfFiles[i].getPath());
+                    scaledImageIcon = scaleProfileImage(imageIcon);
+                    return new DataStructures.StringImagePair(userId, scaledImageIcon);
+                }
+            }
+        }
+        return null;
+    }
     
     // 25/01/24 : TE : Gets the names and profile photos of users
     public static List<DataStructures.StringImageIdPair> getUserProfiles(){
@@ -123,6 +140,16 @@ public class UserManager {
     // 02/02/24 : TE : Gets the selectedUsersJsonPath
     public static String getUserJsonPath(String userId){
         return Constants.usersPath + "/" + userId + "/" + userId + ".json";
+    }
+
+    public static boolean changeUserPassword(User user, String currentPassword, String newPassword){
+        
+        if (user.checkPassword(currentPassword)){
+            user.setPassword(newPassword);
+            SerializeJsonData.serializeUser(user, getUserJsonPath(user.getId())); // save the new password
+            return true;
+        }
+        return false; // invlaid password 
     }
 
 

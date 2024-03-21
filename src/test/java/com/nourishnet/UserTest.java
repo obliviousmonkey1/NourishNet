@@ -52,6 +52,23 @@ public class UserTest {
         TestingTools.assertFileExistence(Constants.usersPath + '/' + user.getId(), false);
     }
 
+    private static void testChangePassword(){
+        User user = new User();
+        user.setPassword("password123");
+
+        // Test changing password
+        TestingTools.AssertEquals(true, UserManager.changeUserPassword(user, "password123", "newPassword"));
+        TestingTools.AssertEquals("newPassword", user.getPassword());
+
+        // Test changing password with incorrect old password
+        TestingTools.AssertEquals(false, UserManager.changeUserPassword(user, "wrongPassword", "newPassword"));
+        TestingTools.AssertEquals("newPassword", user.getPassword());
+
+        UserManager.deleteUserFolder(user.getId());
+        TestingTools.assertFileExistence(Constants.usersPath + '/' + user.getId(), false);
+
+    }
+
     
     private static void testSettingAndGetters() {
         // Create a user
@@ -88,6 +105,7 @@ public class UserTest {
     public static void Entry() {
         testLoadUser();
         testSaveAndDeleteUser();
+        testChangePassword();
         testSettingAndGetters();
 
         System.out.println("[USER] All tests passed!");
