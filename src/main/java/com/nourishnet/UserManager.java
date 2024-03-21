@@ -142,9 +142,9 @@ public class UserManager {
         return Constants.usersPath + "/" + userId + "/" + userId + ".json";
     }
 
-    public static boolean changeUserPassword(User user, String oldPassword, String newPassword){
+    public static boolean changeUserPassword(User user, String currentPassword, String newPassword){
         
-        if (user.checkPassword(oldPassword)){
+        if (user.checkPassword(currentPassword)){
             user.setPassword(newPassword);
             SerializeJsonData.serializeUser(user, getUserJsonPath(user.getId())); // save the new password
             return true;
