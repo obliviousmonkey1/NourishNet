@@ -103,6 +103,7 @@ public class UserTest {
     }
 
     public static void Entry() {
+
         testLoadUser();
         testSaveAndDeleteUser();
         testChangePassword();
