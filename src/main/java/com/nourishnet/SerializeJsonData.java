@@ -19,10 +19,10 @@ public class SerializeJsonData {
         boolean folderCreated = folder.mkdirs();
 
         if (folderCreated) {
-            System.out.println("Folder created successfully at: " + folder.getAbsolutePath());
+            System.out.println("Folder created successfully at: " + folder.getAbsolutePath()); // debug
 
         } else {
-            System.err.println("Failed to create folder.");
+            System.err.println("Failed to create folder."); // debug
             UserManager.generateNewUserId(user);
             folderPath = Constants.usersPath + '/' + user.getId(); 
             folder = new File(Constants.usersPath + '/' + user.getId());
@@ -39,10 +39,10 @@ public class SerializeJsonData {
 
         try {
             objectMapper.writeValue(new File(filePath), user);
-            System.out.println("User data serialized successfully.");
+            System.out.println("User data serialized successfully."); // debug
         } catch (IOException e) {
             e.printStackTrace();
-            System.err.println("Error during user data serialization.");
+            System.err.println("Error during user data serialization."); // debug
         }
     }
 
@@ -52,10 +52,10 @@ public class SerializeJsonData {
 
         try {
             objectMapper.writeValue(new File(filePath), recipes);
-            System.out.println("Recipes data serialized successfully.");
+            System.out.println("Recipes data serialized successfully."); // debug
         } catch (IOException e) {
             e.printStackTrace();
-            System.err.println("Error during recipes data serialization.");
+            System.err.println("Error during recipes data serialization."); // debug
         }
     }
 }

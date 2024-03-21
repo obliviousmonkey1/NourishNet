@@ -15,7 +15,7 @@ public class Tools {
 
     public static ImageIcon getRecipeImage(String imageName){
         DataStructures.StringBooleanPair hImage = hasImage(imageName, Constants.recipeImagePath);
-        System.out.println(hImage.getHasImage());
+        System.out.println(hImage.getHasImage()); //Debug
         if(hImage.getHasImage()){
             return new ImageIcon(Constants.recipeImagePath + "/" + imageName + ".png");
         }
@@ -24,7 +24,7 @@ public class Tools {
 
     public static ImageIcon getDietImage(String dietName){
         DataStructures.StringBooleanPair hImage = hasImage(dietName, Constants.dietImagePath);
-        System.out.println(hImage.getHasImage());
+        System.out.println(hImage.getHasImage()); //Debug
         if(hImage.getHasImage()){
             return new ImageIcon(Constants.dietImagePath + "/" + dietName + hImage.getExtension());
         }

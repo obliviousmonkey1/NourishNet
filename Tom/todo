@@ -44,22 +44,24 @@ TODO
 - Change the default image for recipes and diets 
 - Functions for family viewing to grab users data and 4 favourite recipes , make sure to delete user after 
 - APP : Go through app and do if statements for apple computers to keep ui elements within frame // if(System.getProperty("os.name").contains("Mac"))
-- APP : Need back button for create user frame
 - APP :  make it so it loads the cirularised image into the program in new user creation section 
 - TOOLS/USERMANAGER : clean up the way handle temporary profile image 
-- APP : Add password to create new user JFrame
 - Rename datastructure variables to make them more general 
 - Tech Debt 
 - APP : Talk to Josh about which page the program loads when there are no users in the system can either go straight into the user creation screen or to the menu so they click add new user 
-- Look over all the functions in the classes and see if they can be organised and paired together in a better way 
+- ORGANISATION : ook over all the functions in the classes and see if they can be organised and paired together in a better way 
 - Creation of a user allow them to upload a profile picture and reuse that code for users wanting to change theirs
 - Dynamic pointer in Pointers class for current user so dont have to keep creating path
 - Search via ingredients feature where the user enters the ingredient and quantity and will search for recipes which have those ingredients or most of them 90% is limit, populate the ingredient list while they are typing select an ingredient then add a quantity and when they are done press search 
 - Look over running through recipes and checking if they are low in fat or whatever and then add a tag to them and save it 
-- APP : USER CREATION frame : Date of birth (d/m/y) input validation 
-- APP : USER CREATION frame : Back button to go to Login frame
-- APP : PASSWORD frame : Need to redesign the password frame to look better keep it the same size as the Login frame
+- APP : newUserProfile frame : Date of birth (d/m/y) input validation 
+- APP : newUserProfile frame : Back button to go to Login frame
+- APP : newUserProfile frame : Create Password option requirinig a password to be entered twice if user wants one
+- APP : newUserProfile frame : Add a text limit to the name input
+- APP : password frame : Need to redesign the password frame to look better keep it the same size as the Login frame
 - USER MANAGER : Go over code and make it error proof adding try and excepts where needed
+- APP : Make it so frame stays at the position of the old frame when a new frame is instansiated
+
 
 
 
