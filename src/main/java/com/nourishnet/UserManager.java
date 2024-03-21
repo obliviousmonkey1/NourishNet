@@ -12,7 +12,6 @@ import java.awt.Image;
 
 public class UserManager {
 
-    // add to wiki
     // 21/03/24 : TE : Gets the user profile of the user
     public static DataStructures.StringImagePair getUserProfile(String userId){
         File userProfileDir = new File(Constants.usersPath + "/" + userId);
@@ -141,6 +140,16 @@ public class UserManager {
     // 02/02/24 : TE : Gets the selectedUsersJsonPath
     public static String getUserJsonPath(String userId){
         return Constants.usersPath + "/" + userId + "/" + userId + ".json";
+    }
+
+    public static boolean changeUserPassword(User user, String oldPassword, String newPassword){
+        
+        if (user.checkPassword(oldPassword)){
+            user.setPassword(newPassword);
+            SerializeJsonData.serializeUser(user, getUserJsonPath(user.getId())); // save the new password
+            return true;
+        }
+        return false; // invlaid password 
     }
 
 
