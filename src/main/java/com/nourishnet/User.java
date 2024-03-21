@@ -111,4 +111,9 @@ public class User {
     public Boolean checkPassword(String enteredPassword) {
         return getPassword().equals(enteredPassword);
     }
+
+    // public class UIsettings{
+    //     private String mode;
+    //     private String theme;
+    // }
 }

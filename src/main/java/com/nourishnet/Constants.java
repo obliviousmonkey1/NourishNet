@@ -18,6 +18,13 @@ public class Constants {
     public static String dietImagePath = userDir + "/Data/content/dietImages";
     public static String iconsPath = userDir + "/Data/content/icons";
 
+    // Colours for app
+    // load this in from guiSettings.json
+
+    /*public static UIsettings uiSettings = UserManager.getUserUiSettings();
+    asign ui settings to appropriate variables 
+    */
+
     // Icons for app
 
 

@@ -39,6 +39,7 @@ IN PROGRESS
 
 
 TODO
+- Update wiki 
 - Change the default image for recipes and diets 
 - Functions for family viewing to grab users data and 4 favourite recipes , make sure to delete user after 
 - APP : Go through app and do if statements for apple computers to keep ui elements within frame // if(System.getProperty("os.name").contains("Mac"))
