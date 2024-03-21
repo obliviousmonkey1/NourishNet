@@ -12,6 +12,24 @@ import java.awt.Image;
 
 public class UserManager {
 
+    // add to wiki
+    // 21/03/24 : TE : Gets the user profile of the user
+    public static DataStructures.StringImagePair getUserProfile(String userId){
+        File userProfileDir = new File(Constants.usersPath + "/" + userId);
+        File[] listOfFiles = userProfileDir.listFiles();
+        ImageIcon scaledImageIcon;
+
+        for(int i=0; i < listOfFiles.length; i++){
+            if(listOfFiles[i].isFile()){
+                if(listOfFiles[i].getName().equals(userId + ".png")){
+                    ImageIcon imageIcon = new ImageIcon(listOfFiles[i].getPath());
+                    scaledImageIcon = scaleProfileImage(imageIcon);
+                    return new DataStructures.StringImagePair(userId, scaledImageIcon);
+                }
+            }
+        }
+        return null;
+    }
     
     // 25/01/24 : TE : Gets the names and profile photos of users
     public static List<DataStructures.StringImageIdPair> getUserProfiles(){
