@@ -88,7 +88,7 @@ public class App
                         if (user.getHasPassword())  //if the user's profile is password protected
                         {
                             login.setVisible(false);
-                            createPasswordFrame(user);  //calls for the password frame to be made, 
+                            createPasswordFrame(user, profiles);  //calls for the password frame to be made, 
                             //and passes user as a parameter so we keep the knowledge of which user was selected
                         }
 
@@ -194,88 +194,136 @@ public class App
         frame.add(createUserProfile, BorderLayout.SOUTH); // Add it to the last row
         
         frame.setVisible(true);
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
     }
     
-    
-    
-    
-    
-
-    
-
-    
 
 
 
+    
     //method for creating the password menu for profiles that are password protected
-    private static void createPasswordFrame(User user)
+    private static void createPasswordFrame(User user, List<DataStructures.StringImageIdPair> profiles)
     {
         System.out.println("Run the password frame"); //test
 
 
+        //Creating the frame
         JFrame passwordFrame = new JFrame("Password JFrame");
-        JButton button = new JButton("Button");
-        // Create a text field for user input
-        JTextField textField = new JTextField(20);
-        passwordFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Dispose on close to close only the second JFrame
-        passwordFrame.setSize(300, 200);
-        passwordFrame.add(textField);
+        passwordFrame.setLayout(new BoxLayout(passwordFrame.getContentPane(), BoxLayout.Y_AXIS));  //sets the layout of the JFrame to be a BoxLayout
+        passwordFrame.setSize(750, 750);  //sets the size of the JFrame 
+        passwordFrame.getContentPane().setBackground(Color.decode(backgroundColour)); //sets the colour of the Jframe to be the green
 
-        JLabel label = new JLabel("Input password.");
+        // Makes the Title Panel
+        JPanel titlePanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        titlePanel.setBackground(Color.decode(titleColour)); //sets the colour of the JPanel to be the green
+        titlePanel.setMaximumSize(new Dimension(Integer.MAX_VALUE, 200));  //sets the maximise size of the panel
 
-        // Set layout for the second JFrame
-        passwordFrame.setLayout(new FlowLayout());
-        passwordFrame.add(label);
-        passwordFrame.setVisible(true);
+        //Makes and adds the textfield to the Title Panel
+        JTextField titleField = new JTextField();
+        titleField.setBorder(null);  //removes the borders of the textfield
+        titleField.setText("NourishNet");
+        titleField.setBackground(Color.decode(titleColour));
+        titleField.setFont(titleFont);  //sets the font to the titleFont
+        titleField.setEditable(false);
+        titlePanel.add(titleField);
 
-    
+        passwordFrame.add(titlePanel);  //adds the panel to the JFrame
 
-        // Add KeyListener to the text field to listen for Enter key events
-        textField.addKeyListener(new KeyListener() {
-            @Override
-            public void keyTyped(KeyEvent e) 
+        //Makes and adds a panel in between the two panels to create a gap
+        JPanel gapPanel = new JPanel(new FlowLayout(FlowLayout.LEADING));
+        gapPanel.setBackground(Color.decode(backgroundColour)); //sets the colour of the JPanel to be the green
+        gapPanel.setMaximumSize(new Dimension(Integer.MAX_VALUE, 100));  //sets the maximise size of the panel
+        passwordFrame.add(gapPanel);  //adds the panel to the JFrame
+
+        //Makes and adds a panel that will hold the picture of the user's profile picture, as well
+        JPanel picturePanel = new JPanel(new GridLayout(2, 1));
+        picturePanel.setBackground(Color.decode(backgroundColour)); //sets the colour of the JPanel to be the green
+        picturePanel.setMaximumSize(new Dimension(Integer.MAX_VALUE, 200));  //sets the maximise size of the panel
+
+        for (int i=0; i<profiles.size(); i++)  //this loop goes through the profiles ArrayList and finds the profile that matches the user's ID and then sets the image of the profile to be the image of the user's profile picture
+        {
+            if (profiles.get(i).getId().equals(user.getId()))
             {
+                ImageIcon image = profiles.get(i).getImage();
+                JLabel imageLabel = new JLabel(image);
+                picturePanel.add(imageLabel, BorderLayout.CENTER);
+                passwordFrame.add(picturePanel);  //adds the panel to the JFrame
+                break;
             }
-                        
-            @Override
-            public void keyPressed(KeyEvent e) 
-            {
-                if (e.getKeyCode() == KeyEvent.VK_ENTER) 
-                {
-                    // Enter key is pressed, trigger the action for button2
-                    button.doClick();
-                                
-                }
-            }
+        }
 
+        //Makes a panel to hold the user's name
+        JPanel namePanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        namePanel.setBackground(Color.decode(backgroundColour)); //sets the colour of the JPanel to be the green
+        namePanel.setMaximumSize(new Dimension(Integer.MAX_VALUE, 100));  //sets the maximise size of the panel
+        JTextField nameField = new JTextField();
+        nameField.setBorder(null);  //removes the borders of the textfield
+        nameField.setText(user.getUsername());
+        nameField.setBackground(Color.decode(backgroundColour));
+        nameField.setFont(new Font("Arial", Font.PLAIN, 30));  //sets the font to the titleFont
+        nameField.setEditable(false);
+        namePanel.add(nameField);
+        passwordFrame.add(namePanel);  //adds the panel to the JFrame
+
+
+        //Makes a panel to hold the password textfield
+        JPanel passwordPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        passwordPanel.setBackground(Color.decode(panelColour)); //sets the colour of the JPanel to be the green
+        passwordPanel.setMaximumSize(new Dimension(800, 100));  //sets the maximise size of the panel
+        JTextField passwordField = new JTextField(18);
+        passwordField.setBorder(null);  //removes the borders of the textfield
+        passwordField.setText("Input Password");
+        passwordField.setBackground(Color.decode(panelColour));
+        passwordField.setFont(new Font("Arial", Font.PLAIN, 30));  //sets the font to the titleFont
+        passwordField.setEditable(false);
+
+        JTextField userInput = new JTextField(25);
+        passwordField.addMouseListener(new MouseAdapter() {
             @Override
-            public void keyReleased(KeyEvent e) 
-            {
+            public void mouseClicked(MouseEvent e) {
+                passwordField.setText("");
+                passwordField.setEditable(true);
             }
         });
 
-        button.addActionListener(new ActionListener()
-        {
+        passwordPanel.add(passwordField);
+        passwordPanel.add(userInput);  
+        passwordFrame.add(passwordPanel);  //adds the panel to the JFrame
+
+        //Makes a panel to hold the submit button
+        JPanel submitPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        submitPanel.setBackground(Color.decode(backgroundColour)); //sets the colour of the JPanel to be the green
+        submitPanel.setMaximumSize(new Dimension(Integer.MAX_VALUE, 100));  //sets the maximise size of the panel
+        JButton submitButton = new JButton("Submit");
+        submitButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) 
-            {
-                // Retrieve user input from the text field
-                String userInput = textField.getText();
-                
-                if (user.checkPassword(userInput))
+            public void actionPerformed(ActionEvent e) {
+                if (user.getPassword().equals(userInput.getText()))  //if the password the user entered matches the user's password
                 {
                     passwordFrame.setVisible(false);
-                    createMainMenuFrame();
-
+                    createMainMenuFrame();  //calls the main menu frame to be created
+                }
+                else  //if the password the user entered does not match the user's password
+                {
+                    passwordField.setText("Incorrect. Try Again");
+                    userInput.setBackground(Color.RED);
                 }
             }
         });
+        submitPanel.add(submitButton);
+        passwordFrame.add(submitPanel);  //adds the panel to the JFrame
+
+
+        
+        passwordFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        passwordFrame.pack();
+        passwordFrame.setVisible(true);
+        passwordFrame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
 
 
 
 
     }
-
 
     
 
@@ -891,6 +939,7 @@ public class App
             }
         });
 
+        mainMenuFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainMenuFrame.pack();
         mainMenuFrame.setVisible(true);
     }
@@ -1012,7 +1061,7 @@ public class App
             }
         });
 
-
+        settingsFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         settingsFrame.pack();
         settingsFrame.setVisible(true);
     }
