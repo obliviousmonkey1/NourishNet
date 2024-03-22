@@ -61,6 +61,7 @@ TODO
 - APP : password frame : Need to redesign the password frame to look better keep it the same size as the Login frame
 - USER MANAGER : Go over code and make it error proof adding try and excepts where needed
 - APP : Make it so frame stays at the position of the old frame when a new frame is instansiated
+- APP : Back button doesn't hide last frame 
 
 
 

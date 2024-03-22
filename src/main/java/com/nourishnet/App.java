@@ -21,8 +21,8 @@ public class App
 
     private static Font titleFont = new Font("Arial", Font.PLAIN, 90);  //this will be the font (and size) for the title at the top of the Frames 
     private static String titleColour = "#81AB7F";  //darker green
-    //private static String backgroundColour = "#AFC4B0";  //lighter green
-    //private static String panelColour = "#ACB7AB"; //for panels in middle of Jframes that want to be a diff colour
+    private static String backgroundColour = "#AFC4B0";  //lighter green
+    private static String panelColour = "#ACB7AB"; //for panels in middle of Jframes that want to be a diff colour
 
 
     private static boolean allFieldsFilled;  //boolean used in the new user profile frame to check if all the fields have been filled in. DONT TOUCH THIS
