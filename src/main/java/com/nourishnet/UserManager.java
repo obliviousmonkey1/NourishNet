@@ -35,7 +35,6 @@ public class UserManager {
         File userProfileDir = new File(Constants.usersPath);
         File[] listOfFiles = userProfileDir.listFiles();
         List<DataStructures.StringImageIdPair> profileList = new ArrayList<>();
-        String imagePath;
         ImageIcon scaledImageIcon;
 
         for(int i=0; i < listOfFiles.length; i++){
