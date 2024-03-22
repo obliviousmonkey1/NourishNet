@@ -26,6 +26,10 @@ public class Constants {
     */
 
     // Icons for app
+    public static String back = userDir + "/Data/content/icons/back.png";
+    public static String home = userDir + "/Data/content/icons/home.png";
+    public static String settings = userDir + "/Data/content/icons/settings.png";
+    public static String profile = userDir + "/Data/content/icons/profile.png"; 
 
 
     // Icons for recipes
