@@ -21,8 +21,9 @@ public class App
 
     private static Font titleFont = new Font("Arial", Font.PLAIN, 90);  //this will be the font (and size) for the title at the top of the Frames 
     private static String titleColour = "#81AB7F";  //darker green
-    private static String backgroundColour = "#AFC4B0";  //lighter green
-    private static String panelColour = "#ACB7AB"; //for panels in middle of Jframes that want to be a diff colour
+    //private static String backgroundColour = "#AFC4B0";  //lighter green
+    //private static String panelColour = "#ACB7AB"; //for panels in middle of Jframes that want to be a diff colour
+
 
     private static boolean allFieldsFilled;  //boolean used in the new user profile frame to check if all the fields have been filled in. DONT TOUCH THIS
 
@@ -313,16 +314,32 @@ public class App
         submitPanel.add(submitButton);
         passwordFrame.add(submitPanel);  //adds the panel to the JFrame
 
-
+        //Code to create a back button that goes to the login menu
+        JPanel backButtonPanel = new JPanel(new FlowLayout(FlowLayout.LEADING));
+        backButtonPanel.setBackground(Color.decode(backgroundColour));
+        backButtonPanel.setMaximumSize(new Dimension(Integer.MAX_VALUE, 100));
+        ImageIcon backButtonIcon = new ImageIcon(Constants.back);
+        Image backButtonImage = backButtonIcon.getImage().getScaledInstance(200, 100, Image.SCALE_SMOOTH);
+        JButton backButton = new JButton(new ImageIcon(backButtonImage));
+        backButton.setBackground(Color.decode(backgroundColour));
+        backButton.setBorder(null);  //removes the borders of the textfield
+        backButton.setPreferredSize(new Dimension(200, 100));
+        backButtonPanel.add(backButton);
+        backButton.addActionListener(e -> {
+            passwordFrame.setVisible(false);
+            createLoginMenu();
+        });
+        passwordFrame.add(backButtonPanel);
         
+
+
         passwordFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         passwordFrame.pack();
         passwordFrame.setVisible(true);
         passwordFrame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
 
 
-
-
+    
     }
 
     
@@ -701,6 +718,26 @@ public class App
             }
         });
 
+        //Code to create a back button that goes to the login menu
+        JPanel backButtonPanel = new JPanel(new FlowLayout(FlowLayout.LEADING));
+        backButtonPanel.setBackground(Color.decode(backgroundColour));
+        backButtonPanel.setMaximumSize(new Dimension(Integer.MAX_VALUE, 100));
+        ImageIcon backButtonIcon = new ImageIcon(Constants.back);
+        Image backButtonImage = backButtonIcon.getImage().getScaledInstance(200, 100, Image.SCALE_SMOOTH);
+        JButton backButton = new JButton(new ImageIcon(backButtonImage));
+        backButton.setBackground(Color.decode(backgroundColour));
+        backButton.setBorder(null);  //removes the borders of the textfield
+        backButton.setPreferredSize(new Dimension(200, 100));
+        backButtonPanel.add(backButton);
+        backButton.addActionListener(e -> {
+            createUser.setVisible(false);
+            createLoginMenu();
+        });
+        createUser.add(backButtonPanel);
+
+
+
+
         createUser.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Auto scale the frame based on screen resolution
@@ -711,6 +748,7 @@ public class App
         createUser.setLocationRelativeTo(null);
 
         createUser.setVisible(true);
+        createUser.setExtendedState(JFrame.MAXIMIZED_BOTH); 
 
 
 
@@ -823,7 +861,7 @@ public class App
         buttonPanel4.setMaximumSize(new Dimension(2000, 400));
         
         //Profile button
-        ImageIcon profileIcon = new ImageIcon("Data/Content/mainMenuImages/profile.png");
+        ImageIcon profileIcon = new ImageIcon(Constants.profile);
         Image profileImage = profileIcon.getImage().getScaledInstance(200, 100, Image.SCALE_SMOOTH);
         JButton profileButton = new JButton(new ImageIcon(profileImage));
         profileButton.setBackground(Color.decode(backgroundColour));
@@ -839,7 +877,7 @@ public class App
         buttonPanel4.add(dummyButton2);
 
         //Home button
-        ImageIcon homeIcon = new ImageIcon("Data/Content/mainMenuImages/home.png");
+        ImageIcon homeIcon = new ImageIcon(Constants.home);
         Image homeImage = homeIcon.getImage().getScaledInstance(200, 100, Image.SCALE_SMOOTH);
         JButton homeButton = new JButton(new ImageIcon(homeImage));
         homeButton.setBackground(Color.decode(backgroundColour));
@@ -855,7 +893,7 @@ public class App
         buttonPanel4.add(dummyButton3);
 
         //Settings button
-        ImageIcon settingsIcon = new ImageIcon("Data/Content/mainMenuImages/settings.png");
+        ImageIcon settingsIcon = new ImageIcon(Constants.settings);
         Image settingsImage = settingsIcon.getImage().getScaledInstance(200, 100, Image.SCALE_SMOOTH);
         JButton settingsButton = new JButton(new ImageIcon(settingsImage));
         settingsButton.setBackground(Color.decode(backgroundColour));
@@ -942,6 +980,7 @@ public class App
         mainMenuFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainMenuFrame.pack();
         mainMenuFrame.setVisible(true);
+        mainMenuFrame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
     }
 
 
@@ -1014,7 +1053,7 @@ public class App
         buttonPanel3.setMaximumSize(new Dimension(1000, 400));
 
         //Home button
-        ImageIcon homeIcon = new ImageIcon("Data/Content/mainMenuImages/home.png");
+        ImageIcon homeIcon = new ImageIcon(Constants.home);
         Image homeImage = homeIcon.getImage().getScaledInstance(200, 100, Image.SCALE_SMOOTH);
         JButton homeButton = new JButton(new ImageIcon(homeImage));
         homeButton.setBackground(Color.decode(backgroundColour));
@@ -1064,6 +1103,7 @@ public class App
         settingsFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         settingsFrame.pack();
         settingsFrame.setVisible(true);
+        settingsFrame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
     }
 
 }
