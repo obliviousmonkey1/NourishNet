@@ -62,7 +62,7 @@ TODO
 - USER MANAGER : Go over code and make it error proof adding try and excepts where needed
 - APP : Make it so frame stays at the position of the old frame when a new frame is instansiated
 - APP : Back button doesn't hide last frame 
-
+- TOOLS : Check through nutrient and give each one a colour green , yellow or red based on the amount 
 
 
 
