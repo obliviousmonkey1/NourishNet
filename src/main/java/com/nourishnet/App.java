@@ -195,7 +195,10 @@ public class App
         frame.add(createUserProfile, BorderLayout.SOUTH); // Add it to the last row
         
         frame.setVisible(true);
-        frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+
+        if(!System.getProperty("os.name").contains("Mac")){
+            frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+        }
     }
     
 
@@ -336,7 +339,10 @@ public class App
         passwordFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         passwordFrame.pack();
         passwordFrame.setVisible(true);
-        passwordFrame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+
+        if(!System.getProperty("os.name").contains("Mac")){
+            passwordFrame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+        }
 
 
     
@@ -748,7 +754,11 @@ public class App
         createUser.setLocationRelativeTo(null);
 
         createUser.setVisible(true);
-        createUser.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+
+        if(!System.getProperty("os.name").contains("Mac")){
+            createUser.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+
+        }
 
 
 
