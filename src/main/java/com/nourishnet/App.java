@@ -281,7 +281,7 @@ public class App
         passwordField.setFont(new Font("Arial", Font.PLAIN, 30));  //sets the font to the titleFont
         passwordField.setEditable(false);
 
-        JTextField userInput = new JTextField(25);
+        JPasswordField userInput = new JPasswordField(25);
         passwordField.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
