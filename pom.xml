@@ -27,6 +27,13 @@
         <version>2.13.0</version> <!-- Use the latest version available -->
     </dependency>
 
+    <!-- JavaFX -->
+    <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>11.0.2</version>
+    </dependency>
+
     <!-- Jackson Databind -->
     <dependency>
         <groupId>com.fasterxml.jackson.core</groupId>

@@ -1,0 +1,10 @@
+{
+  "id" : "0007",
+  "username" : "Thomas",
+  "height" : 170.0,
+  "weight" : 77,
+  "diet" : "",
+  "savedRecipeIDs" : [ ],
+  "password" : "",
+  "dob" : [ 4, 2, 1943 ]
+}

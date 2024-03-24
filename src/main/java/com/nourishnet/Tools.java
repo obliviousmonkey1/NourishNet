@@ -71,10 +71,10 @@ public class Tools {
     }
 
     // 25/01/24 : TE : Checks if an image exists with that name 
-    public static DataStructures.StringBooleanPair hasImage(String imageName, String path) {
+    public static DataStructures.StringBooleanPair hasImage(String userId, String path) {
         String[] fileExtensions = {".jpg", ".jpeg", ".png", ".gif"};
         for(String extension: fileExtensions){
-            File file = new File(path + "/" + imageName + extension);
+            File file = new File(path + "/" + userId + extension);
             if (file.exists()) {
                 return new DataStructures.StringBooleanPair(extension, true);
             } 
