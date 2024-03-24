@@ -71,7 +71,7 @@ TODO
 
 
 RESEARCH
-
+- use cards to contain the recipe breif details for searching
 - Look into net beans to modernise and refine the GUI and other parts such as recipe stuff 
 - Look into using css with java 22
 - Dont have a recipe hava a way for the user to paste in the url of the cooking website and run a python program to load it in 

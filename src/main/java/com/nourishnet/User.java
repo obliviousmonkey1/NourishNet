@@ -110,6 +110,19 @@ public class User {
     @JsonIgnore
     public Boolean checkPassword(String enteredPassword) {
         return getPassword().equals(enteredPassword);
+
+    }
+
+    @JsonIgnore
+    public int calculateAge(){
+        int currentYear = java.time.Year.now().getValue();
+        int age = currentYear - this.DOB[2];
+        return age;
+    }
+
+    @JsonIgnore
+    public int calculateBMI(){
+        return (int) (this.weight / Math.pow(this.height, 2));
     }
 
     // public class UIsettings{
