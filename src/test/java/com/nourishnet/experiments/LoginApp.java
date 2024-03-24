@@ -61,8 +61,13 @@ public class LoginApp extends Application {
         borderPane.setBackground(new Background(new BackgroundFill(javafx.scene.paint.Color.web(BACKGROUND_COLOUR), CornerRadii.EMPTY, Insets.EMPTY)));
 
         Label nourishnetLabel = new Label("NourishNet");
-        nourishnetLabel.setFont(TITLE_FONT);
-        nourishnetLabel.getStyleClass().add("label-nourishnet"); // Apply CSS class
+        //nourishnetLabel.setFont(TITLE_FONT);
+        //nourishnetLabel.getStyleClass().add("label-nourishnet-title"); // Apply CSS class
+        nourishnetLabel.setStyle(
+            "-fx-font-size: 4em; " +
+            "-fx-text-fill: #ffffff; " +
+            "-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 0);"
+        );
         BorderPane.setAlignment(nourishnetLabel, javafx.geometry.Pos.CENTER);
         borderPane.setTop(nourishnetLabel);
 
@@ -82,8 +87,53 @@ public class LoginApp extends Application {
 
         
         List<DataStructures.StringImageIdPair> profiles = UserManager.getUserProfiles();
-        int maxButtons = Math.min(profiles.size(), 7); // Maximum 6 buttons
+        int maxButtons = UserManager.getNumberOfUserProfiles();
         for (int i = 0; i < maxButtons; i++) {
+            if(i ==0){
+                Button profileButton = new Button();
+                VBox profileContent = new VBox(); // VBox to stack image and label
+
+                // Convert ImageIcon to Image
+                ImageIcon icon = new ImageIcon("/Users/parzavel/Documents/GitHub/nourishnet/Data/Users/default.png");
+                Image profileImage = convertToFXImage(icon);
+                ImageView imageView = new ImageView(profileImage);
+                imageView.setFitHeight(100);
+                imageView.setFitWidth(100);
+                imageView.getStyleClass().add("image-highlight"); // Apply CSS class for highlight effect
+
+                // Profile name label
+                Label nameLabel = new Label("Create New User");
+                nameLabel.getStyleClass().add("label-profile-name-text"); // Apply CSS class
+
+
+                // Stack image and label vertically
+                profileContent.getChildren().addAll(imageView, nameLabel);
+                profileContent.setAlignment(javafx.geometry.Pos.CENTER); // Center content
+
+                
+                profileContent.getStyleClass().add("button-profile"); // Apply CSS class
+
+                profileButton.setGraphic(profileContent);
+                profileButton.getStyleClass().add("button-profile"); // Apply CSS class
+                profileButton.setMaxHeight(Double.MAX_VALUE); // Make buttons take up full height
+
+                profileButton.setOnAction(e -> {
+
+                    // Handle profile button click
+                    if (lastClickedButton != null) {
+                        lastClickedButton.setStyle("-fx-background-color: " + BUTTON_DEFAULT_COLOUR); // Reset previous button color
+                    }
+                    lastClickedButton = profileButton;
+                    displayCreateNewUserScreen(primaryStage);
+                    // Change button color on click
+                    profileButton.setStyle("-fx-background-color: " + BUTTON_CLICKED_COLOUR + "; -fx-background-insets: 0;");
+
+                    //profileButton.setStyle("-fx-background-color: " + BUTTON_CLICKED_COLOUR);
+                });
+                profileBox.getChildren().add(profileButton);
+            }else{
+
+            
             DataStructures.StringImageIdPair profile = profiles.get(i);
             Button profileButton = new Button();
             VBox profileContent = new VBox(); // VBox to stack image and label
@@ -102,7 +152,8 @@ public class LoginApp extends Application {
 
             // Stack image and label vertically
             profileContent.getChildren().addAll(imageView, nameLabel);
-            profileContent.setAlignment(javafx.geometry.Pos.CENTER); // Center content
+            //profileContent.setAlignment(javafx.geometry.Pos.CENTER); // Center content
+            profileContent.setAlignment(javafx.geometry.Pos.BASELINE_CENTER); // Center content
 
             
             profileContent.getStyleClass().add("button-profile"); // Apply CSS class
@@ -136,19 +187,8 @@ public class LoginApp extends Application {
             });
             profileBox.getChildren().add(profileButton);
         }
+        }
         borderPane.setLeft(profileBox);
-
-        Button createUserButton = new Button("Create New User");
-        createUserButton.setOnAction(e -> {
-            
-            UserManager.clearTemporaryProfileImageHolder();
-
-            createNewUserScreen(primaryStage);
-        });
-
-        // Add the create user button to the bottom of the BorderPane
-        borderPane.setBottom(createUserButton);
-
     
         // Wrap the profileBox in a ScrollPane
         ScrollPane scrollPane = new ScrollPane();
@@ -166,7 +206,7 @@ public class LoginApp extends Application {
     }
 
 
-    private void createNewUserScreen(Stage primaryStage){
+    private void displayCreateNewUserScreen(Stage primaryStage){
 
         BorderPane borderPane = (BorderPane) primaryStage.getScene().getRoot();
         borderPane.getChildren().clear();
@@ -300,7 +340,7 @@ public class LoginApp extends Application {
             String day = dayComboBox.getValue();
             String month = monthComboBox.getValue();
             String year = yearComboBox.getValue(); 
-            int yearIndex = yearComboBox.getSelectionModel().getSelectedIndex();
+            int monthIndex = monthComboBox.getSelectionModel().getSelectedIndex();
             double weight = weightSlider.getValue();
             double height = heightSlider.getValue();
 
@@ -328,9 +368,8 @@ public class LoginApp extends Application {
             tempUser.setWeight(intWeight);
             tempUser.setHeight(intHeight);
 
-            System.out.println(yearIndex);
 
-            int[] DOB = {Integer.parseInt(day), Integer.parseInt(month), yearIndex+1};
+            int[] DOB = {Integer.parseInt(day), monthIndex+1, Integer.parseInt(year)};
             tempUser.setDOB(DOB);
 
             SerializeJsonData.serializeNewUser(tempUser);
@@ -475,10 +514,23 @@ public class LoginApp extends Application {
     
         // Create components for the mock main screen
         Label welcomeLabel = new Label("Welcome to the Main Screen!" + " " + user.getUsername());
-        welcomeLabel.setFont(new Font(24));
-        Button logoutButton = new Button("Logout");
+        welcomeLabel.setStyle(
+            "-fx-font-size: 48px; " +
+            "-fx-font-weight: bold; " +
+            "-fx-text-fill: linear-gradient(to right, #ff8a00, #da1b60);"
+        );
 
-        welcomeLabel.getStyleClass().add("label-welcome-text"); // Apply CSS class
+    
+        Image profileImage = convertToFXImage(UserManager.getUserProfileImage(user.getId()));
+        ImageView imageView = new ImageView(profileImage);
+        imageView.setFitHeight(200);
+        imageView.setFitWidth(200);
+        imageView.getStyleClass().add("image-highlight"); // Apply CSS class for highlight effect
+
+        //welcomeLabel.setFont(new Font(24));
+        //welcomeLabel.getStyleClass().add("label-welcome-text"); // Apply CSS class
+
+        Button logoutButton = new Button("Logout");
     
         // Handle logout button click
         logoutButton.setOnAction(e -> {
@@ -491,7 +543,7 @@ public class LoginApp extends Application {
     
         // Add components to the BorderPane
         VBox mainScreenContent = new VBox();
-        mainScreenContent.getChildren().addAll(welcomeLabel, logoutButton);
+        mainScreenContent.getChildren().addAll(welcomeLabel,imageView, logoutButton);
         mainScreenContent.setAlignment(Pos.CENTER);
         borderPane.setCenter(mainScreenContent);
     }

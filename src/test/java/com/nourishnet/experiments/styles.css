@@ -1,8 +1,8 @@
 /* styles.css */
 /* Style for the top section (nourishnet label) */
-.label-nourishnet {
+.label-nourishnet-title {
     -fx-font-size: 4em;
-    -fx-text-fill: #FFFFFF;
+    -fx-text-fill: #ffffff;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 0); /* Shadow effect */
 }
 

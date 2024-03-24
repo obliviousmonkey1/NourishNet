@@ -1,10 +1,10 @@
 {
   "id" : "0006",
-  "username" : "CoolDawg",
-  "height" : 250.0,
-  "weight" : 40,
+  "username" : "Thomas",
+  "height" : 170.0,
+  "weight" : 75,
   "diet" : "",
   "savedRecipeIDs" : [ ],
   "password" : "",
-  "dob" : [ 27, 2, 2005 ]
+  "dob" : [ 3, 2, 1901 ]
 }

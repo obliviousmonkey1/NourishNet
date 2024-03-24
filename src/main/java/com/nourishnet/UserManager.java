@@ -29,6 +29,24 @@ public class UserManager {
         }
         return null;
     }
+
+    public static ImageIcon getUserProfileImage(String userId){
+        ImageIcon scaledImageIcon;
+                
+        
+        DataStructures.StringBooleanPair imageData =  Tools.hasImage(userId, Constants.usersPath + "/" + userId);
+        System.out.println("has image " + imageData.getHasImage());
+        if(imageData.getHasImage()){
+            ImageIcon imageIcon = new ImageIcon(Constants.usersPath+ '/' + userId + '/' + userId + imageData.getExtension());
+            scaledImageIcon = scaleProfileImage(imageIcon);
+            return scaledImageIcon;
+        }
+    
+        ImageIcon imageIcon = new ImageIcon(Constants.usersPath + "/default.png");
+        scaledImageIcon = scaleProfileImage(imageIcon);
+        return scaledImageIcon;
+    }
+    
     
     // 25/01/24 : TE : Gets the names and profile photos of users
     public static List<DataStructures.StringImageIdPair> getUserProfiles(){
@@ -44,7 +62,7 @@ public class UserManager {
                     // creates a temporary user object to get the user's name
                     String userId = listOfFiles[i].getName();
                     String username = ResourceLoader.loadUser(getUserJsonPath(listOfFiles[i].getName())).getUsername();
-
+                    System.out.println("Path: " + listOfFiles[i].getPath());
                     DataStructures.StringBooleanPair imageData =  Tools.hasImage(userId, listOfFiles[i].getPath());
                     if(imageData.getHasImage()){
                         ImageIcon imageIcon = new ImageIcon(listOfFiles[i].getPath() +"/"+ userId + imageData.getExtension());
