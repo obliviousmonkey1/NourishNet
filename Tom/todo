@@ -39,6 +39,7 @@ IN PROGRESS
 
 
 TODO
+- User manager update all the functions to use the Tools.HasImage if they are dealing with an image
 - TESTING : USER : Add more user tests todo with functions in the UserManager class
 - Update wiki 
 - Change the default image for recipes and diets 
