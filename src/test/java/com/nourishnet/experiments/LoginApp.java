@@ -263,7 +263,7 @@ public class LoginApp extends Application {
                     pause.play(); // Start the pause transition
                 }
             });
-    
+            
             grid.getChildren().addAll(profileLabel, passwordLabel, passwordInput, loginButton);
             ((BorderPane) primaryStage.getScene().getRoot()).setCenter(grid);
     
@@ -349,7 +349,7 @@ public class LoginApp extends Application {
 
         // Year ComboBox
         ComboBox<String> yearComboBox = new ComboBox<>();
-        for (int i = 1900; i <= 2024; i++) {
+        for (int i = 1940; i <= 2024; i++) {
             yearComboBox.getItems().add(String.valueOf(i));
         }
 
