@@ -1,0 +1,31 @@
+
+/* styles.css */
+/* Style for the top section (nourishnet label) */
+/* css code */
+.label-nourishnet-title {
+    -fx-font-size: 4em;
+    -fx-text-fill: #ffffff;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 0); /* Shadow effect */
+}
+/* what you would write in the code to call this -> nourishnetLabel.getStyleClass().add("label-nourishnet-title"); */
+
+
+/* in java code instead of using style.css
+Label nourishnetLabel = new Label("NourishNet");
+nourishnetLabel.setStyle(
+    "-fx-font-size: 4em; " +
+    "-fx-text-fill: #ffffff; " +
+    "-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 0);"
+);
+*/
+
+
+/*
+// Load CSS file in Java code near the bottom of the function 
+
+scene.getStylesheets().add(getClass().getResource("styles.css").toExternalForm()); // Apply CSS file
+
+
+if you need anything use my code as reference or ask chatgpt to make a demo using javafx and a css file
+
+*/
