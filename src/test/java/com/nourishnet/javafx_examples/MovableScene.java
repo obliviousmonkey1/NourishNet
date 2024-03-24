@@ -1,4 +1,4 @@
-package com.nourishnet.experiments;
+package com.nourishnet.javafx_examples;
 
 import javafx.application.Application;
 import javafx.scene.Scene;

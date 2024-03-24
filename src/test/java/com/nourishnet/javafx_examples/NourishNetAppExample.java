@@ -1,4 +1,4 @@
-package com.nourishnet.experiments;
+package com.nourishnet.javafx_examples;
 
 import javafx.animation.PauseTransition;
 import javafx.application.Application;
@@ -41,7 +41,7 @@ import com.nourishnet.Tools;
 import com.nourishnet.UserManager;
 import com.nourishnet.User;
 
-public class App extends Application {
+public class NourishNetAppExample extends Application {
 
     // Constants for styling
     private static final Font TITLE_FONT = new Font("Arial", 90);
