@@ -110,6 +110,7 @@ public class NourishNetAppExample extends Application {
             ImageView imageView = new ImageView(profileImage);
             imageView.setFitHeight(100);
             imageView.setFitWidth(100);
+          
             imageView.getStyleClass().add("image-highlight"); // Apply CSS class for highlight effect
     
             // Profile name label
