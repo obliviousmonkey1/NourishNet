@@ -73,11 +73,13 @@ public class App extends Application {
         // Creating the title label        
     
         Label nourishnetLabel = new Label("NourishNet");
+
         nourishnetLabel.setStyle(
             "-fx-font-size: 4em; " +
             "-fx-text-fill: #ffffff; " +
             "-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 0);"
         );
+
         BorderPane.setAlignment(nourishnetLabel, javafx.geometry.Pos.CENTER);
         borderPane.setTop(nourishnetLabel);
     
@@ -437,11 +439,6 @@ public class App extends Application {
                     "Weight: " + weight + " kg\n" +
                     "Height: " + height + " cm");
             
-            // System.out.println("Submitted Information:\n" +
-            // "Name: " + name + "\n" +
-            // "Date of Birth: " + day + " " + month + " " + year + "\n" +
-            // "Weight: " + weight + " kg\n" +
-            // "Height: " + height + " cm");
 
             // Add the label to the layout
             inputFieldsBox.getChildren().add(submittedInfoLabel);
