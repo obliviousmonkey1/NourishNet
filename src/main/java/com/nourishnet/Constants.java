@@ -17,6 +17,8 @@ public class Constants {
     public static String recipeImagePath = userDir + "/Data/content/recipeImages";
     public static String dietImagePath = userDir + "/Data/content/dietImages";
     public static String iconsPath = userDir + "/Data/content/icons";
+    public static String userDefaultImagepath = userDir +  "/Data/Users/Default.png";
+
 
     // Colours for app
     // load this in from guiSettings.json
