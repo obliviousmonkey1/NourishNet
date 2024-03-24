@@ -670,7 +670,7 @@ public class App
                 yearField.setBackground(Color.WHITE);
             }
 
-            //working the drop down took agessssss
+            //working the drop down took ages
             Object weight = weightField.getSelectedItem();  //stores what the user selected from the drop down
             if ("Select a weight".equals(weight)) {
                 weightField.setBackground(Color.RED);
