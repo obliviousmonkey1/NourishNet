@@ -9,7 +9,7 @@
 .label-profile-name-text {
     -fx-font-size: 1.5em;
     -fx-text-fill: #FFFFFF;
-    -fx_effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 0); /* Shadow effect */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 0); /* Shadow effect */
 }
 
 /* Style for the profile buttons */

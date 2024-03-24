@@ -103,7 +103,8 @@ public class LoginApp extends Application {
 
                 // Profile name label
                 Label nameLabel = new Label("Create New User");
-                nameLabel.getStyleClass().add("label-profile-name-text"); // Apply CSS class
+                nameLabel.setStyle("-fx-font-size: 1.5em; -fx-text-fill: #FFFFFF; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 0);");
+
 
 
                 // Stack image and label vertically
@@ -128,7 +129,6 @@ public class LoginApp extends Application {
                     // Change button color on click
                     profileButton.setStyle("-fx-background-color: " + BUTTON_CLICKED_COLOUR + "; -fx-background-insets: 0;");
 
-                    //profileButton.setStyle("-fx-background-color: " + BUTTON_CLICKED_COLOUR);
                 });
                 profileBox.getChildren().add(profileButton);
             }else{
@@ -147,7 +147,7 @@ public class LoginApp extends Application {
 
             // Profile name label
             Label nameLabel = new Label(profile.getText());
-            nameLabel.getStyleClass().add("label-profile-name-text"); // Apply CSS class
+            nameLabel.setStyle("-fx-font-size: 1.5em; -fx-text-fill: #FFFFFF; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 0);");
 
 
             // Stack image and label vertically
