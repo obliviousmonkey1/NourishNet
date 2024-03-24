@@ -31,7 +31,9 @@ import java.util.List;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.SpringLayout.Constraints;
 
+import com.nourishnet.Constants;
 import com.nourishnet.DataStructures;
 import com.nourishnet.ResourceLoader;
 import com.nourishnet.SerializeJsonData;
@@ -39,7 +41,7 @@ import com.nourishnet.Tools;
 import com.nourishnet.UserManager;
 import com.nourishnet.User;
 
-public class LoginApp extends Application {
+public class App extends Application {
 
     // Constants for styling
     private static final Font TITLE_FONT = new Font("Arial", 90);
@@ -56,17 +58,6 @@ public class LoginApp extends Application {
     @Override
     public void start(Stage primaryStage) {
         primaryStage.setTitle("Login");
-
-        // BorderPane borderPane;
-        // if (back == 1) {
-        //     borderPane = (BorderPane) primaryStage.getScene().getRoot();
-        //     borderPane.getChildren().clear();
-        //     back = 0;
-        // } else {
-        //     // Creating the main layout
-        //     borderPane = new BorderPane();
-        //     borderPane.setBackground(new Background(new BackgroundFill(javafx.scene.paint.Color.web(BACKGROUND_COLOUR), CornerRadii.EMPTY, Insets.EMPTY)));
-        // }
         
         BorderPane borderPane;
         if (back == 1) {
@@ -174,7 +165,9 @@ public class LoginApp extends Application {
         VBox profileContent = new VBox(); // VBox to stack image and label
     
         // Convert ImageIcon to Image
-        ImageIcon icon = new ImageIcon("/Users/parzavel/Documents/GitHub/nourishnet/Data/Users/default.png");
+       // ImageIcon icon = new ImageIcon(Constants.userDir +"/nourishnet/Data/Users/default.png");
+
+        ImageIcon icon = new ImageIcon(Constants.userDefaultImagepath);
         Image profileImage = convertToFXImage(icon);
         ImageView imageView = new ImageView(profileImage);
         imageView.setFitHeight(100);
@@ -285,7 +278,7 @@ public class LoginApp extends Application {
         }
     
         // Animation to scale the grid
-        ScaleTransition scaleTransition = new ScaleTransition(Duration.seconds(0.5), grid);
+        ScaleTransition scaleTransition = new ScaleTransition(Duration.seconds(.5), grid);
         scaleTransition.setFromX(0);
         scaleTransition.setFromY(0);
         scaleTransition.setToX(1);
@@ -312,7 +305,7 @@ public class LoginApp extends Application {
         BorderPane.setAlignment(nourishnetLabel, Pos.CENTER);
         BorderPane.setMargin(nourishnetLabel, new Insets(10));
 
-        ImageIcon icon = new ImageIcon("/Users/parzavel/Documents/GitHub/nourishnet/Data/Users/default.png");
+        ImageIcon icon = new ImageIcon(Constants.userDefaultImagepath);
         Image profileImage = convertToFXImage(icon);
         ImageView imageView = new ImageView(profileImage);
         imageView.setFitHeight(200);
