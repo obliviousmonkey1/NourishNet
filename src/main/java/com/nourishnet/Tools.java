@@ -106,15 +106,22 @@ public class Tools {
         BufferedImage circularImage = new BufferedImage(diameter, diameter, BufferedImage.TYPE_INT_ARGB);
         Graphics2D g2d = circularImage.createGraphics();
 
+        // Set the clip to a circle
         Shape clip = new Ellipse2D.Double(0, 0, diameter, diameter);
         g2d.setClip(clip);
 
+        // Draw the original image inside the circle
         g2d.drawImage(originalImage, 0, 0, diameter, diameter, null);
+
+        // // Draw the black border (a slightly larger circle)
+        // g2d.setColor(Color.BLACK);
+        // g2d.setStroke(new BasicStroke(4)); // Adjust border thickness as needed
+        // g2d.draw(new Ellipse2D.Double(2, 2, diameter - 4, diameter - 4));
 
         g2d.dispose();
 
+        // Save the resulting circular image
         saveImage(circularImage, path);
-
     }
 
     private static void saveImage(BufferedImage image, String outputPath) {
