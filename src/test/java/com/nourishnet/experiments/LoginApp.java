@@ -49,6 +49,7 @@ public class LoginApp extends Application {
     private static final String BUTTON_CLICKED_COLOUR = "rgba(129, 171, 127, 0.8)"; // Light green with 80% opacity
     private static final String BUTTON_DEFAULT_COLOUR = "#ACB7AB"; // Light blue
     private Button lastClickedButton;
+    private int back = 0;
 
     private User user;
 
@@ -56,13 +57,31 @@ public class LoginApp extends Application {
     public void start(Stage primaryStage) {
         primaryStage.setTitle("Login");
 
-        // Creating the main layout
-        BorderPane borderPane = new BorderPane();
-        borderPane.setBackground(new Background(new BackgroundFill(javafx.scene.paint.Color.web(BACKGROUND_COLOUR), CornerRadii.EMPTY, Insets.EMPTY)));
+        // BorderPane borderPane;
+        // if (back == 1) {
+        //     borderPane = (BorderPane) primaryStage.getScene().getRoot();
+        //     borderPane.getChildren().clear();
+        //     back = 0;
+        // } else {
+        //     // Creating the main layout
+        //     borderPane = new BorderPane();
+        //     borderPane.setBackground(new Background(new BackgroundFill(javafx.scene.paint.Color.web(BACKGROUND_COLOUR), CornerRadii.EMPTY, Insets.EMPTY)));
+        // }
+        
+        BorderPane borderPane;
+        if (back == 1) {
+            borderPane = (BorderPane) primaryStage.getScene().getRoot();
+            back = 0;
+        } else {
+            // Creating the main layout
+            borderPane = new BorderPane();
+            borderPane.setBackground(new Background(new BackgroundFill(javafx.scene.paint.Color.web(BACKGROUND_COLOUR), CornerRadii.EMPTY, Insets.EMPTY)));
+        }
 
+       
+        // Creating the title label        
+    
         Label nourishnetLabel = new Label("NourishNet");
-        //nourishnetLabel.setFont(TITLE_FONT);
-        //nourishnetLabel.getStyleClass().add("label-nourishnet-title"); // Apply CSS class
         nourishnetLabel.setStyle(
             "-fx-font-size: 4em; " +
             "-fx-text-fill: #ffffff; " +
@@ -70,7 +89,7 @@ public class LoginApp extends Application {
         );
         BorderPane.setAlignment(nourishnetLabel, javafx.geometry.Pos.CENTER);
         borderPane.setTop(nourishnetLabel);
-
+    
         // Creating the left side (profiles)
         VBox profileBox = new VBox();
         profileBox.setSpacing(10);
@@ -78,92 +97,45 @@ public class LoginApp extends Application {
         profileBox.setStyle("-fx-background-color: " + PANEL_COLOUR); // Set panel colour
         BorderPane.setMargin(profileBox, new Insets(10, 10, 10, 10)); // Margin to separate from the edge
         BorderPane.setAlignment(profileBox, Pos.TOP_LEFT); // Align to top left
-
-
+    
         // Creating the bottom left invisible box
         Region invisibleBox = new Region();
         invisibleBox.setPrefSize(100, 100);
         borderPane.setBottom(invisibleBox);
 
+        createCreateNewUserButton(primaryStage, borderPane, profileBox);
         
         List<DataStructures.StringImageIdPair> profiles = UserManager.getUserProfiles();
-        int maxButtons = UserManager.getNumberOfUserProfiles();
-        for (int i = 0; i < maxButtons; i++) {
-            if(i ==0){
-                Button profileButton = new Button();
-                VBox profileContent = new VBox(); // VBox to stack image and label
-
-                // Convert ImageIcon to Image
-                ImageIcon icon = new ImageIcon("/Users/parzavel/Documents/GitHub/nourishnet/Data/Users/default.png");
-                Image profileImage = convertToFXImage(icon);
-                ImageView imageView = new ImageView(profileImage);
-                imageView.setFitHeight(100);
-                imageView.setFitWidth(100);
-                imageView.getStyleClass().add("image-highlight"); // Apply CSS class for highlight effect
-
-                // Profile name label
-                Label nameLabel = new Label("Create New User");
-                nameLabel.setStyle("-fx-font-size: 1.5em; -fx-text-fill: #FFFFFF; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 0);");
-
-
-
-                // Stack image and label vertically
-                profileContent.getChildren().addAll(imageView, nameLabel);
-                profileContent.setAlignment(javafx.geometry.Pos.CENTER); // Center content
-
-                
-                profileContent.getStyleClass().add("button-profile"); // Apply CSS class
-
-                profileButton.setGraphic(profileContent);
-                profileButton.getStyleClass().add("button-profile"); // Apply CSS class
-                profileButton.setMaxHeight(Double.MAX_VALUE); // Make buttons take up full height
-
-                profileButton.setOnAction(e -> {
-
-                    // Handle profile button click
-                    if (lastClickedButton != null) {
-                        lastClickedButton.setStyle("-fx-background-color: " + BUTTON_DEFAULT_COLOUR); // Reset previous button color
-                    }
-                    lastClickedButton = profileButton;
-                    displayCreateNewUserScreen(primaryStage);
-                    // Change button color on click
-                    profileButton.setStyle("-fx-background-color: " + BUTTON_CLICKED_COLOUR + "; -fx-background-insets: 0;");
-
-                });
-                profileBox.getChildren().add(profileButton);
-            }else{
-
-            
+        for (int i = 0; i < profiles.size(); i++) {
+          
             DataStructures.StringImageIdPair profile = profiles.get(i);
             Button profileButton = new Button();
             VBox profileContent = new VBox(); // VBox to stack image and label
-
+    
             // Convert ImageIcon to Image
             Image profileImage = convertToFXImage(profile.getImage());
             ImageView imageView = new ImageView(profileImage);
             imageView.setFitHeight(100);
             imageView.setFitWidth(100);
             imageView.getStyleClass().add("image-highlight"); // Apply CSS class for highlight effect
-
+    
             // Profile name label
             Label nameLabel = new Label(profile.getText());
             nameLabel.setStyle("-fx-font-size: 1.5em; -fx-text-fill: #FFFFFF; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 0);");
-
-
+    
             // Stack image and label vertically
             profileContent.getChildren().addAll(imageView, nameLabel);
-            //profileContent.setAlignment(javafx.geometry.Pos.CENTER); // Center content
             profileContent.setAlignment(javafx.geometry.Pos.BASELINE_CENTER); // Center content
-
-            
+    
             profileContent.getStyleClass().add("button-profile"); // Apply CSS class
-
+    
             profileButton.setGraphic(profileContent);
             profileButton.getStyleClass().add("button-profile"); // Apply CSS class
             profileButton.setMaxHeight(Double.MAX_VALUE); // Make buttons take up full height
 
+            
             profileButton.setOnAction(e -> {
-
+    
                 User tempUser = ResourceLoader.loadUser(UserManager.getUserJsonPath(profile.getId()));
                 // Handle profile button click
                 if (lastClickedButton != null) {
@@ -171,53 +143,174 @@ public class LoginApp extends Application {
                 }
                 lastClickedButton = profileButton;
                 if (tempUser.getHasPassword()) {
-                    System.out.println("Has Password");
                     displayPasswordField(primaryStage, true, tempUser);
                 } else {
-                    // No password required, directly perform login action
-                    System.out.println("no password");
-
                     displayPasswordField(primaryStage, false, tempUser);
-
                 }
+                
                 // Change button color on click
                 profileButton.setStyle("-fx-background-color: " + BUTTON_CLICKED_COLOUR + "; -fx-background-insets: 0;");
-
-                //profileButton.setStyle("-fx-background-color: " + BUTTON_CLICKED_COLOUR);
             });
             profileBox.getChildren().add(profileButton);
         }
-        }
-        borderPane.setLeft(profileBox);
     
         // Wrap the profileBox in a ScrollPane
         ScrollPane scrollPane = new ScrollPane();
         scrollPane.setContent(profileBox);
         scrollPane.setFitToWidth(true); // Make sure the width fits the content
         scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER); // Hide horizontal scrollbar
-        scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER); // Hide horizontal scrollbar
+        scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER); // Hide vertical scrollbar
         borderPane.setLeft(scrollPane);
-
+    
         Scene scene = new Scene(borderPane);
         scene.getStylesheets().add(getClass().getResource("styles.css").toExternalForm()); // Apply CSS file
         primaryStage.setScene(scene);
         primaryStage.setFullScreen(true); // Set to full screen
         primaryStage.show();
     }
+    
+    private void createCreateNewUserButton(Stage primaryStage, BorderPane borderPane, VBox profileBox) {
+        Button profileButton = new Button();
+        VBox profileContent = new VBox(); // VBox to stack image and label
+    
+        // Convert ImageIcon to Image
+        ImageIcon icon = new ImageIcon("/Users/parzavel/Documents/GitHub/nourishnet/Data/Users/default.png");
+        Image profileImage = convertToFXImage(icon);
+        ImageView imageView = new ImageView(profileImage);
+        imageView.setFitHeight(100);
+        imageView.setFitWidth(100);
+        imageView.getStyleClass().add("image-highlight"); // Apply CSS class for highlight effect
+        // Profile name label
+        Label nameLabel = new Label("Create New User");
+        nameLabel.setStyle("-fx-font-size: 1.5em; -fx-text-fill: #FFFFFF; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 0);");
+    
+        // Stack image and label vertically
+        profileContent.getChildren().addAll(imageView, nameLabel);
+        profileContent.setAlignment(javafx.geometry.Pos.CENTER); // Center content
+    
+        profileContent.getStyleClass().add("button-profile"); // Apply CSS class
+    
+        profileButton.setGraphic(profileContent);
+        profileButton.getStyleClass().add("button-profile"); // Apply CSS class
+        profileButton.setMaxHeight(Double.MAX_VALUE); // Make buttons take up full height
+    
+        profileButton.setOnAction(e -> {
+    
+            // Handle profile button click
+            if (lastClickedButton != null) {
+                lastClickedButton.setStyle("-fx-background-color: " + BUTTON_DEFAULT_COLOUR); // Reset previous button color
+            }
+            lastClickedButton = profileButton;
+            displayCreateNewUserScreen(primaryStage);
+            // Change button color on click
+            profileButton.setStyle("-fx-background-color: " + BUTTON_CLICKED_COLOUR + "; -fx-background-insets: 0;");
+        });
+        profileBox.getChildren().add(profileButton);
+    }
+    
+    private void displayPasswordField(Stage primaryStage, boolean hasPassword, User tempUser) {
 
+        // Creating the password field popup
+        GridPane grid = new GridPane();
+        grid.setPadding(new Insets(10)); // Smaller padding
+        grid.setVgap(10);
+        grid.setHgap(10);
 
+        // Creating the bottom left invisible box
+       
+    
+        // Background with transparency
+        grid.setStyle("-fx-background-color: " + PANEL_COLOUR);
+    
+        BorderPane.setMargin(grid, new Insets(400)); // Smaller margin
+    
+        Label profileLabel = new Label("Profile: " + tempUser.getUsername());
+        profileLabel.setStyle("-fx-font-size: 1.5em; -fx-text-fill: #FFFFFF; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 0);");
+    
+        GridPane.setConstraints(profileLabel, 0, 0);
+        GridPane.setColumnSpan(profileLabel, 2); // Spanning across two columns
+    
+        if (hasPassword) {
+            Label passwordLabel = new Label("Password:");
+            passwordLabel.setStyle("-fx-font-size: 20px; -fx-text-fill: black;"); // Set text color
+            GridPane.setConstraints(passwordLabel, 0, 1);
+    
+            PasswordField passwordInput = new PasswordField();
+            passwordInput.setPrefWidth(400); // Increase password field width
+            passwordInput.setPrefHeight(80); // Increase password field height
+            GridPane.setConstraints(passwordInput, 1, 1);
+    
+            Button loginButton = new Button("Login");
+            loginButton.setPrefWidth(200); // Increase button width
+            loginButton.setPrefHeight(40); // Increase button height
+            GridPane.setConstraints(loginButton, 1, 2);
+            GridPane.setColumnSpan(loginButton, 2); // Spanning across two columns
+            loginButton.setOnAction(e -> {
+                // Handle login button click
+                String password = passwordInput.getText();
+                if(password.equals(tempUser.getPassword())){
+                    user = tempUser;
+                    displayMainScreen(primaryStage);
+                }else{
+                    passwordInput.setStyle("-fx-background-color: red");
+    
+                    // Create a PauseTransition to delay reverting the background color
+                    PauseTransition pause = new PauseTransition(Duration.seconds(1)); // Adjust duration as needed (e.g., 2 seconds)
+                    pause.setOnFinished(event -> {
+                        // Set the background color back to normal
+                        passwordInput.setStyle("-fx-background-color: white"); // Assuming the default background color is white
+                    });
+                    pause.play(); // Start the pause transition
+                }
+            });
+    
+            grid.getChildren().addAll(profileLabel, passwordLabel, passwordInput, loginButton);
+            ((BorderPane) primaryStage.getScene().getRoot()).setCenter(grid);
+    
+        } else {
+            Button loginButton = new Button("Login");
+            loginButton.setPrefWidth(200); // Increase button width
+            loginButton.setPrefHeight(40); // Increase button height
+            GridPane.setConstraints(loginButton, 2, 1);
+            GridPane.setColumnSpan(loginButton, 2); // Spanning across two columns
+            loginButton.setOnAction(e -> {
+                // Handle login button click
+                user = tempUser;                
+                displayMainScreen(primaryStage);
+            });
+    
+            grid.getChildren().addAll(profileLabel, loginButton);
+            ((BorderPane) primaryStage.getScene().getRoot()).setCenter(grid);
+    
+        }
+    
+        // Animation to scale the grid
+        ScaleTransition scaleTransition = new ScaleTransition(Duration.seconds(0.5), grid);
+        scaleTransition.setFromX(0);
+        scaleTransition.setFromY(0);
+        scaleTransition.setToX(1);
+        scaleTransition.setToY(1);
+        scaleTransition.play();
+    }
+    
     private void displayCreateNewUserScreen(Stage primaryStage){
 
         BorderPane borderPane = (BorderPane) primaryStage.getScene().getRoot();
         borderPane.getChildren().clear();
 
+
         primaryStage.setTitle("Create User Profile");
 
         // Title Label
-        Label titleLabel = new Label("NourishNet");
-        titleLabel.getStyleClass().add("label-nourishnet");
-        BorderPane.setAlignment(titleLabel, Pos.CENTER);
-        BorderPane.setMargin(titleLabel, new Insets(10));
+        Label nourishnetLabel = new Label("NourishNet");
+        nourishnetLabel.setStyle(
+            "-fx-font-size: 4em; " +
+            "-fx-text-fill: #ffffff; " +
+            "-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 0);"
+        );
+        
+        BorderPane.setAlignment(nourishnetLabel, Pos.CENTER);
+        BorderPane.setMargin(nourishnetLabel, new Insets(10));
 
         ImageIcon icon = new ImageIcon("/Users/parzavel/Documents/GitHub/nourishnet/Data/Users/default.png");
         Image profileImage = convertToFXImage(icon);
@@ -382,8 +475,16 @@ public class LoginApp extends Application {
 
         });
 
+        Button backButton = new Button("Back");
+        backButton.setOnAction(e -> {
+            back = 1;
+            borderPane.getChildren().clear();
+            start(primaryStage); // Assuming displayMainScreen displays the main screen
+        });
+
+
         // Add all input fields and buttons to the layout
-        inputFieldsBox.getChildren().addAll(imageView, nameBox, hbox, weightBox, heightBox, uploadPhotoButton, submitButton);
+        inputFieldsBox.getChildren().addAll(imageView, nameBox, hbox, weightBox, heightBox, uploadPhotoButton, submitButton, backButton);
 
         // Error Label
         Label errorLabel = new Label("Please fill in all fields.");
@@ -391,7 +492,7 @@ public class LoginApp extends Application {
         errorLabel.setVisible(false);
 
         // Set up the layout
-        borderPane.setTop(titleLabel);
+        borderPane.setTop(nourishnetLabel);
         borderPane.setCenter(inputFieldsBox);
         borderPane.setBottom(errorLabel);
         borderPane.setMargin(inputFieldsBox, new Insets(20));
@@ -415,84 +516,6 @@ public class LoginApp extends Application {
             label.getStyleClass().addAll("red-label", "level-2");
         } else if (value > 110) {
             label.getStyleClass().addAll("red-label", "level-3");
-        }
-    }
-    
-
-
-    private void displayPasswordField(Stage primaryStage, boolean hasPassword, User tempUser) {
-
-
-        // Creating the password field popup
-        GridPane grid = new GridPane();
-        grid.setPadding(new Insets(10)); // Smaller padding
-        grid.setVgap(10);
-        grid.setHgap(10);
-    
-        // Background with transparency
-        grid.setStyle("-fx-background-color: " + PANEL_COLOUR);
-    
-    
-        BorderPane.setMargin(grid, new Insets(400)); // Smaller margin
-    
-        Label profileLabel = new Label("Profile: " + tempUser.getUsername());
-        profileLabel.setStyle("-fx-font-size: 20px; -fx-text-fill: black;"); // Set font size and color
-
-        GridPane.setConstraints(profileLabel, 0, 0);
-        GridPane.setColumnSpan(profileLabel, 2); // Spanning across two columns
-    
-        if (hasPassword) {
-            Label passwordLabel = new Label("Password:");
-            passwordLabel.setStyle("-fx-font-size: 20px; -fx-text-fill: black;"); // Set text color
-            GridPane.setConstraints(passwordLabel, 0, 1);
-    
-            PasswordField passwordInput = new PasswordField();
-            passwordInput.setPrefWidth(400); // Increase password field width
-            passwordInput.setPrefHeight(80); // Increase password field height
-            GridPane.setConstraints(passwordInput, 1, 1);
-    
-            Button loginButton = new Button("Login");
-            loginButton.setPrefWidth(200); // Increase button width
-            loginButton.setPrefHeight(40); // Increase button height
-            GridPane.setConstraints(loginButton, 1, 2);
-            GridPane.setColumnSpan(loginButton, 2); // Spanning across two columns
-            loginButton.setOnAction(e -> {
-                // Handle login button click
-                String password = passwordInput.getText();
-                if(password.equals(tempUser.getPassword())){
-                    user = tempUser;
-                    displayMainScreen(primaryStage);
-                }else{
-                    passwordInput.setStyle("-fx-background-color: red");
-
-                    // Create a PauseTransition to delay reverting the background color
-                    PauseTransition pause = new PauseTransition(Duration.seconds(1)); // Adjust duration as needed (e.g., 2 seconds)
-                    pause.setOnFinished(event -> {
-                        // Set the background color back to normal
-                        passwordInput.setStyle("-fx-background-color: white"); // Assuming the default background color is white
-                    });
-                    pause.play(); // Start the pause transition
-                }
-            });
-    
-            grid.getChildren().addAll(profileLabel, passwordLabel, passwordInput, loginButton);
-            ((BorderPane) primaryStage.getScene().getRoot()).setCenter(grid);
-    
-        } else {
-            Button loginButton = new Button("Login");
-            loginButton.setPrefWidth(200); // Increase button width
-            loginButton.setPrefHeight(40); // Increase button height
-            GridPane.setConstraints(loginButton, 2, 1);
-            GridPane.setColumnSpan(loginButton, 2); // Spanning across two columns
-            loginButton.setOnAction(e -> {
-                // Handle login button click
-                user = tempUser;                
-                displayMainScreen(primaryStage);
-            });
-    
-            grid.getChildren().addAll(profileLabel, loginButton);
-            ((BorderPane) primaryStage.getScene().getRoot()).setCenter(grid);
-    
         }
     }
     

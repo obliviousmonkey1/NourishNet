@@ -57,12 +57,14 @@ public class UserManager {
 
         for(int i=0; i < listOfFiles.length; i++){
             try{
+                System.out.println("Path: " + listOfFiles[i].getPath());
+
                 if(listOfFiles[i].isDirectory()){
 
                     // creates a temporary user object to get the user's name
                     String userId = listOfFiles[i].getName();
+                    System.out.println("User name : " + userId);
                     String username = ResourceLoader.loadUser(getUserJsonPath(listOfFiles[i].getName())).getUsername();
-                    System.out.println("Path: " + listOfFiles[i].getPath());
                     DataStructures.StringBooleanPair imageData =  Tools.hasImage(userId, listOfFiles[i].getPath());
                     if(imageData.getHasImage()){
                         ImageIcon imageIcon = new ImageIcon(listOfFiles[i].getPath() +"/"+ userId + imageData.getExtension());
