@@ -39,6 +39,7 @@ IN PROGRESS
 
 
 TODO
+- User manager update all the functions to use the Tools.HasImage if they are dealing with an image
 - TESTING : USER : Add more user tests todo with functions in the UserManager class
 - Update wiki 
 - Change the default image for recipes and diets 
@@ -63,8 +64,12 @@ TODO
 - APP : Make it so frame stays at the position of the old frame when a new frame is instansiated
 - APP : Back button doesn't hide last frame 
 - TOOLS : Check through nutrient and give each one a colour green , yellow or red based on the amount 
+- APP : Change password from being a field to a JPasswordField
 
 
 
 RESEARCH
+
+- Look into net beans to modernise and refine the GUI and other parts such as recipe stuff 
+- Look into using css with java 22
 - Dont have a recipe hava a way for the user to paste in the url of the cooking website and run a python program to load it in 
