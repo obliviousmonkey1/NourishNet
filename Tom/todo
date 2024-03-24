@@ -65,6 +65,8 @@ TODO
 - APP : Back button doesn't hide last frame 
 - TOOLS : Check through nutrient and give each one a colour green , yellow or red based on the amount 
 - APP : Change password from being a field to a JPasswordField
+- TESTING : UserID generater bugged in some user id configurations need to test
+- MEMORY : Look over UserManger functions and other functions and make sure no memory leaks 
 
 
 

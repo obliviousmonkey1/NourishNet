@@ -12,8 +12,7 @@ import java.awt.Image;
 
 public class UserManager {
 
-    // 21/03/24 : TE : Gets the user profile of the user
-    public static DataStructures.StringImagePair getUserProfile(String userId){
+    public static ImageIcon getUserProfileImage(String userId){
         File userProfileDir = new File(Constants.usersPath + "/" + userId);
         File[] listOfFiles = userProfileDir.listFiles();
         ImageIcon scaledImageIcon;
@@ -22,30 +21,19 @@ public class UserManager {
             if(listOfFiles[i].isFile()){
                 if(listOfFiles[i].getName().equals(userId + ".png")){
                     ImageIcon imageIcon = new ImageIcon(listOfFiles[i].getPath());
-                    scaledImageIcon = scaleProfileImage(imageIcon);
-                    return new DataStructures.StringImagePair(userId, scaledImageIcon);
+                    Image scaledImage = imageIcon.getImage().getScaledInstance(Constants.scaledImageWidth, Constants.scaledImageHeight, Image.SCALE_SMOOTH);
+                    scaledImageIcon = new ImageIcon(scaledImage);
+                    return scaledImageIcon;
                 }
             }
         }
-        return null;
+
+        ImageIcon imageIcon = new ImageIcon(Constants.usersPath + "/default.png");
+        return scaleProfileImage(imageIcon);
     }
 
-    public static ImageIcon getUserProfileImage(String userId){
-        ImageIcon scaledImageIcon;
-                
-        
-        DataStructures.StringBooleanPair imageData =  Tools.hasImage(userId, Constants.usersPath + "/" + userId);
-        System.out.println("has image " + imageData.getHasImage());
-        if(imageData.getHasImage()){
-            ImageIcon imageIcon = new ImageIcon(Constants.usersPath+ '/' + userId + '/' + userId + imageData.getExtension());
-            scaledImageIcon = scaleProfileImage(imageIcon);
-            return scaledImageIcon;
-        }
     
-        ImageIcon imageIcon = new ImageIcon(Constants.usersPath + "/default.png");
-        scaledImageIcon = scaleProfileImage(imageIcon);
-        return scaledImageIcon;
-    }
+  
     
     
     // 25/01/24 : TE : Gets the names and profile photos of users
@@ -63,14 +51,19 @@ public class UserManager {
 
                     // creates a temporary user object to get the user's name
                     String userId = listOfFiles[i].getName();
-                    System.out.println("User name : " + userId);
-                    String username = ResourceLoader.loadUser(getUserJsonPath(listOfFiles[i].getName())).getUsername();
-                    DataStructures.StringBooleanPair imageData =  Tools.hasImage(userId, listOfFiles[i].getPath());
-                    if(imageData.getHasImage()){
-                        ImageIcon imageIcon = new ImageIcon(listOfFiles[i].getPath() +"/"+ userId + imageData.getExtension());
-                        scaledImageIcon = scaleProfileImage(imageIcon);
 
-                    }else{
+                    String username = ResourceLoader.loadUser(getUserJsonPath(listOfFiles[i].getName())).getUsername();
+                    System.out.println(listOfFiles[i].getName());
+
+                    File profileImageFile = new File(listOfFiles[i], userId + ".png");
+                    System.out.println("Image path : "+ profileImageFile.getPath());
+
+                    if(profileImageFile.exists()){
+                        ImageIcon imageIcon = new ImageIcon(profileImageFile.getPath());
+                        Image scaledImage = imageIcon.getImage().getScaledInstance(Constants.scaledImageWidth, Constants.scaledImageHeight, Image.SCALE_SMOOTH);
+                        scaledImageIcon = new ImageIcon(scaledImage);
+                    }
+                    else{
                         ImageIcon imageIcon = new ImageIcon(Constants.usersPath + "/default.png");
                         scaledImageIcon = scaleProfileImage(imageIcon);
                     }
@@ -94,13 +87,14 @@ public class UserManager {
         if(getNumberOfUserProfiles() == 0){
             return "0000";
         }else{
-            return String.format("%04d", getNumberOfUserProfiles());
+            System.out.println(String.format("%04d", getNumberOfUserProfiles()-1));
+            return String.format("%04d", getNumberOfUserProfiles()-1);
         }
     }
 
     // 23/02/24 : TE : Called if the serialistion fails to generate a folder for the user due to duplicate id
     protected static void generateNewUserId(User user){
-        for(int i = 0; i < UserManager.getNumberOfUserProfiles(); i++){
+        for(int i = 0; i < UserManager.getNumberOfUserProfiles()+1; i++){
             String newId = String.format("%04d", i);
             if(!new File(Constants.usersPath + '/' + newId).exists()){
                 user.setUserId(newId);
