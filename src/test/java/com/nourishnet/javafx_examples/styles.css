@@ -6,6 +6,11 @@
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 0); /* Shadow effect */
 }
 
+.label-nourishnet-title:hover {
+    -fx-scale-x: 1.1; /* Enlarge the button width */
+    -fx-scale-y: 1.1; /* Enlarge the button height */
+}
+
 .label-profile-name-text {
     -fx-font-size: 1.5em;
     -fx-text-fill: #FFFFFF;

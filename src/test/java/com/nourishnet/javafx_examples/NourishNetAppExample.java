@@ -11,6 +11,7 @@ import javafx.util.Duration;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.effect.DropShadow;
 import javafx.animation.FadeTransition;
 import javafx.animation.ScaleTransition;
 import javafx.util.Duration;
@@ -83,6 +84,16 @@ public void start(Stage primaryStage) {
     BorderPane.setAlignment(nourishnetLabel, javafx.geometry.Pos.CENTER);
     borderPane.setTop(nourishnetLabel);
 
+    // Create a drop shadow effect
+    DropShadow dropShadow = new DropShadow();
+
+    // Apply drop shadow effect on hover
+    nourishnetLabel.setOnMouseEntered(e -> nourishnetLabel.setEffect(dropShadow));
+
+    // Remove drop shadow effect when mouse exits
+    nourishnetLabel.setOnMouseExited(e -> nourishnetLabel.setEffect(null));
+
+
     // Creating the left side (profiles)
     VBox profileBox = new VBox();
     profileBox.setSpacing(10);
@@ -129,13 +140,16 @@ public void start(Stage primaryStage) {
         profileButton.getStyleClass().add("button-profile"); // Apply CSS class
         profileButton.setMaxHeight(Double.MAX_VALUE); // Make buttons take up full height
 
+        DropShadow mdropShadow = new DropShadow();
+
         
         profileButton.setOnAction(e -> {
 
             User tempUser = ResourceLoader.loadUser(UserManager.getUserJsonPath(profile.getId()));
             // Handle profile button click
             if (lastClickedButton != null) {
-                lastClickedButton.setStyle("-fx-background-color: " + BUTTON_DEFAULT_COLOUR); // Reset previous button color
+                lastClickedButton.setEffect(null);
+               // lastClickedButton.setStyle("-fx-background-color: " + BUTTON_DEFAULT_COLOUR); // Reset previous button color
             }
             lastClickedButton = profileButton;
             if (tempUser.getHasPassword()) {
@@ -145,7 +159,9 @@ public void start(Stage primaryStage) {
             }
             
             // Change button color on click
-            profileButton.setStyle("-fx-background-color: " + BUTTON_CLICKED_COLOUR + "; -fx-background-insets: 0;");
+            profileButton.setEffect(mdropShadow);
+
+            //profileButton.setStyle("-fx-background-color: " + BUTTON_CLICKED_COLOUR + "; -fx-background-insets: 0;");
         });
         profileBox.getChildren().add(profileButton);
     }
