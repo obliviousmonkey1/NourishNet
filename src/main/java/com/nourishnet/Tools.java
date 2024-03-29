@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
 import java.awt.image.BufferedImage;
@@ -13,11 +14,11 @@ import java.awt.image.BufferedImage;
 public class Tools {
 
 
-    public static ImageIcon getRecipeImage(String imageName){
-        DataStructures.StringBooleanPair hImage = hasImage(imageName, Constants.recipeImagePath);
+    public static ImageIcon getRecipeImage(String recipeName){
+        DataStructures.StringBooleanPair hImage = hasImage(recipeName, Constants.recipeImagePath);
         System.out.println(hImage.getHasImage()); //Debug
         if(hImage.getHasImage()){
-            return new ImageIcon(Constants.recipeImagePath + "/" + imageName + ".png");
+            return new ImageIcon(Constants.recipeImagePath + "/" + recipeName + ".png");
         }
         return new ImageIcon(Constants.recipeImagePath + "/default.png");
     }
@@ -83,6 +84,16 @@ public class Tools {
 		
 	}
 
+    public static int getNumberOfRecipesForSpecificDiet(String diet, ArrayList<Recipe> recipes){
+        int count = 0;
+        for(Recipe recipe : recipes){
+            if(recipe.getDiet().contains(diet)){
+                count++;
+            }
+        }
+        return count;
+    }
+
 
     public static void loadImage(String userId, BufferedImage image) {
         
@@ -98,7 +109,6 @@ public class Tools {
         }
         return null;
     }
-
 
     private static void createCircularImage(BufferedImage originalImage, String path) {
         int diameter = Math.min(originalImage.getWidth(), originalImage.getHeight());
