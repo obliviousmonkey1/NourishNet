@@ -2,7 +2,7 @@ package com.nourishnet.javafx_examples;
 
 import javafx.animation.PauseTransition;
 import javafx.application.Application;
-import javafx.embed.swing.SwingFXUtils;
+import javafx.embed.swing.SwingFXUtils; 
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
@@ -196,7 +196,7 @@ private void createCreateNewUserButton(Stage primaryStage, BorderPane borderPane
     // Convert ImageIcon to Image
    // ImageIcon icon = new ImageIcon(Constants.userDir +"/nourishnet/Data/Users/default.png");
 
-    ImageIcon icon = new ImageIcon(Constants.userDefaultImagepath);
+    ImageIcon icon = new ImageIcon(Constants.createUserImagepath);
     Image profileImage = convertToFXImage(icon);
     ImageView imageView = new ImageView(profileImage);
     imageView.setFitHeight(100);
