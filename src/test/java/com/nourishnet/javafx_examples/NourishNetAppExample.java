@@ -39,8 +39,9 @@ import com.nourishnet.DataStructures;
 import com.nourishnet.ResourceLoader;
 import com.nourishnet.SerializeJsonData;
 import com.nourishnet.Tools;
-import com.nourishnet.UserManager;
 import com.nourishnet.User;
+import com.nourishnet.UserManager;
+import com.nourishnet.DataStructures.StringImageIdPair;
 
 public class NourishNetAppExample extends Application {
 
@@ -96,7 +97,7 @@ public void start(Stage primaryStage) {
 
     // Creating the left side (profiles)
     VBox profileBox = new VBox();
-    profileBox.setSpacing(10);
+    profileBox.setSpacing(20);
     profileBox.setPadding(new Insets(20, 10, 20, 10)); // Reduced bottom padding to 20
     profileBox.setStyle("-fx-background-color: " + PANEL_COLOUR); // Set panel colour
     //BorderPane.setMargin(profileBox, new Insets(0, 10, 10, 10)); // Margin to separate from the edge
@@ -381,7 +382,7 @@ private void createCreateNewUserButton(Stage primaryStage, BorderPane borderPane
         hbox.getChildren().addAll(dayLabel, dayComboBox, monthLabel, monthComboBox, yearLabel, yearComboBox);
 
         // Create sliders for weight and height
-        Slider weightSlider = new Slider(40, 150, 75); // min, max, default
+        Slider weightSlider = new Slider(20, 150, 75); // min, max, default
         Slider heightSlider = new Slider(120, 250, 170); // min, max, default
 
         // Set labels for weight and height sliders
