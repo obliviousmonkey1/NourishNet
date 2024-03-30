@@ -1,4 +1,4 @@
-package com.nourishnet.javafx_examples;
+package test;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -10,7 +10,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-public class CalculatorAppExample extends Application {
+import java.io.IOException;
+
+public class App extends Application {
+
+    private static Scene scene;
 
     @Override
     public void start(Stage primaryStage) {
@@ -78,14 +82,17 @@ public class CalculatorAppExample extends Application {
         primaryStage.show();
     }
 
-    // Evaluate the mathematical expression
-    // private double evaluateExpression(String expression) {
-    //     return new javax.script.ScriptEngineManager()
-    //             .getEngineByName("javascript")
-    //             .eval(expression);
-    // }
+    static void setRoot(String fxml) throws IOException {
+        scene.setRoot(loadFXML(fxml));
+    }
+
+    private static Parent loadFXML(String fxml) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
+        return fxmlLoader.load();
+    }
 
     public static void main(String[] args) {
-        launch(args);
+        launch();
     }
+
 }

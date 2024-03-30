@@ -14,7 +14,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 
-public class App 
+public class OldApp 
 {
     private static ArrayList<Recipe> recipeHolder = new ArrayList<Recipe>();
     private static ArrayList<Diet> dietHolder = new ArrayList<Diet>();
