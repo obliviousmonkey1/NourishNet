@@ -67,6 +67,10 @@ TODO
 - APP : Change password from being a field to a JPasswordField
 - TESTING : UserID generater bugged in some user id configurations need to test
 - MEMORY : Look over UserManger functions and other functions and make sure no memory leaks 
+- USER MANGER : Get rid of scaleProfileImage(imageIcon); when josh has made the new gui as not needed
+- USER MANAGER : Look over function names and re-name them to be more concise (then change the wiki)
+- USER MANAGER : Change from using ImageIcon to Image to prevent extra line of code 
+- Recipes / Diets : when all the recipes are in place for each diet have code to run over and get the mean calories for each diet 
 
 
 

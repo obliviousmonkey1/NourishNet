@@ -14,7 +14,7 @@ public class HelloFX extends Application {
         StackPane root = new StackPane(label);
         Scene scene = new Scene(root, 300, 200);
         primaryStage.setScene(scene);
-        primaryStage.setTitle("HelloFX Application");
+        primaryStage.setTitle("HelloFX Application!!!!!!!!!!!!!!!!!");
         primaryStage.show();
     }
 

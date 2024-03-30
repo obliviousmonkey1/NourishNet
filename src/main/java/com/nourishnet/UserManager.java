@@ -31,10 +31,7 @@ public class UserManager {
         ImageIcon imageIcon = new ImageIcon(Constants.usersPath + "/default.png");
         return scaleProfileImage(imageIcon);
     }
-
-    
   
-    
     
     // 25/01/24 : TE : Gets the names and profile photos of users
     public static List<DataStructures.StringImageIdPair> getUserProfiles(){
@@ -45,7 +42,7 @@ public class UserManager {
 
         for(int i=0; i < listOfFiles.length; i++){
             try{
-                System.out.println("Path: " + listOfFiles[i].getPath());
+                System.out.println("Json Path: " + listOfFiles[i].getPath());
 
                 if(listOfFiles[i].isDirectory()){
 
@@ -122,6 +119,7 @@ public class UserManager {
 
     }
 
+    // 28/03/24 : TE : When a new user is created, the user profile image is moved to the user folder
     public static void moveNewUserProfileToUserFolder(String userid){
         File userProfileDir = new File(Constants.usersPath);
         File[] listOfFiles = userProfileDir.listFiles();
