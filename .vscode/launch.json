@@ -1,0 +1,190 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "DietTest",
+            "request": "launch",
+            "mainClass": "com.nourishnet.DietTest",
+            "projectName": "nourishnet"
+        },
+        {
+            "type": "java",
+            "name": "HelloFX",
+            "request": "launch",
+            "mainClass": "com.nourishnet.HelloFX",
+            "projectName": "nourishnet"
+        },
+        {
+            "type": "java",
+            "name": "OldApp",
+            "request": "launch",
+            "mainClass": "com.nourishnet.OldApp",
+            "projectName": "nourishnet"
+        },
+        {
+            "type": "java",
+            "name": "Testing",
+            "request": "launch",
+            "mainClass": "com.nourishnet.Testing",
+            "projectName": "nourishnet"
+        },
+        {
+            "type": "java",
+            "name": "DietDisplay",
+            "request": "launch",
+            "mainClass": "com.nourishnet.experiments.DietDisplay",
+            "projectName": "nourishnet"
+        },
+        {
+            "type": "java",
+            "name": "GetAmountRecipeForEachDiet",
+            "request": "launch",
+            "mainClass": "com.nourishnet.experiments.GetAmountRecipeForEachDiet",
+            "projectName": "nourishnet"
+        },
+        {
+            "type": "java",
+            "name": "IconDisplay",
+            "request": "launch",
+            "mainClass": "com.nourishnet.experiments.IconDisplay",
+            "projectName": "nourishnet"
+        },
+        {
+            "type": "java",
+            "name": "ImageChooserApp",
+            "request": "launch",
+            "mainClass": "com.nourishnet.experiments.ImageChooserApp",
+            "projectName": "nourishnet"
+        },
+        {
+            "type": "java",
+            "name": "MCF",
+            "request": "launch",
+            "mainClass": "com.nourishnet.experiments.MCF",
+            "projectName": "nourishnet"
+        },
+        {
+            "type": "java",
+            "name": "MultiContainerFrame",
+            "request": "launch",
+            "mainClass": "com.nourishnet.experiments.MultiContainerFrame",
+            "projectName": "nourishnet"
+        },
+        {
+            "type": "java",
+            "name": "RecipeDisplayFrame",
+            "request": "launch",
+            "mainClass": "com.nourishnet.experiments.RecipeDisplayFrame",
+            "projectName": "nourishnet"
+        },
+        {
+            "type": "java",
+            "name": "CalculatorAppExample",
+            "request": "launch",
+            "mainClass": "com.nourishnet.javafx_examples.CalculatorAppExample",
+            "projectName": "nourishnet"
+        },
+        {
+            "type": "java",
+            "name": "CardLayoutExample",
+            "request": "launch",
+            "mainClass": "com.nourishnet.javafx_examples.CardLayoutExample",
+            "projectName": "nourishnet"
+        },
+        {
+            "type": "java",
+            "name": "FlexboxExample",
+            "request": "launch",
+            "mainClass": "com.nourishnet.javafx_examples.FlexboxExample",
+            "projectName": "nourishnet"
+        },
+        {
+            "type": "java",
+            "name": "HoverEffectExample",
+            "request": "launch",
+            "mainClass": "com.nourishnet.javafx_examples.HoverEffectExample",
+            "projectName": "nourishnet"
+        },
+        {
+            "type": "java",
+            "name": "LoadingSpinnerExample",
+            "request": "launch",
+            "mainClass": "com.nourishnet.javafx_examples.LoadingSpinnerExample",
+            "projectName": "nourishnet"
+        },
+        {
+            "type": "java",
+            "name": "ModalWindowExample",
+            "request": "launch",
+            "mainClass": "com.nourishnet.javafx_examples.ModalWindowExample",
+            "projectName": "nourishnet"
+        },
+        {
+            "type": "java",
+            "name": "MovableScene",
+            "request": "launch",
+            "mainClass": "com.nourishnet.javafx_examples.MovableScene",
+            "projectName": "nourishnet"
+        },
+        {
+            "type": "java",
+            "name": "NourishNetAppExample",
+            "request": "launch",
+            "mainClass": "com.nourishnet.javafx_examples.NourishNetAppExample",
+            "projectName": "nourishnet"
+        },
+        {
+            "type": "java",
+            "name": "ParallaxScrollingExample",
+            "request": "launch",
+            "mainClass": "com.nourishnet.javafx_examples.ParallaxScrollingExample",
+            "projectName": "nourishnet"
+        },
+        {
+            "type": "java",
+            "name": "RecipeSearchExample",
+            "request": "launch",
+            "mainClass": "com.nourishnet.javafx_examples.RecipeSearchExample",
+            "projectName": "nourishnet"
+        },
+        {
+            "type": "java",
+            "name": "ShakingButtonExample",
+            "request": "launch",
+            "mainClass": "com.nourishnet.javafx_examples.ShakingButtonExample",
+            "projectName": "nourishnet"
+        },
+        {
+            "type": "java",
+            "name": "TransformsAndTransitionsExample",
+            "request": "launch",
+            "mainClass": "com.nourishnet.javafx_examples.TransformsAndTransitionsExample",
+            "projectName": "nourishnet"
+        },
+        {
+            "type": "java",
+            "name": "tomsTesting",
+            "request": "launch",
+            "mainClass": "com.nourishnet.tomsTesting",
+            "projectName": "nourishnet"
+        },
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "test.App",
+            "projectName": "nourishnet",
+            "vmArgs": "--module-path C:\\javafx-sdk-22\\lib --add-modules javafx.controls,javafx.fxml"
+        }
+    ]
+}
