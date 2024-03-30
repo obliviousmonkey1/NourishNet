@@ -1,4 +1,4 @@
-package test;
+package com.nourishnet;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
