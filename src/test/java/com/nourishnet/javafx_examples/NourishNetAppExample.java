@@ -2,7 +2,7 @@ package com.nourishnet.javafx_examples;
 
 import javafx.animation.PauseTransition;
 import javafx.application.Application;
-//import javafx.embed.swing.SwingFXUtils; 
+import javafx.embed.swing.SwingFXUtils; 
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
@@ -29,7 +29,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.List;
-
+import java.net.URL;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.SpringLayout.Constraints;
@@ -120,8 +120,14 @@ public void start(Stage primaryStage) {
         VBox profileContent = new VBox(); // VBox to stack image and label
 
         // Convert ImageIcon to Image
-        Image profileImage = convertToFXImage(profile.getImage());
-        ImageView imageView = new ImageView(profileImage);
+        //Image profileImage = convertToFXImage(profile.getImage());
+        String imagePath = Constants.back;
+        System.out.println("Image path: " + imagePath);
+        File file = new File(Constants.back);
+        Image profileImage = new Image(file.toURI().toString());
+
+        ImageView imageView = new ImageView();
+        imageView.setImage(profileImage);
         imageView.setFitHeight(100);
         imageView.setFitWidth(100);
       
@@ -188,6 +194,16 @@ public void start(Stage primaryStage) {
     primaryStage.setScene(scene);
     primaryStage.setFullScreen(true); // Set to full screen
     primaryStage.show();
+}
+
+public  Image loadImage(String imagePath) {
+    URL imageURL = getClass().getResource(imagePath);
+    if (imageURL != null) {
+        return new Image(imageURL.toExternalForm(), true);
+    } else {
+        System.out.println("Image not found: " + imagePath);
+        return null;       
+    }
 }
 
 private void createCreateNewUserButton(Stage primaryStage, BorderPane borderPane, VBox profileBox) {
