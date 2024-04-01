@@ -2,7 +2,6 @@ package com.nourishnet.javafx_examples;
 
 import javafx.animation.PauseTransition;
 import javafx.application.Application;
-import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
 //import javafx.animation.PauseTransition;
@@ -17,9 +16,7 @@ import javafx.animation.ScaleTransition;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Font;
+
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -30,8 +27,6 @@ import java.net.MalformedURLException;
 import java.util.List;
 import java.net.URL;
 import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-import javax.swing.SpringLayout.Constraints;
 
 import com.nourishnet.Constants;
 import com.nourishnet.DataStructures;
@@ -40,13 +35,12 @@ import com.nourishnet.SerializeJsonData;
 import com.nourishnet.Tools;
 import com.nourishnet.User;
 import com.nourishnet.UserManager;
-import com.nourishnet.DataStructures.StringImageIdPair;
 
 public class NourishNetAppExample extends Application {
 
     // Constants for styling
-    private static final Font TITLE_FONT = new Font("Arial", 90);
-    private static final String TITLE_COLOUR = "#81AB7F";  // Darker green
+    // private static final Font TITLE_FONT = new Font("Arial", 90);
+    // private static final String TITLE_COLOUR = "#81AB7F";  // Darker green
     private static final String BACKGROUND_COLOUR = "#AFC4B0";  // Lighter green
     private static final String PANEL_COLOUR = "#ACB7AB"; // Panel colour
     private static final String BUTTON_CLICKED_COLOUR = "rgba(129, 171, 127, 0.8)"; // Light green with 80% opacity
