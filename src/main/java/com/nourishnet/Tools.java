@@ -1,12 +1,14 @@
 package com.nourishnet;
 
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
+import javafx.scene.image.Image;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.imageio.ImageIO;
+
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
 import java.awt.image.BufferedImage;
@@ -14,22 +16,25 @@ import java.awt.image.BufferedImage;
 public class Tools {
 
 
-    public static ImageIcon getRecipeImage(String recipeName){
+    public static Image getRecipeImage(String recipeName){
         DataStructures.StringBooleanPair hImage = hasImage(recipeName, Constants.recipeImagePath);
         System.out.println(hImage.getHasImage()); //Debug
         if(hImage.getHasImage()){
-            return new ImageIcon(Constants.recipeImagePath + "/" + recipeName + ".png");
+            return new Image(new File(Constants.recipeImagePath + "/" + recipeName + ".png").toURI().toString());
         }
-        return new ImageIcon(Constants.recipeImagePath + "/default.png");
+        return new Image(new File(Constants.recipeImagePath + "/default.png").toURI().toString());
+
     }
 
-    public static ImageIcon getDietImage(String dietName){
+    public static Image getDietImage(String dietName){
         DataStructures.StringBooleanPair hImage = hasImage(dietName, Constants.dietImagePath);
         System.out.println(hImage.getHasImage()); //Debug
         if(hImage.getHasImage()){
-            return new ImageIcon(Constants.dietImagePath + "/" + dietName + hImage.getExtension());
+            return new Image(new File(Constants.dietImagePath + "/" + dietName + hImage.getExtension()).toURI().toString());
+
         }
-        return new ImageIcon(Constants.dietImagePath + "/default.jpeg");
+        return new Image(new File(Constants.dietImagePath + "/default.jpeg").toURI().toString());
+
     }
 
 
@@ -39,26 +44,26 @@ public class Tools {
         for(String diet : recipe.getDiet()){
 
             if (diet.equals("Vegetarian")) {
-                icons.add(new DataStructures.StringImagePair(diet, new ImageIcon(Constants.vegetarianIcon)));
+                icons.add(new DataStructures.StringImagePair(diet, new Image(new File(Constants.vegetarianIcon).toURI().toString())));
             } else if (diet.equals("Vegan")) {
-                icons.add(new DataStructures.StringImagePair(diet, new ImageIcon(Constants.veganIcon)));
+                icons.add(new DataStructures.StringImagePair(diet, new Image(new File(Constants.veganIcon).toURI().toString())));
             } else if (diet.equals("Keto")){
-                icons.add(new DataStructures.StringImagePair(diet, new ImageIcon(Constants.freeFromIcon)));
+                icons.add(new DataStructures.StringImagePair(diet, new Image(new File(Constants.freeFromIcon).toURI().toString())));
             } else if (diet.equals("Mediterranean")){
-                icons.add(new DataStructures.StringImagePair(diet, new ImageIcon(Constants.freeFromIcon)));
+                icons.add(new DataStructures.StringImagePair(diet, new Image(new File(Constants.freeFromIcon).toURI().toString())));
             } else if (diet.equals("Paleo")){
-                icons.add(new DataStructures.StringImagePair(diet, new ImageIcon(Constants.freeFromIcon)));
+                icons.add(new DataStructures.StringImagePair(diet, new Image(new File(Constants.freeFromIcon).toURI().toString())));
             } else if (diet.equals("Pescatarian")){
-                icons.add(new DataStructures.StringImagePair(diet, new ImageIcon(Constants.freeFromIcon)));
+                icons.add(new DataStructures.StringImagePair(diet, new Image(new File(Constants.freeFromIcon).toURI().toString())));
             }
         }
         for(String tag : recipe.getTags()){
             if(tag.equals("Healthy")){
-                icons.add(new DataStructures.StringImagePair(tag, new ImageIcon(Constants.healthyIcon)));
+                icons.add(new DataStructures.StringImagePair(tag, new Image(new File(Constants.healthyIcon).toURI().toString())));
             } else if (tag.equals("Gluten-free")) {
-                icons.add(new DataStructures.StringImagePair(tag, new ImageIcon(Constants.glutenFreeIcon)));
+                icons.add(new DataStructures.StringImagePair(tag, new Image(new File(Constants.glutenFreeIcon).toURI().toString())));
             }else{
-                icons.add(new DataStructures.StringImagePair(tag, new ImageIcon(Constants.freeFromIcon)));
+                icons.add(new DataStructures.StringImagePair(tag, new Image(new File(Constants.freeFromIcon).toURI().toString())));
             }
         }
 

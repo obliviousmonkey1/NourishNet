@@ -1,14 +1,15 @@
 package com.nourishnet;
 
-import java.io.File;
+import javafx.scene.image.Image;
+
 
 public class DataStructures {
 
     public static class StringImagePair {
         private String text;
-        private File image;
+        private Image image;
 
-        public StringImagePair(String text, File image) {
+        public StringImagePair(String text, Image image) {
             this.text = text;
             this.image = image;
         }
@@ -17,7 +18,7 @@ public class DataStructures {
             return text;
         }
 
-        public File getImage() {
+        public Image getImage() {
             return image;
         }
     }
@@ -25,9 +26,9 @@ public class DataStructures {
     public static class StringImageIdPair {
         private String text;
         private String id;
-        private File image;
+        private Image image;
 
-        public StringImageIdPair(String text, String id, File image) {
+        public StringImageIdPair(String text, String id, Image image) {
             this.text = text;
             this.id = id;
             this.image = image;
@@ -41,7 +42,7 @@ public class DataStructures {
             return id;
         }
 
-        public File getImage() {
+        public Image getImage() {
             return image;
         }
     }

@@ -26,6 +26,7 @@ COMPLETED
 
 
 IN PROGRESS
+- USER MANAGER : Get instead of returning a File return a javafx Image, then update the wiki 
 - TESTING : Look over current testing 
 - TESTING : In the testing tools write some code that can determine whether a file is in a folder or not 
 - Clean up files
