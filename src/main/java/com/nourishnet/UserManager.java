@@ -3,26 +3,27 @@ package com.nourishnet;
 import java.util.ArrayList;
 import java.util.List;
 
+import javafx.scene.image.Image;
 import java.io.File;
-
 
 
 public class UserManager {
 
 
-    public static File getUserProfileImage(String userId){
+    public static Image getUserProfileImage(String userId){
         File userProfileDir = new File(Constants.usersPath + "/" + userId);
         File[] listOfFiles = userProfileDir.listFiles();
 
         for(int i=0; i < listOfFiles.length; i++){
             if(listOfFiles[i].isFile()){
+
                 if(listOfFiles[i].getName().equals(userId + ".png")){
-                    return new File(listOfFiles[i].getPath());
+                    return new Image(listOfFiles[i].toURI().toString());
                 }
             }
         }
 
-        return new File(Constants.usersPath + "/default.png");
+        return new Image(new File(Constants.usersPath + "/default.png").toURI().toString());
     }
   
     
@@ -40,6 +41,7 @@ public class UserManager {
 
                     // creates a temporary user object to get the user's name
                     String userId = listOfFiles[i].getName();
+                    Image profileImage;
 
                     String username = ResourceLoader.loadUser(getUserJsonPath(listOfFiles[i].getName())).getUsername();
                     System.out.println(listOfFiles[i].getName());
@@ -48,11 +50,13 @@ public class UserManager {
                     System.out.println("Image path : "+ profileImageFile.getPath());
 
                     if(!profileImageFile.exists()){
-                        profileImageFile = new File(Constants.usersPath + "/default.png");
+                        profileImage = new Image(new File(Constants.usersPath + "/default.png").toURI().toString());
                         
+                    }else{
+                        profileImage = new Image(profileImageFile.toURI().toString());
                     }
                    
-                    profileList.add(new DataStructures.StringImageIdPair(username, userId, profileImageFile));
+                    profileList.add(new DataStructures.StringImageIdPair(username, userId, profileImage));
                 }
             }
             catch(Exception e){

@@ -119,10 +119,8 @@ public void start(Stage primaryStage) {
         VBox profileContent = new VBox(); // VBox to stack image and label
 
      
-        Image profileImage = new Image(profile.getImage().toURI().toString());
-
         ImageView imageView = new ImageView();
-        imageView.setImage(profileImage);
+        imageView.setImage(profile.getImage());
         imageView.setFitHeight(100);
         imageView.setFitWidth(100);
       
@@ -566,9 +564,8 @@ private void createCreateNewUserButton(Stage primaryStage, BorderPane borderPane
         );
 
 
-        Image profileImage = new Image(UserManager.getUserProfileImage(user.getId()).toURI().toString());
 
-        ImageView imageView = new ImageView(profileImage);
+        ImageView imageView = new ImageView(UserManager.getUserProfileImage(user.getId()));
         imageView.setFitHeight(200);
         imageView.setFitWidth(200);
         imageView.getStyleClass().add("image-highlight"); // Apply CSS class for highlight effect
