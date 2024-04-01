@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "NourishNetAppExample",
+            "request": "launch",
+            "mainClass": "com.nourishnet.NourishNetAppExample",
+            "projectName": "nourishnet"
+        },
+        {
+            "type": "java",
             "name": "FXMLexampleMain",
             "request": "launch",
             "mainClass": "com.nourishnet.javafx_examples.FXMLexampleMain",
