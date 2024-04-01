@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.nourishnet.javafx_examples.FXMLexampleController"
+            prefWidth="400" prefHeight="300">
+
+    <left>
+        <VBox fx:id="leftBox" prefWidth="400" spacing="20" style="-fx-background-color: lightgray;">
+            <!-- Add content here for the left side -->
+            <Label text="Left Box" />
+        </VBox>
+    </left>
+
+    <center>
+        <VBox alignment="CENTER" spacing="20">
+            <Label text="Title" />
+            <!-- Add content here for the center -->
+            <Label text="Hello, World!" />
+            <Button text="Click Me!" />
+        </VBox>
+    </center>
+
+</BorderPane>
+
+

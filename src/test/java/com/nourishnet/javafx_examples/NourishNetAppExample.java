@@ -4,7 +4,7 @@ import javafx.animation.PauseTransition;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
-//import javafx.animation.PauseTransition;
+
 import javafx.util.Duration;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -12,7 +12,7 @@ import javafx.scene.control.*;
 import javafx.scene.effect.DropShadow;
 import javafx.animation.FadeTransition;
 import javafx.animation.ScaleTransition;
-//import javafx.util.Duration;
+
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
