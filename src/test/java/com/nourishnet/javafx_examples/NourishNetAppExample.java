@@ -2,7 +2,6 @@ package com.nourishnet.javafx_examples;
 
 import javafx.animation.PauseTransition;
 import javafx.application.Application;
-import javafx.embed.swing.SwingFXUtils; 
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
@@ -119,12 +118,8 @@ public void start(Stage primaryStage) {
         Button profileButton = new Button();
         VBox profileContent = new VBox(); // VBox to stack image and label
 
-        // Convert ImageIcon to Image
-        //Image profileImage = convertToFXImage(profile.getImage());
-        String imagePath = Constants.back;
-        System.out.println("Image path: " + imagePath);
-        File file = new File(Constants.back);
-        Image profileImage = new Image(file.toURI().toString());
+     
+        Image profileImage = new Image(profile.getImage().toURI().toString());
 
         ImageView imageView = new ImageView();
         imageView.setImage(profileImage);
@@ -213,8 +208,8 @@ private void createCreateNewUserButton(Stage primaryStage, BorderPane borderPane
     // Convert ImageIcon to Image
    // ImageIcon icon = new ImageIcon(Constants.userDir +"/nourishnet/Data/Users/default.png");
 
-    ImageIcon icon = new ImageIcon(Constants.createUserImagepath);
-    Image profileImage = convertToFXImage(icon);
+    File image = new File(Constants.createUserImagepath);
+    Image profileImage = new Image(image.toURI().toString());
     ImageView imageView = new ImageView(profileImage);
     imageView.setFitHeight(100);
     imageView.setFitWidth(100);
@@ -351,8 +346,11 @@ private void createCreateNewUserButton(Stage primaryStage, BorderPane borderPane
         BorderPane.setAlignment(nourishnetLabel, Pos.CENTER);
         BorderPane.setMargin(nourishnetLabel, new Insets(10));
 
-        ImageIcon icon = new ImageIcon(Constants.userDefaultImagepath);
-        Image profileImage = convertToFXImage(icon);
+        File newUserDefaultImage = new File(Constants.userDefaultImagepath);
+
+        //UserManager.getUserProfileImage(user.getId());
+
+        Image profileImage = new Image(newUserDefaultImage.toURI().toString());
         ImageView imageView = new ImageView(profileImage);
         imageView.setFitHeight(200);
         imageView.setFitWidth(200);
@@ -553,16 +551,6 @@ private void createCreateNewUserButton(Stage primaryStage, BorderPane borderPane
         }
     }
     
-    
-
-    private Image convertToFXImage(javax.swing.ImageIcon icon) {
-        BufferedImage bufferedImage = new BufferedImage(
-                icon.getIconWidth(),
-                icon.getIconHeight(),
-                BufferedImage.TYPE_INT_ARGB);
-        icon.paintIcon(null, bufferedImage.getGraphics(), 0, 0);
-        return SwingFXUtils.toFXImage(bufferedImage, null);
-    }
 
     private void displayMainScreen(Stage primaryStage) {
         // Clear the existing content of the BorderPane
@@ -577,8 +565,9 @@ private void createCreateNewUserButton(Stage primaryStage, BorderPane borderPane
             "-fx-text-fill: linear-gradient(to right, #ff8a00, #da1b60);"
         );
 
-    
-        Image profileImage = convertToFXImage(UserManager.getUserProfileImage(user.getId()));
+
+        Image profileImage = new Image(UserManager.getUserProfileImage(user.getId()).toURI().toString());
+
         ImageView imageView = new ImageView(profileImage);
         imageView.setFitHeight(200);
         imageView.setFitWidth(200);
