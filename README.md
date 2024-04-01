@@ -26,13 +26,10 @@ P.S. DO NOT place these files in your program files folder on your C Drive, as t
 1. Install the latest version of java. This should be found on the website: https://www.java.com/download/ie_manual.jsp
 
 2. Now Install javafx. This should be found on the website: https://gluonhq.com/products/javafx/
-Select version 22, and for the appropiate OS (E.g if your device is on windows, select the download for windows)
+Select version 22, snd select the download for windows
 
 3. Finally install maven. This should be found on the website: https://maven.apache.org/download.cgi
 Install the binary zip archive. 
-
-*SCROLL DOWN FOR THE REST OF THE PARTS FOR MAC. THEY WILL BE AFTER THE WINDOWS' PARTS*
-
 
 
 [WINDOWS - Part 2 - Setting up your environment variables] 
@@ -48,8 +45,6 @@ P.S. When it's stated to insert or paste the exact file path of something, find 
 
 Web site to help if stuck on this part: https://openjfx.io/openjfx-docs/#introduction 
 Go through "Introduction" until the "Run HelloWorld via Maven" tab.
-
-
 
 [WINDOWS - PART 3 - Setting up your config file] 
 
