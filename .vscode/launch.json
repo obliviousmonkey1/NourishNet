@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "com.nourishnet.Main",
+            "projectName": "nourishnet"
+        },
+        {
+            "type": "java",
             "name": "NourishNetAppExample",
             "request": "launch",
             "mainClass": "com.nourishnet.NourishNetAppExample",

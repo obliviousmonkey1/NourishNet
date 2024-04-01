@@ -543,7 +543,6 @@ private void createCreateNewUserButton(Stage primaryStage, BorderPane borderPane
         }
     }
     
-
     private void displayMainScreen(Stage primaryStage) {
         // Clear the existing content of the BorderPane
         BorderPane borderPane = (BorderPane) primaryStage.getScene().getRoot();
