@@ -23,23 +23,26 @@ COMPLETED
 - Move circular image frame into tools
 - TESTING : Add more user testing especially around deleting 
 - Remove all setters from recipes 
+- USER MANAGER : Get instead of returning a File return a javafx Image, then update the wiki 
+- TESTING : In the testing tools write some code that can determine whether a file is in a folder or not 
 
 
 IN PROGRESS
-- USER MANAGER : Get instead of returning a File return a javafx Image, then update the wiki 
-- TESTING : Look over current testing 
-- TESTING : In the testing tools write some code that can determine whether a file is in a folder or not 
-- Clean up files
-- Add proper icons for the rest of the diets and add the paths to the constants file 
-- Re-organise wiki to arrange it for the important classes as well as add a table of contents
-- Add all the recipes 
+- DIET : Update with the new data needed look at figma 
+- Search via ingredients feature where the user enters the ingredient and quantity and will search for recipes which have those ingredients or most of them 90% is limit, populate the ingredient list while they are typing select an ingredient then add a quantity and when they are done press search 
 - Continue creation of functions to help speed up the GUI creation 
-- Code clean up targeting un-used variables and functions
-- Code clean up targeting pathing changing static paths to use Pointers class 
-- Code clean up targeting commenting and readability  
+ 
 
 
 TODO
+- Clean up files
+- Add all the recipes 
+- Re-organise wiki to arrange it for the important classes as well as add a table of contents
+- Code clean up targeting un-used variables and functions
+- Code clean up targeting pathing changing static paths to use Pointers class 
+- Code clean up targeting commenting and readability 
+- Add proper icons for the rest of the diets and add the paths to the constants file 
+- TESTING : Look over current testing 
 - User manager update all the functions to use the Tools.HasImage if they are dealing with an image
 - TESTING : USER : Add more user tests todo with functions in the UserManager class
 - Update wiki 
@@ -50,22 +53,12 @@ TODO
 - TOOLS/USERMANAGER : clean up the way handle temporary profile image 
 - Rename datastructure variables to make them more general 
 - Tech Debt 
-- APP : Talk to Josh about which page the program loads when there are no users in the system can either go straight into the user creation screen or to the menu so they click add new user 
 - ORGANISATION : ook over all the functions in the classes and see if they can be organised and paired together in a better way 
 - Creation of a user allow them to upload a profile picture and reuse that code for users wanting to change theirs
 - Dynamic pointer in Pointers class for current user so dont have to keep creating path
-- Search via ingredients feature where the user enters the ingredient and quantity and will search for recipes which have those ingredients or most of them 90% is limit, populate the ingredient list while they are typing select an ingredient then add a quantity and when they are done press search 
 - Look over running through recipes and checking if they are low in fat or whatever and then add a tag to them and save it 
-- APP : newUserProfile frame : Date of birth (d/m/y) input validation 
-- APP : newUserProfile frame : Back button to go to Login frame
-- APP : newUserProfile frame : Create Password option requirinig a password to be entered twice if user wants one
-- APP : newUserProfile frame : Add a text limit to the name input
-- APP : password frame : Need to redesign the password frame to look better keep it the same size as the Login frame
 - USER MANAGER : Go over code and make it error proof adding try and excepts where needed
-- APP : Make it so frame stays at the position of the old frame when a new frame is instansiated
-- APP : Back button doesn't hide last frame 
 - TOOLS : Check through nutrient and give each one a colour green , yellow or red based on the amount 
-- APP : Change password from being a field to a JPasswordField
 - TESTING : UserID generater bugged in some user id configurations need to test
 - MEMORY : Look over UserManger functions and other functions and make sure no memory leaks 
 - USER MANGER : Get rid of scaleProfileImage(imageIcon); when josh has made the new gui as not needed
@@ -76,7 +69,7 @@ TODO
 
 
 RESEARCH
+- look into figma dev mode 
 - use cards to contain the recipe breif details for searching
-- Look into net beans to modernise and refine the GUI and other parts such as recipe stuff 
-- Look into using css with java 22
+- use cards to contain data for some of the gui screens such as the diets additional data
 - Dont have a recipe hava a way for the user to paste in the url of the cooking website and run a python program to load it in 

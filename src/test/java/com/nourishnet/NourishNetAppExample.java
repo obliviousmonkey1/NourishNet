@@ -1,4 +1,4 @@
-package com.nourishnet.javafx_examples;
+package com.nourishnet;
 
 import javafx.animation.PauseTransition;
 import javafx.application.Application;
