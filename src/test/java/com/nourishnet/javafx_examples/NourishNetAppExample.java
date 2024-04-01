@@ -562,19 +562,21 @@ private void createCreateNewUserButton(Stage primaryStage, BorderPane borderPane
             "-fx-font-weight: bold; " +
             "-fx-text-fill: linear-gradient(to right, #ff8a00, #da1b60);"
         );
+        welcomeLabel.getStyleClass().add("main-menu-title"); // Apply CSS class for highlight effect
+
 
 
 
         ImageView imageView = new ImageView(UserManager.getUserProfileImage(user.getId()));
         imageView.setFitHeight(200);
         imageView.setFitWidth(200);
-        imageView.getStyleClass().add("image-highlight"); // Apply CSS class for highlight effect
+        imageView.getStyleClass().add("profile-highlight"); // Apply CSS class for highlight effect
 
         //welcomeLabel.setFont(new Font(24));
         //welcomeLabel.getStyleClass().add("label-welcome-text"); // Apply CSS class
 
         Button logoutButton = new Button("Logout");
-    
+        
         // Handle logout button click
         logoutButton.setOnAction(e -> {
             // Perform logout action
