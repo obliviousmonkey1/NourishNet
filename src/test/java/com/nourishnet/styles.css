@@ -19,7 +19,7 @@
 
 /* Style for the profile buttons */
 .button-profile {
-    -fx-background-color: #ACB7AB; /* Panel colour */
+    -fx-background-color: #D9D9D9; /* Panel colour */
     -fx-background-radius: 5;
     -fx-border-radius: 5;
     -fx-padding: 10 20;
