@@ -1,7 +1,5 @@
 package com.nourishnet;
 
-import javafx.animation.PauseTransition;
-import javafx.animation.ScaleTransition;
 import javafx.application.Application;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
@@ -12,14 +10,28 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.effect.DropShadow;
-import javafx.scene.image.ImageView;
+import javafx.scene.image.Image;
+import javafx.animation.*;
+
+import javafx.scene.Node;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
+import javafx.scene.layout.*;
+import javafx.scene.paint.*;
+
+import java.io.File;
+
+
+import java.util.Random;
 import java.util.List;
 
 public class Main extends Application {
@@ -32,8 +44,9 @@ public class Main extends Application {
     private static final String BUTTON_DEFAULT_COLOUR = "#ACB7AB"; // Light blue
 
     private Text introductionText;
-    private Label nourishnetLabel;
+    public static Label nourishnetLabel;
     private Button lastClickedButton;
+    private int music = 0;
 
     private VBox rightBox;
     private VBox loginBox;
@@ -42,6 +55,12 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
         primaryStage.setTitle("Login");
+
+        
+        String musicFile = "/Users/parzavel/Documents/GitHub/nourishnet/src/test/java/com/nourishnet/loginTheme2.mp3";     // For example
+
+        Media sound = new Media(new File(musicFile).toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(sound);
 
         BorderPane borderPane = new BorderPane();
         borderPane.setStyle("-fx-background-color:" + BACKGROUND_COLOUR);
@@ -85,7 +104,21 @@ public class Main extends Application {
 
             profileButton.setOnAction(e -> {
                 User tempUser = ResourceLoader.loadUser(UserManager.getUserJsonPath(profile.getId()));
+                if(mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING){
+                    mediaPlayer.stop();
+                }
+                // double randomInRange = Math.random() * 100;
+                // int randomNumber = (int) randomInRange;
+                // System.out.println(randomNumber);
+                if(music == 1){
+                    mediaPlayer.play();
+                    handleProfileButtonClick();
+                }
+                
+                // if(randomNumber == 20){
+                //     mediaPlayer.play();
 
+                // }
                 // Handle profile button click
                 introductionText.setVisible(false);
                 profileButton.setEffect(mdropShadow);
@@ -138,12 +171,31 @@ public class Main extends Application {
 
         BorderPane.setAlignment(nourishnetLabel, Pos.TOP_CENTER);
 
+       
+
+
         Scene scene = new Scene(borderPane, 800, 600);
         scene.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());
         primaryStage.setScene(scene);
         primaryStage.setFullScreen(true);
         primaryStage.show();
     }
+
+   private void handleProfileButtonClick() {
+    // Apply pulse effect and change text color to red
+    ScaleTransition scaleTransition = new ScaleTransition(Duration.seconds(0.5), nourishnetLabel);
+    scaleTransition.setFromX(1);
+    scaleTransition.setFromY(1);
+    scaleTransition.setToX(1.2);
+    scaleTransition.setToY(1.2);
+    scaleTransition.setAutoReverse(true);
+    scaleTransition.setCycleCount(Timeline.INDEFINITE); // Play indefinitely
+
+    nourishnetLabel.setTextFill(Color.RED);
+
+    scaleTransition.play();
+}
+    
 
     private void displayLoginField(Stage primaryStage, boolean hasPassword, User tempUser) {
         // Creating the password field popup
@@ -256,4 +308,7 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
+   
 }
+
