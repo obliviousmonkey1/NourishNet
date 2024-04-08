@@ -57,7 +57,7 @@ public class Main extends Application {
         primaryStage.setTitle("Login");
 
         
-        String musicFile = "/Users/parzavel/Documents/GitHub/nourishnet/src/test/java/com/nourishnet/loginTheme2.mp3";     // For example
+        String musicFile = "/Users/parzavel/Documents/GitHub/nourishnet/src/test/java/com/nourishnet/loginTheme1.mp3";     // For example
 
         Media sound = new Media(new File(musicFile).toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(sound);
@@ -163,11 +163,25 @@ public class Main extends Application {
         rightBox.getChildren().add(nourishnetLabel);
         rightBox.setAlignment(Pos.TOP_CENTER);
 
+        DropShadow dropShadow = new DropShadow();
+
+        // Apply drop shadow effect on hover
+        nourishnetLabel.setOnMouseEntered(e -> nourishnetLabel.setEffect(dropShadow));
+
+        nourishnetLabel.setOnMouseClicked(e -> {
+            mediaPlayer.play();
+        });
+
+    
+        // Remove drop shadow effect when mouse exits
+        nourishnetLabel.setOnMouseExited(e -> nourishnetLabel.setEffect(null));
+
         introductionText = new Text("NourishNet: Zero Hunger, One Recipe at a time - Sustainably Nourishing Lives!");
         introductionText.setStyle("-fx-font-size: 1.5em; -fx-fill: #FFFFFF; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 0);");
         rightBox.getChildren().add(introductionText);
         rightBox.setAlignment(Pos.CENTER);
         borderPane.setCenter(rightBox);
+        
 
         BorderPane.setAlignment(nourishnetLabel, Pos.TOP_CENTER);
 
