@@ -1,3 +1,12 @@
+//---------------------------------------------------------------
+// Created on 8/04/2024 by Declan Roe 
+// 
+// This class is to test the Diet class in main, having functions 
+// to test different scenarios
+//
+//---------------------------------------------------------------
+
+
 package com.nourishnet;
 
 import java.util.ArrayList;
