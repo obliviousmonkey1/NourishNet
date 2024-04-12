@@ -2,6 +2,9 @@ package com.nourishnet;
 
 import java.util.ArrayList;
 
+import com.nourishnet.Diet;
+import com.nourishnet.ResourceLoader;
+
 public class DietTest {
 
     // Loading in the diets from the json file

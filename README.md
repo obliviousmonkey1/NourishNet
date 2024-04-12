@@ -78,12 +78,10 @@ Go through "Introduction" until the "Run HelloWorld via Maven" tab.
 
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-4. Install maven : Once brew is installed/ if brew is already installed in terminal run
+4. Install maven : Once / if brew is installed, in terminal run
 
     brew install maven
 
     Test maven has installed installed : in the same terminal type mvn
-
-[MAC - PART 2 - Installing homebrew]
 
 *END OF INSTRUCTIONS FOR MAC*

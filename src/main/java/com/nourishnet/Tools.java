@@ -25,7 +25,7 @@ public class Tools {
         return new Image(new File(Constants.recipeImagePath + "/default.png").toURI().toString());
 
     }
-
+   
     public static Image getDietImage(String dietName){
         DataStructures.StringBooleanPair hImage = hasImage(dietName, Constants.dietImagePath);
         System.out.println(hImage.getHasImage()); //Debug
@@ -89,6 +89,22 @@ public class Tools {
 		
 	}
 
+  
+
+
+    public static void loadImage(String userId, BufferedImage image) {
+        
+        createCircularImage(image,  Constants.usersPath + '/' + userId + '/' + userId + ".png");
+
+    }
+
+    public static Diet getRecommendedDiet(int bmi, ArrayList<Diet> diets){
+       
+        return null;
+    }
+
+
+    // diet page 
     public static int getNumberOfRecipesForSpecificDiet(String diet, ArrayList<Recipe> recipes){
         int count = 0;
         for(Recipe recipe : recipes){
@@ -99,13 +115,28 @@ public class Tools {
         return count;
     }
 
-
-    public static void loadImage(String userId, BufferedImage image) {
-        
-        createCircularImage(image,  Constants.usersPath + '/' + userId + '/' + userId + ".png");
-
+    public static ArrayList<Double> getRangeOfCaloriesForDiet(String diet, ArrayList<Recipe> recipes) {
+        ArrayList<Double> range = new ArrayList<Double>();
+        Double min = Double.POSITIVE_INFINITY;
+        Double max = Double.NEGATIVE_INFINITY;
+    
+        for (Recipe recipe : recipes) {
+            if (recipe.getDiet().contains(diet)) {
+                double calories = recipe.getNutrition().getCalories(); // Assuming this is correct
+                if (calories < min) {
+                    min = calories;
+                }
+                if (calories > max) {
+                    max = calories;
+                }
+            }
+        }
+        range.add(min);
+        range.add(max);
+        return range;
     }
 
+    // For cirulairising the image
     public static BufferedImage loadImage(String imagePath) {
         try {
              createCircularImage(ImageIO.read(new File(imagePath)), Constants.tempImagePath+"/output.png");
@@ -146,5 +177,9 @@ public class Tools {
             e.printStackTrace();
         }
     }
+
+
+
+   
 
 }

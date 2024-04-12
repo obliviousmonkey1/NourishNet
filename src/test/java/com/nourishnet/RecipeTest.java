@@ -2,6 +2,9 @@ package com.nourishnet;
 
 import java.util.ArrayList;
 
+import com.nourishnet.Recipe;
+import com.nourishnet.ResourceLoader;
+
 public class RecipeTest {
 
     private static void testRecipeLoading() {
