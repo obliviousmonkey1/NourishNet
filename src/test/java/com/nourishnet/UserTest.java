@@ -41,7 +41,7 @@ public class UserTest {
         TestingTools.AssertEquals(3, user.getSavedRecipeIDs().get(2));
 
         // Test password
-        TestingTools.AssertEquals("", user.getPassword());
+        TestingTools.AssertEquals("iLikeRecipeApps", user.getPassword());
 
     }
 
