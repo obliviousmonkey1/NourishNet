@@ -2,6 +2,12 @@ package com.nourishnet;
 
 import java.util.ArrayList;
 
+import com.nourishnet.Constants;
+import com.nourishnet.ResourceLoader;
+import com.nourishnet.SerializeJsonData;
+import com.nourishnet.User;
+import com.nourishnet.UserManager;
+
 public class UserTest {
     /*  
      *  USER IDS 0000, 0001, 0002, 0003, 0004
