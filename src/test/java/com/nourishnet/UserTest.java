@@ -1,3 +1,12 @@
+//-----------------------------------------------------------------------------------
+// Created on 23/2/2024 by Declan with contributions by Tom throughout
+// 
+// This class is to test the User class in main, having functions to test different 
+// functions/features involved in the User class
+//
+//-----------------------------------------------------------------------------------
+
+
 package com.nourishnet;
 
 import java.util.ArrayList;
