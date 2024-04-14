@@ -15,30 +15,21 @@ public class DietTest {
 
     //loading in the diets from the json file
     private static ArrayList<Diet> diets = ResourceLoader.loadDiets();
+   
 
 
-    public static void main(String[] args) {
-        //creating sample recipe objects 
-        ArrayList<Recipe> sampleRecipes = createSampleRecipes();
+     public static void main(String[] args) {
+        //load recipes from JSON file
+     ArrayList<Recipe> sampleRecipes = RecipeLoader.loadRecipesFromJson("Recipes.json");
+
+        //test methods
+        testGetExampleRecipes(sampleRecipes);
+        testGetName();
+        testGetDescription();
     }
 
-    private static ArrayList<Recipe> createSampleRecipes() {
-        ArrayList<Recipe> sampleRecipes = new ArrayList<>();
 
-        //creating sample objects
-        Recipe recipe1 = new Recipe("Recipe 1", "Description of Recipe 1", ...); //PLACEHOLDERS
-        Recipe recipe2 = new Recipe("Recipe 2", "Description of Recipe 2", ...);
-        Recipe recipe3 = new Recipe("Recipe 3", "Description of Recipe 3", ...);
-
-        //Adding samples to list
-        sampleRecipes.add(recipe1);
-        sampleRecipes.add(recipe2);
-        sampleRecipes.add(recipe3);
-
-        return sampleRecipes;
-    }
-
-     private static void testGetExampleRecipes() {
+     private static void testGetExampleRecipes((ArrayList<Recipe> sampleRecipes) {
         System.out.println("Testing getExampleRecipes method...");
         //recipe objects loaded for testing
         ArrayList<Recipe> sampleRecipes = new ArrayList<>();
