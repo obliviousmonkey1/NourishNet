@@ -19,7 +19,7 @@ public class DietTest {
         
         private static ArrayList<Diet> diets = ResourceLoader.loadDiets();
 
-        // Checking to see if the number of recipes loaded is equal to the number of recipes in the recipes folder
+        // Checking to see if the number of diet loaded is equal to the number of diet in the diet folder
         TestingTools.AssertEquals(recipes.size(), ResourceLoader.loadDiets().size());
     }
 
@@ -30,7 +30,7 @@ public class DietTest {
     public static void Entry() {
         // Load recipes from JSON file
         
-        ArrayList<Recipe> sampleRecipes = RecipeLoader.loadRecipesFromJson("Recipes.json");
+        ArrayList<Diet> sampleDiets = RecipeLoader.loadDietsFromJson("Diets.json");
         
         testGetExampleRecipes(sampleRecipes);
         testGetName();
@@ -41,25 +41,25 @@ public class DietTest {
     
 
 
-     private static void testGetExampleRecipes((ArrayList<Recipe> sampleRecipes) {
-        System.out.println("Testing getExampleRecipes method...");
+     private static void testGetExampleDiets((ArrayList<Diet> sampleDiet) {
+        System.out.println("Testing getExampleDiets method...");
         //recipe objects loaded for testing
-        ArrayList<Recipe> sampleRecipes = new ArrayList<>();
+        ArrayList<Diets> sampleDiets = new ArrayList<>();
 
          
         //need populating sampleRecipes with some test data
         
         //looping through each diet and testing the method
         for (Diet diet : diets) {
-            ArrayList<Recipe> exampleRecipes = diet.getExampleRecipes(sampleRecipes);
+            ArrayList<Recipe> exampleDiets = diet.getExampleDiets(sampleDiets);
             System.out.println("Diet: " + diet.getName());
-            System.out.println("Example Recipes: ");
-            for (Recipe recipe : exampleRecipes) {
+            System.out.println("Example Diets: ");
+            for (Diet diet : exampleDiets) {
                 System.out.println("- " + recipe.getName());
             }
             System.out.println("---------------");
         }
-        System.out.println("getExampleRecipes method tested successfully.");
+        System.out.println("getExampleDiets method tested successfully.");
     }
 
      private static void testGetName() {
@@ -86,7 +86,7 @@ public class DietTest {
 
      public static void Entry() {
         testDietLoading();
-        testGetExampleRecipes();
+        testGetExampleDiets();
         testGetName();
         testGetDescription();
 
