@@ -28,11 +28,11 @@ public class DietTest {
    
     
     public static void Entry() {
-        // Load recipes from JSON file
+        // Load diets from JSON file
         
         ArrayList<Diet> sampleDiets = RecipeLoader.loadDietsFromJson("Diets.json");
         
-        testGetExampleRecipes(sampleRecipes);
+        testGetExampleDiets(sampleDiets);
         testGetName();
         testGetDescription();
         System.out.println("[DIET] All tests passed!");
@@ -43,11 +43,11 @@ public class DietTest {
 
      private static void testGetExampleDiets((ArrayList<Diet> sampleDiet) {
         System.out.println("Testing getExampleDiets method...");
-        //recipe objects loaded for testing
+        //diet objects loaded for testing
         ArrayList<Diets> sampleDiets = new ArrayList<>();
 
          
-        //need populating sampleRecipes with some test data
+        //need populating sampleDiets with some test data
         
         //looping through each diet and testing the method
         for (Diet diet : diets) {
