@@ -10,25 +10,16 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.effect.DropShadow;
-import javafx.scene.image.Image;
 import javafx.animation.*;
 
-import javafx.scene.Node;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 
-import javafx.scene.layout.*;
-import javafx.scene.paint.*;
-
-import java.io.File;
-
-import java.util.Random;
 import java.util.List;
 
 public class Main extends Application {
@@ -58,11 +49,11 @@ public class Main extends Application {
         borderPane.setStyle("-fx-background-color:" + BACKGROUND_COLOUR);
 
         // Creating the left side (profiles)
-        VBox profileBox = new VBox();
-        profileBox.setStyle("-fx-background-color:" + USER_PANEL_COLOUR); // Set the background color
+        VBox leftVBox = new VBox();
+        leftVBox.setStyle("-fx-background-color:" + USER_PANEL_COLOUR); // Set the background color
 
-        profileBox.setSpacing(20);
-        profileBox.setPadding(new Insets(20, 10, 20, 10)); // Reduced bottom padding to 20
+        leftVBox.setSpacing(20);
+        leftVBox.setPadding(new Insets(20, 10, 20, 10)); // Reduced bottom padding to 20
 
 
 
@@ -103,20 +94,18 @@ public class Main extends Application {
 
                 if (lastClickedButton != null) {
                     lastClickedButton.setEffect(null);
-                   // lastClickedButton.setStyle("-fx-background-color: " + BUTTON_DEFAULT_COLOUR); // Reset previous button color
                 }
                 lastClickedButton = profileButton;
                
                 // Display the password field popup
                 displayLoginField(primaryStage, tempUser.getHasPassword(), tempUser);
 
-                //profileButton.setStyle("-fx-background-color: " + BUTTON_CLICKED_COLOUR + "; -fx-background-insets: 0;");
             });
-            profileBox.getChildren().add(profileButton);
+            leftVBox.getChildren().add(profileButton);
         }
 
         // Scroll pane for profile buttons
-        ScrollPane scrollPane = new ScrollPane(profileBox);
+        ScrollPane scrollPane = new ScrollPane(leftVBox);
         scrollPane.setFitToWidth(true); // Make sure the width fits the content
         scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER); // Hide horizontal scrollbar
         scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER); // Hide vertical scrollbar
@@ -162,21 +151,6 @@ public class Main extends Application {
         primaryStage.setFullScreen(true);
         primaryStage.show();
     }
-
-   private void handleProfileButtonClick() {
-    // Apply pulse effect and change text color to red
-    ScaleTransition scaleTransition = new ScaleTransition(Duration.seconds(0.5), nourishnetLabel);
-    scaleTransition.setFromX(1);
-    scaleTransition.setFromY(1);
-    scaleTransition.setToX(1.2);
-    scaleTransition.setToY(1.2);
-    scaleTransition.setAutoReverse(true);
-    scaleTransition.setCycleCount(Timeline.INDEFINITE); // Play indefinitely
-
-    nourishnetLabel.setTextFill(Color.RED);
-
-    scaleTransition.play();
-}
     
 
     private void displayLoginField(Stage primaryStage, boolean hasPassword, User tempUser) {

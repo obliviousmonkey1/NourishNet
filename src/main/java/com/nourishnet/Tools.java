@@ -9,7 +9,8 @@ import javax.imageio.ImageIO;
 
 import java.io.File;
 import java.io.IOException;
-import java.awt.*;
+import java.awt.Graphics2D;
+import java.awt.Shape;
 import java.awt.geom.Ellipse2D;
 import java.awt.image.BufferedImage;
 
