@@ -2,7 +2,7 @@
 // Created on 8/04/2024 by Declan Roe 
 // 
 // This class is to test the Diet class in main, having functions 
-// to test different scenarios
+// to test different scenarios applicable to the class
 //
 //---------------------------------------------------------------
 
@@ -13,20 +13,32 @@ import java.util.ArrayList;
 
 public class DietTest {
 
-    //loading in the diets from the json file
-    private static ArrayList<Diet> diets = ResourceLoader.loadDiets();
+    private static void testRecipeLoading() {
+        
+         // Loading in the diets from the json file
+        
+        private static ArrayList<Diet> diets = ResourceLoader.loadDiets();
+
+        // Checking to see if the number of recipes loaded is equal to the number of recipes in the recipes folder
+        TestingTools.AssertEquals(recipes.size(), ResourceLoader.loadRecipes().size());
+    }
+
+
+    
    
-
-
-     public static void main(String[] args) {
-        //load recipes from JSON file
-     ArrayList<Recipe> sampleRecipes = RecipeLoader.loadRecipesFromJson("Recipes.json");
-
-        //test methods
+    
+    public static void Entry() {
+        // Load recipes from JSON file
+        
+        ArrayList<Recipe> sampleRecipes = RecipeLoader.loadRecipesFromJson("Recipes.json");
+        
         testGetExampleRecipes(sampleRecipes);
         testGetName();
         testGetDescription();
+        System.out.println("[DIET] All tests passed!");
     }
+       
+    
 
 
      private static void testGetExampleRecipes((ArrayList<Recipe> sampleRecipes) {
@@ -73,6 +85,7 @@ public class DietTest {
 
 
      public static void Entry() {
+        testRecipeLoading();
         testGetExampleRecipes();
         testGetName();
         testGetDescription();
