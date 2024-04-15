@@ -48,23 +48,24 @@ public class RecipeTest {
         // Loading in a recipe
         Recipe recipe = ResourceLoader.loadRecipes().get(0);
 
+        // Testing both Nutrition and Ingredient in the one function which helps adhere to the DRY principle 
         // First we are testing the Nutrition getters
 
-        // Test getting calories
+        // Testing calories getter
         TestingTools.AssertEquals(610.0, recipe.getNutrition().getCalories());
-        // Test getting fat
+        // Testing fat getter
         TestingTools.AssertEquals(29.0, recipe.getNutrition().getFat());
-        // Test getting saturates
+        // Testing saturates getter
         TestingTools.AssertEquals(4.0, recipe.getNutrition().getSaturates());
-        // Test getting carbs
+        // Testing carbs getter 
         TestingTools.AssertEquals(62.0, recipe.getNutrition().getCarbs());
-        // Test getting sugars
+        // Testing sugars getter 
         TestingTools.AssertEquals(14.0, recipe.getNutrition().getSugars());
-        // Test getting fibre
+        // Testing fibre getters 
         TestingTools.AssertEquals(13.0, recipe.getNutrition().getFibre());
-        // Test getting protein
+        // Testing protein getters 
         TestingTools.AssertEquals(19.0, recipe.getNutrition().getProtein());
-        // Test getting salt
+        // Testing salt getters 
         TestingTools.AssertEquals(1.6, recipe.getNutrition().getSalt());
 
         // Then testing the Ingredient getters
