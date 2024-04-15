@@ -13,14 +13,14 @@ import java.util.ArrayList;
 
 public class DietTest {
 
-    private static void testRecipeLoading() {
+    private static void testDietLoading() {
         
          // Loading in the diets from the json file
         
         private static ArrayList<Diet> diets = ResourceLoader.loadDiets();
 
         // Checking to see if the number of recipes loaded is equal to the number of recipes in the recipes folder
-        TestingTools.AssertEquals(recipes.size(), ResourceLoader.loadRecipes().size());
+        TestingTools.AssertEquals(recipes.size(), ResourceLoader.loadDiets().size());
     }
 
 
@@ -85,7 +85,7 @@ public class DietTest {
 
 
      public static void Entry() {
-        testRecipeLoading();
+        testDietLoading();
         testGetExampleRecipes();
         testGetName();
         testGetDescription();
