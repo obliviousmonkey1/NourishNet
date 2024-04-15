@@ -10,25 +10,16 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.effect.DropShadow;
-import javafx.scene.image.Image;
 import javafx.animation.*;
 
-import javafx.scene.Node;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 
-import javafx.scene.layout.*;
-import javafx.scene.paint.*;
-
-import java.io.File;
-
-import java.util.Random;
 import java.util.List;
 
 public class Main extends Application {
@@ -116,8 +107,8 @@ public class Main extends Application {
         // Scroll pane for profile buttons
         ScrollPane scrollPane = new ScrollPane(leftVBox);
         scrollPane.setFitToWidth(true); // Make sure the width fits the content
-        // scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER); // Hide horizontal scrollbar
-        // scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER); // Hide vertical scrollbar
+        scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER); // Hide horizontal scrollbar
+        scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER); // Hide vertical scrollbar
 
 
         borderPane.setLeft(scrollPane);
