@@ -22,22 +22,22 @@ public class DietTest {
         diets = ResourceLoader.loadDiets();
 
         // Checking to see if the number of diet loaded is equal to the number of diet in the diet folder
-        TestingTools.AssertEquals(recipes.size(), ResourceLoader.loadDiets().size());
+        TestingTools.AssertEquals(diets.size(), ResourceLoader.loadDiets().size());
     }
     
 
 
-     private static void testGetExampleDiets((ArrayList<Diet> sampleDiet) {
+     private static void testGetExampleDiets((ArrayList<Diet> sampleDiets) {
         System.out.println("Testing getExampleDiets method...");
         //Diet objects loaded for testing
-        ArrayList<Diets> sampleDiets = new ArrayList<>();
+        ArrayList<Diet> sampleDiets = ResourceLoader.loadDietsFromJson("Diets.json");
 
          
         //Need populating sampleDiets with some test data
         
         //Looping through each diet and testing the method
         for (Diet diet : diets) {
-            ArrayList<Recipe> exampleDiets = diet.getExampleDiets(sampleDiets);
+            ArrayList<Diets> exampleDiets = diet.getExampleDiets(sampleDiets);
             System.out.println("Diet: " + diet.getName());
             System.out.println("Example Diets: ");
             for (Diet diet : exampleDiets) {
@@ -48,33 +48,20 @@ public class DietTest {
         System.out.println("getExampleDiets method tested successfully.");
     }
 
-     private static void testGetName() {
-        System.out.println("Testing getName method...");
-        //looping through each diet and test the method
+
+
+      private static void testGetNameAndDescription() {
+        System.out.println("Testing getName and getDescription methods...");
+        // Loop through each diet and test the methods for Name and Description to showcase use of DRY and KISS principles
         for (Diet diet : diets) {
             System.out.println("Diet Name: " + diet.getName());
-            System.out.println("---------------");
-        }
-        System.out.println("getName method tested successfully.");
-    }
-
-    private static void testGetDescription() {
-        System.out.println("Testing getDescription method...");
-        //Loop through each diet and test the method
-        for (Diet diet : diets) {
-            System.out.println("Diet: " + diet.getName());
             System.out.println("Description: " + diet.getDescription());
             System.out.println("---------------");
         }
-        System.out.println("getExampleRecipes method tested successfully.");
-}
-
-
+        System.out.println("getName and getDescription methods tested successfully.");
+    }
+    
       public static void Entry() {
-        // Load diets from JSON file
-        
-        ArrayList<Diet> sampleDiets = RecipeLoader.loadDietsFromJson("Diets.json");
-
         testDietLoading();
         testGetExampleDiets(sampleDiets);
         testGetName();
