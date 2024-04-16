@@ -43,13 +43,13 @@ public class DietTest {
 
      private static void testGetExampleDiets((ArrayList<Diet> sampleDiet) {
         System.out.println("Testing getExampleDiets method...");
-        //diet objects loaded for testing
+        //Diet objects loaded for testing
         ArrayList<Diets> sampleDiets = new ArrayList<>();
 
          
-        //need populating sampleDiets with some test data
+        //Need populating sampleDiets with some test data
         
-        //looping through each diet and testing the method
+        //Looping through each diet and testing the method
         for (Diet diet : diets) {
             ArrayList<Recipe> exampleDiets = diet.getExampleDiets(sampleDiets);
             System.out.println("Diet: " + diet.getName());
@@ -74,7 +74,7 @@ public class DietTest {
 
     private static void testGetDescription() {
         System.out.println("Testing getDescription method...");
-        //loop through each diet and test the method
+        //Loop through each diet and test the method
         for (Diet diet : diets) {
             System.out.println("Diet: " + diet.getName());
             System.out.println("Description: " + diet.getDescription());
