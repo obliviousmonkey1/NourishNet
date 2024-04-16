@@ -12,32 +12,18 @@ package com.nourishnet;
 import java.util.ArrayList;
 
 public class DietTest {
+    
+    private static ArrayList<Diet> diets;
 
     private static void testDietLoading() {
         
          // Loading in the diets from the json file
         
-        private static ArrayList<Diet> diets = ResourceLoader.loadDiets();
+        diets = ResourceLoader.loadDiets();
 
         // Checking to see if the number of diet loaded is equal to the number of diet in the diet folder
         TestingTools.AssertEquals(recipes.size(), ResourceLoader.loadDiets().size());
     }
-
-
-    
-   
-    
-    public static void Entry() {
-        // Load diets from JSON file
-        
-        ArrayList<Diet> sampleDiets = RecipeLoader.loadDietsFromJson("Diets.json");
-        
-        testGetExampleDiets(sampleDiets);
-        testGetName();
-        testGetDescription();
-        System.out.println("[DIET] All tests passed!");
-    }
-       
     
 
 
@@ -84,13 +70,15 @@ public class DietTest {
 }
 
 
-     public static void Entry() {
+      public static void Entry() {
+        // Load diets from JSON file
+        
+        ArrayList<Diet> sampleDiets = RecipeLoader.loadDietsFromJson("Diets.json");
+
         testDietLoading();
-        testGetExampleDiets();
+        testGetExampleDiets(sampleDiets);
         testGetName();
         testGetDescription();
-
         System.out.println("[DIET] All tests passed!");
-
     }
 }
