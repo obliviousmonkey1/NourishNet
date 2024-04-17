@@ -4,7 +4,7 @@
 // This class is to test the User class in main, having functions to test different 
 // functions/features involved in the User class
 //
-// Last Edit was on 15/4/2024
+// Last Edit was on 15/4/2024 by Declan 
 //-----------------------------------------------------------------------------------
 
 
