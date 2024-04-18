@@ -10,6 +10,7 @@
 package com.nourishnet;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class RecipeTest {
 
@@ -39,12 +40,12 @@ public class RecipeTest {
             "Season with salt and plenty of ground black pepper.",
             "Garnish with sliced spring onions and serve hot."), recipe.getInstructions());
         TestingTools.AssertEquals(Arrays.asList("Dairy-free", "Egg-free"), recipe.getTags());
-}
-
     }
 
+    
 
-    public static void testRecipeNutritionIngredientGetters() {
+
+    public static void testRecipeNutritionAndIngredientGetters() {
         // Loading in a recipe
         Recipe recipe = ResourceLoader.loadRecipes().get(0);
 
@@ -81,7 +82,7 @@ public class RecipeTest {
     public static void Entry() {
         testRecipeLoading();
         testRecipeGetters();
-        testRecipeNutritionIngredientGetters();
+        testRecipeNutritionAndIngredientGetters();
         System.out.println("[RECIPES] All tests passed!");
 
     }

@@ -8,8 +8,9 @@ COMPLETED
 - Come up with a better name then tempName 
 - Look over bbc good foods and decide all the tags we want 
 - Look into moving diet out of tags in recipes for easier referencing 
-- Search system : Make it so the only recipes displayed are ones that are on your diet plan , unless selected otherwise
-- Look into tags dont think they need to be a class
+- SEARCH SYSTEM : Make it so the only recipes displayed are ones that are on your diet plan , unless selected otherwise
+- RECIPE TAGS : Look into tags dont think they need to be a class
+- RECIPE TAGS : complete recipe tags
 - Look into splitting recipes into diet types so we know how many we have for each 
 - Saving new user : need to make it check if there already a foler with the same name before saving to avoid errors
 - ORGANISATION : Reorganise recipe Json and class
@@ -17,22 +18,23 @@ COMPLETED
 - ORGANISATION : make the jsons file name also the id 
 - Create a way to link tag / diet icons to the tags and diets of recipes : essentially make a data strucutre which holds the name of the diet / tag and the image associated with it this funciton is called before the recipe page and return this data structure  
 - Fix userid and folder creation if a user is deleted that isnt the last one
-- Users can be deleted 
+- USER MANAGER : Users can be deleted 
 - ORGANISATION : Put all the data type functions together 
 - WIKI : Add table of contents 
 - Move circular image frame into tools
 - TESTING : Add more user testing especially around deleting 
-- Remove all setters from recipes 
+- RECIPES : Remove all setters from recipes 
 - USER MANAGER : Get instead of returning a File return a javafx Image, then update the wiki 
 - TESTING : In the testing tools write some code that can determine whether a file is in a folder or not 
+- USER MANGER : Get rid of scaleProfileImage(imageIcon); when josh has made the new gui as not needed
+- USER MANAGER : Change from using ImageIcon to Image to prevent extra line of code 
+- SEARCH SYSTEM : Search via ingredients feature where the user enters the ingredient and quantity and will search for recipes which have those ingredients or most of them 80% is limit, populate the ingredient list while they are typing select an ingredient then add a quantity and when they are done press search 
 
 
 IN PROGRESS
 - DIET : Update with the new data needed look at figma 
-- Search via ingredients feature where the user enters the ingredient and quantity and will search for recipes which have those ingredients or most of them 90% is limit, populate the ingredient list while they are typing select an ingredient then add a quantity and when they are done press search 
 - Continue creation of functions to help speed up the GUI creation 
  
-
 
 TODO
 - Clean up files
@@ -61,11 +63,11 @@ TODO
 - TOOLS : Check through nutrient and give each one a colour green , yellow or red based on the amount 
 - TESTING : UserID generater bugged in some user id configurations need to test
 - MEMORY : Look over UserManger functions and other functions and make sure no memory leaks 
-- USER MANGER : Get rid of scaleProfileImage(imageIcon); when josh has made the new gui as not needed
 - USER MANAGER : Look over function names and re-name them to be more concise (then change the wiki)
-- USER MANAGER : Change from using ImageIcon to Image to prevent extra line of code 
 - Recipes / Diets : when all the recipes are in place for each diet have code to run over and get the mean calories for each diet 
 
+
+- When recipes are loaded in have it so that all the ingredients are logged in a array with their measurment, then reference that in ingredient search and have them come up when typing to add ingredient  
 
 
 RESEARCH

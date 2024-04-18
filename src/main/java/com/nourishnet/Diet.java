@@ -34,31 +34,6 @@ public class Diet {
         return this.bmiRecommendationThreshold;
     }
 
-    @JsonIgnore
-    public ArrayList<Recipe> getExampleRecipes(ArrayList<Recipe> recipeHolder) {
-        int number = 0;
-        ArrayList<Recipe> recipeExamples = new ArrayList<Recipe>();
-    
-        for (int i = 0; i < recipeHolder.size(); i++) {
-
-            ArrayList<String> tags = recipeHolder.get(i).getTags();
-    
-            for (String tag : tags) {
-                if (tag.equals(this.name)) {
-                    recipeExamples.add(recipeHolder.get(i));
-                    number++;
-    
-                    if (number == Constants.numberOfRecipesReturnedDiets) {
-                        return recipeExamples;
-                    }
-                    break;
-                }
-            }
-        }
-
-        return recipeExamples;
-    }
-    
 
 }
 

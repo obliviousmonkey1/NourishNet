@@ -178,29 +178,26 @@ public class Recipe {
 
     public static class Ingredient {
         private String name;
-        private int quantity; 
+        private Double quantity;
         private String measurement;
-
-     
+    
         @JsonCreator
-        public Ingredient(@JsonProperty("name") String name, @JsonProperty("quantity") int quantity, @JsonProperty("measurement") String measurement) {
+        public Ingredient(@JsonProperty("name") String name, @JsonProperty("quantity") Double quantity, @JsonProperty("measurement") String measurement) {
             this.name = name;
             this.quantity = quantity;
             this.measurement = measurement;
         }
-
-
-        public String getIngredientName(){
+    
+        public String getIngredientName() {
             return this.name;
         }
-
-        public Integer getQuantity() {
+    
+        public Double getQuantity() {
             return this.quantity;
         }
-
+    
         public String getMeasurement() {
             return this.measurement;
         }
-
     }
 }

@@ -14,6 +14,8 @@ import java.awt.Shape;
 import java.awt.geom.Ellipse2D;
 import java.awt.image.BufferedImage;
 
+import java.util.HashSet;
+
 public class Tools {
 
 
@@ -116,6 +118,18 @@ public class Tools {
         return count;
     }
 
+    public static int getAverageCaloriesPerMealForDiet(String diet, ArrayList<Recipe> recipes){
+        int count = 0;
+        int totalCalories = 0;
+        for(Recipe recipe : recipes){
+            if(recipe.getDiet().contains(diet)){
+                count++;
+                totalCalories += recipe.getNutrition().getCalories();
+            }
+        }
+        return totalCalories/count;
+    }
+
     public static ArrayList<Double> getRangeOfCaloriesForDiet(String diet, ArrayList<Recipe> recipes) {
         ArrayList<Double> range = new ArrayList<Double>();
         Double min = Double.POSITIVE_INFINITY;
@@ -136,6 +150,54 @@ public class Tools {
         range.add(max);
         return range;
     }
+
+    // 
+
+    public static ArrayList<DataStructures.StringPair> getAllIngredients(ArrayList<Recipe> recipes) {
+        HashSet<DataStructures.StringPair> uniqueIngredients = new HashSet<>();
+        for (Recipe recipe : recipes) {
+            for (Recipe.Ingredient ingredient : recipe.getIngredients()) {
+                String measurement = "";
+                if (ingredient.getMeasurement() != null && !ingredient.getMeasurement().isEmpty()) {
+                    measurement = getMeasurement(ingredient.getMeasurement());
+                }
+                // Check if the ingredient already exists in the set
+                boolean found = false;
+                for (DataStructures.StringPair existingIngredient : uniqueIngredients) {
+                    if (existingIngredient.getVar().equals(ingredient.getIngredientName()) && existingIngredient.getVar2().equals(measurement)) {
+                        found = true;
+                        break;
+                    }
+                }
+                // Add the ingredient if not found
+                if (!found) {
+                    uniqueIngredients.add(new DataStructures.StringPair(ingredient.getIngredientName(), measurement));
+                }
+            }
+        }
+        // Convert the set back to an ArrayList
+        ArrayList<DataStructures.StringPair> ingredients = new ArrayList<>(uniqueIngredients);
+    
+        for (DataStructures.StringPair ingredient : ingredients) {
+            System.out.println(ingredient.getVar() + " : " + ingredient.getVar2());
+        }
+        return ingredients;
+    }
+    
+    
+    private static String getMeasurement(String measurement) {
+        if (measurement.contains("tablespoons")  || measurement.contains("tablespoon")){
+            return "tablespoons";
+        } else if (measurement.contains("grams")  || measurement.contains("gram")){
+            return "grams";
+        } else if (measurement.contains("teaspoons")|| measurement.contains("teaspoon")) {
+            return "teaspoons";
+        } else if (measurement.contains("milliliters") || measurement.contains("milliliter") || measurement.equals("ml")){
+            return "milliliters";
+        } 
+        return "";
+    }
+    
 
     // For cirulairising the image
     public static BufferedImage loadImage(String imagePath) {

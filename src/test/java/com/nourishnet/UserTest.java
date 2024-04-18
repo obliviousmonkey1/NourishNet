@@ -1,15 +1,17 @@
+//-----------------------------------------------------------------------------------
+// Created on 23/2/2024 by Declan with contributions by Tom throughout
+// 
+// This class is to test the User class in main, having functions to test different 
+// functions/features involved in the User class
+//
+// Last Edit was on 15/4/2024 by Declan 
+//-----------------------------------------------------------------------------------
+
 package com.nourishnet;
 
 import java.util.ArrayList;
 
 public class UserTest {
-    /*  
-     *  USER IDS 0000, 0001, 0002, 0003, 0004
-     *  Get a user from the json file using        
-     *  User user = ResourceLoader.UserManager(LogIn.getUserJsonPath("ID HERE"));
-     *  Use 0000 for testing saving a user to a json file
-     *  Test creating a new user as well
-     */
 
     private static void testLoadUser(){
 
@@ -42,6 +44,8 @@ public class UserTest {
 
     private static void testSaveAndDeleteUser() {
         User user = new User();
+
+        // Testing both saving and deleting user in same function to stick to good OOD structure (DRY)
 
         // Test saving user
         SerializeJsonData.serializeNewUser(user);
