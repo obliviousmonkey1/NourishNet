@@ -83,4 +83,23 @@ public class DataStructures {
             return hasImage;
         }
     }
+
+    public static class StringPair {
+        private String var;
+        private String var2;
+
+        public StringPair(String var, String var2) {
+            this.var = var;
+            this.var2 = var2;
+        }
+
+        public String getVar() {
+            return var;
+        }
+
+        public String getVar2() {
+            return var2;
+        }
+
+    }
 }

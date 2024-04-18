@@ -6,6 +6,41 @@
     "configurations": [
         {
             "type": "java",
+            "name": "IngredientSearchTest",
+            "request": "launch",
+            "mainClass": "com.nourishnet.IngredientSearchTest",
+            "projectName": "nourishnet"
+        },
+        {
+            "type": "java",
+            "name": "RecipeDisplayFrame",
+            "request": "launch",
+            "mainClass": "com.nourishnet.RecipeDisplayFrame",
+            "projectName": "nourishnet"
+        },
+        {
+            "type": "java",
+            "name": "tests",
+            "request": "launch",
+            "mainClass": "com.nourishnet.tests",
+            "projectName": "nourishnet"
+        },
+        {
+            "type": "java",
+            "name": "SearhApp",
+            "request": "launch",
+            "mainClass": "com.nourishnet.SearhApp",
+            "projectName": "nourishnet"
+        },
+        {
+            "type": "java",
+            "name": "SearchApp",
+            "request": "launch",
+            "mainClass": "com.nourishnet.SearchApp",
+            "projectName": "nourishnet"
+        },
+        {
+            "type": "java",
             "name": "SearchTest",
             "request": "launch",
             "mainClass": "com.nourishnet.SearchTest",

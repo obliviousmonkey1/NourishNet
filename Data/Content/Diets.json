@@ -2,31 +2,73 @@
   {
     "name": "Keto",
     "description": "The ketogenic diet, known as keto, promotes a metabolic state called ketosis by limiting carbohydrates and increasing fat consumption, encouraging the body to burn fat for energy. Primarily used for weight loss, the diet restricts high-carb foods and sugars, emphasizing meat, fish, eggs, dairy, healthy oils, and low-carb vegetables, and it shows promise in managing conditions like epilepsy and type 2 diabetes.",
-    "bmiRecommendationThreshold" : 25
+    "bmiRecommendationThreshold" : 27.5,
+    "popularity": "Around 9,000,000 Americans.",
+    "difficultyLevel" : "yellow",
+    "maintainability" : "Hard to maintain and difficult to follow",
+    "strictness" : "Difficult to find ingredients.",
+    "weightloss" : "Fast way of losing weight"
   },
   {
     "name": "Mediterranean",
     "description" : "The Mediterranean diet is a dietary pattern based on the traditional eating habits of Mediterranean countries, emphasizing fruits, vegetables, whole grains, nuts, seeds, olive oil, and moderate amounts of fish and poultry while limiting red meat and sweets. Linked with various health benefits, including reduced risk of heart disease and cancer, it promotes overall well-being and longevity.",
-    "bmiRecommendationThreshold" : 25
+    "bmiRecommendationThreshold" : 20.5,
+    "popularity": "Around 14,300,000 Americans",
+    "difficultyLevel" : "red",
+    "maintainability" : "Medium to maintain and medium to follow.",
+    "strictness" : "Slightly difficult to find ingredients",
+    "weightloss" : "Medim way of losing weight"
   },
   {
     "name": "Paleo",
     "description" : "The Paleo diet, inspired by ancient dietary patterns, focuses on consuming foods presumed to be available during the Paleolithic era, such as meats, fish, fruits, and vegetables, while excluding grains, dairy, and processed foods. Advocates believe it may promote weight loss and improve overall health by mimicking the presumed eating habits of early humans.",
-    "bmiRecommendationThreshold" : 25
+    "bmiRecommendationThreshold" : 30,
+    "popularity": "Around 3,300,000 Americans.",
+    "difficultyLevel" : "yellow",
+    "maintainability" : "Hard to maintain and difficult to follow",
+    "strictness" : "Slightly difficult to find ingredients.",
+    "weightloss" : "Fast way of losing weight"
   },
   {
     "name": "Vegan",
     "description": "Veganism encompasses both dietary and lifestyle choices that reject the use of animal products for ethical, environmental, and health reasons, extending beyond food to include clothing, cosmetics, and entertainment. Vegans adhere to a plant-based diet and advocate for cruelty-free practices, driven by concerns about animal welfare, environmental sustainability, and personal health, aiming to minimize their ecological footprint and promote a more compassionate and sustainable world.",
-    "bmiRecommendationThreshold" : 25
+    "bmiRecommendationThreshold" : 25,
+    "popularity": "Around 16,600,000 Americans.",
+    "difficultyLevel" : "green",
+    "maintainability" : "Tough to maintain but not difficult to follow",
+    "strictness" : "Harder to find ingredients.",
+    "weightloss" : "Slow way of losing weight."
   },
   {
     "name": "Vegetarian",
     "description" : "A vegetarian diet excludes meat, poultry, and seafood but typically includes plant-based foods like fruits, vegetables, grains, legumes, nuts, and seeds. It can be further categorized into types like lacto-ovo vegetarian, lacto-vegetarian, ovo-vegetarian, vegan, and pescatarian, each with varying exclusions and inclusions of animal-derived products.",
-    "bmiRecommendationThreshold" : 25
+    "bmiRecommendationThreshold" : 18.5,
+    "popularity": "Around 36,700,000 Americans.",
+    "difficultyLevel" : "red",
+    "maintainability" : "Easy to maintain and not difficult to follow",
+    "strictness" : "Easy to find ingredients.",
+    "weightloss" : "Slow way of losing weight."
+
   },
   {
     "name": "Pescatarian",
     "description" : "A pescatarian diet involves consuming fish and seafood while avoiding other types of meat. It combines the health benefits associated with plant-based diets with the inclusion of fish as a source of protein and essential nutrients.",
-    "bmiRecommendationThreshold" : 25
+    "bmiRecommendationThreshold" : 22.5,
+    "popularity": "Around 12,000,000 Americans",
+    "difficultyLevel" : "green",
+    "maintainability" : "Easy to maintain and follow",
+    "strictness" : "Easy to find ingredients",
+    "weightloss" : "Slow way of losing weight"
+
+  },
+  {
+    "name": "High calorie",
+    "description" : "A high-calorie diet involves consuming more calories than the body needs to maintain its current weight, often used for weight gain or muscle building. It typically includes calorie-dense foods like nuts, seeds, oils, and high-fat dairy products, along with protein-rich foods like meat, fish, eggs, and legumes, to increase overall caloric intake.",
+    "bmiRecommendationThreshold" : 0,
+    "popularity": "Around 4,900,000 Americans",
+    "difficultyLevel" : "red",
+    "maintainability" : "Hard to maintain and medium to follow",
+    "strictness" : "Easy to find ingredients.",
+    "weightloss" : "Worst way of losing weight"
   }
 ]
