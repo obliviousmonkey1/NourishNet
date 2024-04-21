@@ -11,15 +11,33 @@ public class Diet {
     private String name;
     private String descripton;
     private int bmiRecommendationThreshold;
+    private String popularity;
+    private String difficultyLevel;
+    private String maintainability;
+    private String strictness;
+    private String weightloss;
+
   
     @JsonCreator
     public Diet(@JsonProperty("name") String name,
                 @JsonProperty("description") String description,
-                @JsonProperty("bmiRecommendationThreshold") int bmiRecommendationThreshold)
+                @JsonProperty("bmiRecommendationThreshold") int bmiRecommendationThreshold,
+                @JsonProperty("popularity") String popularity,
+                @JsonProperty("difficultyLevel") String difficultyLevel,
+                @JsonProperty("maintainability") String maintainability,
+                @JsonProperty("strictness") String strictness,
+                @JsonProperty("weightloss") String weightloss)
     {
         this.name = name; 
         this.descripton = description;
         this.bmiRecommendationThreshold = bmiRecommendationThreshold;
+        this.popularity = popularity;
+        this.difficultyLevel = difficultyLevel; 
+        this.maintainability = maintainability;
+        this.strictness = strictness;
+        this.weightloss = weightloss;
+
+      
     }
 
     public String getName(){
@@ -34,32 +52,27 @@ public class Diet {
         return this.bmiRecommendationThreshold;
     }
 
-    @JsonIgnore
-    public ArrayList<Recipe> getExampleRecipes(ArrayList<Recipe> recipeHolder) {
-        int number = 0;
-        ArrayList<Recipe> recipeExamples = new ArrayList<Recipe>();
-    
-        for (int i = 0; i < recipeHolder.size(); i++) {
-
-            ArrayList<String> tags = recipeHolder.get(i).getTags();
-    
-            for (String tag : tags) {
-                if (tag.equals(this.name)) {
-                    recipeExamples.add(recipeHolder.get(i));
-                    number++;
-    
-                    if (number == Constants.numberOfRecipesReturnedDiets) {
-                        return recipeExamples;
-                    }
-                    break;
-                }
-            }
-        }
-
-        return recipeExamples;
+    public String getPopularity(){
+        return this.popularity;
     }
-    
+
+    public String getDifficultyLevel(){
+        return this.difficultyLevel;
+    }
+
+    public String getMaintainability(){
+        return this.maintainability;
+    }
+
+    public String getStrictness(){
+        return this.strictness;
+    }
+
+    public String getWeightLoss(){
+        return this.weightloss;
+    }
 
 }
 
     
+

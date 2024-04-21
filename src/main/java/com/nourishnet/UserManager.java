@@ -3,33 +3,27 @@ package com.nourishnet;
 import java.util.ArrayList;
 import java.util.List;
 
+import javafx.scene.image.Image;
 import java.io.File;
-
-import javax.swing.ImageIcon;
-import java.awt.Image;
-
 
 
 public class UserManager {
 
-    public static ImageIcon getUserProfileImage(String userId){
+
+    public static Image getUserProfileImage(String userId){
         File userProfileDir = new File(Constants.usersPath + "/" + userId);
         File[] listOfFiles = userProfileDir.listFiles();
-        ImageIcon scaledImageIcon;
 
         for(int i=0; i < listOfFiles.length; i++){
             if(listOfFiles[i].isFile()){
+
                 if(listOfFiles[i].getName().equals(userId + ".png")){
-                    ImageIcon imageIcon = new ImageIcon(listOfFiles[i].getPath());
-                    Image scaledImage = imageIcon.getImage().getScaledInstance(Constants.scaledImageWidth, Constants.scaledImageHeight, Image.SCALE_SMOOTH);
-                    scaledImageIcon = new ImageIcon(scaledImage);
-                    return scaledImageIcon;
+                    return new Image(listOfFiles[i].toURI().toString());
                 }
             }
         }
 
-        ImageIcon imageIcon = new ImageIcon(Constants.usersPath + "/default.png");
-        return scaleProfileImage(imageIcon);
+        return new Image(new File(Constants.usersPath + "/default.png").toURI().toString());
     }
   
     
@@ -38,7 +32,6 @@ public class UserManager {
         File userProfileDir = new File(Constants.usersPath);
         File[] listOfFiles = userProfileDir.listFiles();
         List<DataStructures.StringImageIdPair> profileList = new ArrayList<>();
-        ImageIcon scaledImageIcon;
 
         for(int i=0; i < listOfFiles.length; i++){
             try{
@@ -48,6 +41,7 @@ public class UserManager {
 
                     // creates a temporary user object to get the user's name
                     String userId = listOfFiles[i].getName();
+                    Image profileImage;
 
                     String username = ResourceLoader.loadUser(getUserJsonPath(listOfFiles[i].getName())).getUsername();
                     System.out.println(listOfFiles[i].getName());
@@ -55,16 +49,14 @@ public class UserManager {
                     File profileImageFile = new File(listOfFiles[i], userId + ".png");
                     System.out.println("Image path : "+ profileImageFile.getPath());
 
-                    if(profileImageFile.exists()){
-                        ImageIcon imageIcon = new ImageIcon(profileImageFile.getPath());
-                        Image scaledImage = imageIcon.getImage().getScaledInstance(Constants.scaledImageWidth, Constants.scaledImageHeight, Image.SCALE_SMOOTH);
-                        scaledImageIcon = new ImageIcon(scaledImage);
+                    if(!profileImageFile.exists()){
+                        profileImage = new Image(new File(Constants.usersPath + "/default.png").toURI().toString());
+                        
+                    }else{
+                        profileImage = new Image(profileImageFile.toURI().toString());
                     }
-                    else{
-                        ImageIcon imageIcon = new ImageIcon(Constants.usersPath + "/default.png");
-                        scaledImageIcon = scaleProfileImage(imageIcon);
-                    }
-                    profileList.add(new DataStructures.StringImageIdPair(username, userId, scaledImageIcon));
+                   
+                    profileList.add(new DataStructures.StringImageIdPair(username, userId, profileImage));
                 }
             }
             catch(Exception e){
@@ -74,10 +66,6 @@ public class UserManager {
         return profileList;
     }
 
-    public static ImageIcon scaleProfileImage(ImageIcon imageIcon){
-        Image scaledImage = imageIcon.getImage().getScaledInstance(Constants.scaledImageWidth, Constants.scaledImageHeight, Image.SCALE_SMOOTH);
-        return new ImageIcon(scaledImage);
-    }
 
     // 15/02/24 : TE : Gets the new user id 
     protected static String getNewUserId(){
