@@ -67,6 +67,31 @@ public class UserManager {
     }
 
 
+    // 24/04/24 : JZ : Gets all the users in the system
+    public static ArrayList<User> getAllUsers(){
+        File userProfileDir = new File(Constants.usersPath);
+        File[] listOfFiles = userProfileDir.listFiles();
+        ArrayList<User> userList = new ArrayList<>();
+
+        for(int i=0; i < listOfFiles.length; i++){
+            try{
+                if(listOfFiles[i].isDirectory()){
+                    userList.add(ResourceLoader.loadUser(getUserJsonPath(listOfFiles[i].getName())));
+                }
+            }
+            catch(Exception e){
+                e.printStackTrace();
+            }
+        }
+        return userList;
+    }
+
+    // 21/04/24 : JZ : Fetches the diet of the user 
+    public static String getUserDiet(String userId){
+        return ResourceLoader.loadUser(getUserJsonPath(userId)).getDiet();
+    }
+
+
     // 15/02/24 : TE : Gets the new user id 
     protected static String getNewUserId(){
         if(getNumberOfUserProfiles() == 0){
@@ -76,6 +101,7 @@ public class UserManager {
             return String.format("%04d", getNumberOfUserProfiles()-1);
         }
     }
+
 
     // 23/02/24 : TE : Called if the serialistion fails to generate a folder for the user due to duplicate id
     protected static void generateNewUserId(User user){
@@ -167,5 +193,11 @@ public class UserManager {
                 }
             }
         }
+    }
+
+    // 21/04/24 : JZ : Changes the user's diet
+    public static void changeUserDiet(User user, String diet){
+        user.setDiet(diet);
+        SerializeJsonData.serializeUser(user, getUserJsonPath(user.getId()));
     }
 }

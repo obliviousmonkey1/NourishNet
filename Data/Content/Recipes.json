@@ -16,7 +16,7 @@
       "protein": 19,
       "salt": 1.6
     },
-    "description": "Crispy and flavorful tofu seasoned with salt and pepper.",
+    "description": "Crispy & flavorful tofu",
     "ingredients": [
       { "name": "Tofu", "quantity": 400, "measurement": "grams, drained and pressed" },
       { "name": "Cornflour", "quantity": 3, "measurement": "tablespoons" },
@@ -37,7 +37,7 @@
   },
 
 {
-  "name": "Satay Sweet Potato Curry",
+  "name": "Satay Potato Curry",
   "diet": ["Vegetarian", "Vegan"],
   "prepTime": 15,
   "cookTime": 30,
@@ -80,7 +80,7 @@
   "tags": ["Dairy-free", "Gluten-free"]
   },
   {
-    "name": "Sesame Salmon with Purple Sprouting Broccoli and Sweet Potato Mash",
+    "name": "Sesame Salmon",
     "diet": ["Pescatarian"],
     "prepTime": 15,
     "cookTime": 25,
@@ -200,7 +200,7 @@
     "tags": ["Gluten-free", "Low-carb", "Healthy"]
   },
   {
-    "name": "Ham, Mushroom, and Spinach Frittata",
+    "name": "Mixed Frittata",
     "diet": ["Keto"],
     "prepTime": 10,
     "cookTime": 20,
@@ -240,7 +240,7 @@
     "tags": ["Low-carb", "Gluten-free"]
   },
   {
-    "name": "Basil Scramble with Wilted Spinach and Seared Tomatoes",
+    "name": "Basil Scramble",
     "diet": ["Vegetarian", "Keto"],
     "prepTime": 10,
     "cookTime": 10,
@@ -280,7 +280,7 @@
     "tags": ["Gluten-free", "Healthy"]
   },
   {
-    "name": "Runner Bean Tortilla with Tomato Salad",
+    "name": "Runner Bean Tortilla",
     "diet": ["Vegetarian", "Keto"],
     "prepTime": 15,
     "cookTime": 20,
@@ -323,7 +323,7 @@
     "tags": ["Gluten-free"]
   },
   {
-    "name": "Masala Frittata with Avocado Salsa",
+    "name": "Masala Frittata",
     "diet": ["Vegetarian", "Keto"],
     "prepTime": 15,
     "cookTime": 20,
@@ -368,7 +368,7 @@
     "tags": ["Dairy-free", "Healthy"]
   },
   {
-    "name": "Griddled Chicken with Quinoa Greek Salad",
+    "name": "Griddled Chicken",
     "diet": ["Medeterranean"],
     "prepTime": 15,
     "cookTime": 20,
@@ -414,7 +414,7 @@
     "tags": ["High-protein", "Gluten-free"]
   },
   {
-    "name": "Lamb Chops with Hummus and Roasted Tomatoes",
+    "name": "Lamb Chops",
     "diet": ["Medeterranean"],
     "prepTime": 10,
     "cookTime": 20,
@@ -499,7 +499,7 @@
       "tags": ["Gluten-free", "High-protein"]
     },
     {
-      "name": "Speedy Mediterranean Gnocchi",
+      "name": "Mediterranean Gnocchi",
       "diet": ["Vegetarian", "Medeterranean"],
       "prepTime": 10,
       "cookTime": 10,
@@ -584,7 +584,7 @@
       "tags": []
     },
     {
-      "name": "Mediterranean Spelt Stuffed Peppers",
+      "name": "Mediterranean Stuffed Peppers",
       "diet": ["Vegetarian", "Mediterranean"],
       "prepTime": 15,
       "cookTime": 45,
@@ -630,7 +630,7 @@
       "tags": ["Healthy"]
     },
     {
-      "name": "Mediterranean Turkey Stuffed Peppers",
+      "name": "Mediterranean Turkey Peppers",
       "diet": ["Mediterranean"],
       "prepTime": 15,
       "cookTime": 45,
@@ -851,7 +851,7 @@
       "tags": ["High-protein"]
     },
     {
-      "name": "Crispy Fried Calamari with Aioli",
+      "name": "Crispy Fried Calamari",
       "diet": ["Medeterranean", "Pescatarian"],
       "prepTime": 15,
       "cookTime": 10,
@@ -894,7 +894,7 @@
       "tags": ["High-protein"]
     },
     {
-      "name": "Courgette Quinoa Stuffed Peppers",
+      "name": "Courgette Stuffed Peppers",
       "diet": ["Vegetarian", "Medeterranean"],
       "prepTime": 15,
       "cookTime": 45,
@@ -940,7 +940,7 @@
       "tags": ["Healthy", "High-fiber"]
     },
     {
-      "name": "Bacon Brie Omelette Wedges with Summer Salad",
+      "name": "Bacon Brie Omelette",
       "diet": ["Medeterranean"],
       "prepTime": 10,
       "cookTime": 15,
@@ -1028,7 +1028,7 @@
       "tags": []
     },
     {
-      "name": "Herbed Lamb Cutlets with Roasted Vegetables",
+      "name": "Herbed Lamb Cutlets",
       "diet": ["Medeterranean"],
       "prepTime": 15,
       "cookTime": 25,
@@ -1116,7 +1116,7 @@
       "tags": []
     },
     {
-      "name": "Broad Bean & Feta Cheese Toasts",
+      "name": "Broad Bean & Toast",
       "diet": ["Vegetarian", "Medeterranean"],
       "prepTime": 10,
       "cookTime": 10,
@@ -1158,7 +1158,7 @@
       "tags": []
     },
     {
-      "name": "Baked Salmon with Fennel and Tomatoes",
+      "name": "Baked Salmon",
       "diet": ["Paleo", "Pescatarian"],
       "prepTime": 10,
       "cookTime": 25,
@@ -1200,7 +1200,7 @@
       "tags": ["Dairy-free", "Egg-free", "Gluten-free", "Healthy", "Nut-free"]
     },
     {
-      "name": "Salmon, Avocado, and Cucumber Salad",
+      "name": "Mixed Salad",
       "diet": ["Paleo", "Pescatarian"],
       "prepTime": 15,
       "cookTime": 10,
@@ -1290,7 +1290,7 @@
       "tags": ["Gluten-free"]
     },
     {
-      "name": "Baked Eggs with Spinach and Tomato",
+      "name": "Baked Eggs",
       "diet": ["Vegetarian", "Paleo"],
       "prepTime": 10,
       "cookTime": 20,
@@ -1334,7 +1334,7 @@
       "tags": ["Gluten-free", "Healthy"]
     },
     {
-      "name": "Prawn and Broccoli Asian Omelette",
+      "name": "Prawn & Broccoli Omelette",
       "diet": ["Paleo", "Pescatarian"],
       "prepTime": 10,
       "cookTime": 10,
@@ -1380,7 +1380,7 @@
       "tags": []
     },
     {
-      "name": "Sardines with Sicilian Fennel Salad",
+      "name": "Sardine Salad",
       "diet": ["Paleo", "Pescatarian"],
       "prepTime": 15,
       "cookTime": 10,
@@ -1422,7 +1422,7 @@
       "tags": []
     },
     {
-      "name": "Butternut Squash and Sage Soup",
+      "name": "Butternut Squash Soup",
       "diet": ["Vegetarian", "Paleo"],
       "prepTime": 15,
       "cookTime": 30,
@@ -1511,7 +1511,7 @@
       "tags": ["Gluten-free"]
     },
     {
-      "name": "Lamb Chops with Smoky Aubergine Salad",
+      "name": "Lamb Chops",
       "diet": ["Paleo"],
       "prepTime": 20,
       "cookTime": 20,
@@ -1555,7 +1555,7 @@
       "tags": []
     },
     {
-      "name": "Easy Ratatouille with Poached Eggs",
+      "name": "Easy Ratatouille & Eggs",
       "diet": ["Vegetarian", "Paleo"],
       "prepTime": 15,
       "cookTime": 30,
@@ -1601,7 +1601,7 @@
       "tags": ["Gluten-free", "Healthy"]
     },
     {
-      "name": "Layered Roast Summer Vegetables",
+      "name": "Layered Roast Vegetables",
       "diet": ["Vegetarian", "Vegan", "Paleo"],
       "prepTime": 15,
       "cookTime": 45,
@@ -1646,7 +1646,7 @@
       "tags": ["Gluten-free"]
     },
     {
-      "name": "Lamb Steaks with Artichoke Salad",
+      "name": "Lamb Steaks",
       "diet": ["Keto","Paleo"],
       "prepTime": 15,
       "cookTime": 15,
@@ -1692,7 +1692,7 @@
       "tags": []
     },
     {
-      "name": "Tuna Steaks with Cucumber Relish",
+      "name": "Tuna Steaks",
       "diet": ["Pescatarian","Paleo"],
       "prepTime": 15,
       "cookTime": 10,
@@ -1738,7 +1738,7 @@
       "tags": ["Healthy"]
     },
     {
-      "name": "Seared Steak with Celery and Pepper Caponata",
+      "name": "Seared Steak",
       "diet": ["Paleo"],
       "prepTime": 15,
       "cookTime": 25,
@@ -1786,7 +1786,7 @@
       "tags": ["Egg-free","Gluten-free","Healthy"]
     },
     {
-      "name": "Rosemary Chicken with Oven-Roasted Ratatouille",
+      "name": "Rosemary Chicken",
       "diet": ["Paleo"],
       "prepTime": 15,
       "cookTime": 40,
@@ -1832,7 +1832,7 @@
       "tags": ["Healthy"]
     },
     {
-      "name": "Chorizo and Halloumi Breakfast Baguette",
+      "name": "Chorizo and Halloumi Breakfast",
       "diet": ["High calorie"],
       "prepTime": 10,
       "cookTime": 10,
@@ -1877,7 +1877,7 @@
       "tags": []
     },
     {
-      "name": "Buttermilk Corn Pancakes with Bacon and Maple Syrup",
+      "name": "Buttermilk Corn Pancakes",
       "diet": ["High calorie"],
       "prepTime": 15,
       "cookTime": 20,
@@ -1922,7 +1922,7 @@
       "tags": []
     },
     {
-      "name": "Creamy Fish and Leek Pie",
+      "name": "Fish & Leek Pie",
       "diet": ["High calorie"],
       "prepTime": 20,
       "cookTime": 40,
@@ -1968,7 +1968,7 @@
       "tags": ["Gluten-free"]
     },
     {
-      "name": "Lobster Mac and Cheese",
+      "name": "Lobster Mac & Cheese",
       "diet": ["High calorie"],
       "prepTime": 20,
       "cookTime": 40,
@@ -2015,7 +2015,7 @@
       ],
       "tags": []
     },{
-      "name": "Creamy Salmon and Prawn Almond Curry",
+      "name": "Creamy Salmon Curry",
       "diet": ["High calorie"],
       "prepTime": 15,
       "cookTime": 25,
@@ -2207,7 +2207,7 @@
       "tags": []
     },
     {
-      "name": "Sausage and Courgette Rigatoni",
+      "name": "Sausage & Courgette Rigatoni",
       "diet": ["High calorie"],
       "prepTime": 10,
       "cookTime": 25,
@@ -2251,7 +2251,7 @@
       ],
       "tags": []
     },{
-      "name": "Smoky Steak with Cajun Potatoes and Spicy Slaw",
+      "name": "Smoky Steak",
       "diet": ["High calorie"],
       "prepTime": 15,
       "cookTime": 25,
@@ -2398,7 +2398,7 @@
       "tags": []
     },
     {
-      "name": "Caramelised Squash and Spinach Lasagne",
+      "name": "Caramelised Squash & Lasagne",
       "diet": ["Vegetarian", "High calorie"],
       "prepTime": 30,
       "cookTime": 60,
@@ -2450,7 +2450,7 @@
       "tags": ["Low-sugar"]
     },
     {
-      "name": "Double Cheese Spring Vegetable Tart",
+      "name": "Double Cheese Vegetable Tart",
       "diet": ["Vegetarian", "High calorie"],
       "prepTime": 20,
       "cookTime": 40,
@@ -2498,7 +2498,7 @@
       "tags": []
     },
     {
-      "name": "Toasted Banana Bread with Vanilla Ricotta and Raspberries",
+      "name": "Toasted Banana Bread",
       "diet": ["High calorie"],
       "prepTime": 15,
       "cookTime": 60,
@@ -2548,7 +2548,7 @@
       "tags": []
     },
     {
-      "name": "Vegan Protein Pancake Stack",
+      "name": "Vegan Protein Pancakes",
       "diet": ["High calorie", "Vegan", "Vegetarian"],
       "prepTime": 10,
       "cookTime": 15,

@@ -23,18 +23,22 @@ public class Constants {
     public static String createUserImagepath = userDir + "/Data/Users/createUser.png";
 
 
-    // Colours for app
-    // load this in from guiSettings.json
 
-    /*public static UIsettings uiSettings = UserManager.getUserUiSettings();
-    asign ui settings to appropriate variables 
-    */
 
     // Icons for app
     public static String back = userDir + "/Data/content/icons/back.png";
     public static String home = userDir + "/Data/content/icons/home.png";
     public static String settings = userDir + "/Data/content/icons/settings.png";
     public static String profile = userDir + "/Data/content/icons/profile.png"; 
+    public static String newUser = userDir + "/Data/content/icons/newUser.png";
+    public static String welcome = userDir + "/Data/content/icons/welcome.png";
+    public static String selected = userDir + "/Data/content/icons/selected.png";
+    public static String notSelected = userDir + "/Data/content/icons/notSelected.png";
+    public static String design2 = userDir + "/Data/content/icons/design2.png";
+    public static String design3 = userDir + "/Data/content/icons/design3.png";
+    public static String defaultRecipeImage = userDir + "/Data/content/recipeImages/defaultRecipeImage.png";
+    public static String banner = userDir + "/Data/content/icons/banner.png";
+    public static String banner2 = userDir + "/Data/content/icons/banner2.png";
 
 
     // Icons for recipes

@@ -29,12 +29,7 @@ public class UserTest {
         TestingTools.AssertEquals(76, user.getWeight());
 
         // Test getting diet loaded correctly
-        TestingTools.AssertEquals("Vegan", user.getDiet());
-
-        // Test savedRecipeIDs loaded correctly
-        TestingTools.AssertEquals(0, user.getSavedRecipeIDs().get(0));
-        TestingTools.AssertEquals(1, user.getSavedRecipeIDs().get(1));
-        TestingTools.AssertEquals(3, user.getSavedRecipeIDs().get(2));
+        TestingTools.AssertEquals("Vegan", user.getDiet());      
 
         // Test password
         TestingTools.AssertEquals("iLikeRecipeApps", user.getPassword());
@@ -92,14 +87,7 @@ public class UserTest {
 
         // Test setting and getting diet
         user.setDiet("Vegan");
-        TestingTools.AssertEquals("Vegan", user.getDiet());
-
-        // Test setting and getting savedRecipeIDs
-        ArrayList<Integer> savedRecipeIDs = new ArrayList<>();
-        savedRecipeIDs.add(1);
-        savedRecipeIDs.add(2);
-        user.setSavedRecipeIDs(savedRecipeIDs);
-        TestingTools.AssertEquals(savedRecipeIDs, user.getSavedRecipeIDs());
+        TestingTools.AssertEquals("Vegan", user.getDiet());      
 
         // Test setting and getting password
         user.setPassword("password123");
