@@ -20,19 +20,16 @@ Installation process of files to make sure the project works. This concerns java
 
 *WE STRONGLY ADVISE USING THE VISUAL STUDIO CODE IDE. THIS README IS CATERED TOWARDS THAT. IF YOU ARE USING ANOTHER IDE, SOME THINGS MAY BE SLIGHTLY DIFFERENT.*
 
-[WINDOWS & MAC - PART 1 - Installing Files]
+[WINDOWS - PART 1 - Installing Files]
 P.S. DO NOT place these files in your program files folder on your C Drive, as that is a protected folder. Just put it in your C Drive out of any folder. For the files that are zips, extract them.
 
 1. Install the latest version of java. This should be found on the website: https://www.java.com/download/ie_manual.jsp
 
 2. Now Install javafx. This should be found on the website: https://gluonhq.com/products/javafx/
-Select version 22, and for the appropiate OS (E.g if your device is on windows, select the download for windows)
+Select version 22, snd select the download for windows
 
 3. Finally install maven. This should be found on the website: https://maven.apache.org/download.cgi
 Install the binary zip archive. 
-
-*SCROLL DOWN FOR THE REST OF THE PARTS FOR MAC. THEY WILL BE AFTER THE WINDOWS' PARTS*
-
 
 
 [WINDOWS - Part 2 - Setting up your environment variables] 
@@ -48,8 +45,6 @@ P.S. When it's stated to insert or paste the exact file path of something, find 
 
 Web site to help if stuck on this part: https://openjfx.io/openjfx-docs/#introduction 
 Go through "Introduction" until the "Run HelloWorld via Maven" tab.
-
-
 
 [WINDOWS - PART 3 - Setting up your config file] 
 
@@ -67,15 +62,26 @@ Go through "Introduction" until the "Run HelloWorld via Maven" tab.
 
 *END OF INSTRUCTIONS FOR WINDOWS*
 
+[Mac] 
 
+1. Install Java
 
-[MAC - PART 2 - Installing homebrew]
+    To determine which version of Java to install, check your Mac's chip type.
+    - For intel based macs 
+        - https://javadl.oracle.com/webapps/download/AutoDL?BundleId=249545_4d245f941845490c91360409ecffb3b4
+    - For Macs with Apple Silicon (M series chips): 
+        - https://javadl.oracle.com/webapps/download/AutoDL?BundleId=249543_4d245f941845490c91360409ecffb3b4
 
-1. In your terminal (click on launchpad and type in terminal to find it), enter the following command:
- /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+2. Install java JDK : https://adoptium.net/en-GB/
 
-2. To make sure that maven has been installed, type mvn into your terminal and it should NOT say "not recognised". If it does, troubleshoot and check your files. You can retry installing homebrew if it doesn't work, or retry Part 1.
+3. Install brew : In terminal run
+
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+4. Install maven : Once / if brew is installed, in terminal run
+
+    brew install maven
+
+    Test maven has installed installed : in the same terminal type mvn
 
 *END OF INSTRUCTIONS FOR MAC*
-
-

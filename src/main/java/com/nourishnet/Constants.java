@@ -23,12 +23,7 @@ public class Constants {
     public static String createUserImagepath = userDir + "/Data/Users/createUser.png";
 
 
-    // Colours for app
-    // load this in from guiSettings.json
 
-    /*public static UIsettings uiSettings = UserManager.getUserUiSettings();
-    asign ui settings to appropriate variables 
-    */
 
     // Icons for app
     public static String back = userDir + "/Data/content/icons/back.png";

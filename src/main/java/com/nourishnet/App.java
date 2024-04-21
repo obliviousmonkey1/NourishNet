@@ -58,11 +58,14 @@ public class App extends Application {
     private User user;
     private String identifier = "recommended";
     private int nextFreeRow = 0;  // The next free row in the selected ingredients grid
-    Diet currentDiet = null;
+    private Diet currentDiet = null;
+    private Image image = null;
 
 
     @Override
     public void start(Stage primaryStage) {
+        UserManager.clearTemporaryProfileImageHolder();
+
         
         //code for the drop shadow effect
         DropShadow mdropShadow = new DropShadow();
@@ -140,6 +143,7 @@ newUserVBox.getStyleClass().add("button-profile"); // Apply CSS class
         lastClickedButton = addNewUser;
        
         // Display the new user scene
+        UserManager.clearTemporaryProfileImageHolder();
         displayNewUser(primaryStage, scrollPane, lighting);  //calls for the new user scene to be displayed
 
         addNewUser.setStyle("-fx-background-color: " + BUTTON_CLICKED_COLOUR + "; -fx-background-insets: 0;");
@@ -187,7 +191,7 @@ for (int i = 0; i < profiles.size(); i++)
 
         if (lastClickedButton != null) {
             lastClickedButton.setEffect(null);
-           // lastClickedButton.setStyle("-fx-background-color: " + BUTTON_DEFAULT_COLOUR); // Reset previous button color
+            lastClickedButton.setStyle("-fx-background-color: #343434;"); // Reset previous button color
         }
         lastClickedButton = profileButton;
        
@@ -467,12 +471,13 @@ leftVBox.setMinWidth(200);
             fileChooser.setTitle("Open Resource File");
             fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif"));
+
         
             File selectedFile = fileChooser.showOpenDialog(primaryStage);
             if (selectedFile != null) {
                 try {
                     System.out.println(selectedFile.toURI().toURL().toExternalForm());
-                    Image image = new Image(selectedFile.toURI().toURL().toExternalForm());
+                    image = new Image(selectedFile.toURI().toURL().toExternalForm());
 
                     try{
                         BufferedImage img = ImageIO.read(selectedFile);
@@ -580,7 +585,7 @@ leftVBox.setMinWidth(200);
             tempUser.setDOB(DOB);
             
            
-            displayWelcomeNewUser(primaryStage, tempUser);
+            displayWelcomeNewUser(primaryStage, tempUser, image);
         });
 
 
@@ -626,14 +631,14 @@ leftVBox.setMinWidth(200);
 
 
         //Adding an image 
-        Image welcome = new Image("file:" + Constants.welcome);
-        ImageView welcomeImage = new ImageView(welcome);
-        welcomeImage.setFitHeight(400);
-        welcomeImage.setFitWidth(400);
-        welcomeImage.setPreserveRatio(true);
-        welcomeImage.getStyleClass().add("image-highlight"); // Apply CSS class for highlight effect
+        // Image welcome = new Image("file:" + Constants.welcome);
+        // ImageView welcomeImage = new ImageView(welcome);
+        // welcomeImage.setFitHeight(400);
+        // welcomeImage.setFitWidth(400);
+        // welcomeImage.setPreserveRatio(true);
+        // welcomeImage.getStyleClass().add("image-highlight"); // Apply CSS class for highlight effect
 
-        Label welcomeImageLabel = new Label("", welcomeImage);
+        Label welcomeImageLabel = new Label("");
         loginVBox.getChildren().addAll(welcomeImageLabel);
     
         Label profileLabel = new Label("Hello, " + tempUser.getUsername() + "!");
@@ -680,8 +685,10 @@ leftVBox.setMinWidth(200);
     
             Button loginButton = new Button("     LOGIN     ");
             loginButton.setStyle("-fx-font-size: 30px; -fx-text-fill: black; -fx-background-color: white;");
+            loginButton.getStyleClass().add("image-highlight"); // Apply CSS class for highlight effect
+            loginButton.getStyleClass().add("button-profile"); // Apply CSS class
             loginButton.setEffect(mdropShadow);
-            loginVBox.getChildren().add(loginButton);
+                        loginVBox.getChildren().add(loginButton);
     
             loginButton.setOnAction(e -> {
                 // Handle login button click
@@ -709,6 +716,8 @@ leftVBox.setMinWidth(200);
             Button loginButton = new Button("     LOGIN     ");
             loginButton.setStyle("-fx-font-size: 30px; -fx-text-fill: black; -fx-background-color: white;");
             loginButton.setEffect(mdropShadow);
+            loginButton.getStyleClass().add("image-highlight"); // Apply CSS class for highlight effect
+            loginButton.getStyleClass().add("button-profile"); // Apply CSS class
             loginVBox.getChildren().add(loginButton);
 
             loginButton.setOnAction(e -> {
@@ -737,7 +746,7 @@ leftVBox.setMinWidth(200);
 
     }
     
-    private void displayWelcomeNewUser(Stage primaryStage, User tempUser){
+    private void displayWelcomeNewUser(Stage primaryStage, User tempUser, Image image){
 
 
         //code for the drop shadow effect
@@ -746,15 +755,19 @@ leftVBox.setMinWidth(200);
         //code for the left VBox
         VBox leftVBox = new VBox();
         leftVBox.setPadding(new Insets(10));
-        leftVBox.setPrefHeight(160);
-        leftVBox.setPrefWidth(160);
+        leftVBox.setPrefHeight(100);
+        leftVBox.setPrefWidth(100);
         leftVBox.setStyle("-fx-background-color: #8BB26B;");
         leftVBox.setSpacing(100);
         leftVBox.setAlignment(Pos.CENTER);
 
+        if (image == null) {
+            image = new Image("file:" + Constants.profile);
+        }
+
         //Code to add the user's profile image as a label 
         ImageView userImageView = new ImageView();
-        userImageView.setImage(UserManager.getUserProfileImage(tempUser.getId()));
+        userImageView.setImage(image);
         userImageView.setFitHeight(200);
         userImageView.setFitWidth(200);
         userImageView.getStyleClass().add("image-highlight"); // Apply CSS class for highlight effect
@@ -830,9 +843,9 @@ leftVBox.setMinWidth(200);
         VBox rightVBox = new VBox();
         rightVBox.setPadding(new Insets(10));
         rightVBox.setPrefHeight(160);
-        rightVBox.setPrefWidth(320);
+        rightVBox.setPrefWidth(500);
         rightVBox.setStyle("-fx-background-color: #8BB26B;");
-        rightVBox.setSpacing(100);
+        rightVBox.setSpacing(50);
         rightVBox.setAlignment(Pos.CENTER);
 
 
@@ -871,7 +884,7 @@ leftVBox.setMinWidth(200);
         name.setStyle("-fx-font-size: 20px; -fx-text-fill: white;"); // Set text color
         name.setEffect(mdropShadow);
         dietsGrid.add(name, 0, 1);
-        Label content = new Label("Difficulty:    " + recommendedDiet.getDifficultyLevel() + "\nWeight Loss: " + recommendedDiet.getWeightLoss());
+        Label content = new Label("Difficulty:  " + recommendedDiet.getDifficultyLevel() + "\nWeight Loss: " + recommendedDiet.getWeightLoss());
         content.setStyle("-fx-font-size: 20px; -fx-text-fill: white;"); // Set text color
         content.setEffect(mdropShadow);
         dietsGrid.add(content, 1, 1);
@@ -1421,17 +1434,14 @@ leftVBox.setMinWidth(200);
             recipeGrid.add(recipeContent, 0, 1);
 
             //add image design2 to the left VBox
-            Image recipeImage = new Image("file:" + Constants.recipeImagePath + "/" + recipe.generateImageName() + ".png");
-            //checks to see if there is an image for this recipe, and if there isn't, it adds a default 
-            if (recipeImage.isError())
-            {
-                recipeImage = new Image("file:" + Constants.defaultRecipeImage);
-            }
+            Image recipeImage = Tools.getRecipeImage(recipe.generateImageName());
+           
             ImageView recipeImageView = new ImageView(recipeImage);
             recipeImageView.setFitHeight(150); // Set a fixed height for the image
             recipeImageView.setFitWidth(150); // Set a fixed width for the image
             recipeImageView.setPreserveRatio(true);
             recipeImageView.getStyleClass().add("image-highlight"); // Apply CSS class for highlight effect
+            
             Label recipeImageLabel = new Label("", recipeImageView);
             recipeImageView.setEffect(mdropShadow);
            
@@ -1457,7 +1467,19 @@ leftVBox.setMinWidth(200);
                 recipeLeftVBox.setAlignment(Pos.CENTER);
                 recipeLeftVBox.setStyle("-fx-background-color: #8BB26B;");
 
-                recipeLeftVBox.getChildren().add(recipeImageLabel);
+                //add image design2 to the left VBox
+                Image recipeImage2 = Tools.getRecipeImage(recipe.generateImageName());
+           
+                ImageView recipeImageView2 = new ImageView(recipeImage2);
+                recipeImageView2.setFitHeight(150); // Set a fixed height for the image
+                recipeImageView2.setFitWidth(150); // Set a fixed width for the image
+                recipeImageView2.setPreserveRatio(true);
+                recipeImageView2.getStyleClass().add("image-highlight"); // Apply CSS class for highlight effect
+            
+                Label recipeImageLabel2 = new Label("", recipeImageView2);
+                recipeImageView2.setEffect(mdropShadow);
+
+                recipeLeftVBox.getChildren().add(recipeImageLabel2);
 
                 Label title = new Label("Ingredients");
                 title.setStyle("-fx-font-size: 45px; -fx-text-fill: white;"); // Set text color
@@ -2042,23 +2064,10 @@ leftVBox.setMinWidth(200);
             mainMenu.setStyle("-fx-background-color: " + BUTTON_CLICKED_COLOUR + "; -fx-background-insets: 0;");
         });
 
-        //add an image 
-        Image banner = new Image("file:" + Constants.banner);
-        ImageView bannerImageView = new ImageView(banner);
-        bannerImageView.setPreserveRatio(true);
-        bannerImageView.setFitWidth(400); // Set a fixed width for the image
-        bannerImageView.getStyleClass().add("image-highlight"); // Apply CSS class for highlight effect
-        Label bannerLabel = new Label("", bannerImageView);
 
-        Image banner2 = new Image("file:" + Constants.banner2);
-        ImageView banner2ImageView = new ImageView(banner2);
-        banner2ImageView.setPreserveRatio(true);
-        banner2ImageView.setFitWidth(400); // Set a fixed width for the image
-        banner2ImageView.getStyleClass().add("image-highlight"); // Apply CSS class for highlight effect
-        Label bannerLabel2 = new Label("", banner2ImageView);
 
         
-        rightVBox.getChildren().addAll(rightTitle, bannerLabel2, searchIngredient, mainMenu, bannerLabel);
+        rightVBox.getChildren().addAll(rightTitle, searchIngredient, mainMenu);
 
 
 
@@ -2281,7 +2290,7 @@ leftVBox.setMinWidth(200);
         VBox leftVBox = new VBox();
         leftVBox.setPadding(new Insets(10));
         leftVBox.setPrefHeight(250);
-        leftVBox.setPrefWidth(250);
+        leftVBox.setPrefWidth(400);
         leftVBox.setStyle("-fx-background-color: #8BB26B;");
         leftVBox.setSpacing(10);
         leftVBox.setAlignment(Pos.CENTER);
@@ -2464,7 +2473,7 @@ leftVBox.setMinWidth(200);
             selectButton3.setGraphic(new ImageView("file:" + Constants.notSelected));
             selectButton4.setGraphic(new ImageView("file:" + Constants.notSelected));
             selectButton5.setGraphic(new ImageView("file:" + Constants.notSelected));
-            identifier = "recommended";
+            identifier = "current";
             });
 
         selectButton0.setOnAction(e -> {
@@ -2560,14 +2569,14 @@ leftVBox.setMinWidth(200);
         VBox rightVBox = new VBox();
         rightVBox.setPadding(new Insets(10));
         rightVBox.setPrefHeight(250);
-        rightVBox.setPrefWidth(250);
+        rightVBox.setMaxWidth(600);
         rightVBox.setStyle("-fx-background-color: #8BB26B;");
-        rightVBox.setSpacing(10);
+        rightVBox.setSpacing(200);
         rightVBox.setAlignment(Pos.CENTER);
 
         Label leftTitle = new Label("NourishNet");
         leftTitle.setFont(Font.font("Arial", FontWeight.BOLD, 20));
-        leftTitle.setStyle("-fx-font-size: 50px; -fx-text-fill: white;"); // Set text color
+        leftTitle.setStyle("-fx-font-size: 70px; -fx-text-fill: white;"); // Set text color
         leftTitle.setAlignment(Pos.CENTER);
         leftTitle.setEffect(mdropShadow);
 
@@ -2579,38 +2588,31 @@ leftVBox.setMinWidth(200);
         temp.setGraphic(new ImageView("file:" + Constants.selected));
         selectButton.getStyleClass().add("image-highlight"); // Apply CSS class for highlight effect
         selectButton.getStyleClass().add("button-profile"); // Apply CSS class
-        selectButton.setStyle("-fx-font-size: 30px; -fx-text-fill: black; -fx-background-color: white;");
+        selectButton.setStyle("-fx-font-size: 50px; -fx-text-fill: black; -fx-background-color: white;");
         selectButton.setOnAction(e -> {
-            if (identifier.equals("recommended")) {
-                user.setDiet(currentDiet.getName());
-                System.out.println("ooooo");
+            if (identifier.equals("current")) {
+                UserManager.changeUserDiet(user, currentDiet.getName());
+
             } else if (identifier.equals("0")) {
-                user.setDiet(diets.get(0).getName());   
-                System.out.println("ooooo");           
+                UserManager.changeUserDiet(user, diets.get(0).getName());         
             } else if (identifier.equals("1")) {
-                user.setDiet(diets.get(1).getName());
-                System.out.println("ooooo");
+                UserManager.changeUserDiet(user, diets.get(1).getName());
             } else if (identifier.equals("2")) {
-                user.setDiet(diets.get(2).getName());
-                System.out.println("ooooo");
+                UserManager.changeUserDiet(user, diets.get(2).getName());
             } else if (identifier.equals("3")) {
-                user.setDiet(diets.get(3).getName());
-                System.out.println("ooooo");
+                UserManager.changeUserDiet(user, diets.get(3).getName());
             } else if (identifier.equals("4")) {
-                user.setDiet(diets.get(4).getName());
-                System.out.println("ooooo");
+                UserManager.changeUserDiet(user, diets.get(4).getName());
             } else if (identifier.equals("5")) {
-                user.setDiet(diets.get(5).getName());
-                System.out.println("ooooo");
+                UserManager.changeUserDiet(user, diets.get(5).getName());
             }
-            System.out.println("ooooo");
             displayMainScreen(primaryStage);
         });
 
         Button backButton = new Button("Back To Main Menu");
         backButton.getStyleClass().add("image-highlight"); // Apply CSS class for highlight effect
         backButton.getStyleClass().add("button-profile"); // Apply CSS class
-        backButton.setStyle("-fx-font-size: 40px; -fx-text-fill: black; -fx-background-color: white;");
+        backButton.setStyle("-fx-font-size: 30px; -fx-text-fill: black; -fx-background-color: white;");
         backButton.setOnAction(e -> {
             displayMainScreen(primaryStage);
             backButton.setStyle("-fx-background-color: " + BUTTON_CLICKED_COLOUR + "; -fx-background-insets: 0;");
@@ -2635,6 +2637,159 @@ leftVBox.setMinWidth(200);
         
         System.out.println("Displaying family screen");
         DropShadow mdropShadow = new DropShadow();
+
+        VBox topVBox = new VBox();
+        topVBox.setPadding(new Insets(10));
+        topVBox.setPrefHeight(100);
+        topVBox.setPrefWidth(250);
+        topVBox.setStyle("-fx-background-color: #558957;");
+        topVBox.setSpacing(10);
+        topVBox.setAlignment(Pos.CENTER);
+
+        Label topTitle = new Label("NourishNet");
+        topTitle.setFont(Font.font("Arial", FontWeight.BOLD, 20));
+        topTitle.setStyle("-fx-font-size: 50px; -fx-text-fill: white;"); // Set text color
+        topTitle.setAlignment(Pos.CENTER);
+        topTitle.setEffect(mdropShadow);
+
+        Label topDescription = new Label("Family");
+        topDescription.setFont(Font.font("Arial", FontWeight.BOLD, 20));
+        topDescription.setStyle("-fx-font-size: 30px; -fx-text-fill: white;"); // Set text color
+        topDescription.setAlignment(Pos.CENTER);
+        topDescription.setEffect(mdropShadow);
+
+        topVBox.getChildren().addAll(topTitle, topDescription);
+        
+        VBox leftVBox = new VBox();
+        leftVBox.setPadding(new Insets(10));
+        leftVBox.setPrefHeight(250);
+        leftVBox.setPrefWidth(100);
+        leftVBox.setStyle("-fx-background-color: #8BB26B;");
+        leftVBox.setSpacing(10);
+        leftVBox.setAlignment(Pos.CENTER);
+
+        Label leftTitle = new Label("Family Members");
+        leftTitle.setFont(Font.font("Arial", FontWeight.BOLD, 20));
+        leftTitle.setStyle("-fx-font-size: 30px; -fx-text-fill: white;"); // Set text color
+        leftTitle.setAlignment(Pos.CENTER);
+        leftTitle.setEffect(mdropShadow);
+
+        leftVBox.getChildren().add(leftTitle);
+
+        // Scroll pane for profile buttons
+        ScrollPane scrollPane = new ScrollPane();
+
+        scrollPane.setFitToWidth(true); // Allow the ScrollPane to resize horizontally
+        scrollPane.setFitToHeight(true); // Allow the ScrollPane to resize vertically
+        scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS); // Ensure the ScrollPane always shows a scrollbar
+        scrollPane.setContent(leftVBox); // Set the content of the ScrollPane to the left VBox
+
+        // Add profile buttons
+        List<DataStructures.StringImageIdPair> profiles = UserManager.getUserProfiles();
+        for (int i = 0; i < profiles.size(); i++) 
+        {
+            DataStructures.StringImageIdPair profile = profiles.get(i);
+            Button profileButton = new Button();
+            profileButton.setStyle("-fx-background-color: #8BB26B;");
+            profileButton.setPrefSize(200, 200); // Set button size
+
+            ImageView imageView = new ImageView();
+            imageView.setImage(profile.getImage());
+            imageView.setFitHeight(100);
+            imageView.setFitWidth(100);
+
+            // Profile name label
+            Label nameLabel = new Label(profile.getText());
+            nameLabel.setStyle("-fx-font-size: 30px; -fx-text-fill: white;");
+            nameLabel.setAlignment(Pos.CENTER);
+            nameLabel.setEffect(mdropShadow);
+
+            // Stack image and label vertically
+            VBox profileContent = new VBox(); // VBox to stack image and label
+            profileContent.getChildren().addAll(imageView, nameLabel);
+            profileContent.setAlignment(Pos.BASELINE_CENTER); // Center content
+
+
+            profileButton.setGraphic(profileContent);
+            //profileButton.getStyleClass().add("button-profile"); // Apply CSS class
+            profileButton.setMaxHeight(Double.MAX_VALUE); // Make buttons take up full height
+
+            //add a label that shows the user's diet
+            Label dietLabel = new Label("Diet: " + UserManager.getUserDiet(profile.getId()));
+            dietLabel.setStyle("-fx-font-size: 20px; -fx-text-fill: white;");
+            dietLabel.setAlignment(Pos.CENTER);
+            dietLabel.setEffect(mdropShadow);
+            
+
+            HBox row = new HBox(profileButton, dietLabel);
+
+
+            leftVBox.getChildren().add(row);
+        }
+
+                
+        scrollPane.setContent(leftVBox); // Set the content of the ScrollPane to the left VBox
+
+        VBox rightVBox = new VBox();
+        rightVBox.setPadding(new Insets(10));
+        rightVBox.setPrefHeight(250);
+        rightVBox.setPrefWidth(500);
+        rightVBox.setStyle("-fx-background-color: #8BB26B;");
+        rightVBox.setSpacing(10);
+        rightVBox.setAlignment(Pos.CENTER);
+        rightVBox.setEffect(mdropShadow);
+
+        Label paragraph1 = new Label("At NourishNet, we firmly believe that family plays a pivotal role in achieving success, especially when it comes to health and wellness. We encourage you to leverage the power of family support to motivate each other on your journey towards a healthier lifestyle.");
+        paragraph1.setStyle("-fx-font-size: 20px; -fx-text-fill: white;"); // Set text color
+        paragraph1.setEffect(mdropShadow);
+        paragraph1.setWrapText(true); // Enable text wrapping
+        paragraph1.setMinWidth(400); // Set maximum width for the label
+        paragraph1.setAlignment(Pos.BASELINE_LEFT);
+
+        Label paragraph2 = new Label("Moreover, through our program features such as limiting food waste, promoting the consumption of sustainable foods, and facilitating donations to charity, we aim to contribute to the bigger picture of Zero Hunger. Your active involvement in these initiatives not only benefits your own health but also extends a helping hand to those in need, aligning with our shared goal of creating a healthier and more sustainable future for all.");
+        paragraph2.setStyle("-fx-font-size: 20px; -fx-text-fill: white;"); // Set text color
+        paragraph2.setEffect(mdropShadow);
+        paragraph2.setWrapText(true); // Enable text wrapping
+        paragraph2.setMinWidth(400); // Set maximum width for the label
+        paragraph2.setAlignment(Pos.BASELINE_LEFT);
+
+        rightVBox.getChildren().addAll(paragraph1, paragraph2);
+
+        HBox middleBox = new HBox(scrollPane, rightVBox);
+        HBox.setHgrow(scrollPane, Priority.ALWAYS);
+        HBox.setHgrow(rightVBox, Priority.ALWAYS);
+
+        VBox bottomVBox = new VBox();
+        bottomVBox.setPadding(new Insets(10));
+        bottomVBox.setPrefHeight(250);
+        bottomVBox.setPrefWidth(250);
+        bottomVBox.setStyle("-fx-background-color: #558957;");
+        bottomVBox.setSpacing(10);
+        bottomVBox.setAlignment(Pos.CENTER);
+        bottomVBox.setEffect(mdropShadow);
+
+        Button backButton = new Button("Back To Main Menu");
+        backButton.getStyleClass().add("image-highlight"); // Apply CSS class for highlight effect
+        backButton.getStyleClass().add("button-profile"); // Apply CSS class
+        backButton.setStyle("-fx-font-size: 30px; -fx-text-fill: black; -fx-background-color: white;");
+        backButton.setOnAction(e -> {
+            displayMainScreen(primaryStage);
+            backButton.setStyle("-fx-background-color: " + BUTTON_CLICKED_COLOUR + "; -fx-background-insets: 0;");
+        });
+
+        bottomVBox.getChildren().add(backButton);
+
+        VBox root = new VBox(topVBox, middleBox, bottomVBox);
+        VBox.setVgrow(topVBox, Priority.ALWAYS);
+        VBox.setVgrow(middleBox, Priority.ALWAYS);
+        VBox.setVgrow(bottomVBox, Priority.ALWAYS);
+
+        Scene familyScene = new Scene(root);
+        familyScene.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());
+        primaryStage.setScene(familyScene);
+        primaryStage.setFullScreen(true);
+        primaryStage.show();
+
 
     }
 
