@@ -20,7 +20,7 @@ public class UserTest {
         TestingTools.AssertEquals("0000", user.getId());
 
         // Test getting username loaded correctly
-        TestingTools.AssertEquals("Test", user.getUsername());
+        TestingTools.AssertEquals("Josh", user.getUsername());
 
         // Test getting height loaded correctly
         TestingTools.AssertEquals(280.0, user.getHeight());

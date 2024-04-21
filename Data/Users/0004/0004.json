@@ -1,0 +1,9 @@
+{
+  "id" : "0004",
+  "username" : "dummy",
+  "height" : 136.0,
+  "weight" : 82,
+  "diet" : "Vegetarian",
+  "password" : "",
+  "dob" : [ 6, 7, 1961 ]
+}
