@@ -25,7 +25,7 @@ public class DietTest {
      
 
         // Checking to see if the number of diet loaded is equal to the number of diet in the diet folder
-        TestingTools.AssertEquals(diets.size(), 6);
+        TestingTools.AssertEquals(diets.size(), 7);
     }
     
 

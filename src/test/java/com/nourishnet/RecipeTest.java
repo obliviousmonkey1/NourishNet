@@ -31,7 +31,7 @@ public class RecipeTest {
         TestingTools.AssertEquals(20, recipe.getCookTime());
         TestingTools.AssertEquals("Easy", recipe.getLevel());
         TestingTools.AssertEquals(4, recipe.getServes());
-        TestingTools.AssertEquals("Crispy and flavorful tofu seasoned with salt and pepper.", recipe.getDescription());
+        TestingTools.AssertEquals("Crispy & flavorful tofu", recipe.getDescription());
         TestingTools.AssertEquals(Arrays.asList(
             "Cut the tofu into cubes and toss in cornflour until coated.",
             "Heat the oil in a large non-stick frying pan over medium-high heat.",

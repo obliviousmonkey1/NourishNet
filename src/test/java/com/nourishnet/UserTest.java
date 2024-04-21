@@ -23,16 +23,16 @@ public class UserTest {
         TestingTools.AssertEquals("Josh", user.getUsername());
 
         // Test getting height loaded correctly
-        TestingTools.AssertEquals(280.0, user.getHeight());
+        TestingTools.AssertEquals(183.0, user.getHeight());
 
         // Test getting weight loaded correctly
-        TestingTools.AssertEquals(76, user.getWeight());
+        TestingTools.AssertEquals(75, user.getWeight());
 
         // Test getting diet loaded correctly
-        TestingTools.AssertEquals("Vegan", user.getDiet());      
+        TestingTools.AssertEquals("Pescatarian", user.getDiet());      
 
         // Test password
-        TestingTools.AssertEquals("iLikeRecipeApps", user.getPassword());
+        TestingTools.AssertEquals("iLikeComputerScience", user.getPassword());
 
     }
 
